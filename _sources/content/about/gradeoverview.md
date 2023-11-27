@@ -21,7 +21,7 @@ From most important to (just slightly) less important:
 - Presenting pre-class exercise attempts (good faith attempts)
 - In-class coding (mostly effort based)
 - Contributions to in-class discussions and poll/quiz answers
-- Easter egg hunts on the site and [improving our functions (see the "feature requests")](https://github.com/LeDataSciFi/ledatascifi-2023/blob/main/community_codebook)
+- Easter egg hunts on the site and [improving our functions (see the "feature requests")](https://github.com/LeDataSciFi/ledatascifi-2024/blob/main/community_codebook)
 - Improving the site/class: finding and fixing typos, suggesting materials
 - _If we are doing virtual sessions:_ Is your camera on when I randomly take snapshots of the gallery? 
 ```

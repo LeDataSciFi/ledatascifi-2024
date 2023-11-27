@@ -997,7 +997,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZipFile</span>
 <span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/LeDataSciFi/ledatascifi-2023/blob/main/data/CCM_cleaned_for_class.zip?raw=true&#39;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/LeDataSciFi/ledatascifi-2024/blob/main/data/CCM_cleaned_for_class.zip?raw=true&#39;</span>
 
 <span class="c1">#firms = pd.read_stata(url)   </span>
 <span class="c1"># &lt;-- that code would work, but GH said it was too big and</span>
@@ -1013,7 +1013,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>And load a utility function called <code class="docutils literal notranslate"><span class="pre">outlier_report</span></code> from the <a class="reference external" href="https://github.com/LeDataSciFi/ledatascifi-2023/blob/main/community_codebook/outlier_report.py">community codebook</a>.</p>
+<p>And load a utility function called <code class="docutils literal notranslate"><span class="pre">outlier_report</span></code> from the <a class="reference external" href="https://github.com/LeDataSciFi/ledatascifi-2024/blob/main/community_codebook/outlier_report.py">community codebook</a>.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">outlier_report</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">vars_to_examine</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">thres</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>

@@ -8,7 +8,7 @@ If you have any favorite resources you like, or found helpful, please let me kno
 
 ```{dropdown} **THE MOST ESSENTIAL RESOURCES** 
 - Help: Google, [Stack Overflow](https://stackoverflow.com), [Github help](https://help.github.com), [JupyterLab documentation](https://jupyterlab.readthedocs.io/en/stable/index.html), [Python help](https://www.python.org/doc/)
-- [Cheat sheets to bookmark/print!](https://github.com/LeDataSciFi/ledatascifi-2023/tree/main/cheatsheets) **Better yet, download these to your Class Notes repo/folder, and put them inside a folder called "Cheatsheats"!**
+- [Cheat sheets to bookmark/print!](https://github.com/LeDataSciFi/ledatascifi-2024/tree/main/cheatsheets) **Better yet, download these to your Class Notes repo/folder, and put them inside a folder called "Cheatsheats"!**
     - Included in this folder: python basics, jupyter notebook, importing data, numpy, pandas, seaborn, and scikit-learn
 - [Coding best practices, and project management](https://web.stanford.edu/~gentzkow/research/CodeAndData.xhtml)
 - [Supercharged finance packages](../05/05c_finpacks) (for use on the class project or after the semester), including
