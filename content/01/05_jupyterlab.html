@@ -1,0 +1,1366 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHB6CBHE8P"></script>
+   <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-QHB6CBHE8P');
+   </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.6. Learning how to work in Jupyter Lab &#8212; LeDataSciFi-2024</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/frontpage.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/moviescript.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fin377_specialformatting.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1.7. Digging into Py(thon)" href="06_python.html" />
+    <link rel="prev" title="1.5. Markdown basics" href="04_Markdown.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">LeDataSciFi-2024</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/objectives.html">
+   Objectives
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/outcomes.html">
+   Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/about_us.html">
+   About us + office hours
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/structure_and_policies.html">
+   Course structure + policies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/gradeoverview.html">
+   Grading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/interest.html">
+   Interested but unsure?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/bootcamp.html">
+   Pre-Class Bootcamp
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/hall_of_awesomeness.html">
+   The Hall of Awesomeness
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/acknowledgments.html">
+   Gratitude
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Schedule, tips, resources
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/schedule.html">
+   Dashboard, key links, schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/help.html">
+   Help
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/resources.html">
+   Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/tips.html">
+   Tips and hacks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/LeDataSciFi/ledatascifi-2024/tree/main/community_codebook">
+   Community Codebook
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/LeDataSciFi/ledatascifi-2024/tree/main/handouts">
+   Class Handouts
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Assignments and participation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/howto_do.html">
+   How to start and turn in assignments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/howto_review.html">
+   How to do your peer reviews
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/mid_proj.html">
+   Midterm project AKA ASGN 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/website_setup.html">
+   Personal Website AKA ASGN 9
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/project.html">
+   Final projects
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Textbook
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="00_Getting_Started.html">
+   1. Motivation and Getting Started
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_Motivation.html">
+     1.1. Motivation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_Setup.html">
+     1.2. Set up
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_github.html">
+     1.3. GitHub Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03a_githubworkflow.html">
+     1.4. The GitHub Workflow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_Markdown.html">
+     1.5. Markdown basics
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     1.6. Jupyter Lab Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_python.html">
+     1.7. Python Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07_debugging.html">
+     1.8. Debugging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07a_errors.html">
+     1.9. Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="08_libraries.html">
+     1.10. Libraries/Packages
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="09_gitignore.html">
+     1.11. Gitignore Files
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../02/10_Golden_1.html">
+   2. Good Analysis Practices
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_2.html">
+     2.1. A case study of bad research
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_3.html">
+     2.2. The golden rules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_6.html">
+     2.3. Organizing your projects
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_7.html">
+     2.4. Filepaths
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_4.html">
+     2.5. Storing data smartly
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_5a.html">
+     2.6. Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_5b.html">
+     2.7. Writing good code comments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_8.html">
+     2.8. Writing good code
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../03/00_Data_Wrangling_Intro.html">
+   3. Wrangling with Data
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../03/01_Numpy.html">
+     3.1. Numpy
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/01a_NumpyCS.html">
+       3.1.1. Numpy + Scientific Computing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/01b_NumpyBasics.html">
+       3.1.2. A (Very) Short Introduction
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/01c_NumpyPractice.html">
+       3.1.3. Exercises
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/01d_NumpyResources.html">
+       3.1.4. More Resources
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../03/02a_pandasIntro.html">
+     3.2. Pandas
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/02a_pandasTips.html">
+       3.2.1. Tips
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/02b_pandasVocab.html">
+       3.2.2. Vocab and Long vs Wide Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/02c_commonFcns.html">
+       3.2.3. Common Functions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/02d_temp.html">
+       3.2.4. Temp. vs Perm. Objects
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/02e_eda_golden.html">
+       3.2.5. Golden Rules + EDA
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/02f_chains.html">
+       3.2.6. Pandas Chains
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/02g_commontasks.html">
+       3.2.7. Common Tasks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/02h_exercises.html">
+       3.2.8. Exercises
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/02j_resourcesAndSum.html">
+       3.2.9. Summary and Resources
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../03/04a-dataviz.html">
+     3.3. Data Visualization
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/04b-whyplot.html">
+       3.3.1. The Role of Viz in Analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/04c-makeplot.html">
+       3.3.2. Making a Plot
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/04d-whichplot.html">
+       3.3.3. Which Plot Type Should I Use?
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/04e-visualEDA.html">
+       3.3.4. Visual EDA Walkthrough
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/04e2-visualEDA-tools.html">
+       3.3.5. Visual EDA Tools
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/04f1-viz_narrative.html">
+       3.3.6. Better Plots
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/04f2-customizing_figs.html">
+       3.3.7. Customizing figures
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/04f3-interactive_figs.html">
+       3.3.8. Interactive plots:
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         plotly
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/04f4-exercises.html">
+       3.3.9. Exercises
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../03/05a-otherskills.html">
+     3.4. Other (Important) Data Wrangling Skills
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/05b_merging.html">
+       3.4.1. Merging
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/05c_missingdata.html">
+       3.4.2. Dealing with Missing Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/05d_outliers.html">
+       3.4.3. Dealing with Outliers
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../04/00_World_Wide_Data.html">
+   4. Building and Using Large (Textual) Data
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/01_Intro_to_scraping.html">
+     4.1. Getting Data off the Web
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/01a_openingAndParsing.html">
+     4.2. Opening + Parsing
+     <em>
+      a
+     </em>
+     Webpage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/01b_spiders.html">
+     4.3. Building a spider
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../04/02_strings.html">
+     4.4. Exploiting Textual Data
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/02a_Python%20Strings.html">
+       4.4.1. Working with Python Strings
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/02b_regex.html">
+       4.4.2. Regex basics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/02c_developing_a_regex.html">
+       4.4.3. Developing a regex
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/02d_RegexApplication.html">
+       4.4.4. Intro to NLP - The Anchor Phase Technique
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../05/00_intro.html">
+   5. Data Science Intro
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/01_bigpicture.html">
+     5.1. The promise of ML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/01b_model_process.html">
+     5.2. Planning a project
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/01a_MLgonewrong.html">
+     5.3. ML Gone Wrong
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/01c_teams.html">
+     5.4. Coding in Teams
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/01d_sharingBigFiles.html">
+     5.5. Sharing large files
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../05/02_reg.html">
+   6. Regression
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/02a_basics.html">
+     6.1. Basics and Notation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/02b_mechanics.html">
+     6.2. Mechanics of running regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/02c_goodnessOfFit.html">
+     6.3. Goodness of Fit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/02d_interpretingCoefs.html">
+     6.4. Interpreting regression coefficients
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/02e_statisticalSig.html">
+     6.5. Statistical significance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/02f_warnings.html">
+     6.6.
+     <em>
+      Significant
+     </em>
+     warnings about “statistical significance”
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/02g_summary.html">
+     6.7. Summary and Resources
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../05/03_ML.html">
+   7. ML - Intro &amp; Discussion
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/03a_ML_obj_and_tradeoff.html">
+     7.1. The objective of machine learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/03f_leakage.html">
+     7.2. Data Leakage - Illustration
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/03f_leakage3.html">
+     7.3. Data Leakage - Illustration 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/03f_leakage2.html">
+     7.4. Data Leakage Defined
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/03c_ModelEval.html">
+     7.5. Model evaluation via cross validation (CV)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/03c1_OOS.html">
+     7.6. Model evaluation via Out-of-Sample (OOS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/03d_whatToMax.html">
+     7.7. Evaluating models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/03e_whichModel.html">
+     7.8. Model selection
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../05/04a_SKLearn.html">
+   8. ML - Code &amp; Implementation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04b_best_practices.html">
+     8.1. Best Practice Pseudo Code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04c_onemodel.html">
+     8.2. SKLearn Intro
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04d_crossval.html">
+     8.3. Cross-Validation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04e_pipelines.html">
+     8.4. Pipelines
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04e1_preprocessing.html">
+     8.5. Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04f_optimizing_a_model.html">
+     8.6. Optimizing a Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04h_putting_together.html">
+     8.7. Many Models
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../05/05a_finapps.html">
+   9. Finance Applications
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/05a_compounding.html">
+     9.1. Compounding returns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/05a_rolling.html">
+     9.2. Rolling returns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/05a_expanding.html">
+     9.3. Expanding returns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/05b_capm.html">
+     9.4. Estimating CAPM
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/05c_factorloadings.html">
+     9.5. Estimating better models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/05c_finpacks.html">
+     9.6. Supercharged resources/packages
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../05/06_thefuture.html">
+   10. The Future
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/06a_saving.html">
+     10.1. Saving Your Work
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/06b_nextsteps.html">
+     10.2. Faster, better, stronger
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/06c_dashboards.html">
+     10.3. Dashboards
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Slides and Memes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../slides/slides.html">
+   Slides from previous classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../slides/memes.html">
+   Memes
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/01/05_jupyterlab.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/LeDataSciFi/ledatascifi-2024"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/LeDataSciFi/ledatascifi-2024/issues/new?title=Issue%20on%20page%20%2Fcontent/01/05_jupyterlab.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/LeDataSciFi/ledatascifi-2024/edit/main/content/01/05_jupyterlab.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/LeDataSciFi/ledatascifi-2024/main?urlpath=lab/tree/content/01/05_jupyterlab.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/LeDataSciFi/ledatascifi-2024/blob/main/content/01/05_jupyterlab.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jupyter-lab-basics">
+   1.6.1. Jupyter Lab Basics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#opening-jupyter-lab">
+     1.6.1.1. Opening Jupyter Lab
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-jlab-interface">
+     1.6.1.2. The JLab interface
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-a-folder">
+     1.6.1.3. Creating a folder
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-a-notebook-file">
+     1.6.1.4. Creating a notebook file
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#editing-notebook-files">
+     1.6.1.5. Editing notebook files
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-good-and-short-video-walkthrough">
+     1.6.1.6. A good and short video walkthrough
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resources-help-and-documentation">
+   1.6.2. Resources, help, and documentation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#shortcuts">
+   1.6.3. Shortcuts
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#shortcuts-when-you-are-in-command-mode">
+     1.6.3.1. Shortcuts when you are in Command Mode
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#shortcuts-when-you-are-in-edit-mode">
+     1.6.3.2. Shortcuts when you are in Edit Mode
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#my-jupyter-lab-set-up">
+   1.6.4. My Jupyter Lab Set up
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-good-trick-how-do-i-copy-code-from-one-file-to-another">
+   1.6.5. A good trick: How do I copy code from one file to another?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#optional-magic-commands">
+   1.6.6. Optional: Magic commands
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#credits">
+   1.6.7. Credits
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="learning-how-to-work-in-jupyter-lab">
+<h1><span class="section-number">1.6. </span>Learning how to work in Jupyter Lab<a class="headerlink" href="#learning-how-to-work-in-jupyter-lab" title="Permalink to this headline">¶</a></h1>
+<p>In the next week, we are going to get a “functional” start on Python, i.e. get just enough practice on essential actions so that we can cover later lessons. Only practice and time can make you comfortable and fast with Python.</p>
+<p>You’ll get much more practice just going through classes as this semester proceeds, so when you are frustrated, or stuck, just remember to keep going!</p>
+<p><strong>Python is</strong></p>
+<ul class="simple">
+<li><p>a general-purpose programming language conceived in 1989 by Dutch programmer Guido van Rossum.</p></li>
+<li><p>free and open source</p></li>
+<li><p>has simple syntax</p></li>
+<li><p>object oriented: EVERYTHING IS AN OBJECT</p></li>
+<li><p>popular among the largest tech firms in the world: Google, Amazon, Uber, Dropbox, Reddit, Youtube, …</p></li>
+<li><p>popular in the scientific community: academia, NASA, CERN, Wall Street, …</p></li>
+</ul>
+<p>One notable drawback: when your code creates outputs (figures, data, or tables) you must output it to new files. Enter…</p>
+<p><strong>Jupyter Notebooks</strong> (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> files)</p>
+<ul class="simple">
+<li><p>is <em>one</em> type of file that can have Python code within it</p></li>
+<li><p>allows users to mix code and formatted text (markdown) and mathematical expressions (and thus produces elegant and easy-to-digest reports)</p></li>
+<li><p>results in files that <strong>are easy to share</strong> and rerun (and thus easy to collaborate with)</p></li>
+<li><p>is great for new coders</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In fact, almost every page on this website is a Jupyter Notebook! Notice how there are headers, full text formatting, media inserts, and also code snippets and output. This means readers see output immediately after the relevant code and makes understanding code much easier.</p>
+</div>
+<p><strong>Jupyter Lab</strong></p>
+<ul class="simple">
+<li><p>is how we will create and modify our Jupyter notebooks</p></li>
+<li><p>is browser-based</p></li>
+<li><p>powerfully flexible and extendable (it has “powerups” we can activate)</p></li>
+</ul>
+<div class="section" id="jupyter-lab-basics">
+<h2><span class="section-number">1.6.1. </span>Jupyter Lab Basics<a class="headerlink" href="#jupyter-lab-basics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="opening-jupyter-lab">
+<h3><span class="section-number">1.6.1.1. </span>Opening Jupyter Lab<a class="headerlink" href="#opening-jupyter-lab" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Windows: Open Anaconda Prompt and type <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code> and hit enter</p></li>
+<li><p>Mac: Open a terminal window and type <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code> and hit enter</p></li>
+</ul>
+</div>
+<div class="section" id="the-jlab-interface">
+<h3><span class="section-number">1.6.1.2. </span>The JLab interface<a class="headerlink" href="#the-jlab-interface" title="Permalink to this headline">¶</a></h3>
+<p>The left sidebar has several menus (you can expand and collapse each by clicking on them)</p>
+<ul class="simple">
+<li><p><strong>The file browser:</strong> Navigating to my project folder</p></li>
+<li><p>Kernels: A list of running code</p></li>
+<li><p>Extensions: VERY useful to make JLab more powerful</p></li>
+</ul>
+<p>In the main work area</p>
+<ul class="simple">
+<li><p>you arrange documents (notebooks, text files, etc.) and other activities (terminals, code consoles, etc.) <strong>into panels</strong> (up to 4 panels)</p></li>
+<li><p>each panel can have many tabs open</p></li>
+<li><p>JLab can display most image files and text/code files</p></li>
+</ul>
+</div>
+<div class="section" id="creating-a-folder">
+<h3><span class="section-number">1.6.1.3. </span>Creating a folder<a class="headerlink" href="#creating-a-folder" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Find your <strong>class notes folder</strong> by navigating inside of the “file browser” (click on the folder icon on the left part of the screen)</p>
+<ul class="simple">
+<li><p>After you click into a folder, you can go back up by clicking on the parent folder’s name in the file path</p></li>
+</ul>
+</li>
+<li><p>Create a folder: right click in the file explorer pane and select “New Folder”</p>
+<ul class="simple">
+<li><p>For our purposes, do this and name the new folder “notes”</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="creating-a-notebook-file">
+<h3><span class="section-number">1.6.1.4. </span>Creating a notebook file<a class="headerlink" href="#creating-a-notebook-file" title="Permalink to this headline">¶</a></h3>
+<p>In the folder you want the new file to be in,</p>
+<ul class="simple">
+<li><p>Hit the <span class="math notranslate nohighlight">\(+\)</span> button in the upper left, then under “Notebook”, click on “Python 3”</p></li>
+<li><p>Rename it to “Using JupyterLab-Basics” (right click the file in the file browser, or the tab the file opened in, and pick “rename”)</p></li>
+</ul>
+</div>
+<div class="section" id="editing-notebook-files">
+<h3><span class="section-number">1.6.1.5. </span>Editing notebook files<a class="headerlink" href="#editing-notebook-files" title="Permalink to this headline">¶</a></h3>
+<p><em><strong>Jupyter notebook uses a modal editing system.</strong></em></p>
+<p>This means that the effect of typing depends on which mode you are in. The two modes are</p>
+<ol class="simple">
+<li><p>When you are typing inside a cell, you are in <strong>Edit mode</strong></p>
+<ul class="simple">
+<li><p>I.e. you’re typing markdown or python code</p></li>
+<li><p>You can tell you are in edit mode because there is a dark border around the cell and its contents are sharp</p></li>
+<li><p>Also, the bottom of the panel says “Mode: Edit”</p></li>
+<li><p><strong>Switch into edit mode by hitting <code class="docutils literal notranslate"><span class="pre">Enter</span></code> or double-clicking in the cell.</strong></p></li>
+</ul>
+</li>
+<li><p><strong>Command mode</strong> means that keystrokes are interpreted by Jupyter as “commands” on the notebook itself</p>
+<ul class="simple">
+<li><p>Example of a command: inserting a new cell, or executing the code in a cell</p></li>
+<li><p>You can tell you are in command mode because the cell and its contents are fuzzy</p></li>
+<li><p>Also, the bottom of the panel says “Mode: Command”</p></li>
+<li><p><strong>Switch into command mode by hitting <code class="docutils literal notranslate"><span class="pre">ESC</span></code></strong></p></li>
+</ul>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The modal behavior of the Jupyter notebook is a little tricky at first but very efficient when you get used to it.</p>
+</div>
+</div>
+<div class="section" id="a-good-and-short-video-walkthrough">
+<h3><span class="section-number">1.6.1.6. </span>A good and short video walkthrough<a class="headerlink" href="#a-good-and-short-video-walkthrough" title="Permalink to this headline">¶</a></h3>
+<p>Watch this from 1:51 on. Try to repeat everything you see in that video in JupyterLab on your computer.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/A5YyoCKxEOU?start=112" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can speed up youtube videos to save time. Click the “gear” icon in the lower right of the video, then open “Playback speed” submenu.</p>
+</div>
+</div>
+</div>
+<div class="section" id="resources-help-and-documentation">
+<h2><span class="section-number">1.6.2. </span>Resources, help, and documentation<a class="headerlink" href="#resources-help-and-documentation" title="Permalink to this headline">¶</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>I’m proficient enough with python to teach this class. But I have committed to memory VERY few the details about how to use most functions in python. When I want to do something, I often have to check the “proper syntax” for a function.</p>
+<p>The <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/01.01-help-and-documentation.html">help and documentation</a> section of the “Python Data Science Handbook” by Jake VanderPlas begins by saying:</p>
+<blockquote>
+<div><p><strong>If you read no other section in this chapter, read this one: I find the tools discussed here to be the most transformative contributions of Jupyter Lab to my daily workflow.</strong></p>
+<p>When a technologically-minded person is asked to help a friend, family member, or colleague with a computer problem, most of the time it’s less a matter of knowing the answer as much as knowing how to quickly find an unknown answer. In data science it’s the same: searchable web resources such as online documentation, mailing-list threads, and StackOverflow answers contain a wealth of information, even (especially?) if it is a topic you’ve found yourself searching before. ~~Being an effective practitioner of data science~~ Being efficient in many aspects of life these days is less about memorizing the tool or command you should use for every possible situation, and more about learning to effectively find the information you don’t know, whether through a web search engine or another means.</p>
+<p>One of the most useful functions of Jupyter Lab is to shorten the gap between the user and the type of documentation and search that will help them do their work effectively. While web searches still play a role in answering complicated questions, an amazing amount of information can be found through Jupyter Lab alone.</p>
+</div></blockquote>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>These are the most helpful commands and tricks you can deploy while you begin work in this class!</p>
+</div>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Description</p></th>
+<th class="head"><p>How</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Syntax guides for functions  <br><br></p></td>
+<td><p><kbd>shift</kbd> + <kbd>tab</kbd></p></td>
+<td><p>type <code class="docutils literal notranslate"><span class="pre">len(</span></code>+<kbd>shift</kbd> + <kbd>tab</kbd></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>⭐ ⭐ <a class="reference external" href="02_Setup.html#step-7-setting-up-jupyterlab">Automatic if you finish the Jupyter Lab set up</a></p></td>
+<td><p>type <code class="docutils literal notranslate"><span class="pre">len(</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>Sometimes fastest: <kbd>?</kbd></p></td>
+<td><p>type <code class="docutils literal notranslate"><span class="pre">len?</span></code> then run the code</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>⭐ ⭐ JLab’s help menu at the top has links to official docs for Pandas, Python, Jupyter Lab</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Autocompletion suggestions</p></td>
+<td><p><kbd>tab</kbd></p></td>
+<td><p>type <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">pan</span></code> + <kbd>tab</kbd></p></td>
+</tr>
+<tr class="row-odd"><td><p>⭐ ⭐ <a class="reference external" href="02_Setup.html#step-7-setting-up-jupyterlab">Automatic if you finish the Jupyter Lab set up</a></p></td>
+<td><p>type <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">pan</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>A search bar for Jupyter Lab commands</p></td>
+<td><p><kbd>cmd</kbd> + <kbd>shift</kbd> + <kbd>c</kbd></p></td>
+<td><p>Type <kbd>cmd</kbd> + <kbd>shift</kbd> + <kbd>c</kbd>, then “move”</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="shortcuts">
+<h2><span class="section-number">1.6.3. </span>Shortcuts<a class="headerlink" href="#shortcuts" title="Permalink to this headline">¶</a></h2>
+<div class="tip admonition">
+<p class="admonition-title">The ROI on learning these shortcuts VERY high</p>
+<p>A tip: In Jupyterlab, pressing  <kbd>cmd </kbd>  + <kbd> shift </kbd>  + <kbd> C </kbd> brings up a search bar so you can search for commands you can run, and it will list shortcuts if available.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I use  <kbd>CTRL</kbd> because I use Windows. Use <kbd>cmd </kbd> on Mac.</p>
+</div>
+<div class="section" id="shortcuts-when-you-are-in-command-mode">
+<h3><span class="section-number">1.6.3.1. </span>Shortcuts when you are in Command Mode<a class="headerlink" href="#shortcuts-when-you-are-in-command-mode" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><kbd> Y</kbd> change cell to a code block</p></li>
+<li><p><kbd> M</kbd> change cell to a markdown block</p></li>
+<li><p><kbd> shift </kbd>  + <kbd> enter </kbd>  run cell, cursor moves to/select cell below</p></li>
+<li><p><kbd> ctrl </kbd>+ <kbd> enter</kbd> run cell, cursor stays in current cell</p></li>
+<li><p><kbd> A</kbd> insert cell above</p></li>
+<li><p><kbd> B </kbd>insert cell below</p></li>
+<li><p><kbd> C</kbd> copy cell</p></li>
+<li><p><kbd> V</kbd> paste cell</p></li>
+<li><p><kbd> D</kbd> , <kbd> D </kbd> (hit <kbd> D </kbd>twice) delete selected cell</p></li>
+<li><p><kbd> shift </kbd>+ <kbd> M </kbd>merge selected cells, or current cell with cell below if only one cell selected</p></li>
+<li><p><kbd> I</kbd> , <kbd> I</kbd> interrupt kernel</p></li>
+<li><p><kbd> 0 </kbd>, <kbd> 0</kbd> restart kernel (with dialog)</p></li>
+</ul>
+</div>
+<div class="section" id="shortcuts-when-you-are-in-edit-mode">
+<h3><span class="section-number">1.6.3.2. </span>Shortcuts when you are in Edit Mode<a class="headerlink" href="#shortcuts-when-you-are-in-edit-mode" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><kbd>cmd</kbd> + <kbd>/</kbd> to comment and uncomment lines</p></li>
+<li><p><kbd>tab </kbd>code completion or indent ⭐ ⭐</p></li>
+<li><p><kbd>shift</kbd> + <kbd>tab</kbd> tooltip (syntax help) ⭐ ⭐</p></li>
+<li><p><kbd>ctrl</kbd> + <kbd>shift </kbd>+ <kbd>-</kbd> split cell</p></li>
+<li><p><kbd> shift </kbd>  + <kbd> enter </kbd>  run cell, move to/select cell below</p></li>
+<li><p><kbd> ctrl </kbd>+ <kbd> enter</kbd> run cell</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="my-jupyter-lab-set-up">
+<h2><span class="section-number">1.6.4. </span>My Jupyter Lab Set up<a class="headerlink" href="#my-jupyter-lab-set-up" title="Permalink to this headline">¶</a></h2>
+<p>You can add extra features to Jupyter Lab by installing extensions. (You can see your installed extensions by clicking the “puzzle” icon on the left sidebar menu within JupyterLab.)</p>
+<p>The extensions I have installed are below. <a class="reference external" href="02_Setup.html#step-7-setting-up-jupyterlab">Follow these instructions to install them.</a></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>extension</p></th>
+<th class="text-align:left head"><p>notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>jupyterlab_spellchecker</p></td>
+<td class="text-align:left"><p>highlights non-words in Markdown cells</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>variableInspector</p></td>
+<td class="text-align:left"><p>right click on a file, and click “Open Variable Inspector” to get a new pane that allows you to see inside of data objects <br><br> this is very useful <br> <br> Note 1: be careful with large datasets <br> Note 2: It shows the data as it is when you open the viewer, so you have to reopen it to see any changes</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>jupyterlab-lsp</p></td>
+<td class="text-align:left"><p>see the doc: <a class="reference external" href="https://github.com/jupyter-lsp/jupyterlab-lsp">code suggestions, some error detection, and help while writing code</a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>jupyterlab_code_formatter</p></td>
+<td class="text-align:left"><p>when I type <kbd> ctrl </kbd>  + <kbd> shift </kbd>  + <kbd> F </kbd>, this automatically formats my code cells  <br><br> <strong>Students love this!</strong> <br><br> note: this formats code within a cell, but will not move code between cells</p></td>
+</tr>
+</tbody>
+</table>
+<p>You’ll see what these do as we go.</p>
+</div>
+<div class="section" id="a-good-trick-how-do-i-copy-code-from-one-file-to-another">
+<h2><span class="section-number">1.6.5. </span>A good trick: How do I copy code from one file to another?<a class="headerlink" href="#a-good-trick-how-do-i-copy-code-from-one-file-to-another" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A common thing you’ll want to do is copy chunks of lecture files into your own code (to work on problems, borrow code, etc.) so you don’t have to retype big blocks of code.</p>
+</div>
+<p>I think this is the easiest way to copy parts of lecture files into your notes:</p>
+<ol class="simple">
+<li><p>Clone the lecture repo to your computer.</p></li>
+<li><p>Open the code you’re working on in Jupyter Lab.</p></li>
+<li><p>Open the lecture code you’re working on in Jupyter Lab in a new tab in Jupyter Lab.</p></li>
+<li><p>Drag the lecture code “tab” to the right until it snaps into a new panel.</p></li>
+<li><p>Click and hold to the <strong>left</strong> of the block you want to drag into your code and drag it into your code.</p></li>
+</ol>
+<div class="tip admonition">
+<p class="admonition-title">Pro Tip</p>
+<p>You can select a bunch of code blocks and drag them all at once. To do that, click to the left of a cell you want, hold the shift button, and then click the up or down arrow on your keyboard until all the cells you want are highlighted. Then do step 5 above.</p>
+</div>
+<p>Want another amateur youtube video? Here’s one of me showing those steps!</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0XtS-pI9tR8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="section" id="optional-magic-commands">
+<h2><span class="section-number">1.6.6. </span>Optional: Magic commands<a class="headerlink" href="#optional-magic-commands" title="Permalink to this headline">¶</a></h2>
+<p><em>(Students in prior years have not used these commands, but I’m leaving this here in case.)</em></p>
+<p>Magic commands are commands in Jupyter Lab that add convenience on top of python functionality. A nice introduction to magics is <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/01.03-magic-commands.html">here</a>.</p>
+<p>The most useful magic commands are</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">%pwd</span></code> - what is the working directory at this stage of the code?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%ls</span></code> - what is in the working directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%timeit</span></code> and <code class="docutils literal notranslate"><span class="pre">%%timeit</span></code> - times the code. <code class="docutils literal notranslate"><span class="pre">%</span></code> times a single line of code, and <code class="docutils literal notranslate"><span class="pre">%%</span></code> times the entire cell</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%conda</span></code> - runs the “conda” package manager within IPython (Conda installs, runs and updates packages)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%debug</span></code> - starts the debugging interface</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%load</span></code> - loads a python file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%%file</span></code> will save the cell (and just that cell) to a python file</p></li>
+<li><p>You can ask IPython for help on magics! E.g. <code class="docutils literal notranslate"><span class="pre">%timeit?</span></code></p></li>
+<li><p>IPython can list all magics <code class="docutils literal notranslate"><span class="pre">%lsmagic</span></code> and describe them all <code class="docutils literal notranslate"><span class="pre">%magic</span></code> (although just going to the <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html">official documentation</a> is probably better)</p></li>
+</ul>
+<p>(I don’t use magic commands much, but those that do find them very helpful.)</p>
+</div>
+<div class="section" id="credits">
+<h2><span class="section-number">1.6.7. </span>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">¶</a></h2>
+<p>This page borrows from the first chapter of the <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/index.html">Python Data Science Handbook</a> and <a class="reference external" href="https://python-programming.quantecon.org/intro.html">QuantEcon</a>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="04_Markdown.html" title="previous page"><span class="section-number">1.5. </span>Markdown basics</a>
+    <a class='right-next' id="next-link" href="06_python.html" title="next page"><span class="section-number">1.7. </span>Digging into Py(thon)</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Donald Bowen<br/>
+        
+            &copy; Copyright 2024.<br/>
+          <div class="extra_footer">
+            You're doing well, keep going!
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

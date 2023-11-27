@@ -1,0 +1,2454 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHB6CBHE8P"></script>
+   <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-QHB6CBHE8P');
+   </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.2.5. (Golden Rules for) Exploratory Data Analysis (EDA) &#8212; LeDataSciFi-2024</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/frontpage.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/moviescript.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fin377_specialformatting.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.2.6. Using “method chains” to create more readable code" href="02f_chains.html" />
+    <link rel="prev" title="3.2.4. Temporary vs. Permanent Methods" href="02d_temp.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">LeDataSciFi-2024</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/objectives.html">
+   Objectives
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/outcomes.html">
+   Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/about_us.html">
+   About us + office hours
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/structure_and_policies.html">
+   Course structure + policies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/gradeoverview.html">
+   Grading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/interest.html">
+   Interested but unsure?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/bootcamp.html">
+   Pre-Class Bootcamp
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/hall_of_awesomeness.html">
+   The Hall of Awesomeness
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/acknowledgments.html">
+   Gratitude
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Schedule, tips, resources
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/schedule.html">
+   Dashboard, key links, schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/help.html">
+   Help
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/resources.html">
+   Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/tips.html">
+   Tips and hacks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/LeDataSciFi/ledatascifi-2024/tree/main/community_codebook">
+   Community Codebook
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/LeDataSciFi/ledatascifi-2024/tree/main/handouts">
+   Class Handouts
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Assignments and participation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/howto_do.html">
+   How to start and turn in assignments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/howto_review.html">
+   How to do your peer reviews
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/mid_proj.html">
+   Midterm project AKA ASGN 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/website_setup.html">
+   Personal Website AKA ASGN 9
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/project.html">
+   Final projects
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Textbook
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../01/00_Getting_Started.html">
+   1. Motivation and Getting Started
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/01_Motivation.html">
+     1.1. Motivation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/02_Setup.html">
+     1.2. Set up
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/03_github.html">
+     1.3. GitHub Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/03a_githubworkflow.html">
+     1.4. The GitHub Workflow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/04_Markdown.html">
+     1.5. Markdown basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/05_jupyterlab.html">
+     1.6. Jupyter Lab Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/06_python.html">
+     1.7. Python Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/07_debugging.html">
+     1.8. Debugging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/07a_errors.html">
+     1.9. Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/08_libraries.html">
+     1.10. Libraries/Packages
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/09_gitignore.html">
+     1.11. Gitignore Files
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../02/10_Golden_1.html">
+   2. Good Analysis Practices
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_2.html">
+     2.1. A case study of bad research
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_3.html">
+     2.2. The golden rules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_6.html">
+     2.3. Organizing your projects
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_7.html">
+     2.4. Filepaths
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_4.html">
+     2.5. Storing data smartly
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_5a.html">
+     2.6. Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_5b.html">
+     2.7. Writing good code comments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_8.html">
+     2.8. Writing good code
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="00_Data_Wrangling_Intro.html">
+   3. Wrangling with Data
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="01_Numpy.html">
+     3.1. Numpy
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="01a_NumpyCS.html">
+       3.1.1. Numpy + Scientific Computing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="01b_NumpyBasics.html">
+       3.1.2. A (Very) Short Introduction
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="01c_NumpyPractice.html">
+       3.1.3. Exercises
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="01d_NumpyResources.html">
+       3.1.4. More Resources
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 current active collapsible-parent">
+    <a class="reference internal" href="02a_pandasIntro.html">
+     3.2. Pandas
+    </a>
+    <ul class="current collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="02a_pandasTips.html">
+       3.2.1. Tips
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="02b_pandasVocab.html">
+       3.2.2. Vocab and Long vs Wide Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="02c_commonFcns.html">
+       3.2.3. Common Functions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="02d_temp.html">
+       3.2.4. Temp. vs Perm. Objects
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       3.2.5. Golden Rules + EDA
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="02f_chains.html">
+       3.2.6. Pandas Chains
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="02g_commontasks.html">
+       3.2.7. Common Tasks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="02h_exercises.html">
+       3.2.8. Exercises
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="02j_resourcesAndSum.html">
+       3.2.9. Summary and Resources
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="04a-dataviz.html">
+     3.3. Data Visualization
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="04b-whyplot.html">
+       3.3.1. The Role of Viz in Analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="04c-makeplot.html">
+       3.3.2. Making a Plot
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="04d-whichplot.html">
+       3.3.3. Which Plot Type Should I Use?
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="04e-visualEDA.html">
+       3.3.4. Visual EDA Walkthrough
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="04e2-visualEDA-tools.html">
+       3.3.5. Visual EDA Tools
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="04f1-viz_narrative.html">
+       3.3.6. Better Plots
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="04f2-customizing_figs.html">
+       3.3.7. Customizing figures
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="04f3-interactive_figs.html">
+       3.3.8. Interactive plots:
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         plotly
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="04f4-exercises.html">
+       3.3.9. Exercises
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="05a-otherskills.html">
+     3.4. Other (Important) Data Wrangling Skills
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="05b_merging.html">
+       3.4.1. Merging
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05c_missingdata.html">
+       3.4.2. Dealing with Missing Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05d_outliers.html">
+       3.4.3. Dealing with Outliers
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../04/00_World_Wide_Data.html">
+   4. Building and Using Large (Textual) Data
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/01_Intro_to_scraping.html">
+     4.1. Getting Data off the Web
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/01a_openingAndParsing.html">
+     4.2. Opening + Parsing
+     <em>
+      a
+     </em>
+     Webpage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/01b_spiders.html">
+     4.3. Building a spider
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../04/02_strings.html">
+     4.4. Exploiting Textual Data
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/02a_Python%20Strings.html">
+       4.4.1. Working with Python Strings
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/02b_regex.html">
+       4.4.2. Regex basics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/02c_developing_a_regex.html">
+       4.4.3. Developing a regex
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/02d_RegexApplication.html">
+       4.4.4. Intro to NLP - The Anchor Phase Technique
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../05/00_intro.html">
+   5. Data Science Intro
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/01_bigpicture.html">
+     5.1. The promise of ML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/01b_model_process.html">
+     5.2. Planning a project
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/01a_MLgonewrong.html">
+     5.3. ML Gone Wrong
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/01c_teams.html">
+     5.4. Coding in Teams
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/01d_sharingBigFiles.html">
+     5.5. Sharing large files
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../05/02_reg.html">
+   6. Regression
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/02a_basics.html">
+     6.1. Basics and Notation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/02b_mechanics.html">
+     6.2. Mechanics of running regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/02c_goodnessOfFit.html">
+     6.3. Goodness of Fit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/02d_interpretingCoefs.html">
+     6.4. Interpreting regression coefficients
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/02e_statisticalSig.html">
+     6.5. Statistical significance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/02f_warnings.html">
+     6.6.
+     <em>
+      Significant
+     </em>
+     warnings about “statistical significance”
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/02g_summary.html">
+     6.7. Summary and Resources
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../05/03_ML.html">
+   7. ML - Intro &amp; Discussion
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/03a_ML_obj_and_tradeoff.html">
+     7.1. The objective of machine learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/03f_leakage.html">
+     7.2. Data Leakage - Illustration
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/03f_leakage3.html">
+     7.3. Data Leakage - Illustration 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/03f_leakage2.html">
+     7.4. Data Leakage Defined
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/03c_ModelEval.html">
+     7.5. Model evaluation via cross validation (CV)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/03c1_OOS.html">
+     7.6. Model evaluation via Out-of-Sample (OOS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/03d_whatToMax.html">
+     7.7. Evaluating models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/03e_whichModel.html">
+     7.8. Model selection
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../05/04a_SKLearn.html">
+   8. ML - Code &amp; Implementation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04b_best_practices.html">
+     8.1. Best Practice Pseudo Code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04c_onemodel.html">
+     8.2. SKLearn Intro
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04d_crossval.html">
+     8.3. Cross-Validation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04e_pipelines.html">
+     8.4. Pipelines
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04e1_preprocessing.html">
+     8.5. Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04f_optimizing_a_model.html">
+     8.6. Optimizing a Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04h_putting_together.html">
+     8.7. Many Models
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../05/05a_finapps.html">
+   9. Finance Applications
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/05a_compounding.html">
+     9.1. Compounding returns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/05a_rolling.html">
+     9.2. Rolling returns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/05a_expanding.html">
+     9.3. Expanding returns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/05b_capm.html">
+     9.4. Estimating CAPM
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/05c_factorloadings.html">
+     9.5. Estimating better models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/05c_finpacks.html">
+     9.6. Supercharged resources/packages
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../05/06_thefuture.html">
+   10. The Future
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/06a_saving.html">
+     10.1. Saving Your Work
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/06b_nextsteps.html">
+     10.2. Faster, better, stronger
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/06c_dashboards.html">
+     10.3. Dashboards
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Slides and Memes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../slides/slides.html">
+   Slides from previous classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../slides/memes.html">
+   Memes
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/03/02e_eda_golden.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/LeDataSciFi/ledatascifi-2024"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/LeDataSciFi/ledatascifi-2024/issues/new?title=Issue%20on%20page%20%2Fcontent/03/02e_eda_golden.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/LeDataSciFi/ledatascifi-2024/edit/main/content/03/02e_eda_golden.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/LeDataSciFi/ledatascifi-2024/main?urlpath=lab/tree/content/03/02e_eda_golden.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/LeDataSciFi/ledatascifi-2024/blob/main/content/03/02e_eda_golden.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acknowledgments">
+   3.2.5.1. Acknowledgments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#toy-eda">
+   3.2.5.2. Toy EDA
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eda-of-compustat-firm-accounting-variables">
+   3.2.5.3. EDA of Compustat (Firm accounting variables)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#observations">
+     3.2.5.3.1. Observations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#looking-for-outliers">
+     3.2.5.3.2. Looking for outliers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#missing-values">
+     3.2.5.3.3. Missing values
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="golden-rules-for-exploratory-data-analysis-eda">
+<h1><span class="section-number">3.2.5. </span>(Golden Rules for) Exploratory Data Analysis (EDA)<a class="headerlink" href="#golden-rules-for-exploratory-data-analysis-eda" title="Permalink to this headline">¶</a></h1>
+<p>What’s below is some hard-earned wisdom. Please accept this into your heart and go forth such that data never harms you as it has so many before you.</p>
+<div class="figure align-default" id="baby-yodsssss">
+<a class="reference internal image-reference" href="https://media.giphy.com/media/Wn74RUT0vjnoU98Hnt/source.gif"><img alt="https://media.giphy.com/media/Wn74RUT0vjnoU98Hnt/source.gif" src="https://media.giphy.com/media/Wn74RUT0vjnoU98Hnt/source.gif" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">You, soon to be wise</span><a class="headerlink" href="#baby-yodsssss" title="Permalink to this image">¶</a></p>
+</div>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+0. Before we begin<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">A good approach to new projects that follows our <a class="reference internal" href="../02/10_Golden_6.html"><span class="doc std std-doc">Project Golden Rules</span></a> is to have two files:</p>
+<ol class="simple">
+<li><p class="card-text"><code class="docutils literal notranslate"><span class="pre">download_and_clean</span></code>: Gets messy external data into clean tables you can use</p>
+<ul class="simple">
+<li><p class="card-text">Downloads the raw data to a subfolder called <code class="docutils literal notranslate"><span class="pre">/inputs_raw</span></code></p></li>
+<li><p class="card-text"><em>Suggested: Use the profiling package to create a report on the raw data to guide your cleaning (save to outputs/profile_data_raw.html)</em></p></li>
+<li><p class="card-text">Does all the Golden Rule and Cleaning steps below</p></li>
+<li><p class="card-text">Saves the cleaned files to a subfolder called <code class="docutils literal notranslate"><span class="pre">/inputs_clean</span></code></p></li>
+<li><p class="card-text"><em>Suggested: Use the profiling package to create a report on the cleaned data to refer to during your analysis (save to outputs/profile_data_clean.html)</em></p></li>
+</ul>
+</li>
+<li><p class="card-text"><code class="docutils literal notranslate"><span class="pre">analysis</span></code></p>
+<ul class="simple">
+<li><p class="card-text">Load the cleaned data and off you go!</p></li>
+<li><p class="card-text">Everything on this page is about the first file, not this one</p></li>
+</ul>
+</li>
+</ol>
+<p class="card-text">Some guidelines to follow throughout:</p>
+<ul class="simple">
+<li><p class="card-text">ABCD - Always be checking (looking) at your data!</p></li>
+<li><p class="card-text">The <a class="reference internal" href="../02/10_Golden_3.html"><span class="doc std std-doc">Chapter 2 golden rules </span></a></p></li>
+<li><p class="card-text">Record all steps in a script (<code class="docutils literal notranslate"><span class="pre">download_and_clean</span></code>).</p></li>
+<li><p class="card-text">Never overwrite the original raw data file.</p></li>
+<li><p class="card-text">Whenever possible, make changes to values ONLY by logical conditions on one or more substantive
+variables. Do not make changes by observation ID, another key, or (even worse) row number. You want the changes you make to be rule-based, for 2 reasons:</p>
+<ul>
+<li><p class="card-text">So that they’re general - able to handle upstream changes to the data.</p></li>
+<li><p class="card-text">So that they’re principled - no one can accuse you of cherry-picking.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+1. <strong>GOLDEN RULES for EDA</strong><div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">You got new data - fun! But before you go speeding off into analysis, first you must learn some basic facts about the data. Reading the dataset’s documentation is 10/10 a great idea (sadly though many datasets have bad documentation).</p>
+<ol class="simple">
+<li><p class="card-text">Open the dataset’s documentation. (Save it in the folder alongside the raw data if possible.)</p></li>
+<li><p class="card-text"><a class="reference external" href="02g_commontasks.html#reshaping-data">Reshape your data</a> so that it is <a class="reference external" href="02b_pandasVocab.html#the-shape-of-data">tall</a> and allows us to have <a class="reference internal" href="../02/10_Golden_4.html"><span class="doc std std-doc">normalized data</span></a></p></li>
+<li><p class="card-text">Identify the primary key and the unit of observation in this dataset</p>
+<ul class="simple">
+<li><p class="card-text">The key is a variable (or set of variables, like ticker + date) that should uniquely identify an observation.</p></li>
+<li><p class="card-text">The “unit level” can be increments of time (e.g. daily, monthly, or yearly), the type of entity (e.g. firm, person, state, country, industry), and also <strong>combinations</strong> of entity type and time (e.g. “firm” level, “firm-year” level)</p></li>
+</ul>
+</li>
+<li><p class="card-text">Learn about the variables (The documentation will help.)</p>
+<ol class="simple">
+<li><p class="card-text">Print the column names</p></li>
+<li><p class="card-text">Remove irrelevant, garbage, or empty variables.</p></li>
+<li><p class="card-text">Understand the definition, origin, and units of each variable, and document as necessary.</p></li>
+<li><p class="card-text">Rename variables as needed (short but descriptive enough)</p></li>
+</ol>
+</li>
+<li><p class="card-text">Clean up rows:</p>
+<ul class="simple">
+<li><p class="card-text">Delete duplicate or empty rows.</p></li>
+<li><p class="card-text">Are there missing observations or a gap in the time series? If so, you can either ignore it (but know that this might cause issues later) or try to fix it.</p></li>
+</ul>
+</li>
+<li><p class="card-text">If there are duplicate keys, resolve (remove true duplicates, or redefine the primary key).</p>
+<ul class="simple">
+<li><p class="card-text">Two 2001-GM observations because they changed their fiscal year in the middle of calendar year 2001. Depending on your analysis specifics, you will have to pick one of these.</p></li>
+</ul>
+</li>
+</ol>
+<p class="card-text">You should <strong>always, always, always</strong> open your datasets up to physically (digitally?) look at them<a class="footnote-reference brackets" href="#member" id="id1">1</a> and then also generate summary statistics. Here are <em>some</em> basic outputs you should examine carefully.</p>
+<ol class="simple">
+<li><p class="card-text">What is the shape (# rows and variables) of the data? <code class="docutils literal notranslate"><span class="pre">df.shape</span></code></p></li>
+<li><p class="card-text">How much memory does it take, and what are the variable names/types? <code class="docutils literal notranslate"><span class="pre">df.info()</span></code></p></li>
+<li><p class="card-text">Summary stats on variables:</p>
+<ul class="simple">
+<li><p class="card-text">Continuous variables: <code class="docutils literal notranslate"><span class="pre">df.describe()</span></code> - count, mean, sd, etc</p></li>
+<li><p class="card-text">Categorical variables: <code class="docutils literal notranslate"><span class="pre">df['var'].value_counts().head(10)</span></code> - the most common values of a variable</p></li>
+<li><p class="card-text">Any variable: <code class="docutils literal notranslate"><span class="pre">df['var'].nunique()</span></code> - the number of unique values of a variable</p></li>
+</ul>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p class="card-text">Automate your initial EDA by putting something like the below in your codebook. Double tip: <a class="reference external" href="https://github.com/LeDataSciFi/ledatascifi-2023/tree/main/community_codebook">Look in the community codebook :)</a></p>
+<p class="card-text">You can refine this code as you learn - you’ll see more and more tips on how to improve your EDA as we go.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p class="card-text">Two things:</p>
+<ol class="simple">
+<li><p class="card-text">Don’t just run these and move on! Actually <strong>look</strong> at the output and check for possible issues. (Some possible issues are listed in the next drop down.)</p></li>
+<li><p class="card-text">This isn’t a comprehensive list of things I’d do to check datasets, merely a reasonable start!</p></li>
+</ol>
+</div>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+2. Data cleaning<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">Start by looking for these things while cleaning your data. Make notes on what you find so you can make adjustments to the data.</p>
+<ol class="simple">
+<li><p class="card-text">Understand patterns of missing values.</p>
+<ul class="simple">
+<li><p class="card-text">Find out why they’re missing. (Problem with source or how you loaded it?)</p></li>
+<li><p class="card-text">Make sure they are not more widespread than you expect.</p></li>
+<li><p class="card-text">Convert other intended designations (i.e., -1 or -999) to NA.</p></li>
+<li><p class="card-text">Distinguish between missing values and true zeros.</p></li>
+</ul>
+</li>
+<li><p class="card-text">Convert to numeric when variables are inappropriately stored as strings. Correct typos as necessary.</p></li>
+<li><p class="card-text">Convert to date/time format where appropriate.</p></li>
+<li><p class="card-text">Recode binary variables as 0/1 as necessary. (Often stored as “Yes”/”No” or 1/2.)</p></li>
+<li><p class="card-text">Convert to factors when strings take a limited set of possible values.</p></li>
+<li><p class="card-text">Make units and scales consistent. Avoid having in the same variable:</p>
+<ul class="simple">
+<li><p class="card-text">Some values in meters and others in feet.</p></li>
+<li><p class="card-text">Some values in USD and others in GBP.</p></li>
+<li><p class="card-text">Some percentages as 40% and others as 0.4.</p></li>
+<li><p class="card-text">Some values as millions and others as billions.</p></li>
+</ul>
+</li>
+<li><p class="card-text">Do some variables have large outliers? Make notes for later. (You might need to winsorize, or drop, those observations.)</p></li>
+<li><p class="card-text">Perform logical checks on quantitative variables:</p>
+<ul class="simple">
+<li><p class="card-text">Define any range restrictions each variable should satisfy, and check them. (Sales can’t be negative!)</p></li>
+<li><p class="card-text">Variables shouldn’t contradict each other. If my birthday is 1/5/1999, then I must be 21 as of this writing.</p></li>
+<li><p class="card-text">Correct any violations that are indisputable data entry mistakes.</p></li>
+<li><p class="card-text">Create a flag variable to mark remaining violations.</p></li>
+</ul>
+</li>
+</ol>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+3. Institutional knowledge is crucial<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p class="card-text">Lehigh offers students free subscriptions to WSJ, NYT, and FT!</p>
+</div>
+<ul class="simple">
+<li><p class="card-text">For example, in my research on firm investment policies and financing decisions (e.g. leverage), I drop any firms from the finance or utility industries. I know to do this because those industries are subject to several factors that fundamentally change their leverage in ways unrelated to their investment policies. Thus, including them would contaminate any relationships I find.</p></li>
+<li><p class="card-text">When we work with 10-K text data, we need to know what data tables are available and how to remove boilerplate.</p></li>
+<li><p class="card-text">You only get institutional through reading supporting materials, documentation, related info (research papers and WSJ, etc), and… the documents themselves. For example, I’ve read in excess of 6,000 proxy statements for a single research project. (If that sounds exciting: Go to grad school and become a prof!)</p></li>
+</ul>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+4. Explore the data with your question in mind<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Compute statistics by subgroups (by age, or industry), or two-way (by gender and age)</p></li>
+<li><p class="card-text">Do a big correlation matrix to get a sense of possible relationships between variables in the data on a first pass. (We will do this later.)</p></li>
+<li><p class="card-text">This step reinforces institutional knowledge and your understanding of the data</p></li>
+</ul>
+<p class="card-text">Remember, <strong>data exploration</strong> and <strong>data cleaning</strong> are interrelated and you’ll go back and forth from one to the other.</p>
+</div>
+</details><div class="section" id="acknowledgments">
+<h2><span class="section-number">3.2.5.1. </span>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/msu-econ-data-analytics/course-materials">The material above was recently improved by integrating the data cleaning checklist Nick Hagerty assembled for his class.</a></p>
+</div>
+<div class="section" id="toy-eda">
+<h2><span class="section-number">3.2.5.2. </span>Toy EDA<a class="headerlink" href="#toy-eda" title="Permalink to this headline">¶</a></h2>
+<p>I do all of the suggested steps here. The output isn’t pretty, and I’d clean it up if I was writing a report. But this gets the ball rolling.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This data only has one categorical variable (species). You should do <code class="docutils literal notranslate"><span class="pre">value_counts</span></code> and <code class="docutils literal notranslate"><span class="pre">nunique</span></code> for all categorical variables.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import a famous dataset, seaborn nicely contains it out of the box!</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span> 
+<span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;iris&#39;</span><span class="p">)</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">head</span><span class="p">(),</span>  <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">---&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">tail</span><span class="p">(),</span>  <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">---&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">---&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The shape is: &quot;</span><span class="p">,</span><span class="n">iris</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">---&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Info:&quot;</span><span class="p">,</span><span class="n">iris</span><span class="o">.</span><span class="n">info</span><span class="p">(),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">---&#39;</span><span class="p">)</span> <span class="c1"># memory usage, name, dtype, and # of non-null obs (--&gt; # of missing obs) per variable</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">describe</span><span class="p">(),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">---&#39;</span><span class="p">)</span> <span class="c1"># summary stats, and you can customize the list!</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[:</span><span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">---&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">(),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">---&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   sepal_length  sepal_width  petal_length  petal_width species
+0           5.1          3.5           1.4          0.2  setosa
+1           4.9          3.0           1.4          0.2  setosa
+2           4.7          3.2           1.3          0.2  setosa
+3           4.6          3.1           1.5          0.2  setosa
+4           5.0          3.6           1.4          0.2  setosa 
+---
+     sepal_length  sepal_width  petal_length  petal_width    species
+145           6.7          3.0           5.2          2.3  virginica
+146           6.3          2.5           5.0          1.9  virginica
+147           6.5          3.0           5.2          2.0  virginica
+148           6.2          3.4           5.4          2.3  virginica
+149           5.9          3.0           5.1          1.8  virginica 
+---
+Index([&#39;sepal_length&#39;, &#39;sepal_width&#39;, &#39;petal_length&#39;, &#39;petal_width&#39;,
+       &#39;species&#39;],
+      dtype=&#39;object&#39;) 
+---
+The shape is:  (150, 5) 
+---
+&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 150 entries, 0 to 149
+Data columns (total 5 columns):
+ #   Column        Non-Null Count  Dtype  
+---  ------        --------------  -----  
+ 0   sepal_length  150 non-null    float64
+ 1   sepal_width   150 non-null    float64
+ 2   petal_length  150 non-null    float64
+ 3   petal_width   150 non-null    float64
+ 4   species       150 non-null    object 
+dtypes: float64(4), object(1)
+memory usage: 6.0+ KB
+Info: None 
+---
+       sepal_length  sepal_width  petal_length  petal_width
+count    150.000000   150.000000    150.000000   150.000000
+mean       5.843333     3.057333      3.758000     1.199333
+std        0.828066     0.435866      1.765298     0.762238
+min        4.300000     2.000000      1.000000     0.100000
+25%        5.100000     2.800000      1.600000     0.300000
+50%        5.800000     3.000000      4.350000     1.300000
+75%        6.400000     3.300000      5.100000     1.800000
+max        7.900000     4.400000      6.900000     2.500000 
+---
+setosa        50
+versicolor    50
+virginica     50
+Name: species, dtype: int64 
+---
+3 
+---
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="eda-of-compustat-firm-accounting-variables">
+<h2><span class="section-number">3.2.5.3. </span>EDA of Compustat (Firm accounting variables)<a class="headerlink" href="#eda-of-compustat-firm-accounting-variables" title="Permalink to this headline">¶</a></h2>
+<p>Compustat is a professional grade dataset that contains accounting data from SEC filings. I use it a lot in my work. Let’s explore it!</p>
+<p>First, let’s download our slice of it. The variables are listed and described in a csv file in the <a class="reference external" href="https://github.com/LeDataSciFi/data">org’s data folder.</a></p>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1"># these three are used to download the file</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
+<span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZipFile</span>
+<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/LeDataSciFi/data/blob/main/Firm%20Year%20Datasets%20(Compustat)/CCM_cleaned_for_class.zip?raw=true&#39;</span>
+
+<span class="c1">#firms = pd.read_stata(url)   </span>
+<span class="c1"># &lt;-- that code would work, but GH said it was too big and</span>
+<span class="c1"># forced me to zip it, so here is the work around to download it:</span>
+
+<span class="k">with</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">request</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+<span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="k">as</span> <span class="n">archive</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">archive</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">archive</span><span class="o">.</span><span class="n">namelist</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span> <span class="k">as</span> <span class="n">stata</span><span class="p">:</span>
+        <span class="n">ccm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_stata</span><span class="p">(</span><span class="n">stata</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are too many variables to print <code class="docutils literal notranslate"><span class="pre">.describe()</span></code> nicely. Here’s a trick: transpose the table:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ccm</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:,.2f}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># by transposing it, I can see more variables</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_293af_">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >count</th>
+      <th class="col_heading level0 col1" >mean</th>
+      <th class="col_heading level0 col2" >std</th>
+      <th class="col_heading level0 col3" >min</th>
+      <th class="col_heading level0 col4" >25%</th>
+      <th class="col_heading level0 col5" >50%</th>
+      <th class="col_heading level0 col6" >75%</th>
+      <th class="col_heading level0 col7" >max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_293af_level0_row0" class="row_heading level0 row0" >gvkey</th>
+      <td id="T_293af_row0_col0" class="data row0 col0" >223,001.00</td>
+      <td id="T_293af_row0_col1" class="data row0 col1" >32,958.76</td>
+      <td id="T_293af_row0_col2" class="data row0 col2" >47,791.28</td>
+      <td id="T_293af_row0_col3" class="data row0 col3" >1,000.00</td>
+      <td id="T_293af_row0_col4" class="data row0 col4" >6,461.00</td>
+      <td id="T_293af_row0_col5" class="data row0 col5" >11,946.00</td>
+      <td id="T_293af_row0_col6" class="data row0 col6" >29,306.00</td>
+      <td id="T_293af_row0_col7" class="data row0 col7" >316,056.00</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row1" class="row_heading level0 row1" >fyear</th>
+      <td id="T_293af_row1_col0" class="data row1 col0" >223,001.00</td>
+      <td id="T_293af_row1_col1" class="data row1 col1" >1,994.72</td>
+      <td id="T_293af_row1_col2" class="data row1 col2" >10.40</td>
+      <td id="T_293af_row1_col3" class="data row1 col3" >1,975.00</td>
+      <td id="T_293af_row1_col4" class="data row1 col4" >1,986.00</td>
+      <td id="T_293af_row1_col5" class="data row1 col5" >1,995.00</td>
+      <td id="T_293af_row1_col6" class="data row1 col6" >2,003.00</td>
+      <td id="T_293af_row1_col7" class="data row1 col7" >2,014.00</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row2" class="row_heading level0 row2" >lpermno</th>
+      <td id="T_293af_row2_col0" class="data row2 col0" >223,001.00</td>
+      <td id="T_293af_row2_col1" class="data row2 col1" >59,497.47</td>
+      <td id="T_293af_row2_col2" class="data row2 col2" >26,609.23</td>
+      <td id="T_293af_row2_col3" class="data row2 col3" >10,000.00</td>
+      <td id="T_293af_row2_col4" class="data row2 col4" >37,218.00</td>
+      <td id="T_293af_row2_col5" class="data row2 col5" >68,073.00</td>
+      <td id="T_293af_row2_col6" class="data row2 col6" >81,740.00</td>
+      <td id="T_293af_row2_col7" class="data row2 col7" >93,436.00</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row3" class="row_heading level0 row3" >sic</th>
+      <td id="T_293af_row3_col0" class="data row3 col0" >223,001.00</td>
+      <td id="T_293af_row3_col1" class="data row3 col1" >4,667.96</td>
+      <td id="T_293af_row3_col2" class="data row3 col2" >1,952.31</td>
+      <td id="T_293af_row3_col3" class="data row3 col3" >100.00</td>
+      <td id="T_293af_row3_col4" class="data row3 col4" >3,341.00</td>
+      <td id="T_293af_row3_col5" class="data row3 col5" >4,512.00</td>
+      <td id="T_293af_row3_col6" class="data row3 col6" >6,036.00</td>
+      <td id="T_293af_row3_col7" class="data row3 col7" >9,997.00</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row4" class="row_heading level0 row4" >sic3</th>
+      <td id="T_293af_row4_col0" class="data row4 col0" >223,001.00</td>
+      <td id="T_293af_row4_col1" class="data row4 col1" >466.61</td>
+      <td id="T_293af_row4_col2" class="data row4 col2" >195.24</td>
+      <td id="T_293af_row4_col3" class="data row4 col3" >10.00</td>
+      <td id="T_293af_row4_col4" class="data row4 col4" >334.00</td>
+      <td id="T_293af_row4_col5" class="data row4 col5" >451.00</td>
+      <td id="T_293af_row4_col6" class="data row4 col6" >603.00</td>
+      <td id="T_293af_row4_col7" class="data row4 col7" >999.00</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row5" class="row_heading level0 row5" >age</th>
+      <td id="T_293af_row5_col0" class="data row5 col0" >220,369.00</td>
+      <td id="T_293af_row5_col1" class="data row5 col1" >8.78</td>
+      <td id="T_293af_row5_col2" class="data row5 col2" >8.33</td>
+      <td id="T_293af_row5_col3" class="data row5 col3" >0.00</td>
+      <td id="T_293af_row5_col4" class="data row5 col4" >2.00</td>
+      <td id="T_293af_row5_col5" class="data row5 col5" >6.00</td>
+      <td id="T_293af_row5_col6" class="data row5 col6" >13.00</td>
+      <td id="T_293af_row5_col7" class="data row5 col7" >39.00</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row6" class="row_heading level0 row6" >at</th>
+      <td id="T_293af_row6_col0" class="data row6 col0" >223,001.00</td>
+      <td id="T_293af_row6_col1" class="data row6 col1" >5,113.07</td>
+      <td id="T_293af_row6_col2" class="data row6 col2" >55,838.12</td>
+      <td id="T_293af_row6_col3" class="data row6 col3" >0.00</td>
+      <td id="T_293af_row6_col4" class="data row6 col4" >32.35</td>
+      <td id="T_293af_row6_col5" class="data row6 col5" >163.06</td>
+      <td id="T_293af_row6_col6" class="data row6 col6" >957.00</td>
+      <td id="T_293af_row6_col7" class="data row6 col7" >3,771,199.85</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row7" class="row_heading level0 row7" >me</th>
+      <td id="T_293af_row7_col0" class="data row7 col0" >219,397.00</td>
+      <td id="T_293af_row7_col1" class="data row7 col1" >2,041.15</td>
+      <td id="T_293af_row7_col2" class="data row7 col2" >11,469.68</td>
+      <td id="T_293af_row7_col3" class="data row7 col3" >0.00</td>
+      <td id="T_293af_row7_col4" class="data row7 col4" >23.91</td>
+      <td id="T_293af_row7_col5" class="data row7 col5" >110.92</td>
+      <td id="T_293af_row7_col6" class="data row7 col6" >608.58</td>
+      <td id="T_293af_row7_col7" class="data row7 col7" >626,550.38</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row8" class="row_heading level0 row8" >l_a</th>
+      <td id="T_293af_row8_col0" class="data row8 col0" >222,978.00</td>
+      <td id="T_293af_row8_col1" class="data row8 col1" >5.23</td>
+      <td id="T_293af_row8_col2" class="data row8 col2" >2.41</td>
+      <td id="T_293af_row8_col3" class="data row8 col3" >-6.91</td>
+      <td id="T_293af_row8_col4" class="data row8 col4" >3.48</td>
+      <td id="T_293af_row8_col5" class="data row8 col5" >5.09</td>
+      <td id="T_293af_row8_col6" class="data row8 col6" >6.86</td>
+      <td id="T_293af_row8_col7" class="data row8 col7" >15.14</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row9" class="row_heading level0 row9" >l_sale</th>
+      <td id="T_293af_row9_col0" class="data row9 col0" >218,779.00</td>
+      <td id="T_293af_row9_col1" class="data row9 col1" >4.78</td>
+      <td id="T_293af_row9_col2" class="data row9 col2" >2.45</td>
+      <td id="T_293af_row9_col3" class="data row9 col3" >-6.91</td>
+      <td id="T_293af_row9_col4" class="data row9 col4" >3.24</td>
+      <td id="T_293af_row9_col5" class="data row9 col5" >4.76</td>
+      <td id="T_293af_row9_col6" class="data row9 col6" >6.38</td>
+      <td id="T_293af_row9_col7" class="data row9 col7" >13.07</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row10" class="row_heading level0 row10" >prof_a</th>
+      <td id="T_293af_row10_col0" class="data row10 col0" >217,167.00</td>
+      <td id="T_293af_row10_col1" class="data row10 col1" >0.05</td>
+      <td id="T_293af_row10_col2" class="data row10 col2" >1.16</td>
+      <td id="T_293af_row10_col3" class="data row10 col3" >-218.00</td>
+      <td id="T_293af_row10_col4" class="data row10 col4" >0.02</td>
+      <td id="T_293af_row10_col5" class="data row10 col5" >0.10</td>
+      <td id="T_293af_row10_col6" class="data row10 col6" >0.16</td>
+      <td id="T_293af_row10_col7" class="data row10 col7" >198.67</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row11" class="row_heading level0 row11" >mb</th>
+      <td id="T_293af_row11_col0" class="data row11 col0" >219,269.00</td>
+      <td id="T_293af_row11_col1" class="data row11 col1" >2.01</td>
+      <td id="T_293af_row11_col2" class="data row11 col2" >9.93</td>
+      <td id="T_293af_row11_col3" class="data row11 col3" >0.05</td>
+      <td id="T_293af_row11_col4" class="data row11 col4" >1.00</td>
+      <td id="T_293af_row11_col5" class="data row11 col5" >1.25</td>
+      <td id="T_293af_row11_col6" class="data row11 col6" >1.93</td>
+      <td id="T_293af_row11_col7" class="data row11 col7" >2,705.39</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row12" class="row_heading level0 row12" >ppe_a</th>
+      <td id="T_293af_row12_col0" class="data row12 col0" >218,189.00</td>
+      <td id="T_293af_row12_col1" class="data row12 col1" >0.27</td>
+      <td id="T_293af_row12_col2" class="data row12 col2" >0.25</td>
+      <td id="T_293af_row12_col3" class="data row12 col3" >0.00</td>
+      <td id="T_293af_row12_col4" class="data row12 col4" >0.06</td>
+      <td id="T_293af_row12_col5" class="data row12 col5" >0.20</td>
+      <td id="T_293af_row12_col6" class="data row12 col6" >0.42</td>
+      <td id="T_293af_row12_col7" class="data row12 col7" >1.00</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row13" class="row_heading level0 row13" >capx_a</th>
+      <td id="T_293af_row13_col0" class="data row13 col0" >206,399.00</td>
+      <td id="T_293af_row13_col1" class="data row13 col1" >0.07</td>
+      <td id="T_293af_row13_col2" class="data row13 col2" >0.09</td>
+      <td id="T_293af_row13_col3" class="data row13 col3" >-2.09</td>
+      <td id="T_293af_row13_col4" class="data row13 col4" >0.02</td>
+      <td id="T_293af_row13_col5" class="data row13 col5" >0.04</td>
+      <td id="T_293af_row13_col6" class="data row13 col6" >0.08</td>
+      <td id="T_293af_row13_col7" class="data row13 col7" >8.88</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row14" class="row_heading level0 row14" >xrd_a</th>
+      <td id="T_293af_row14_col0" class="data row14 col0" >223,001.00</td>
+      <td id="T_293af_row14_col1" class="data row14 col1" >0.04</td>
+      <td id="T_293af_row14_col2" class="data row14 col2" >0.16</td>
+      <td id="T_293af_row14_col3" class="data row14 col3" >-0.38</td>
+      <td id="T_293af_row14_col4" class="data row14 col4" >0.00</td>
+      <td id="T_293af_row14_col5" class="data row14 col5" >0.00</td>
+      <td id="T_293af_row14_col6" class="data row14 col6" >0.03</td>
+      <td id="T_293af_row14_col7" class="data row14 col7" >18.37</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row15" class="row_heading level0 row15" >cash_a</th>
+      <td id="T_293af_row15_col0" class="data row15 col0" >222,332.00</td>
+      <td id="T_293af_row15_col1" class="data row15 col1" >0.16</td>
+      <td id="T_293af_row15_col2" class="data row15 col2" >0.20</td>
+      <td id="T_293af_row15_col3" class="data row15 col3" >-0.07</td>
+      <td id="T_293af_row15_col4" class="data row15 col4" >0.02</td>
+      <td id="T_293af_row15_col5" class="data row15 col5" >0.07</td>
+      <td id="T_293af_row15_col6" class="data row15 col6" >0.21</td>
+      <td id="T_293af_row15_col7" class="data row15 col7" >1.00</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row16" class="row_heading level0 row16" >div_d</th>
+      <td id="T_293af_row16_col0" class="data row16 col0" >206,688.00</td>
+      <td id="T_293af_row16_col1" class="data row16 col1" >0.45</td>
+      <td id="T_293af_row16_col2" class="data row16 col2" >0.50</td>
+      <td id="T_293af_row16_col3" class="data row16 col3" >0.00</td>
+      <td id="T_293af_row16_col4" class="data row16 col4" >0.00</td>
+      <td id="T_293af_row16_col5" class="data row16 col5" >0.00</td>
+      <td id="T_293af_row16_col6" class="data row16 col6" >1.00</td>
+      <td id="T_293af_row16_col7" class="data row16 col7" >1.00</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row17" class="row_heading level0 row17" >td</th>
+      <td id="T_293af_row17_col0" class="data row17 col0" >221,491.00</td>
+      <td id="T_293af_row17_col1" class="data row17 col1" >1,365.23</td>
+      <td id="T_293af_row17_col2" class="data row17 col2" >16,589.58</td>
+      <td id="T_293af_row17_col3" class="data row17 col3" >-166.15</td>
+      <td id="T_293af_row17_col4" class="data row17 col4" >1.64</td>
+      <td id="T_293af_row17_col5" class="data row17 col5" >21.56</td>
+      <td id="T_293af_row17_col6" class="data row17 col6" >206.04</td>
+      <td id="T_293af_row17_col7" class="data row17 col7" >961,732.00</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row18" class="row_heading level0 row18" >td_a</th>
+      <td id="T_293af_row18_col0" class="data row18 col0" >221,468.00</td>
+      <td id="T_293af_row18_col1" class="data row18 col1" >0.24</td>
+      <td id="T_293af_row18_col2" class="data row18 col2" >0.38</td>
+      <td id="T_293af_row18_col3" class="data row18 col3" >-0.05</td>
+      <td id="T_293af_row18_col4" class="data row18 col4" >0.05</td>
+      <td id="T_293af_row18_col5" class="data row18 col5" >0.20</td>
+      <td id="T_293af_row18_col6" class="data row18 col6" >0.37</td>
+      <td id="T_293af_row18_col7" class="data row18 col7" >75.26</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row19" class="row_heading level0 row19" >td_mv</th>
+      <td id="T_293af_row19_col0" class="data row19 col0" >217,961.00</td>
+      <td id="T_293af_row19_col1" class="data row19 col1" >0.28</td>
+      <td id="T_293af_row19_col2" class="data row19 col2" >0.26</td>
+      <td id="T_293af_row19_col3" class="data row19 col3" >-0.05</td>
+      <td id="T_293af_row19_col4" class="data row19 col4" >0.04</td>
+      <td id="T_293af_row19_col5" class="data row19 col5" >0.21</td>
+      <td id="T_293af_row19_col6" class="data row19 col6" >0.46</td>
+      <td id="T_293af_row19_col7" class="data row19 col7" >1.00</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row20" class="row_heading level0 row20" >dltt_a</th>
+      <td id="T_293af_row20_col0" class="data row20 col0" >222,002.00</td>
+      <td id="T_293af_row20_col1" class="data row20 col1" >0.18</td>
+      <td id="T_293af_row20_col2" class="data row20 col2" >0.32</td>
+      <td id="T_293af_row20_col3" class="data row20 col3" >0.00</td>
+      <td id="T_293af_row20_col4" class="data row20 col4" >0.01</td>
+      <td id="T_293af_row20_col5" class="data row20 col5" >0.12</td>
+      <td id="T_293af_row20_col6" class="data row20 col6" >0.28</td>
+      <td id="T_293af_row20_col7" class="data row20 col7" >75.26</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row21" class="row_heading level0 row21" >dv_a</th>
+      <td id="T_293af_row21_col0" class="data row21 col0" >206,679.00</td>
+      <td id="T_293af_row21_col1" class="data row21 col1" >0.02</td>
+      <td id="T_293af_row21_col2" class="data row21 col2" >0.18</td>
+      <td id="T_293af_row21_col3" class="data row21 col3" >-0.01</td>
+      <td id="T_293af_row21_col4" class="data row21 col4" >0.00</td>
+      <td id="T_293af_row21_col5" class="data row21 col5" >0.00</td>
+      <td id="T_293af_row21_col6" class="data row21 col6" >0.01</td>
+      <td id="T_293af_row21_col7" class="data row21 col7" >63.53</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row22" class="row_heading level0 row22" >invopps_FG09</th>
+      <td id="T_293af_row22_col0" class="data row22 col0" >193,956.00</td>
+      <td id="T_293af_row22_col1" class="data row22 col1" >1.75</td>
+      <td id="T_293af_row22_col2" class="data row22 col2" >10.35</td>
+      <td id="T_293af_row22_col3" class="data row22 col3" >-0.10</td>
+      <td id="T_293af_row22_col4" class="data row22 col4" >0.71</td>
+      <td id="T_293af_row22_col5" class="data row22 col5" >1.03</td>
+      <td id="T_293af_row22_col6" class="data row22 col6" >1.72</td>
+      <td id="T_293af_row22_col7" class="data row22 col7" >2,705.25</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row23" class="row_heading level0 row23" >sales_g</th>
+      <td id="T_293af_row23_col0" class="data row23 col0" >196,652.00</td>
+      <td id="T_293af_row23_col1" class="data row23 col1" >0.64</td>
+      <td id="T_293af_row23_col2" class="data row23 col2" >42.13</td>
+      <td id="T_293af_row23_col3" class="data row23 col3" >-199.29</td>
+      <td id="T_293af_row23_col4" class="data row23 col4" >-0.02</td>
+      <td id="T_293af_row23_col5" class="data row23 col5" >0.09</td>
+      <td id="T_293af_row23_col6" class="data row23 col6" >0.24</td>
+      <td id="T_293af_row23_col7" class="data row23 col7" >11,879.50</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row24" class="row_heading level0 row24" >short_debt</th>
+      <td id="T_293af_row24_col0" class="data row24 col0" >194,560.00</td>
+      <td id="T_293af_row24_col1" class="data row24 col1" >0.32</td>
+      <td id="T_293af_row24_col2" class="data row24 col2" >0.33</td>
+      <td id="T_293af_row24_col3" class="data row24 col3" >-4.67</td>
+      <td id="T_293af_row24_col4" class="data row24 col4" >0.05</td>
+      <td id="T_293af_row24_col5" class="data row24 col5" >0.20</td>
+      <td id="T_293af_row24_col6" class="data row24 col6" >0.53</td>
+      <td id="T_293af_row24_col7" class="data row24 col7" >22.59</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row25" class="row_heading level0 row25" >long_debt_dum</th>
+      <td id="T_293af_row25_col0" class="data row25 col0" >222,025.00</td>
+      <td id="T_293af_row25_col1" class="data row25 col1" >0.82</td>
+      <td id="T_293af_row25_col2" class="data row25 col2" >0.38</td>
+      <td id="T_293af_row25_col3" class="data row25 col3" >0.00</td>
+      <td id="T_293af_row25_col4" class="data row25 col4" >1.00</td>
+      <td id="T_293af_row25_col5" class="data row25 col5" >1.00</td>
+      <td id="T_293af_row25_col6" class="data row25 col6" >1.00</td>
+      <td id="T_293af_row25_col7" class="data row25 col7" >1.00</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row26" class="row_heading level0 row26" >atr</th>
+      <td id="T_293af_row26_col0" class="data row26 col0" >222,168.00</td>
+      <td id="T_293af_row26_col1" class="data row26 col1" >0.53</td>
+      <td id="T_293af_row26_col2" class="data row26 col2" >0.36</td>
+      <td id="T_293af_row26_col3" class="data row26 col3" >0.00</td>
+      <td id="T_293af_row26_col4" class="data row26 col4" >0.30</td>
+      <td id="T_293af_row26_col5" class="data row26 col5" >0.40</td>
+      <td id="T_293af_row26_col6" class="data row26 col6" >1.00</td>
+      <td id="T_293af_row26_col7" class="data row26 col7" >1.00</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row27" class="row_heading level0 row27" >smalltaxlosscarry</th>
+      <td id="T_293af_row27_col0" class="data row27 col0" >148,275.00</td>
+      <td id="T_293af_row27_col1" class="data row27 col1" >0.17</td>
+      <td id="T_293af_row27_col2" class="data row27 col2" >0.38</td>
+      <td id="T_293af_row27_col3" class="data row27 col3" >0.00</td>
+      <td id="T_293af_row27_col4" class="data row27 col4" >0.00</td>
+      <td id="T_293af_row27_col5" class="data row27 col5" >0.00</td>
+      <td id="T_293af_row27_col6" class="data row27 col6" >0.00</td>
+      <td id="T_293af_row27_col7" class="data row27 col7" >1.00</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row28" class="row_heading level0 row28" >largetaxlosscarry</th>
+      <td id="T_293af_row28_col0" class="data row28 col0" >148,275.00</td>
+      <td id="T_293af_row28_col1" class="data row28 col1" >0.26</td>
+      <td id="T_293af_row28_col2" class="data row28 col2" >0.44</td>
+      <td id="T_293af_row28_col3" class="data row28 col3" >0.00</td>
+      <td id="T_293af_row28_col4" class="data row28 col4" >0.00</td>
+      <td id="T_293af_row28_col5" class="data row28 col5" >0.00</td>
+      <td id="T_293af_row28_col6" class="data row28 col6" >1.00</td>
+      <td id="T_293af_row28_col7" class="data row28 col7" >1.00</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row29" class="row_heading level0 row29" >tnic3hhi</th>
+      <td id="T_293af_row29_col0" class="data row29 col0" >96,951.00</td>
+      <td id="T_293af_row29_col1" class="data row29 col1" >0.22</td>
+      <td id="T_293af_row29_col2" class="data row29 col2" >0.22</td>
+      <td id="T_293af_row29_col3" class="data row29 col3" >0.01</td>
+      <td id="T_293af_row29_col4" class="data row29 col4" >0.08</td>
+      <td id="T_293af_row29_col5" class="data row29 col5" >0.14</td>
+      <td id="T_293af_row29_col6" class="data row29 col6" >0.28</td>
+      <td id="T_293af_row29_col7" class="data row29 col7" >1.00</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row30" class="row_heading level0 row30" >tnic3tsimm</th>
+      <td id="T_293af_row30_col0" class="data row30 col0" >96,951.00</td>
+      <td id="T_293af_row30_col1" class="data row30 col1" >9.40</td>
+      <td id="T_293af_row30_col2" class="data row30 col2" >18.42</td>
+      <td id="T_293af_row30_col3" class="data row30 col3" >0.00</td>
+      <td id="T_293af_row30_col4" class="data row30 col4" >1.33</td>
+      <td id="T_293af_row30_col5" class="data row30 col5" >2.46</td>
+      <td id="T_293af_row30_col6" class="data row30 col6" >6.64</td>
+      <td id="T_293af_row30_col7" class="data row30 col7" >132.94</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row31" class="row_heading level0 row31" >prodmktfluid</th>
+      <td id="T_293af_row31_col0" class="data row31 col0" >88,332.00</td>
+      <td id="T_293af_row31_col1" class="data row31 col1" >7.48</td>
+      <td id="T_293af_row31_col2" class="data row31 col2" >3.91</td>
+      <td id="T_293af_row31_col3" class="data row31 col3" >0.00</td>
+      <td id="T_293af_row31_col4" class="data row31 col4" >4.63</td>
+      <td id="T_293af_row31_col5" class="data row31 col5" >6.79</td>
+      <td id="T_293af_row31_col6" class="data row31 col6" >9.63</td>
+      <td id="T_293af_row31_col7" class="data row31 col7" >40.78</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row32" class="row_heading level0 row32" >delaycon</th>
+      <td id="T_293af_row32_col0" class="data row32 col0" >57,130.00</td>
+      <td id="T_293af_row32_col1" class="data row32 col1" >-0.01</td>
+      <td id="T_293af_row32_col2" class="data row32 col2" >0.09</td>
+      <td id="T_293af_row32_col3" class="data row32 col3" >-0.28</td>
+      <td id="T_293af_row32_col4" class="data row32 col4" >-0.07</td>
+      <td id="T_293af_row32_col5" class="data row32 col5" >-0.01</td>
+      <td id="T_293af_row32_col6" class="data row32 col6" >0.05</td>
+      <td id="T_293af_row32_col7" class="data row32 col7" >0.46</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row33" class="row_heading level0 row33" >equitydelaycon</th>
+      <td id="T_293af_row33_col0" class="data row33 col0" >57,130.00</td>
+      <td id="T_293af_row33_col1" class="data row33 col1" >-0.01</td>
+      <td id="T_293af_row33_col2" class="data row33 col2" >0.09</td>
+      <td id="T_293af_row33_col3" class="data row33 col3" >-0.28</td>
+      <td id="T_293af_row33_col4" class="data row33 col4" >-0.07</td>
+      <td id="T_293af_row33_col5" class="data row33 col5" >-0.02</td>
+      <td id="T_293af_row33_col6" class="data row33 col6" >0.05</td>
+      <td id="T_293af_row33_col7" class="data row33 col7" >0.48</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row34" class="row_heading level0 row34" >debtdelaycon</th>
+      <td id="T_293af_row34_col0" class="data row34 col0" >57,130.00</td>
+      <td id="T_293af_row34_col1" class="data row34 col1" >0.00</td>
+      <td id="T_293af_row34_col2" class="data row34 col2" >0.06</td>
+      <td id="T_293af_row34_col3" class="data row34 col3" >-0.18</td>
+      <td id="T_293af_row34_col4" class="data row34 col4" >-0.04</td>
+      <td id="T_293af_row34_col5" class="data row34 col5" >-0.00</td>
+      <td id="T_293af_row34_col6" class="data row34 col6" >0.04</td>
+      <td id="T_293af_row34_col7" class="data row34 col7" >0.35</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row35" class="row_heading level0 row35" >privdelaycon</th>
+      <td id="T_293af_row35_col0" class="data row35 col0" >57,130.00</td>
+      <td id="T_293af_row35_col1" class="data row35 col1" >-0.00</td>
+      <td id="T_293af_row35_col2" class="data row35 col2" >0.08</td>
+      <td id="T_293af_row35_col3" class="data row35 col3" >-0.26</td>
+      <td id="T_293af_row35_col4" class="data row35 col4" >-0.06</td>
+      <td id="T_293af_row35_col5" class="data row35 col5" >-0.01</td>
+      <td id="T_293af_row35_col6" class="data row35 col6" >0.05</td>
+      <td id="T_293af_row35_col7" class="data row35 col7" >0.42</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row36" class="row_heading level0 row36" >l_emp</th>
+      <td id="T_293af_row36_col0" class="data row36 col0" >208,991.00</td>
+      <td id="T_293af_row36_col1" class="data row36 col1" >1.04</td>
+      <td id="T_293af_row36_col2" class="data row36 col2" >1.16</td>
+      <td id="T_293af_row36_col3" class="data row36 col3" >0.00</td>
+      <td id="T_293af_row36_col4" class="data row36 col4" >0.15</td>
+      <td id="T_293af_row36_col5" class="data row36 col5" >0.58</td>
+      <td id="T_293af_row36_col6" class="data row36 col6" >1.56</td>
+      <td id="T_293af_row36_col7" class="data row36 col7" >7.84</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row37" class="row_heading level0 row37" >l_ppent</th>
+      <td id="T_293af_row37_col0" class="data row37 col0" >218,212.00</td>
+      <td id="T_293af_row37_col1" class="data row37 col1" >3.46</td>
+      <td id="T_293af_row37_col2" class="data row37 col2" >2.38</td>
+      <td id="T_293af_row37_col3" class="data row37 col3" >0.00</td>
+      <td id="T_293af_row37_col4" class="data row37 col4" >1.55</td>
+      <td id="T_293af_row37_col5" class="data row37 col5" >3.11</td>
+      <td id="T_293af_row37_col6" class="data row37 col6" >5.02</td>
+      <td id="T_293af_row37_col7" class="data row37 col7" >12.51</td>
+    </tr>
+    <tr>
+      <th id="T_293af_level0_row38" class="row_heading level0 row38" >l_laborratio</th>
+      <td id="T_293af_row38_col0" class="data row38 col0" >199,821.00</td>
+      <td id="T_293af_row38_col1" class="data row38 col1" >3.47</td>
+      <td id="T_293af_row38_col2" class="data row38 col2" >1.57</td>
+      <td id="T_293af_row38_col3" class="data row38 col3" >-6.59</td>
+      <td id="T_293af_row38_col4" class="data row38 col4" >2.47</td>
+      <td id="T_293af_row38_col5" class="data row38 col5" >3.26</td>
+      <td id="T_293af_row38_col6" class="data row38 col6" >4.21</td>
+      <td id="T_293af_row38_col7" class="data row38 col7" >15.36</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="section" id="observations">
+<h3><span class="section-number">3.2.5.3.1. </span>Observations<a class="headerlink" href="#observations" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>There are a lot of missing variables! Worthy of <a class="reference internal" href="04e-visualEDA.html"><span class="doc std std-doc">more investigation…</span></a></p></li>
+<li><p>Some firms have negative assets, market equity</p></li>
+<li><p>What does it mean to have negative debt (td) or dividends (dv)?</p></li>
+<li><p>Tax rates range from 0 to 1!</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Taxlosscarry</span></code> variables are booleans (1 or 0) as is <code class="docutils literal notranslate"><span class="pre">longdebtdum</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="looking-for-outliers">
+<h3><span class="section-number">3.2.5.3.2. </span>Looking for outliers<a class="headerlink" href="#looking-for-outliers" title="Permalink to this headline">¶</a></h3>
+<p>There are a lot of ways to go about this.</p>
+<ul class="simple">
+<li><p>table, but print out percentiles that focus on the tails and look for large jumps near the edges (like from p95 to max)</p></li>
+<li><p>make a table with skewness and kurtosis variables (look for fat and/or long tails)</p></li>
+<li><p>boxplots, but you’ll need to do a bunch of them</p></li>
+<li><p>If you “standardize” all variables (subtract the mean and divide by the standard deviation - a common first step in many ML analyses!), you could plot the densities on a handful of charts or a tall ridgeline. Histograms might be better to spot outliers but would require ~40 figures.</p></li>
+</ul>
+<p>Some variables I’d be concerned about (not an exhaustive list!):</p>
+<ul class="simple">
+<li><p>The leverage variables that start with <code class="docutils literal notranslate"><span class="pre">td</span></code> and <code class="docutils literal notranslate"><span class="pre">dltt</span></code></p></li>
+<li><p>Sales growth</p></li>
+<li><p>Profitability</p></li>
+<li><p>Market-to-Book</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># a table approach to support the list of variables above</span>
+<span class="n">ccm</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">percentiles</span><span class="o">=</span><span class="p">[</span><span class="mf">.01</span><span class="p">,</span><span class="mf">.05</span><span class="p">,</span><span class="mf">.95</span><span class="p">,</span><span class="mf">.99</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:,.2f}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_f65fe_">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >count</th>
+      <th class="col_heading level0 col1" >mean</th>
+      <th class="col_heading level0 col2" >std</th>
+      <th class="col_heading level0 col3" >min</th>
+      <th class="col_heading level0 col4" >1%</th>
+      <th class="col_heading level0 col5" >5%</th>
+      <th class="col_heading level0 col6" >50%</th>
+      <th class="col_heading level0 col7" >95%</th>
+      <th class="col_heading level0 col8" >99%</th>
+      <th class="col_heading level0 col9" >max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_f65fe_level0_row0" class="row_heading level0 row0" >gvkey</th>
+      <td id="T_f65fe_row0_col0" class="data row0 col0" >223,001.00</td>
+      <td id="T_f65fe_row0_col1" class="data row0 col1" >32,958.76</td>
+      <td id="T_f65fe_row0_col2" class="data row0 col2" >47,791.28</td>
+      <td id="T_f65fe_row0_col3" class="data row0 col3" >1,000.00</td>
+      <td id="T_f65fe_row0_col4" class="data row0 col4" >1,235.00</td>
+      <td id="T_f65fe_row0_col5" class="data row0 col5" >2,085.00</td>
+      <td id="T_f65fe_row0_col6" class="data row0 col6" >11,946.00</td>
+      <td id="T_f65fe_row0_col7" class="data row0 col7" >156,613.00</td>
+      <td id="T_f65fe_row0_col8" class="data row0 col8" >186,230.00</td>
+      <td id="T_f65fe_row0_col9" class="data row0 col9" >316,056.00</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row1" class="row_heading level0 row1" >fyear</th>
+      <td id="T_f65fe_row1_col0" class="data row1 col0" >223,001.00</td>
+      <td id="T_f65fe_row1_col1" class="data row1 col1" >1,994.72</td>
+      <td id="T_f65fe_row1_col2" class="data row1 col2" >10.40</td>
+      <td id="T_f65fe_row1_col3" class="data row1 col3" >1,975.00</td>
+      <td id="T_f65fe_row1_col4" class="data row1 col4" >1,975.00</td>
+      <td id="T_f65fe_row1_col5" class="data row1 col5" >1,977.00</td>
+      <td id="T_f65fe_row1_col6" class="data row1 col6" >1,995.00</td>
+      <td id="T_f65fe_row1_col7" class="data row1 col7" >2,011.00</td>
+      <td id="T_f65fe_row1_col8" class="data row1 col8" >2,013.00</td>
+      <td id="T_f65fe_row1_col9" class="data row1 col9" >2,014.00</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row2" class="row_heading level0 row2" >lpermno</th>
+      <td id="T_f65fe_row2_col0" class="data row2 col0" >223,001.00</td>
+      <td id="T_f65fe_row2_col1" class="data row2 col1" >59,497.47</td>
+      <td id="T_f65fe_row2_col2" class="data row2 col2" >26,609.23</td>
+      <td id="T_f65fe_row2_col3" class="data row2 col3" >10,000.00</td>
+      <td id="T_f65fe_row2_col4" class="data row2 col4" >10,256.00</td>
+      <td id="T_f65fe_row2_col5" class="data row2 col5" >11,438.00</td>
+      <td id="T_f65fe_row2_col6" class="data row2 col6" >68,073.00</td>
+      <td id="T_f65fe_row2_col7" class="data row2 col7" >90,339.00</td>
+      <td id="T_f65fe_row2_col8" class="data row2 col8" >92,502.00</td>
+      <td id="T_f65fe_row2_col9" class="data row2 col9" >93,436.00</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row3" class="row_heading level0 row3" >sic</th>
+      <td id="T_f65fe_row3_col0" class="data row3 col0" >223,001.00</td>
+      <td id="T_f65fe_row3_col1" class="data row3 col1" >4,667.96</td>
+      <td id="T_f65fe_row3_col2" class="data row3 col2" >1,952.31</td>
+      <td id="T_f65fe_row3_col3" class="data row3 col3" >100.00</td>
+      <td id="T_f65fe_row3_col4" class="data row3 col4" >1,040.00</td>
+      <td id="T_f65fe_row3_col5" class="data row3 col5" >1,381.00</td>
+      <td id="T_f65fe_row3_col6" class="data row3 col6" >4,512.00</td>
+      <td id="T_f65fe_row3_col7" class="data row3 col7" >7,830.00</td>
+      <td id="T_f65fe_row3_col8" class="data row3 col8" >8,734.00</td>
+      <td id="T_f65fe_row3_col9" class="data row3 col9" >9,997.00</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row4" class="row_heading level0 row4" >sic3</th>
+      <td id="T_f65fe_row4_col0" class="data row4 col0" >223,001.00</td>
+      <td id="T_f65fe_row4_col1" class="data row4 col1" >466.61</td>
+      <td id="T_f65fe_row4_col2" class="data row4 col2" >195.24</td>
+      <td id="T_f65fe_row4_col3" class="data row4 col3" >10.00</td>
+      <td id="T_f65fe_row4_col4" class="data row4 col4" >104.00</td>
+      <td id="T_f65fe_row4_col5" class="data row4 col5" >138.00</td>
+      <td id="T_f65fe_row4_col6" class="data row4 col6" >451.00</td>
+      <td id="T_f65fe_row4_col7" class="data row4 col7" >783.00</td>
+      <td id="T_f65fe_row4_col8" class="data row4 col8" >873.00</td>
+      <td id="T_f65fe_row4_col9" class="data row4 col9" >999.00</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row5" class="row_heading level0 row5" >age</th>
+      <td id="T_f65fe_row5_col0" class="data row5 col0" >220,369.00</td>
+      <td id="T_f65fe_row5_col1" class="data row5 col1" >8.78</td>
+      <td id="T_f65fe_row5_col2" class="data row5 col2" >8.33</td>
+      <td id="T_f65fe_row5_col3" class="data row5 col3" >0.00</td>
+      <td id="T_f65fe_row5_col4" class="data row5 col4" >0.00</td>
+      <td id="T_f65fe_row5_col5" class="data row5 col5" >0.00</td>
+      <td id="T_f65fe_row5_col6" class="data row5 col6" >6.00</td>
+      <td id="T_f65fe_row5_col7" class="data row5 col7" >26.00</td>
+      <td id="T_f65fe_row5_col8" class="data row5 col8" >35.00</td>
+      <td id="T_f65fe_row5_col9" class="data row5 col9" >39.00</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row6" class="row_heading level0 row6" >at</th>
+      <td id="T_f65fe_row6_col0" class="data row6 col0" >223,001.00</td>
+      <td id="T_f65fe_row6_col1" class="data row6 col1" >5,113.07</td>
+      <td id="T_f65fe_row6_col2" class="data row6 col2" >55,838.12</td>
+      <td id="T_f65fe_row6_col3" class="data row6 col3" >0.00</td>
+      <td id="T_f65fe_row6_col4" class="data row6 col4" >1.50</td>
+      <td id="T_f65fe_row6_col5" class="data row6 col5" >4.43</td>
+      <td id="T_f65fe_row6_col6" class="data row6 col6" >163.06</td>
+      <td id="T_f65fe_row6_col7" class="data row6 col7" >11,540.60</td>
+      <td id="T_f65fe_row6_col8" class="data row6 col8" >71,923.65</td>
+      <td id="T_f65fe_row6_col9" class="data row6 col9" >3,771,199.85</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row7" class="row_heading level0 row7" >me</th>
+      <td id="T_f65fe_row7_col0" class="data row7 col0" >219,397.00</td>
+      <td id="T_f65fe_row7_col1" class="data row7 col1" >2,041.15</td>
+      <td id="T_f65fe_row7_col2" class="data row7 col2" >11,469.68</td>
+      <td id="T_f65fe_row7_col3" class="data row7 col3" >0.00</td>
+      <td id="T_f65fe_row7_col4" class="data row7 col4" >1.10</td>
+      <td id="T_f65fe_row7_col5" class="data row7 col5" >3.66</td>
+      <td id="T_f65fe_row7_col6" class="data row7 col6" >110.92</td>
+      <td id="T_f65fe_row7_col7" class="data row7 col7" >7,204.16</td>
+      <td id="T_f65fe_row7_col8" class="data row7 col8" >38,432.21</td>
+      <td id="T_f65fe_row7_col9" class="data row7 col9" >626,550.38</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row8" class="row_heading level0 row8" >l_a</th>
+      <td id="T_f65fe_row8_col0" class="data row8 col0" >222,978.00</td>
+      <td id="T_f65fe_row8_col1" class="data row8 col1" >5.23</td>
+      <td id="T_f65fe_row8_col2" class="data row8 col2" >2.41</td>
+      <td id="T_f65fe_row8_col3" class="data row8 col3" >-6.91</td>
+      <td id="T_f65fe_row8_col4" class="data row8 col4" >0.42</td>
+      <td id="T_f65fe_row8_col5" class="data row8 col5" >1.49</td>
+      <td id="T_f65fe_row8_col6" class="data row8 col6" >5.09</td>
+      <td id="T_f65fe_row8_col7" class="data row8 col7" >9.35</td>
+      <td id="T_f65fe_row8_col8" class="data row8 col8" >11.18</td>
+      <td id="T_f65fe_row8_col9" class="data row8 col9" >15.14</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row9" class="row_heading level0 row9" >l_sale</th>
+      <td id="T_f65fe_row9_col0" class="data row9 col0" >218,779.00</td>
+      <td id="T_f65fe_row9_col1" class="data row9 col1" >4.78</td>
+      <td id="T_f65fe_row9_col2" class="data row9 col2" >2.45</td>
+      <td id="T_f65fe_row9_col3" class="data row9 col3" >-6.91</td>
+      <td id="T_f65fe_row9_col4" class="data row9 col4" >-1.67</td>
+      <td id="T_f65fe_row9_col5" class="data row9 col5" >0.79</td>
+      <td id="T_f65fe_row9_col6" class="data row9 col6" >4.76</td>
+      <td id="T_f65fe_row9_col7" class="data row9 col7" >8.80</td>
+      <td id="T_f65fe_row9_col8" class="data row9 col8" >10.39</td>
+      <td id="T_f65fe_row9_col9" class="data row9 col9" >13.07</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row10" class="row_heading level0 row10" >prof_a</th>
+      <td id="T_f65fe_row10_col0" class="data row10 col0" >217,167.00</td>
+      <td id="T_f65fe_row10_col1" class="data row10 col1" >0.05</td>
+      <td id="T_f65fe_row10_col2" class="data row10 col2" >1.16</td>
+      <td id="T_f65fe_row10_col3" class="data row10 col3" >-218.00</td>
+      <td id="T_f65fe_row10_col4" class="data row10 col4" >-1.06</td>
+      <td id="T_f65fe_row10_col5" class="data row10 col5" >-0.34</td>
+      <td id="T_f65fe_row10_col6" class="data row10 col6" >0.10</td>
+      <td id="T_f65fe_row10_col7" class="data row10 col7" >0.28</td>
+      <td id="T_f65fe_row10_col8" class="data row10 col8" >0.42</td>
+      <td id="T_f65fe_row10_col9" class="data row10 col9" >198.67</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row11" class="row_heading level0 row11" >mb</th>
+      <td id="T_f65fe_row11_col0" class="data row11 col0" >219,269.00</td>
+      <td id="T_f65fe_row11_col1" class="data row11 col1" >2.01</td>
+      <td id="T_f65fe_row11_col2" class="data row11 col2" >9.93</td>
+      <td id="T_f65fe_row11_col3" class="data row11 col3" >0.05</td>
+      <td id="T_f65fe_row11_col4" class="data row11 col4" >0.56</td>
+      <td id="T_f65fe_row11_col5" class="data row11 col5" >0.76</td>
+      <td id="T_f65fe_row11_col6" class="data row11 col6" >1.25</td>
+      <td id="T_f65fe_row11_col7" class="data row11 col7" >4.96</td>
+      <td id="T_f65fe_row11_col8" class="data row11 col8" >11.55</td>
+      <td id="T_f65fe_row11_col9" class="data row11 col9" >2,705.39</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row12" class="row_heading level0 row12" >ppe_a</th>
+      <td id="T_f65fe_row12_col0" class="data row12 col0" >218,189.00</td>
+      <td id="T_f65fe_row12_col1" class="data row12 col1" >0.27</td>
+      <td id="T_f65fe_row12_col2" class="data row12 col2" >0.25</td>
+      <td id="T_f65fe_row12_col3" class="data row12 col3" >0.00</td>
+      <td id="T_f65fe_row12_col4" class="data row12 col4" >0.00</td>
+      <td id="T_f65fe_row12_col5" class="data row12 col5" >0.01</td>
+      <td id="T_f65fe_row12_col6" class="data row12 col6" >0.20</td>
+      <td id="T_f65fe_row12_col7" class="data row12 col7" >0.80</td>
+      <td id="T_f65fe_row12_col8" class="data row12 col8" >0.91</td>
+      <td id="T_f65fe_row12_col9" class="data row12 col9" >1.00</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row13" class="row_heading level0 row13" >capx_a</th>
+      <td id="T_f65fe_row13_col0" class="data row13 col0" >206,399.00</td>
+      <td id="T_f65fe_row13_col1" class="data row13 col1" >0.07</td>
+      <td id="T_f65fe_row13_col2" class="data row13 col2" >0.09</td>
+      <td id="T_f65fe_row13_col3" class="data row13 col3" >-2.09</td>
+      <td id="T_f65fe_row13_col4" class="data row13 col4" >0.00</td>
+      <td id="T_f65fe_row13_col5" class="data row13 col5" >0.00</td>
+      <td id="T_f65fe_row13_col6" class="data row13 col6" >0.04</td>
+      <td id="T_f65fe_row13_col7" class="data row13 col7" >0.22</td>
+      <td id="T_f65fe_row13_col8" class="data row13 col8" >0.41</td>
+      <td id="T_f65fe_row13_col9" class="data row13 col9" >8.88</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row14" class="row_heading level0 row14" >xrd_a</th>
+      <td id="T_f65fe_row14_col0" class="data row14 col0" >223,001.00</td>
+      <td id="T_f65fe_row14_col1" class="data row14 col1" >0.04</td>
+      <td id="T_f65fe_row14_col2" class="data row14 col2" >0.16</td>
+      <td id="T_f65fe_row14_col3" class="data row14 col3" >-0.38</td>
+      <td id="T_f65fe_row14_col4" class="data row14 col4" >0.00</td>
+      <td id="T_f65fe_row14_col5" class="data row14 col5" >0.00</td>
+      <td id="T_f65fe_row14_col6" class="data row14 col6" >0.00</td>
+      <td id="T_f65fe_row14_col7" class="data row14 col7" >0.20</td>
+      <td id="T_f65fe_row14_col8" class="data row14 col8" >0.54</td>
+      <td id="T_f65fe_row14_col9" class="data row14 col9" >18.37</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row15" class="row_heading level0 row15" >cash_a</th>
+      <td id="T_f65fe_row15_col0" class="data row15 col0" >222,332.00</td>
+      <td id="T_f65fe_row15_col1" class="data row15 col1" >0.16</td>
+      <td id="T_f65fe_row15_col2" class="data row15 col2" >0.20</td>
+      <td id="T_f65fe_row15_col3" class="data row15 col3" >-0.07</td>
+      <td id="T_f65fe_row15_col4" class="data row15 col4" >0.00</td>
+      <td id="T_f65fe_row15_col5" class="data row15 col5" >0.00</td>
+      <td id="T_f65fe_row15_col6" class="data row15 col6" >0.07</td>
+      <td id="T_f65fe_row15_col7" class="data row15 col7" >0.64</td>
+      <td id="T_f65fe_row15_col8" class="data row15 col8" >0.90</td>
+      <td id="T_f65fe_row15_col9" class="data row15 col9" >1.00</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row16" class="row_heading level0 row16" >div_d</th>
+      <td id="T_f65fe_row16_col0" class="data row16 col0" >206,688.00</td>
+      <td id="T_f65fe_row16_col1" class="data row16 col1" >0.45</td>
+      <td id="T_f65fe_row16_col2" class="data row16 col2" >0.50</td>
+      <td id="T_f65fe_row16_col3" class="data row16 col3" >0.00</td>
+      <td id="T_f65fe_row16_col4" class="data row16 col4" >0.00</td>
+      <td id="T_f65fe_row16_col5" class="data row16 col5" >0.00</td>
+      <td id="T_f65fe_row16_col6" class="data row16 col6" >0.00</td>
+      <td id="T_f65fe_row16_col7" class="data row16 col7" >1.00</td>
+      <td id="T_f65fe_row16_col8" class="data row16 col8" >1.00</td>
+      <td id="T_f65fe_row16_col9" class="data row16 col9" >1.00</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row17" class="row_heading level0 row17" >td</th>
+      <td id="T_f65fe_row17_col0" class="data row17 col0" >221,491.00</td>
+      <td id="T_f65fe_row17_col1" class="data row17 col1" >1,365.23</td>
+      <td id="T_f65fe_row17_col2" class="data row17 col2" >16,589.58</td>
+      <td id="T_f65fe_row17_col3" class="data row17 col3" >-166.15</td>
+      <td id="T_f65fe_row17_col4" class="data row17 col4" >0.00</td>
+      <td id="T_f65fe_row17_col5" class="data row17 col5" >0.00</td>
+      <td id="T_f65fe_row17_col6" class="data row17 col6" >21.56</td>
+      <td id="T_f65fe_row17_col7" class="data row17 col7" >3,031.72</td>
+      <td id="T_f65fe_row17_col8" class="data row17 col8" >17,127.38</td>
+      <td id="T_f65fe_row17_col9" class="data row17 col9" >961,732.00</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row18" class="row_heading level0 row18" >td_a</th>
+      <td id="T_f65fe_row18_col0" class="data row18 col0" >221,468.00</td>
+      <td id="T_f65fe_row18_col1" class="data row18 col1" >0.24</td>
+      <td id="T_f65fe_row18_col2" class="data row18 col2" >0.38</td>
+      <td id="T_f65fe_row18_col3" class="data row18 col3" >-0.05</td>
+      <td id="T_f65fe_row18_col4" class="data row18 col4" >0.00</td>
+      <td id="T_f65fe_row18_col5" class="data row18 col5" >0.00</td>
+      <td id="T_f65fe_row18_col6" class="data row18 col6" >0.20</td>
+      <td id="T_f65fe_row18_col7" class="data row18 col7" >0.66</td>
+      <td id="T_f65fe_row18_col8" class="data row18 col8" >0.94</td>
+      <td id="T_f65fe_row18_col9" class="data row18 col9" >75.26</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row19" class="row_heading level0 row19" >td_mv</th>
+      <td id="T_f65fe_row19_col0" class="data row19 col0" >217,961.00</td>
+      <td id="T_f65fe_row19_col1" class="data row19 col1" >0.28</td>
+      <td id="T_f65fe_row19_col2" class="data row19 col2" >0.26</td>
+      <td id="T_f65fe_row19_col3" class="data row19 col3" >-0.05</td>
+      <td id="T_f65fe_row19_col4" class="data row19 col4" >0.00</td>
+      <td id="T_f65fe_row19_col5" class="data row19 col5" >0.00</td>
+      <td id="T_f65fe_row19_col6" class="data row19 col6" >0.21</td>
+      <td id="T_f65fe_row19_col7" class="data row19 col7" >0.79</td>
+      <td id="T_f65fe_row19_col8" class="data row19 col8" >0.93</td>
+      <td id="T_f65fe_row19_col9" class="data row19 col9" >1.00</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row20" class="row_heading level0 row20" >dltt_a</th>
+      <td id="T_f65fe_row20_col0" class="data row20 col0" >222,002.00</td>
+      <td id="T_f65fe_row20_col1" class="data row20 col1" >0.18</td>
+      <td id="T_f65fe_row20_col2" class="data row20 col2" >0.32</td>
+      <td id="T_f65fe_row20_col3" class="data row20 col3" >0.00</td>
+      <td id="T_f65fe_row20_col4" class="data row20 col4" >0.00</td>
+      <td id="T_f65fe_row20_col5" class="data row20 col5" >0.00</td>
+      <td id="T_f65fe_row20_col6" class="data row20 col6" >0.12</td>
+      <td id="T_f65fe_row20_col7" class="data row20 col7" >0.55</td>
+      <td id="T_f65fe_row20_col8" class="data row20 col8" >0.82</td>
+      <td id="T_f65fe_row20_col9" class="data row20 col9" >75.26</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row21" class="row_heading level0 row21" >dv_a</th>
+      <td id="T_f65fe_row21_col0" class="data row21 col0" >206,679.00</td>
+      <td id="T_f65fe_row21_col1" class="data row21 col1" >0.02</td>
+      <td id="T_f65fe_row21_col2" class="data row21 col2" >0.18</td>
+      <td id="T_f65fe_row21_col3" class="data row21 col3" >-0.01</td>
+      <td id="T_f65fe_row21_col4" class="data row21 col4" >0.00</td>
+      <td id="T_f65fe_row21_col5" class="data row21 col5" >0.00</td>
+      <td id="T_f65fe_row21_col6" class="data row21 col6" >0.00</td>
+      <td id="T_f65fe_row21_col7" class="data row21 col7" >0.05</td>
+      <td id="T_f65fe_row21_col8" class="data row21 col8" >0.14</td>
+      <td id="T_f65fe_row21_col9" class="data row21 col9" >63.53</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row22" class="row_heading level0 row22" >invopps_FG09</th>
+      <td id="T_f65fe_row22_col0" class="data row22 col0" >193,956.00</td>
+      <td id="T_f65fe_row22_col1" class="data row22 col1" >1.75</td>
+      <td id="T_f65fe_row22_col2" class="data row22 col2" >10.35</td>
+      <td id="T_f65fe_row22_col3" class="data row22 col3" >-0.10</td>
+      <td id="T_f65fe_row22_col4" class="data row22 col4" >0.18</td>
+      <td id="T_f65fe_row22_col5" class="data row22 col5" >0.40</td>
+      <td id="T_f65fe_row22_col6" class="data row22 col6" >1.03</td>
+      <td id="T_f65fe_row22_col7" class="data row22 col7" >4.72</td>
+      <td id="T_f65fe_row22_col8" class="data row22 col8" >11.16</td>
+      <td id="T_f65fe_row22_col9" class="data row22 col9" >2,705.25</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row23" class="row_heading level0 row23" >sales_g</th>
+      <td id="T_f65fe_row23_col0" class="data row23 col0" >196,652.00</td>
+      <td id="T_f65fe_row23_col1" class="data row23 col1" >0.64</td>
+      <td id="T_f65fe_row23_col2" class="data row23 col2" >42.13</td>
+      <td id="T_f65fe_row23_col3" class="data row23 col3" >-199.29</td>
+      <td id="T_f65fe_row23_col4" class="data row23 col4" >-0.78</td>
+      <td id="T_f65fe_row23_col5" class="data row23 col5" >-0.33</td>
+      <td id="T_f65fe_row23_col6" class="data row23 col6" >0.09</td>
+      <td id="T_f65fe_row23_col7" class="data row23 col7" >0.91</td>
+      <td id="T_f65fe_row23_col8" class="data row23 col8" >3.79</td>
+      <td id="T_f65fe_row23_col9" class="data row23 col9" >11,879.50</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row24" class="row_heading level0 row24" >short_debt</th>
+      <td id="T_f65fe_row24_col0" class="data row24 col0" >194,560.00</td>
+      <td id="T_f65fe_row24_col1" class="data row24 col1" >0.32</td>
+      <td id="T_f65fe_row24_col2" class="data row24 col2" >0.33</td>
+      <td id="T_f65fe_row24_col3" class="data row24 col3" >-4.67</td>
+      <td id="T_f65fe_row24_col4" class="data row24 col4" >0.00</td>
+      <td id="T_f65fe_row24_col5" class="data row24 col5" >0.00</td>
+      <td id="T_f65fe_row24_col6" class="data row24 col6" >0.20</td>
+      <td id="T_f65fe_row24_col7" class="data row24 col7" >1.00</td>
+      <td id="T_f65fe_row24_col8" class="data row24 col8" >1.00</td>
+      <td id="T_f65fe_row24_col9" class="data row24 col9" >22.59</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row25" class="row_heading level0 row25" >long_debt_dum</th>
+      <td id="T_f65fe_row25_col0" class="data row25 col0" >222,025.00</td>
+      <td id="T_f65fe_row25_col1" class="data row25 col1" >0.82</td>
+      <td id="T_f65fe_row25_col2" class="data row25 col2" >0.38</td>
+      <td id="T_f65fe_row25_col3" class="data row25 col3" >0.00</td>
+      <td id="T_f65fe_row25_col4" class="data row25 col4" >0.00</td>
+      <td id="T_f65fe_row25_col5" class="data row25 col5" >0.00</td>
+      <td id="T_f65fe_row25_col6" class="data row25 col6" >1.00</td>
+      <td id="T_f65fe_row25_col7" class="data row25 col7" >1.00</td>
+      <td id="T_f65fe_row25_col8" class="data row25 col8" >1.00</td>
+      <td id="T_f65fe_row25_col9" class="data row25 col9" >1.00</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row26" class="row_heading level0 row26" >atr</th>
+      <td id="T_f65fe_row26_col0" class="data row26 col0" >222,168.00</td>
+      <td id="T_f65fe_row26_col1" class="data row26 col1" >0.53</td>
+      <td id="T_f65fe_row26_col2" class="data row26 col2" >0.36</td>
+      <td id="T_f65fe_row26_col3" class="data row26 col3" >0.00</td>
+      <td id="T_f65fe_row26_col4" class="data row26 col4" >0.00</td>
+      <td id="T_f65fe_row26_col5" class="data row26 col5" >0.00</td>
+      <td id="T_f65fe_row26_col6" class="data row26 col6" >0.40</td>
+      <td id="T_f65fe_row26_col7" class="data row26 col7" >1.00</td>
+      <td id="T_f65fe_row26_col8" class="data row26 col8" >1.00</td>
+      <td id="T_f65fe_row26_col9" class="data row26 col9" >1.00</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row27" class="row_heading level0 row27" >smalltaxlosscarry</th>
+      <td id="T_f65fe_row27_col0" class="data row27 col0" >148,275.00</td>
+      <td id="T_f65fe_row27_col1" class="data row27 col1" >0.17</td>
+      <td id="T_f65fe_row27_col2" class="data row27 col2" >0.38</td>
+      <td id="T_f65fe_row27_col3" class="data row27 col3" >0.00</td>
+      <td id="T_f65fe_row27_col4" class="data row27 col4" >0.00</td>
+      <td id="T_f65fe_row27_col5" class="data row27 col5" >0.00</td>
+      <td id="T_f65fe_row27_col6" class="data row27 col6" >0.00</td>
+      <td id="T_f65fe_row27_col7" class="data row27 col7" >1.00</td>
+      <td id="T_f65fe_row27_col8" class="data row27 col8" >1.00</td>
+      <td id="T_f65fe_row27_col9" class="data row27 col9" >1.00</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row28" class="row_heading level0 row28" >largetaxlosscarry</th>
+      <td id="T_f65fe_row28_col0" class="data row28 col0" >148,275.00</td>
+      <td id="T_f65fe_row28_col1" class="data row28 col1" >0.26</td>
+      <td id="T_f65fe_row28_col2" class="data row28 col2" >0.44</td>
+      <td id="T_f65fe_row28_col3" class="data row28 col3" >0.00</td>
+      <td id="T_f65fe_row28_col4" class="data row28 col4" >0.00</td>
+      <td id="T_f65fe_row28_col5" class="data row28 col5" >0.00</td>
+      <td id="T_f65fe_row28_col6" class="data row28 col6" >0.00</td>
+      <td id="T_f65fe_row28_col7" class="data row28 col7" >1.00</td>
+      <td id="T_f65fe_row28_col8" class="data row28 col8" >1.00</td>
+      <td id="T_f65fe_row28_col9" class="data row28 col9" >1.00</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row29" class="row_heading level0 row29" >tnic3hhi</th>
+      <td id="T_f65fe_row29_col0" class="data row29 col0" >96,951.00</td>
+      <td id="T_f65fe_row29_col1" class="data row29 col1" >0.22</td>
+      <td id="T_f65fe_row29_col2" class="data row29 col2" >0.22</td>
+      <td id="T_f65fe_row29_col3" class="data row29 col3" >0.01</td>
+      <td id="T_f65fe_row29_col4" class="data row29 col4" >0.02</td>
+      <td id="T_f65fe_row29_col5" class="data row29 col5" >0.04</td>
+      <td id="T_f65fe_row29_col6" class="data row29 col6" >0.14</td>
+      <td id="T_f65fe_row29_col7" class="data row29 col7" >0.73</td>
+      <td id="T_f65fe_row29_col8" class="data row29 col8" >1.00</td>
+      <td id="T_f65fe_row29_col9" class="data row29 col9" >1.00</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row30" class="row_heading level0 row30" >tnic3tsimm</th>
+      <td id="T_f65fe_row30_col0" class="data row30 col0" >96,951.00</td>
+      <td id="T_f65fe_row30_col1" class="data row30 col1" >9.40</td>
+      <td id="T_f65fe_row30_col2" class="data row30 col2" >18.42</td>
+      <td id="T_f65fe_row30_col3" class="data row30 col3" >0.00</td>
+      <td id="T_f65fe_row30_col4" class="data row30 col4" >1.00</td>
+      <td id="T_f65fe_row30_col5" class="data row30 col5" >1.03</td>
+      <td id="T_f65fe_row30_col6" class="data row30 col6" >2.46</td>
+      <td id="T_f65fe_row30_col7" class="data row30 col7" >53.75</td>
+      <td id="T_f65fe_row30_col8" class="data row30 col8" >95.21</td>
+      <td id="T_f65fe_row30_col9" class="data row30 col9" >132.94</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row31" class="row_heading level0 row31" >prodmktfluid</th>
+      <td id="T_f65fe_row31_col0" class="data row31 col0" >88,332.00</td>
+      <td id="T_f65fe_row31_col1" class="data row31 col1" >7.48</td>
+      <td id="T_f65fe_row31_col2" class="data row31 col2" >3.91</td>
+      <td id="T_f65fe_row31_col3" class="data row31 col3" >0.00</td>
+      <td id="T_f65fe_row31_col4" class="data row31 col4" >1.49</td>
+      <td id="T_f65fe_row31_col5" class="data row31 col5" >2.48</td>
+      <td id="T_f65fe_row31_col6" class="data row31 col6" >6.79</td>
+      <td id="T_f65fe_row31_col7" class="data row31 col7" >14.67</td>
+      <td id="T_f65fe_row31_col8" class="data row31 col8" >19.09</td>
+      <td id="T_f65fe_row31_col9" class="data row31 col9" >40.78</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row32" class="row_heading level0 row32" >delaycon</th>
+      <td id="T_f65fe_row32_col0" class="data row32 col0" >57,130.00</td>
+      <td id="T_f65fe_row32_col1" class="data row32 col1" >-0.01</td>
+      <td id="T_f65fe_row32_col2" class="data row32 col2" >0.09</td>
+      <td id="T_f65fe_row32_col3" class="data row32 col3" >-0.28</td>
+      <td id="T_f65fe_row32_col4" class="data row32 col4" >-0.19</td>
+      <td id="T_f65fe_row32_col5" class="data row32 col5" >-0.15</td>
+      <td id="T_f65fe_row32_col6" class="data row32 col6" >-0.01</td>
+      <td id="T_f65fe_row32_col7" class="data row32 col7" >0.16</td>
+      <td id="T_f65fe_row32_col8" class="data row32 col8" >0.25</td>
+      <td id="T_f65fe_row32_col9" class="data row32 col9" >0.46</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row33" class="row_heading level0 row33" >equitydelaycon</th>
+      <td id="T_f65fe_row33_col0" class="data row33 col0" >57,130.00</td>
+      <td id="T_f65fe_row33_col1" class="data row33 col1" >-0.01</td>
+      <td id="T_f65fe_row33_col2" class="data row33 col2" >0.09</td>
+      <td id="T_f65fe_row33_col3" class="data row33 col3" >-0.28</td>
+      <td id="T_f65fe_row33_col4" class="data row33 col4" >-0.18</td>
+      <td id="T_f65fe_row33_col5" class="data row33 col5" >-0.14</td>
+      <td id="T_f65fe_row33_col6" class="data row33 col6" >-0.02</td>
+      <td id="T_f65fe_row33_col7" class="data row33 col7" >0.16</td>
+      <td id="T_f65fe_row33_col8" class="data row33 col8" >0.25</td>
+      <td id="T_f65fe_row33_col9" class="data row33 col9" >0.48</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row34" class="row_heading level0 row34" >debtdelaycon</th>
+      <td id="T_f65fe_row34_col0" class="data row34 col0" >57,130.00</td>
+      <td id="T_f65fe_row34_col1" class="data row34 col1" >0.00</td>
+      <td id="T_f65fe_row34_col2" class="data row34 col2" >0.06</td>
+      <td id="T_f65fe_row34_col3" class="data row34 col3" >-0.18</td>
+      <td id="T_f65fe_row34_col4" class="data row34 col4" >-0.11</td>
+      <td id="T_f65fe_row34_col5" class="data row34 col5" >-0.08</td>
+      <td id="T_f65fe_row34_col6" class="data row34 col6" >-0.00</td>
+      <td id="T_f65fe_row34_col7" class="data row34 col7" >0.11</td>
+      <td id="T_f65fe_row34_col8" class="data row34 col8" >0.16</td>
+      <td id="T_f65fe_row34_col9" class="data row34 col9" >0.35</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row35" class="row_heading level0 row35" >privdelaycon</th>
+      <td id="T_f65fe_row35_col0" class="data row35 col0" >57,130.00</td>
+      <td id="T_f65fe_row35_col1" class="data row35 col1" >-0.00</td>
+      <td id="T_f65fe_row35_col2" class="data row35 col2" >0.08</td>
+      <td id="T_f65fe_row35_col3" class="data row35 col3" >-0.26</td>
+      <td id="T_f65fe_row35_col4" class="data row35 col4" >-0.16</td>
+      <td id="T_f65fe_row35_col5" class="data row35 col5" >-0.12</td>
+      <td id="T_f65fe_row35_col6" class="data row35 col6" >-0.01</td>
+      <td id="T_f65fe_row35_col7" class="data row35 col7" >0.15</td>
+      <td id="T_f65fe_row35_col8" class="data row35 col8" >0.22</td>
+      <td id="T_f65fe_row35_col9" class="data row35 col9" >0.42</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row36" class="row_heading level0 row36" >l_emp</th>
+      <td id="T_f65fe_row36_col0" class="data row36 col0" >208,991.00</td>
+      <td id="T_f65fe_row36_col1" class="data row36 col1" >1.04</td>
+      <td id="T_f65fe_row36_col2" class="data row36 col2" >1.16</td>
+      <td id="T_f65fe_row36_col3" class="data row36 col3" >0.00</td>
+      <td id="T_f65fe_row36_col4" class="data row36 col4" >0.00</td>
+      <td id="T_f65fe_row36_col5" class="data row36 col5" >0.01</td>
+      <td id="T_f65fe_row36_col6" class="data row36 col6" >0.58</td>
+      <td id="T_f65fe_row36_col7" class="data row36 col7" >3.55</td>
+      <td id="T_f65fe_row36_col8" class="data row36 col8" >4.79</td>
+      <td id="T_f65fe_row36_col9" class="data row36 col9" >7.84</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row37" class="row_heading level0 row37" >l_ppent</th>
+      <td id="T_f65fe_row37_col0" class="data row37 col0" >218,212.00</td>
+      <td id="T_f65fe_row37_col1" class="data row37 col1" >3.46</td>
+      <td id="T_f65fe_row37_col2" class="data row37 col2" >2.38</td>
+      <td id="T_f65fe_row37_col3" class="data row37 col3" >0.00</td>
+      <td id="T_f65fe_row37_col4" class="data row37 col4" >0.00</td>
+      <td id="T_f65fe_row37_col5" class="data row37 col5" >0.19</td>
+      <td id="T_f65fe_row37_col6" class="data row37 col6" >3.11</td>
+      <td id="T_f65fe_row37_col7" class="data row37 col7" >7.90</td>
+      <td id="T_f65fe_row37_col8" class="data row37 col8" >9.60</td>
+      <td id="T_f65fe_row37_col9" class="data row37 col9" >12.51</td>
+    </tr>
+    <tr>
+      <th id="T_f65fe_level0_row38" class="row_heading level0 row38" >l_laborratio</th>
+      <td id="T_f65fe_row38_col0" class="data row38 col0" >199,821.00</td>
+      <td id="T_f65fe_row38_col1" class="data row38 col1" >3.47</td>
+      <td id="T_f65fe_row38_col2" class="data row38 col2" >1.57</td>
+      <td id="T_f65fe_row38_col3" class="data row38 col3" >-6.59</td>
+      <td id="T_f65fe_row38_col4" class="data row38 col4" >0.26</td>
+      <td id="T_f65fe_row38_col5" class="data row38 col5" >1.34</td>
+      <td id="T_f65fe_row38_col6" class="data row38 col6" >3.26</td>
+      <td id="T_f65fe_row38_col7" class="data row38 col7" >6.47</td>
+      <td id="T_f65fe_row38_col8" class="data row38 col8" >8.15</td>
+      <td id="T_f65fe_row38_col9" class="data row38 col9" >15.36</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</div>
+<div class="section" id="missing-values">
+<h3><span class="section-number">3.2.5.3.3. </span>Missing values<a class="headerlink" href="#missing-values" title="Permalink to this headline">¶</a></h3>
+<p>Below is a list of variables that are missing values for more than 10% of the dataset. Future work will need to understand why there are missing values and understand whether and how we should deal with them.</p>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+    <span class="p">(</span> <span class="c1"># these lines do the calculation - what % of missing values are there for each var</span>
+        <span class="n">ccm</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>      <span class="c1"># ccm.isna() TURNS every obs/variable = 1 when its missing and 0 else</span>
+       <span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>     <span class="c1"># count the number of na for each variable (now data is 1 obs per column = # missing)</span>
+        <span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">ccm</span><span class="p">)</span>       <span class="c1"># convert # missing to % missing </span>
+        <span class="o">*</span><span class="mi">100</span>            <span class="c1"># report as percentage</span>
+    <span class="p">)</span> 
+    <span class="c1"># you can stop here and report this...</span>
+    <span class="c1"># but I wanted to format it a bit...</span>
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">13</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">to_frame</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;% missing&#39;</span><span class="p">)</span> <span class="c1"># the next line only works on a frame, and because pandas sees only 1 variable at this pt</span>
+    <span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.1f}</span><span class="s2">&quot;</span><span class="p">)</span>     <span class="c1"># in the code, it calls this a &quot;series&quot; type object, so convert it to dataframe type object</span>
+<span class="p">)</span>
+<span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_a3f7e_">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >% missing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_a3f7e_level0_row0" class="row_heading level0 row0" >privdelaycon</th>
+      <td id="T_a3f7e_row0_col0" class="data row0 col0" >74.4</td>
+    </tr>
+    <tr>
+      <th id="T_a3f7e_level0_row1" class="row_heading level0 row1" >debtdelaycon</th>
+      <td id="T_a3f7e_row1_col0" class="data row1 col0" >74.4</td>
+    </tr>
+    <tr>
+      <th id="T_a3f7e_level0_row2" class="row_heading level0 row2" >equitydelaycon</th>
+      <td id="T_a3f7e_row2_col0" class="data row2 col0" >74.4</td>
+    </tr>
+    <tr>
+      <th id="T_a3f7e_level0_row3" class="row_heading level0 row3" >delaycon</th>
+      <td id="T_a3f7e_row3_col0" class="data row3 col0" >74.4</td>
+    </tr>
+    <tr>
+      <th id="T_a3f7e_level0_row4" class="row_heading level0 row4" >prodmktfluid</th>
+      <td id="T_a3f7e_row4_col0" class="data row4 col0" >60.4</td>
+    </tr>
+    <tr>
+      <th id="T_a3f7e_level0_row5" class="row_heading level0 row5" >tnic3tsimm</th>
+      <td id="T_a3f7e_row5_col0" class="data row5 col0" >56.5</td>
+    </tr>
+    <tr>
+      <th id="T_a3f7e_level0_row6" class="row_heading level0 row6" >tnic3hhi</th>
+      <td id="T_a3f7e_row6_col0" class="data row6 col0" >56.5</td>
+    </tr>
+    <tr>
+      <th id="T_a3f7e_level0_row7" class="row_heading level0 row7" >smalltaxlosscarry</th>
+      <td id="T_a3f7e_row7_col0" class="data row7 col0" >33.5</td>
+    </tr>
+    <tr>
+      <th id="T_a3f7e_level0_row8" class="row_heading level0 row8" >largetaxlosscarry</th>
+      <td id="T_a3f7e_row8_col0" class="data row8 col0" >33.5</td>
+    </tr>
+    <tr>
+      <th id="T_a3f7e_level0_row9" class="row_heading level0 row9" >invopps_FG09</th>
+      <td id="T_a3f7e_row9_col0" class="data row9 col0" >13.0</td>
+    </tr>
+    <tr>
+      <th id="T_a3f7e_level0_row10" class="row_heading level0 row10" >short_debt</th>
+      <td id="T_a3f7e_row10_col0" class="data row10 col0" >12.8</td>
+    </tr>
+    <tr>
+      <th id="T_a3f7e_level0_row11" class="row_heading level0 row11" >sales_g</th>
+      <td id="T_a3f7e_row11_col0" class="data row11 col0" >11.8</td>
+    </tr>
+    <tr>
+      <th id="T_a3f7e_level0_row12" class="row_heading level0 row12" >l_laborratio</th>
+      <td id="T_a3f7e_row12_col0" class="data row12 col0" >10.4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="member"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="../01/07_debugging.html#seriously-print-your-data-and-objects-often">Remember this?</a></p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="02d_temp.html" title="previous page"><span class="section-number">3.2.4. </span>Temporary vs. Permanent Methods</a>
+    <a class='right-next' id="next-link" href="02f_chains.html" title="next page"><span class="section-number">3.2.6. </span>Using “method chains” to create more readable code</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Donald Bowen<br/>
+        
+            &copy; Copyright 2024.<br/>
+          <div class="extra_footer">
+            You're doing well, keep going!
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

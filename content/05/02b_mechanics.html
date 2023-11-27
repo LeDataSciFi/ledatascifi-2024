@@ -1,0 +1,1593 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHB6CBHE8P"></script>
+   <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-QHB6CBHE8P');
+   </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.2. Mechanics of running regressions &#8212; LeDataSciFi-2024</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/frontpage.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/moviescript.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fin377_specialformatting.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="6.3. Goodness of Fit" href="02c_goodnessOfFit.html" />
+    <link rel="prev" title="6.1. Basics and Notation" href="02a_basics.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">LeDataSciFi-2024</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/objectives.html">
+   Objectives
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/outcomes.html">
+   Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/about_us.html">
+   About us + office hours
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/structure_and_policies.html">
+   Course structure + policies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/gradeoverview.html">
+   Grading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/interest.html">
+   Interested but unsure?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/bootcamp.html">
+   Pre-Class Bootcamp
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/hall_of_awesomeness.html">
+   The Hall of Awesomeness
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/acknowledgments.html">
+   Gratitude
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Schedule, tips, resources
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/schedule.html">
+   Dashboard, key links, schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/help.html">
+   Help
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/resources.html">
+   Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/tips.html">
+   Tips and hacks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/LeDataSciFi/ledatascifi-2024/tree/main/community_codebook">
+   Community Codebook
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/LeDataSciFi/ledatascifi-2024/tree/main/handouts">
+   Class Handouts
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Assignments and participation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/howto_do.html">
+   How to start and turn in assignments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/howto_review.html">
+   How to do your peer reviews
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/mid_proj.html">
+   Midterm project AKA ASGN 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/website_setup.html">
+   Personal Website AKA ASGN 9
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/project.html">
+   Final projects
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Textbook
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../01/00_Getting_Started.html">
+   1. Motivation and Getting Started
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/01_Motivation.html">
+     1.1. Motivation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/02_Setup.html">
+     1.2. Set up
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/03_github.html">
+     1.3. GitHub Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/03a_githubworkflow.html">
+     1.4. The GitHub Workflow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/04_Markdown.html">
+     1.5. Markdown basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/05_jupyterlab.html">
+     1.6. Jupyter Lab Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/06_python.html">
+     1.7. Python Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/07_debugging.html">
+     1.8. Debugging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/07a_errors.html">
+     1.9. Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/08_libraries.html">
+     1.10. Libraries/Packages
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/09_gitignore.html">
+     1.11. Gitignore Files
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../02/10_Golden_1.html">
+   2. Good Analysis Practices
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_2.html">
+     2.1. A case study of bad research
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_3.html">
+     2.2. The golden rules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_6.html">
+     2.3. Organizing your projects
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_7.html">
+     2.4. Filepaths
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_4.html">
+     2.5. Storing data smartly
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_5a.html">
+     2.6. Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_5b.html">
+     2.7. Writing good code comments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_8.html">
+     2.8. Writing good code
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../03/00_Data_Wrangling_Intro.html">
+   3. Wrangling with Data
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../03/01_Numpy.html">
+     3.1. Numpy
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/01a_NumpyCS.html">
+       3.1.1. Numpy + Scientific Computing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/01b_NumpyBasics.html">
+       3.1.2. A (Very) Short Introduction
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/01c_NumpyPractice.html">
+       3.1.3. Exercises
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/01d_NumpyResources.html">
+       3.1.4. More Resources
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../03/02a_pandasIntro.html">
+     3.2. Pandas
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/02a_pandasTips.html">
+       3.2.1. Tips
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/02b_pandasVocab.html">
+       3.2.2. Vocab and Long vs Wide Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/02c_commonFcns.html">
+       3.2.3. Common Functions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/02d_temp.html">
+       3.2.4. Temp. vs Perm. Objects
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/02e_eda_golden.html">
+       3.2.5. Golden Rules + EDA
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/02f_chains.html">
+       3.2.6. Pandas Chains
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/02g_commontasks.html">
+       3.2.7. Common Tasks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/02h_exercises.html">
+       3.2.8. Exercises
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/02j_resourcesAndSum.html">
+       3.2.9. Summary and Resources
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../03/04a-dataviz.html">
+     3.3. Data Visualization
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/04b-whyplot.html">
+       3.3.1. The Role of Viz in Analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/04c-makeplot.html">
+       3.3.2. Making a Plot
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/04d-whichplot.html">
+       3.3.3. Which Plot Type Should I Use?
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/04e-visualEDA.html">
+       3.3.4. Visual EDA Walkthrough
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/04e2-visualEDA-tools.html">
+       3.3.5. Visual EDA Tools
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/04f1-viz_narrative.html">
+       3.3.6. Better Plots
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/04f2-customizing_figs.html">
+       3.3.7. Customizing figures
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/04f3-interactive_figs.html">
+       3.3.8. Interactive plots:
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         plotly
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/04f4-exercises.html">
+       3.3.9. Exercises
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../03/05a-otherskills.html">
+     3.4. Other (Important) Data Wrangling Skills
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/05b_merging.html">
+       3.4.1. Merging
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/05c_missingdata.html">
+       3.4.2. Dealing with Missing Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/05d_outliers.html">
+       3.4.3. Dealing with Outliers
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../04/00_World_Wide_Data.html">
+   4. Building and Using Large (Textual) Data
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/01_Intro_to_scraping.html">
+     4.1. Getting Data off the Web
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/01a_openingAndParsing.html">
+     4.2. Opening + Parsing
+     <em>
+      a
+     </em>
+     Webpage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/01b_spiders.html">
+     4.3. Building a spider
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../04/02_strings.html">
+     4.4. Exploiting Textual Data
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/02a_Python%20Strings.html">
+       4.4.1. Working with Python Strings
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/02b_regex.html">
+       4.4.2. Regex basics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/02c_developing_a_regex.html">
+       4.4.3. Developing a regex
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/02d_RegexApplication.html">
+       4.4.4. Intro to NLP - The Anchor Phase Technique
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="00_intro.html">
+   5. Data Science Intro
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_bigpicture.html">
+     5.1. The promise of ML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01b_model_process.html">
+     5.2. Planning a project
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01a_MLgonewrong.html">
+     5.3. ML Gone Wrong
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01c_teams.html">
+     5.4. Coding in Teams
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01d_sharingBigFiles.html">
+     5.5. Sharing large files
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="02_reg.html">
+   6. Regression
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="02a_basics.html">
+     6.1. Basics and Notation
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     6.2. Mechanics of running regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02c_goodnessOfFit.html">
+     6.3. Goodness of Fit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02d_interpretingCoefs.html">
+     6.4. Interpreting regression coefficients
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02e_statisticalSig.html">
+     6.5. Statistical significance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02f_warnings.html">
+     6.6.
+     <em>
+      Significant
+     </em>
+     warnings about “statistical significance”
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02g_summary.html">
+     6.7. Summary and Resources
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="03_ML.html">
+   7. ML - Intro &amp; Discussion
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="03a_ML_obj_and_tradeoff.html">
+     7.1. The objective of machine learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03f_leakage.html">
+     7.2. Data Leakage - Illustration
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03f_leakage3.html">
+     7.3. Data Leakage - Illustration 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03f_leakage2.html">
+     7.4. Data Leakage Defined
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03c_ModelEval.html">
+     7.5. Model evaluation via cross validation (CV)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03c1_OOS.html">
+     7.6. Model evaluation via Out-of-Sample (OOS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03d_whatToMax.html">
+     7.7. Evaluating models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03e_whichModel.html">
+     7.8. Model selection
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="04a_SKLearn.html">
+   8. ML - Code &amp; Implementation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="04b_best_practices.html">
+     8.1. Best Practice Pseudo Code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04c_onemodel.html">
+     8.2. SKLearn Intro
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04d_crossval.html">
+     8.3. Cross-Validation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04e_pipelines.html">
+     8.4. Pipelines
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04e1_preprocessing.html">
+     8.5. Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04f_optimizing_a_model.html">
+     8.6. Optimizing a Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04h_putting_together.html">
+     8.7. Many Models
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="05a_finapps.html">
+   9. Finance Applications
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="05a_compounding.html">
+     9.1. Compounding returns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05a_rolling.html">
+     9.2. Rolling returns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05a_expanding.html">
+     9.3. Expanding returns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05b_capm.html">
+     9.4. Estimating CAPM
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05c_factorloadings.html">
+     9.5. Estimating better models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05c_finpacks.html">
+     9.6. Supercharged resources/packages
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="06_thefuture.html">
+   10. The Future
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="06a_saving.html">
+     10.1. Saving Your Work
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06b_nextsteps.html">
+     10.2. Faster, better, stronger
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06c_dashboards.html">
+     10.3. Dashboards
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Slides and Memes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../slides/slides.html">
+   Slides from previous classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../slides/memes.html">
+   Memes
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/05/02b_mechanics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/LeDataSciFi/ledatascifi-2024"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/LeDataSciFi/ledatascifi-2024/issues/new?title=Issue%20on%20page%20%2Fcontent/05/02b_mechanics.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/LeDataSciFi/ledatascifi-2024/edit/main/content/05/02b_mechanics.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/LeDataSciFi/ledatascifi-2024/main?urlpath=lab/tree/content/05/02b_mechanics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/LeDataSciFi/ledatascifi-2024/blob/main/content/05/02b_mechanics.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   6.2.1. Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#our-first-regression-with-statsmodels">
+   6.2.2. Our first regression with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     statsmodels
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-better-way-to-regress-with-statsmodels">
+   6.2.3. A better way to regress with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     statsmodels
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regression-with-sklearn">
+   6.2.4. Regression with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     sklearn
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-the-regression-fit">
+   6.2.5. Plotting the regression fit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#including-dummy-variables">
+   6.2.6. Including dummy variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#including-categorical-variables">
+   6.2.7. Including categorical variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#including-interaction-terms">
+   6.2.8. Including interaction terms
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="mechanics-of-running-regressions">
+<h1><span class="section-number">6.2. </span>Mechanics of running regressions<a class="headerlink" href="#mechanics-of-running-regressions" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These next few pages use a classic dataset called “diamonds” to introduce the regression methods. In lectures, we will use finance-oriented data.</p>
+</div>
+<div class="section" id="objectives">
+<h2><span class="section-number">6.2.1. </span>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h2>
+<p>After this page,</p>
+<ol class="simple">
+<li><p>You can fit a regression with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> or <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> that includes dummy variables, categorical variables, and interaction terms.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>: Nicer result tables, usually easier to specifying the regression model</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sklearn</span></code>: Easier to use within a prediction/ML exercise</p></li>
+</ul>
+</li>
+<li><p>With both modules: You can view the results visually</p></li>
+<li><p>With both modules: You can get the coefficients, t-stats, R<span class="math notranslate nohighlight">\(^2\)</span>, Adj R<span class="math notranslate nohighlight">\(^2\)</span>, predicted values (<span class="math notranslate nohighlight">\(\hat{y}\)</span>), and residuals (<span class="math notranslate nohighlight">\(\hat{u}\)</span>)</p></li>
+</ol>
+<p>Let’s get our hands dirty quickly by loading some data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load some data to practice regressions</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">diamonds</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;diamonds&#39;</span><span class="p">)</span>
+
+<span class="c1"># this alteration is not strictly necessary to practice a regression</span>
+<span class="c1"># but we use this in livecoding</span>
+<span class="n">diamonds2</span> <span class="o">=</span> <span class="p">(</span><span class="n">diamonds</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;carat &lt; 2.5&#39;</span><span class="p">)</span>               <span class="c1"># censor/remove outliers</span>
+            <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">lprice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">diamonds</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]))</span>  <span class="c1"># log transform price</span>
+            <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">lcarat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">diamonds</span><span class="p">[</span><span class="s1">&#39;carat&#39;</span><span class="p">]))</span>  <span class="c1"># log transform carats</span>
+            <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">ideal</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">[</span><span class="s1">&#39;cut&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Ideal&#39;</span><span class="p">)</span> 
+             
+             <span class="c1"># some regression packages want you to explicitly provide </span>
+             <span class="c1"># a variable for the constant</span>
+            <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">const</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>                           
+            <span class="p">)</span>  
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="our-first-regression-with-statsmodels">
+<h2><span class="section-number">6.2.2. </span>Our first regression with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code><a class="headerlink" href="#our-first-regression-with-statsmodels" title="Permalink to this headline">¶</a></h2>
+<p>You’ll see these steps repeated a lot for the rest of the class:</p>
+<ol class="simple">
+<li><p>Load the module</p></li>
+<li><p>Load your data, and set up your y and X variables</p></li>
+<li><p>Pick the model, <em>usually something like:</em> <code class="docutils literal notranslate"><span class="pre">model</span> <span class="pre">=</span> <span class="pre">&lt;moduleEstimator&gt;</span></code></p></li>
+<li><p>Fit the model and store the results, <em>usually something like:</em> <code class="docutils literal notranslate"><span class="pre">results</span> <span class="pre">=</span> <span class="pre">model.fit()</span></code></p></li>
+<li><p>Get predicted values, <em>usually something like:</em> <code class="docutils literal notranslate"><span class="pre">predicted</span> <span class="pre">=</span> <span class="pre">results.predict()</span></code></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>        <span class="c1"># need this</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">diamonds2</span><span class="p">[</span><span class="s1">&#39;lprice&#39;</span><span class="p">]</span>             <span class="c1"># pick y</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">diamonds2</span><span class="p">[[</span><span class="s1">&#39;const&#39;</span><span class="p">,</span><span class="s1">&#39;lcarat&#39;</span><span class="p">]]</span>   <span class="c1"># set up all your X vars as a matrix</span>
+
+<span class="c1"># NOTICE I EXPLICITLY GIVE X A CONSTANT SO IT FITS AN INTERCEPT</span>
+
+<span class="n">model1</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">X</span><span class="p">)</span>                <span class="c1"># pick model type (OLS here) and specify model features</span>
+<span class="n">results1</span> <span class="o">=</span> <span class="n">model1</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>             <span class="c1"># estimate / fit</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results1</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>           <span class="c1"># view results (coefs, t-stats, p-vals, R2, Adj R2)</span>
+<span class="n">y_predicted1</span> <span class="o">=</span> <span class="n">results1</span><span class="o">.</span><span class="n">predict</span><span class="p">()</span>   <span class="c1"># get the predicted results</span>
+<span class="n">residuals1</span> <span class="o">=</span> <span class="n">results1</span><span class="o">.</span><span class="n">resid</span>         <span class="c1"># get the residuals</span>
+<span class="c1">#residuals1 = y - y_predicted1      # another way to get the residuals</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">Params:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results1</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>              <span class="c1"># if you need to access the coefficients (e.g. to save them), results.params</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                 lprice   R-squared:                       0.933
+Model:                            OLS   Adj. R-squared:                  0.933
+Method:                 Least Squares   F-statistic:                 7.542e+05
+Date:                Wed, 24 Mar 2021   Prob (F-statistic):               0.00
+Time:                        22:06:38   Log-Likelihood:                -4073.2
+No. Observations:               53797   AIC:                             8150.
+Df Residuals:                   53795   BIC:                             8168.
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          8.4525      0.001   6193.432      0.000       8.450       8.455
+lcarat         1.6819      0.002    868.465      0.000       1.678       1.686
+==============================================================================
+Omnibus:                      775.052   Durbin-Watson:                   1.211
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             1334.265
+Skew:                           0.106   Prob(JB):                    1.85e-290
+Kurtosis:                       3.742   Cond. No.                         2.10
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+
+Params:
+const     8.452512
+lcarat    1.681936
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="a-better-way-to-regress-with-statsmodels">
+<h2><span class="section-number">6.2.3. </span>A better way to regress with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code><a class="headerlink" href="#a-better-way-to-regress-with-statsmodels" title="Permalink to this headline">¶</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This is my preferred way to run a regression in Python unless I <em>have</em> to use sklearn.</p>
+<p><a class="reference external" href="https://www.statsmodels.org/stable/examples/notebooks/generated/formulas.html">The documentation with tricks and examples for how to write a regression formula with statsmodels is here.</a></p>
+</div>
+<p>In the above, replace</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">diamonds2</span><span class="p">[</span><span class="s1">&#39;lprice&#39;</span><span class="p">]</span>             <span class="c1"># pick y</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">diamonds2</span><span class="p">[[</span><span class="s1">&#39;const&#39;</span><span class="p">,</span><span class="s1">&#39;lcarat&#39;</span><span class="p">]]</span>   <span class="c1"># set up all your X vars as a matrix</span>
+
+<span class="n">model1</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">X</span><span class="p">)</span>                <span class="c1"># pick model type (OLS here) and specify model features</span>
+</pre></div>
+</div>
+<p>with this</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model1</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span><span class="s1">&#39;lprice ~ lcarat&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">diamonds2</span><span class="p">)</span>  
+</pre></div>
+</div>
+<p>which I can replace with this (after adding <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">statsmodels.formula.api</span> <span class="pre">import</span> <span class="pre">ols</span> <span class="pre">as</span> <span class="pre">sm_ols</span></code> to my imports)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model1</span> <span class="o">=</span> <span class="n">sm_ols</span><span class="p">(</span><span class="s1">&#39;lprice ~ lcarat&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">diamonds2</span><span class="p">)</span>  
+</pre></div>
+</div>
+<p><strong>WOW!</strong> This isn’t just more convenient (1 line is less than 3), I like this because</p>
+<ol class="simple">
+<li><p>You can set up the model (the equation) more naturally. Simply tell it the name of your dataframe and then you can regress height on weight (<span class="math notranslate nohighlight">\(weight=a+b*height\)</span>) by writing `weight ~ height’.</p>
+<ul class="simple">
+<li><p>You don’t need to include the constant <code class="docutils literal notranslate"><span class="pre">a</span></code> or the coefficient <code class="docutils literal notranslate"><span class="pre">b</span></code></p></li>
+<li><p>You don’t need to set up the y and X variables as explicit objects</p></li>
+</ul>
+</li>
+<li><p>You can add more variables to the regression just as easily. To estimate <span class="math notranslate nohighlight">\(y=a+b*X+c*Z\)</span>, write this inside the function: <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">~</span> <span class="pre">X</span> <span class="pre">+</span> <span class="pre">Z</span></code></p></li>
+<li><p>It allows you to <strong>EASILY</strong> include categorical variables (see below)</p></li>
+<li><p>It allows you to <strong>EASILY</strong> include interaction effects (see below)</p></li>
+</ol>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">import</span> <span class="n">ols</span> <span class="k">as</span> <span class="n">sm_ols</span> <span class="c1"># need this</span>
+
+<span class="n">model2</span>   <span class="o">=</span> <span class="n">sm_ols</span><span class="p">(</span><span class="s1">&#39;lprice ~ lcarat&#39;</span><span class="p">,</span>  <span class="c1"># specify model (you don&#39;t need to include the constant!)</span>
+                  <span class="n">data</span><span class="o">=</span><span class="n">diamonds2</span><span class="p">)</span>
+<span class="n">results2</span> <span class="o">=</span> <span class="n">model2</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>               <span class="c1"># estimate / fit</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results2</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>             <span class="c1"># view results ... identical to before</span>
+<span class="n">y_predicted2</span> <span class="o">=</span> <span class="n">results2</span><span class="o">.</span><span class="n">predict</span><span class="p">()</span>     <span class="c1"># get the predicted results</span>
+<span class="n">residuals2</span> <span class="o">=</span> <span class="n">results2</span><span class="o">.</span><span class="n">resid</span>           <span class="c1"># get the residuals</span>
+<span class="c1">#residuals1 = y - y_predicted1        # another way to get the residuals</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">Params:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results2</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>                <span class="c1"># if you need to access the coefficients (e.g. to save them), results.params</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                 lprice   R-squared:                       0.933
+Model:                            OLS   Adj. R-squared:                  0.933
+Method:                 Least Squares   F-statistic:                 7.542e+05
+Date:                Wed, 24 Mar 2021   Prob (F-statistic):               0.00
+Time:                        22:06:38   Log-Likelihood:                -4073.2
+No. Observations:               53797   AIC:                             8150.
+Df Residuals:                   53795   BIC:                             8168.
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      8.4525      0.001   6193.432      0.000       8.450       8.455
+lcarat         1.6819      0.002    868.465      0.000       1.678       1.686
+==============================================================================
+Omnibus:                      775.052   Durbin-Watson:                   1.211
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             1334.265
+Skew:                           0.106   Prob(JB):                    1.85e-290
+Kurtosis:                       3.742   Cond. No.                         2.10
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+
+Params:
+Intercept    8.452512
+lcarat       1.681936
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We will cover what all these numbers mean later, but this page is focusing on the how-to.</p>
+</div>
+</div>
+<div class="section" id="regression-with-sklearn">
+<h2><span class="section-number">6.2.4. </span>Regression with  <code class="docutils literal notranslate"><span class="pre">sklearn</span></code><a class="headerlink" href="#regression-with-sklearn" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">sklearn</span></code> is pretty similar but</p>
+<ul class="simple">
+<li><p>when setting up the model object, you don’t tell it what data to put into the model</p></li>
+<li><p>you call the model object, and then fit it on data, with <code class="docutils literal notranslate"><span class="pre">model.fit(X,y)</span></code></p></li>
+<li><p>it doesn’t have the nice summary tables</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">diamonds2</span><span class="p">[</span><span class="s1">&#39;lprice&#39;</span><span class="p">]</span>                   <span class="c1"># pick y</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">diamonds2</span><span class="p">[[</span><span class="s1">&#39;const&#39;</span><span class="p">,</span><span class="s1">&#39;lcarat&#39;</span><span class="p">]]</span>         <span class="c1"># set up all your X vars as a matrix</span>
+
+<span class="c1"># NOTICE I EXPLICITLY GIVE X A CONSTANT SO IT FITS AN INTERCEPT</span>
+
+<span class="n">model3</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>               <span class="c1"># set up the model object (but don&#39;t tell sklearn what data it gets!)   </span>
+<span class="n">results3</span> <span class="o">=</span> <span class="n">model3</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>                <span class="c1"># fit it, and tell it what data to fit on</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;INTERCEPT:&#39;</span><span class="p">,</span> <span class="n">results3</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>  <span class="c1"># to get the coefficients, you print out the intercept</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;COEFS:&#39;</span><span class="p">,</span> <span class="n">results3</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>           <span class="c1"># and the other coefficients separately (yuck)</span>
+<span class="n">y_predicted3</span> <span class="o">=</span> <span class="n">results3</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>        <span class="c1"># get predicted y values</span>
+<span class="n">residuals3</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">y_predicted3</span>             <span class="c1"># get residuals</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INTERCEPT: 8.452511832951718
+COEFS: [0.         1.68193567]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">That’s so much uglier. Why use sklearn?</p>
+<p>Because <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> is the go-to for training models using more sophisticated ML ideas (which we will talk about some later in the course!). Two nice walkthroughs:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/05.06-linear-regression.html">This guide from the PythonDataScienceHandbook</a> (you can use different data though)</p></li>
+<li><p>The “Linear Regression” section <a class="reference external" href="https://becominghuman.ai/linear-regression-in-python-with-pandas-scikit-learn-72574a2ec1a5">here</a> shows how you can run regressions on training samples and test them out of sample</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="plotting-the-regression-fit">
+<h2><span class="section-number">6.2.5. </span>Plotting the regression fit<a class="headerlink" href="#plotting-the-regression-fit" title="Permalink to this headline">¶</a></h2>
+<p>Once you save the predicted values (<span class="math notranslate nohighlight">\(\hat{y}\)</span>), it’s easy to add it to a plot:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># step 1: plot our data as you want </span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;lcarat&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;lprice&#39;</span><span class="p">,</span>
+                <span class="n">data</span><span class="o">=</span><span class="n">diamonds2</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span> <span class="c1"># sampled just to avoid overplotting</span>
+
+<span class="c1"># step 2: add the fitted regression line (the real X values and the predicted y values)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">diamonds2</span><span class="p">[</span><span class="s1">&#39;lcarat&#39;</span><span class="p">],</span><span class="n">y</span><span class="o">=</span><span class="n">y_predicted1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/02b_mechanics_13_0.png" src="../../_images/02b_mechanics_13_0.png" />
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">sns.lmplot</span></code> and <code class="docutils literal notranslate"><span class="pre">sns.regplot</span></code> will put a regression line on a scatterplot without having to set up and run a regression, but they also overplot the points when you have a lot of data. That’s why I used the approach above - scatterplot a subsample of the data and then overlay the regression line.</p>
+<p>One other alternative is to use <code class="docutils literal notranslate"><span class="pre">sns.lmplot</span></code> and <code class="docutils literal notranslate"><span class="pre">sns.regplot</span></code>, but use the <code class="docutils literal notranslate"><span class="pre">x_bins</span></code> parameter to report a “binned scatterplot”. Check it out if you’re curious.</p>
+</div>
+</div>
+<div class="section" id="including-dummy-variables">
+<h2><span class="section-number">6.2.6. </span>Including dummy variables<a class="headerlink" href="#including-dummy-variables" title="Permalink to this headline">¶</a></h2>
+<p>Suppose you started by estimating the price of diamonds as a function of carats</p>
+<div class="math notranslate nohighlight">
+\[
+\log(\text{price})=a+\beta_0 \log(\text{carat}) +u
+\]</div>
+<p>but you realize it will be different for ideal cut diamonds. That is, a 1 carat diamond might cost $1,000, but if it’s ideal, it’s an extra $500 dollars.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\log(\text{price})=
+    \begin{cases}
+      a+\beta_0 \log(\text{carat}) + \beta_1 +u, &amp; \text{if ideal cut}  \\
+      a+\beta_0 \log(\text{carat}) +u, &amp; \text{otherwise}
+    \end{cases} 
+\end{split}\]</div>
+<p>Notice that <span class="math notranslate nohighlight">\(\beta_0\)</span> in this model are the same for ideal and non-ideal.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Here is how you run this test: You just add the dummy variable as a new variable in the formula!</strong></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ideal is a dummy variable = 1 if ideal and 0 if not ideal</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm_ols</span><span class="p">(</span><span class="s1">&#39;lprice ~ lcarat + ideal&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">diamonds2</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                 lprice   R-squared:                       0.936
+Model:                            OLS   Adj. R-squared:                  0.936
+Method:                 Least Squares   F-statistic:                 3.914e+05
+Date:                Wed, 24 Mar 2021   Prob (F-statistic):               0.00
+Time:                        22:06:44   Log-Likelihood:                -3136.4
+No. Observations:               53797   AIC:                             6279.
+Df Residuals:                   53794   BIC:                             6306.
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P&gt;|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept         8.4182      0.002   5415.779      0.000       8.415       8.421
+ideal[T.True]     0.1000      0.002     43.662      0.000       0.096       0.105
+lcarat            1.6963      0.002    878.286      0.000       1.692       1.700
+==============================================================================
+Omnibus:                      794.680   Durbin-Watson:                   1.241
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             1394.941
+Skew:                           0.101   Prob(JB):                    1.24e-303
+Kurtosis:                       3.763   Cond. No.                         2.67
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+<img src=https://media.giphy.com/media/zcCGBRQshGdt6/source.gif width="400">
+</div>
+<div class="section" id="including-categorical-variables">
+<h2><span class="section-number">6.2.7. </span>Including categorical variables<a class="headerlink" href="#including-categorical-variables" title="Permalink to this headline">¶</a></h2>
+<p>Dummy variables take on two values (on/off, True/False, 0/1). Categorical variables can take on many levels. “Industry” and “State” are typical categorical variables in finance applications.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\log(\text{price})=
+    \begin{cases}
+      a+\beta_0 \log(\text{carat}) + \beta_1 +u, &amp; \text{if premium cut}  \\
+      a+\beta_0 \log(\text{carat}) + \beta_2 +u, &amp; \text{if very good cut}  \\
+      a+\beta_0 \log(\text{carat}) + \beta_3 +u, &amp; \text{if good cut}  \\
+      a+\beta_0 \log(\text{carat}) + \beta_4 +u, &amp; \text{if fair cut}  \\
+      a+\beta_0 \log(\text{carat}) +u, &amp; \text{otherwise (i.e. ideal)}
+    \end{cases} 
+\end{split}\]</div>
+<p><code class="docutils literal notranslate"><span class="pre">sm_ols</span></code> also processes categorical variables easily!</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Here is how you run this test: You just add the categorical variable as a new variable in the formula!</strong></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>WARNING 1: A good idea is to <strong>ALWAYS</strong> put your categorical variable inside of “C()” like below. This tells statsmodels that the variable should be treated as a categorical variable EVEN IF it is a number. (Which would otherwise be treated like a number.)</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>WARNING 2: You don’t create a dummy variable for all the categories! As long as you include a constant in the regression (<span class="math notranslate nohighlight">\(a\)</span>), one of the categories is covered by the constant. Above, “ideal” is captured by the intercept.</p>
+<p>And if you look at the results of the next regression, the “ideal” cut level doesn’t have a coefficient. <strong>Statsmodels</strong> automatically drops one of the categories when you use the formula approach. Nice!!!</p>
+<p>But if you manually set up the regression in statsmodels or sklearn, you have to drop one level yourself!!!</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sm_ols</span><span class="p">(</span><span class="s1">&#39;lprice ~ lcarat + C(cut)&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">diamonds2</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                 lprice   R-squared:                       0.937
+Model:                            OLS   Adj. R-squared:                  0.937
+Method:                 Least Squares   F-statistic:                 1.613e+05
+Date:                Wed, 24 Mar 2021   Prob (F-statistic):               0.00
+Time:                        22:06:44   Log-Likelihood:                -2389.9
+No. Observations:               53797   AIC:                             4792.
+Df Residuals:                   53791   BIC:                             4845.
+Df Model:                           5                                         
+Covariance Type:            nonrobust                                         
+=======================================================================================
+                          coef    std err          t      P&gt;|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------
+Intercept               8.5209      0.002   4281.488      0.000       8.517       8.525
+C(cut)[T.Premium]      -0.0790      0.003    -28.249      0.000      -0.084      -0.074
+C(cut)[T.Very Good]    -0.0770      0.003    -26.656      0.000      -0.083      -0.071
+C(cut)[T.Good]         -0.1543      0.004    -38.311      0.000      -0.162      -0.146
+C(cut)[T.Fair]         -0.3111      0.007    -46.838      0.000      -0.324      -0.298
+lcarat                  1.7014      0.002    889.548      0.000       1.698       1.705
+==============================================================================
+Omnibus:                      792.280   Durbin-Watson:                   1.261
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             1178.654
+Skew:                           0.168   Prob(JB):                    1.14e-256
+Kurtosis:                       3.643   Cond. No.                         7.20
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+<img src=https://media.giphy.com/media/NaboQwhxK3gMU/source.gif width="400">
+</div>
+<div class="section" id="including-interaction-terms">
+<h2><span class="section-number">6.2.8. </span>Including interaction terms<a class="headerlink" href="#including-interaction-terms" title="Permalink to this headline">¶</a></h2>
+<p>Suppose that an ideal cut diamond doesn’t just add a fixed dollar value to the diamond. Perhaps it also changes the value of having a larger diamond. You might say that</p>
+<ul class="simple">
+<li><p>A high-quality cut is even more valuable for a larger diamond than it is for a small diamond. (“A great cut makes a diamond sparkle, but it’s hard to see sparkle on a tiny diamond no matter what.”)</p></li>
+<li><p>In other words, the effect of carats depends on the cut and vice versa</p></li>
+<li><p>In other words, “the cut variable <strong>interacts</strong> with the carat variable”</p></li>
+<li><p>So you might say that, “a better cut changes the slope/coefficient of carat”</p></li>
+<li><p>Or equivalently, “a better cut changes the return on a larger carat”</p></li>
+</ul>
+<p>Graphically, it’s easy to see, as <code class="docutils literal notranslate"><span class="pre">sns.lmplot</span></code> by default gives each cut a unique slope on carats:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># add reg lines to plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diamonds2</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;cut == &quot;Fair&quot;&#39;</span><span class="p">),</span>
+                 <span class="n">y</span><span class="o">=</span><span class="s1">&#39;lprice&#39;</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;lcarat&#39;</span><span class="p">,</span><span class="n">scatter</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> 
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diamonds2</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;cut == &quot;Ideal&quot;&#39;</span><span class="p">),</span>
+                 <span class="n">y</span><span class="o">=</span><span class="s1">&#39;lprice&#39;</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;lcarat&#39;</span><span class="p">,</span><span class="n">scatter</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> 
+
+<span class="c1"># scatter</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diamonds2</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;cut&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">99</span><span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;cut in [&quot;Ideal&quot;,&quot;Fair&quot;]&#39;</span><span class="p">),</span>
+                <span class="n">x</span><span class="o">=</span><span class="s1">&#39;lcarat&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;lprice&#39;</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;ideal&#39;</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/02b_mechanics_22_0.png" src="../../_images/02b_mechanics_22_0.png" />
+</div>
+</div>
+<p>Those two different lines above are estimated by</p>
+<div class="math notranslate nohighlight">
+\[
+\log(\text{price})= a+ \beta_0 \log(\text{carat}) + \beta_1 \text{Ideal} + \beta_2\log(\text{carat})\cdot \text{Ideal}
+\]</div>
+<p>If you plug in 1 for <span class="math notranslate nohighlight">\(ideal\)</span>, you get the line for ideal diamonds as</p>
+<div class="math notranslate nohighlight">
+\[
+\log(\text{price})= a+ \beta_1 +(\beta_0 + \beta_2) \log(\text{carat}) 
+\]</div>
+<p>If you plug in 0 for <span class="math notranslate nohighlight">\(ideal\)</span>, you get the line for fair diamonds as</p>
+<div class="math notranslate nohighlight">
+\[
+\log(\text{price})= a+ \beta_0 \log(\text{carat}) 
+\]</div>
+<p>So, by including that interaction term, you get that the slope on carats is different for Ideal than Fair diamonds.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Here is how you run this test: You just add the two variables as a new variable in the formula, along with one term where they are both multiplied!</strong></p>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># you can include the interaction of x and z by adding &quot;+x*z&quot; in the spec, like:</span>
+<span class="n">sm_ols</span><span class="p">(</span><span class="s1">&#39;lprice ~ lcarat + ideal + lcarat*ideal&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">diamonds2</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;cut in [&quot;Fair&quot;,&quot;Ideal&quot;]&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>         <td>lprice</td>      <th>  R-squared:         </th> <td>   0.930</td> 
+</tr>
+<tr>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.930</td> 
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>1.022e+05</td>
+</tr>
+<tr>
+  <th>Date:</th>             <td>Wed, 24 Mar 2021</td> <th>  Prob (F-statistic):</th>  <td>  0.00</td>  
+</tr>
+<tr>
+  <th>Time:</th>                 <td>22:06:44</td>     <th>  Log-Likelihood:    </th> <td> -1650.8</td> 
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td> 23106</td>      <th>  AIC:               </th> <td>   3310.</td> 
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td> 23102</td>      <th>  BIC:               </th> <td>   3342.</td> 
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     3</td>      <th>                     </th>     <td> </td>    
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>    
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+            <td></td>              <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>Intercept</th>            <td>    8.1954</td> <td>    0.007</td> <td> 1232.871</td> <td> 0.000</td> <td>    8.182</td> <td>    8.208</td>
+</tr>
+<tr>
+  <th>ideal[T.True]</th>        <td>    0.3302</td> <td>    0.007</td> <td>   46.677</td> <td> 0.000</td> <td>    0.316</td> <td>    0.344</td>
+</tr>
+<tr>
+  <th>lcarat</th>               <td>    1.5282</td> <td>    0.015</td> <td>  103.832</td> <td> 0.000</td> <td>    1.499</td> <td>    1.557</td>
+</tr>
+<tr>
+  <th>lcarat:ideal[T.True]</th> <td>    0.1822</td> <td>    0.015</td> <td>   12.101</td> <td> 0.000</td> <td>    0.153</td> <td>    0.212</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td>117.253</td> <th>  Durbin-Watson:     </th> <td>   1.231</td>
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th> <td> 0.000</td>  <th>  Jarque-Bera (JB):  </th> <td> 145.473</td>
+</tr>
+<tr>
+  <th>Skew:</th>          <td> 0.097</td>  <th>  Prob(JB):          </th> <td>2.58e-32</td>
+</tr>
+<tr>
+  <th>Kurtosis:</th>      <td> 3.337</td>  <th>  Cond. No.          </th> <td>    19.6</td>
+</tr>
+</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
+</div>
+<p>This shows that a 1% increase in carats is associated with a 1.52% increase in price for fair diamonds, but a 1.71% increase for ideal diamonds (1.52+0.18).</p>
+<p>Thus: The return on carats is different (and higher) for better cut diamonds!</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/05"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="02a_basics.html" title="previous page"><span class="section-number">6.1. </span>Basics and Notation</a>
+    <a class='right-next' id="next-link" href="02c_goodnessOfFit.html" title="next page"><span class="section-number">6.3. </span>Goodness of Fit</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Donald Bowen<br/>
+        
+            &copy; Copyright 2024.<br/>
+          <div class="extra_footer">
+            You're doing well, keep going!
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

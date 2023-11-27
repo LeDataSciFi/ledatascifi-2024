@@ -1,0 +1,2182 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHB6CBHE8P"></script>
+   <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-QHB6CBHE8P');
+   </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.2.7. Common tasks &#8212; LeDataSciFi-2024</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/frontpage.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/moviescript.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fin377_specialformatting.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.2.8. Exercises" href="02h_exercises.html" />
+    <link rel="prev" title="3.2.6. Using “method chains” to create more readable code" href="02f_chains.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">LeDataSciFi-2024</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/objectives.html">
+   Objectives
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/outcomes.html">
+   Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/about_us.html">
+   About us + office hours
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/structure_and_policies.html">
+   Course structure + policies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/gradeoverview.html">
+   Grading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/interest.html">
+   Interested but unsure?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/bootcamp.html">
+   Pre-Class Bootcamp
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/hall_of_awesomeness.html">
+   The Hall of Awesomeness
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/acknowledgments.html">
+   Gratitude
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Schedule, tips, resources
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/schedule.html">
+   Dashboard, key links, schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/help.html">
+   Help
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/resources.html">
+   Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/tips.html">
+   Tips and hacks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/LeDataSciFi/ledatascifi-2024/tree/main/community_codebook">
+   Community Codebook
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/LeDataSciFi/ledatascifi-2024/tree/main/handouts">
+   Class Handouts
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Assignments and participation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/howto_do.html">
+   How to start and turn in assignments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/howto_review.html">
+   How to do your peer reviews
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/mid_proj.html">
+   Midterm project AKA ASGN 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/website_setup.html">
+   Personal Website AKA ASGN 9
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/project.html">
+   Final projects
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Textbook
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../01/00_Getting_Started.html">
+   1. Motivation and Getting Started
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/01_Motivation.html">
+     1.1. Motivation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/02_Setup.html">
+     1.2. Set up
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/03_github.html">
+     1.3. GitHub Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/03a_githubworkflow.html">
+     1.4. The GitHub Workflow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/04_Markdown.html">
+     1.5. Markdown basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/05_jupyterlab.html">
+     1.6. Jupyter Lab Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/06_python.html">
+     1.7. Python Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/07_debugging.html">
+     1.8. Debugging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/07a_errors.html">
+     1.9. Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/08_libraries.html">
+     1.10. Libraries/Packages
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/09_gitignore.html">
+     1.11. Gitignore Files
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../02/10_Golden_1.html">
+   2. Good Analysis Practices
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_2.html">
+     2.1. A case study of bad research
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_3.html">
+     2.2. The golden rules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_6.html">
+     2.3. Organizing your projects
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_7.html">
+     2.4. Filepaths
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_4.html">
+     2.5. Storing data smartly
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_5a.html">
+     2.6. Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_5b.html">
+     2.7. Writing good code comments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/10_Golden_8.html">
+     2.8. Writing good code
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="00_Data_Wrangling_Intro.html">
+   3. Wrangling with Data
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="01_Numpy.html">
+     3.1. Numpy
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="01a_NumpyCS.html">
+       3.1.1. Numpy + Scientific Computing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="01b_NumpyBasics.html">
+       3.1.2. A (Very) Short Introduction
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="01c_NumpyPractice.html">
+       3.1.3. Exercises
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="01d_NumpyResources.html">
+       3.1.4. More Resources
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 current active collapsible-parent">
+    <a class="reference internal" href="02a_pandasIntro.html">
+     3.2. Pandas
+    </a>
+    <ul class="current collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="02a_pandasTips.html">
+       3.2.1. Tips
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="02b_pandasVocab.html">
+       3.2.2. Vocab and Long vs Wide Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="02c_commonFcns.html">
+       3.2.3. Common Functions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="02d_temp.html">
+       3.2.4. Temp. vs Perm. Objects
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="02e_eda_golden.html">
+       3.2.5. Golden Rules + EDA
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="02f_chains.html">
+       3.2.6. Pandas Chains
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       3.2.7. Common Tasks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="02h_exercises.html">
+       3.2.8. Exercises
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="02j_resourcesAndSum.html">
+       3.2.9. Summary and Resources
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="04a-dataviz.html">
+     3.3. Data Visualization
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="04b-whyplot.html">
+       3.3.1. The Role of Viz in Analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="04c-makeplot.html">
+       3.3.2. Making a Plot
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="04d-whichplot.html">
+       3.3.3. Which Plot Type Should I Use?
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="04e-visualEDA.html">
+       3.3.4. Visual EDA Walkthrough
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="04e2-visualEDA-tools.html">
+       3.3.5. Visual EDA Tools
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="04f1-viz_narrative.html">
+       3.3.6. Better Plots
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="04f2-customizing_figs.html">
+       3.3.7. Customizing figures
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="04f3-interactive_figs.html">
+       3.3.8. Interactive plots:
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         plotly
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="04f4-exercises.html">
+       3.3.9. Exercises
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="05a-otherskills.html">
+     3.4. Other (Important) Data Wrangling Skills
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="05b_merging.html">
+       3.4.1. Merging
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05c_missingdata.html">
+       3.4.2. Dealing with Missing Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05d_outliers.html">
+       3.4.3. Dealing with Outliers
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../04/00_World_Wide_Data.html">
+   4. Building and Using Large (Textual) Data
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/01_Intro_to_scraping.html">
+     4.1. Getting Data off the Web
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/01a_openingAndParsing.html">
+     4.2. Opening + Parsing
+     <em>
+      a
+     </em>
+     Webpage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/01b_spiders.html">
+     4.3. Building a spider
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../04/02_strings.html">
+     4.4. Exploiting Textual Data
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/02a_Python%20Strings.html">
+       4.4.1. Working with Python Strings
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/02b_regex.html">
+       4.4.2. Regex basics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/02c_developing_a_regex.html">
+       4.4.3. Developing a regex
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04/02d_RegexApplication.html">
+       4.4.4. Intro to NLP - The Anchor Phase Technique
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../05/00_intro.html">
+   5. Data Science Intro
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/01_bigpicture.html">
+     5.1. The promise of ML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/01b_model_process.html">
+     5.2. Planning a project
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/01a_MLgonewrong.html">
+     5.3. ML Gone Wrong
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/01c_teams.html">
+     5.4. Coding in Teams
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/01d_sharingBigFiles.html">
+     5.5. Sharing large files
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../05/02_reg.html">
+   6. Regression
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/02a_basics.html">
+     6.1. Basics and Notation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/02b_mechanics.html">
+     6.2. Mechanics of running regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/02c_goodnessOfFit.html">
+     6.3. Goodness of Fit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/02d_interpretingCoefs.html">
+     6.4. Interpreting regression coefficients
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/02e_statisticalSig.html">
+     6.5. Statistical significance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/02f_warnings.html">
+     6.6.
+     <em>
+      Significant
+     </em>
+     warnings about “statistical significance”
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/02g_summary.html">
+     6.7. Summary and Resources
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../05/03_ML.html">
+   7. ML - Intro &amp; Discussion
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/03a_ML_obj_and_tradeoff.html">
+     7.1. The objective of machine learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/03f_leakage.html">
+     7.2. Data Leakage - Illustration
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/03f_leakage3.html">
+     7.3. Data Leakage - Illustration 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/03f_leakage2.html">
+     7.4. Data Leakage Defined
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/03c_ModelEval.html">
+     7.5. Model evaluation via cross validation (CV)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/03c1_OOS.html">
+     7.6. Model evaluation via Out-of-Sample (OOS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/03d_whatToMax.html">
+     7.7. Evaluating models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/03e_whichModel.html">
+     7.8. Model selection
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../05/04a_SKLearn.html">
+   8. ML - Code &amp; Implementation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04b_best_practices.html">
+     8.1. Best Practice Pseudo Code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04c_onemodel.html">
+     8.2. SKLearn Intro
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04d_crossval.html">
+     8.3. Cross-Validation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04e_pipelines.html">
+     8.4. Pipelines
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04e1_preprocessing.html">
+     8.5. Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04f_optimizing_a_model.html">
+     8.6. Optimizing a Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/04h_putting_together.html">
+     8.7. Many Models
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../05/05a_finapps.html">
+   9. Finance Applications
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/05a_compounding.html">
+     9.1. Compounding returns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/05a_rolling.html">
+     9.2. Rolling returns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/05a_expanding.html">
+     9.3. Expanding returns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/05b_capm.html">
+     9.4. Estimating CAPM
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/05c_factorloadings.html">
+     9.5. Estimating better models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/05c_finpacks.html">
+     9.6. Supercharged resources/packages
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../05/06_thefuture.html">
+   10. The Future
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/06a_saving.html">
+     10.1. Saving Your Work
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/06b_nextsteps.html">
+     10.2. Faster, better, stronger
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05/06c_dashboards.html">
+     10.3. Dashboards
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Slides and Memes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../slides/slides.html">
+   Slides from previous classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../slides/memes.html">
+   Memes
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/03/02g_commontasks.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/LeDataSciFi/ledatascifi-2024"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/LeDataSciFi/ledatascifi-2024/issues/new?title=Issue%20on%20page%20%2Fcontent/03/02g_commontasks.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/LeDataSciFi/ledatascifi-2024/edit/main/content/03/02g_commontasks.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/LeDataSciFi/ledatascifi-2024/main?urlpath=lab/tree/content/03/02g_commontasks.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/LeDataSciFi/ledatascifi-2024/blob/main/content/03/02g_commontasks.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reshaping-data">
+   3.2.7.1. Reshaping data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#to-convert-a-tall-dataframe-to-wide-df-unstack">
+     3.2.7.1.1. To convert a tall dataframe to wide:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       df.unstack()
+      </span>
+     </code>
+     .
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#to-convert-a-wide-dataframe-to-tall-long-df-stack">
+     3.2.7.1.2. To convert a wide dataframe to tall/long:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       df.stack()
+      </span>
+     </code>
+     .
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lambda-in-assign-or-after-groupby">
+   3.2.7.2. Lambda (in
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     assign
+    </span>
+   </code>
+   or after
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     groupby
+    </span>
+   </code>
+   )
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transform-after-groupby">
+   3.2.7.3.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     .transform()
+    </span>
+   </code>
+   after groupby
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-non-pandas-functions-inside-chains">
+   3.2.7.4. Using non-pandas functions inside chains
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-1">
+     3.2.7.4.1. Example 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-2">
+     3.2.7.4.2. Example 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#printing-inside-of-chains">
+   3.2.7.5. Printing inside of chains
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prettier-pandas-output">
+   3.2.7.6. Prettier pandas output
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="common-tasks">
+<h1><span class="section-number">3.2.7. </span>Common tasks<a class="headerlink" href="#common-tasks" title="Permalink to this headline">¶</a></h1>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Yes, this page is kind of long. But that’s because it has a lot of useful info!</p>
+<p>Use the page’s table of contents to the right to jump to what you’re looking for.</p>
+</div>
+<div class="section" id="reshaping-data">
+<h2><span class="section-number">3.2.7.1. </span>Reshaping data<a class="headerlink" href="#reshaping-data" title="Permalink to this headline">¶</a></h2>
+<p>In the <a class="reference internal" href="02b_pandasVocab.html"><span class="doc std std-doc">shape of data</span></a> page, I explained the concept of wide vs. tall data with this example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span>   <span class="p">(</span><span class="s1">&#39;Ford&#39;</span><span class="p">,</span><span class="mi">2000</span><span class="p">):</span><span class="mi">10</span><span class="p">,</span>
+                   <span class="p">(</span><span class="s1">&#39;Ford&#39;</span><span class="p">,</span><span class="mi">2001</span><span class="p">):</span><span class="mi">12</span><span class="p">,</span>
+                   <span class="p">(</span><span class="s1">&#39;Ford&#39;</span><span class="p">,</span><span class="mi">2002</span><span class="p">):</span><span class="mi">14</span><span class="p">,</span>
+                   <span class="p">(</span><span class="s1">&#39;Ford&#39;</span><span class="p">,</span><span class="mi">2003</span><span class="p">):</span><span class="mi">16</span><span class="p">,</span>
+                   <span class="p">(</span><span class="s1">&#39;GM&#39;</span><span class="p">,</span><span class="mi">2000</span><span class="p">):</span><span class="mi">11</span><span class="p">,</span>
+                   <span class="p">(</span><span class="s1">&#39;GM&#39;</span><span class="p">,</span><span class="mi">2001</span><span class="p">):</span><span class="mi">13</span><span class="p">,</span>
+                   <span class="p">(</span><span class="s1">&#39;GM&#39;</span><span class="p">,</span><span class="mi">2002</span><span class="p">):</span><span class="mi">13</span><span class="p">,</span>
+                   <span class="p">(</span><span class="s1">&#39;GM&#39;</span><span class="p">,</span><span class="mi">2003</span><span class="p">):</span><span class="mi">15</span><span class="p">})</span>
+      <span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+      <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;Sales&#39;</span><span class="p">})</span>
+      <span class="o">.</span><span class="n">rename_axis</span><span class="p">([</span><span class="s1">&#39;Firm&#39;</span><span class="p">,</span><span class="s1">&#39;Year&#39;</span><span class="p">])</span>
+      <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+     <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tall:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tall:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Firm</th>
+      <th>Year</th>
+      <th>Sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Ford</td>
+      <td>2000</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Ford</td>
+      <td>2001</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ford</td>
+      <td>2002</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Ford</td>
+      <td>2003</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>GM</td>
+      <td>2000</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>GM</td>
+      <td>2001</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>GM</td>
+      <td>2002</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>GM</td>
+      <td>2003</td>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To reshape dataframes, you have to work with index and column names.</p>
+</div>
+<p>So before we use <code class="docutils literal notranslate"><span class="pre">stack</span></code> and <code class="docutils literal notranslate"><span class="pre">unstack</span></code> here, put the firm and year into the index.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tall</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;Firm&#39;</span><span class="p">,</span><span class="s1">&#39;Year&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="to-convert-a-tall-dataframe-to-wide-df-unstack">
+<h3><span class="section-number">3.2.7.1.1. </span>To convert a tall dataframe to wide: <code class="docutils literal notranslate"><span class="pre">df.unstack()</span></code>.<a class="headerlink" href="#to-convert-a-tall-dataframe-to-wide-df-unstack" title="Permalink to this headline">¶</a></h3>
+<p>If your index has multiple levels, the level parameter is used to pick which to unstack. “0” is the innermost level of the index.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Unstack (make it shorter+wider) on level 0/Firm:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> 
+<span class="n">display</span><span class="p">(</span><span class="n">tall</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Unstack (make it shorter+wider) on level 1/Year:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> 
+<span class="n">display</span><span class="p">(</span><span class="n">tall</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unstack (make it shorter+wider) on level 0/Firm:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">Sales</th>
+    </tr>
+    <tr>
+      <th>Firm</th>
+      <th>Ford</th>
+      <th>GM</th>
+    </tr>
+    <tr>
+      <th>Year</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2000</th>
+      <td>10</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>2001</th>
+      <td>12</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>2002</th>
+      <td>14</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>2003</th>
+      <td>16</td>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unstack (make it shorter+wider) on level 1/Year:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="4" halign="left">Sales</th>
+    </tr>
+    <tr>
+      <th>Year</th>
+      <th>2000</th>
+      <th>2001</th>
+      <th>2002</th>
+      <th>2003</th>
+    </tr>
+    <tr>
+      <th>Firm</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Ford</th>
+      <td>10</td>
+      <td>12</td>
+      <td>14</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>GM</th>
+      <td>11</td>
+      <td>13</td>
+      <td>13</td>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="to-convert-a-wide-dataframe-to-tall-long-df-stack">
+<h3><span class="section-number">3.2.7.1.2. </span>To convert a wide dataframe to tall/long: <code class="docutils literal notranslate"><span class="pre">df.stack()</span></code>.<a class="headerlink" href="#to-convert-a-wide-dataframe-to-tall-long-df-stack" title="Permalink to this headline">¶</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Pay attention after reshaping to the order of your index variables and how they are sorted.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># save the wide df above to this name for subseq examples</span>
+<span class="n">wide_year</span> <span class="o">=</span> <span class="n">tall</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Stack it back (make it tall): wide_year.stack()</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> 
+<span class="n">display</span><span class="p">(</span><span class="n">wide_year</span><span class="o">.</span><span class="n">stack</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Year-then-firm doesn&#39;t make much sense.</span><span class="se">\n</span><span class="s2">Reorder to firm-year: wide_year.stack().swaplevel()&quot;</span><span class="p">)</span> 
+<span class="n">display</span><span class="p">(</span><span class="n">wide_year</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">swaplevel</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Year-then-firm sorting make much sense.</span><span class="se">\n</span><span class="s2">Sort to firm-year: wide_year.stack().swaplevel().sort_index()&quot;</span><span class="p">)</span> 
+<span class="n">display</span><span class="p">(</span><span class="n">wide_year</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">swaplevel</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Stack it back (make it tall): wide_year.stack()
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Sales</th>
+    </tr>
+    <tr>
+      <th>Year</th>
+      <th>Firm</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">2000</th>
+      <th>Ford</th>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>GM</th>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">2001</th>
+      <th>Ford</th>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>GM</th>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">2002</th>
+      <th>Ford</th>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>GM</th>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">2003</th>
+      <th>Ford</th>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>GM</th>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Year-then-firm doesn&#39;t make much sense.
+Reorder to firm-year: wide_year.stack().swaplevel()
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Sales</th>
+    </tr>
+    <tr>
+      <th>Firm</th>
+      <th>Year</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Ford</th>
+      <th>2000</th>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>GM</th>
+      <th>2000</th>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>Ford</th>
+      <th>2001</th>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>GM</th>
+      <th>2001</th>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>Ford</th>
+      <th>2002</th>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>GM</th>
+      <th>2002</th>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>Ford</th>
+      <th>2003</th>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>GM</th>
+      <th>2003</th>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Year-then-firm sorting make much sense.
+Sort to firm-year: wide_year.stack().swaplevel().sort_index()
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Sales</th>
+    </tr>
+    <tr>
+      <th>Firm</th>
+      <th>Year</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="4" valign="top">Ford</th>
+      <th>2000</th>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>2001</th>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>2002</th>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>2003</th>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">GM</th>
+      <th>2000</th>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>2001</th>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>2002</th>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>2003</th>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Beautiful!</strong></p>
+</div>
+</div>
+<div class="section" id="lambda-in-assign-or-after-groupby">
+<h2><span class="section-number">3.2.7.2. </span>Lambda (in <code class="docutils literal notranslate"><span class="pre">assign</span></code> or after <code class="docutils literal notranslate"><span class="pre">groupby</span></code>)<a class="headerlink" href="#lambda-in-assign-or-after-groupby" title="Permalink to this headline">¶</a></h2>
+<p>You will see this inside pandas chains a lot: <code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">x:</span> <span class="pre">someFunc(x)</span></code>, e.g.:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.assign(lev</span> <span class="pre">=</span> <span class="pre">lambda</span> <span class="pre">x:</span> <span class="pre">(x['dltt']+x['dlc'])/x['at']</span>&#160; <span class="pre">)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.groupby('industry').assign(avglev</span> <span class="pre">=</span> <span class="pre">lambda</span> <span class="pre">x:</span> <span class="pre">x['lev'].mean()</span>&#160; <span class="pre">)</span></code></p></li>
+</ul>
+<p>Q1: What is that “lambda”?</p>
+<p>A1: A lambda function is an anonymous function that is usually one line and usually defined without a name. You write it like this:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">lambda</span> <span class="o">&lt;</span><span class="nb">list</span> <span class="n">the</span> <span class="nb">input</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">&gt;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">expression</span> <span class="n">that</span> <span class="n">uses</span> <span class="n">the</span> <span class="n">inputs</span> <span class="n">to</span> <span class="n">make</span> <span class="n">an</span> <span class="n">output</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Here, you can see how the lambda function takes inputs and creates output the same way a function does:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dumb_prog</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">10</span>     <span class="c1"># I added &quot;dumb_prog =&quot; to name the lambda function and use it</span>
+<span class="n">dumb_prog</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we could define a fnc to do the exact same thing</span>
+<span class="k">def</span> <span class="nf">dumb_prog</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">10</span>
+<span class="n">dumb_prog</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
+</pre></div>
+</div>
+</div>
+</div>
+<p>Q2: Why is that lambda there?</p>
+<p>A2: We use lambdas when we need a function for a short period of time and when the name of the function doesn’t matter.</p>
+<!-- Let's go back to this bit of code: `.groupby('industry').assign(avglev = lambda x: x['lev'].mean()  )`
+
+When you get to the "assign" step, what you would do to reference a variable is type the dataframe's name and the variable's name. _But `df.groupby('industry')` is a different dataframe than `df`! And when the code starts to execute the `.assign` method, the `df.groupby('industry')` doesn't exist in memory yet and so it has no name!_  
+ -->
+<p>In the example above, <code class="docutils literal notranslate"><span class="pre">[df].groupby('industry').assign(avglev</span> <span class="pre">=</span> <span class="pre">lambda</span> <span class="pre">x:</span> <span class="pre">x['lev'].mean()</span>&#160; <span class="pre">)</span></code>,</p>
+<ol class="simple">
+<li><p>groupby <strong>splits</strong> the dataframe into groups,</p></li>
+<li><p>then, within each group, it <strong>applies</strong> a function (here: the mean),</p></li>
+<li><p>and then returns a new dataframe with one observation for each group (the average leverage for the industry). Visually, this <strong>split-apply-combine</strong><a class="footnote-reference brackets" href="#ref" id="id1">1</a> process looks like this:</p></li>
+</ol>
+<p><img alt="" src="https://jakevdp.github.io/PythonDataScienceHandbook/figures/03.08-split-apply-combine.png" /></p>
+<p>But notice! The <code class="docutils literal notranslate"><span class="pre">.assign()</span></code> portion is working on these tiny split up pieces of the dataframe created by <code class="docutils literal notranslate"><span class="pre">df.groupby('industry')</span></code>. Those pieces are dataframe objects that don’t have names!</p>
+<p><strong>So lambda functions let us refer to an unnamed dataframe object!</strong> When you type <code class="docutils literal notranslate"><span class="pre">&lt;some</span> <span class="pre">df</span> <span class="pre">object,</span> <span class="pre">like</span> <span class="pre">df.groupby()&gt;.assign(newVar</span> <span class="pre">=</span> <span class="pre">lambda</span> <span class="pre">x:</span> <span class="pre">someFunc(x))</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code> is the object (“some df object”) that assign is working on. Ta da!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># common syntax within pandas</span>
+<span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="o">&lt;</span><span class="n">newvarname</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">lambda</span> <span class="o">&lt;</span><span class="n">tempnameforpriorobj</span><span class="o">&gt;</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">do</span> <span class="n">stuff</span> <span class="n">to</span> <span class="n">tempnameforpriorobj</span><span class="o">&gt;</span>   <span class="p">)</span>       
+
+<span class="c1"># often, tempname is just &quot;x&quot; for short</span>
+<span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="o">&lt;</span><span class="n">newvarname</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">someFunc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;</span> <span class="p">)</span>      
+
+<span class="c1"># example:</span>
+<span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">lev</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;dltt&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;dlc&#39;</span><span class="p">])</span><span class="o">/</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;at&#39;</span><span class="p">]</span> <span class="p">)</span>
+
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It turns out that lambda functions are very useful in python programming, and not just within pandas. For example, some functions take functions as inputs, like <a class="reference external" href="#printing-inside-of-chains">csnap()</a>, <code class="docutils literal notranslate"><span class="pre">map()</span></code>, and <code class="docutils literal notranslate"><span class="pre">filter()</span></code>, and lambda functions let us give them custom functions quickly.</p>
+<p>But pandas is where we will use lambda functions most in this class.</p>
+</div>
+</div>
+<div class="section" id="transform-after-groupby">
+<h2><span class="section-number">3.2.7.3. </span><code class="docutils literal notranslate"><span class="pre">.transform()</span></code> after groupby<a class="headerlink" href="#transform-after-groupby" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes you get a statistic for a group, but you want that statistic in every single row of your original dataset.</p>
+<p>But <code class="docutils literal notranslate"><span class="pre">groupby</span></code> creates a new dataframe that is smaller, with only one row per row.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key&#39;</span><span class="p">:[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">],</span>
+                   <span class="s1">&#39;data&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">)})</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="c1"># the input</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>data</th>
+    </tr>
+    <tr>
+      <th>key</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>A</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># groupby().sum() shrinks the dataset</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;key&#39;</span><span class="p">)[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+       <span class="o">.</span><span class="n">to_frame</span><span class="p">()</span> <span class="p">)</span> <span class="c1"># just added this line bc df prints prettier than series</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>data</th>
+    </tr>
+    <tr>
+      <th>key</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># groupby().transform(sum) does NOT shrink the dataset</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>data</th>
+    </tr>
+    <tr>
+      <th>key</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>A</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>One last trick: Let’s add that new variable to the original dataset!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># option 1: create the var</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;groupsum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
+
+<span class="c1"># option 2: create the var with assign (can be used inside chains)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">groupsum</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;key&#39;</span><span class="p">)[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="nb">sum</span><span class="p">))</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>data</th>
+      <th>groupsum</th>
+    </tr>
+    <tr>
+      <th>key</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>1</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>A</th>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>2</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>5</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>3</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>6</td>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="using-non-pandas-functions-inside-chains">
+<h2><span class="section-number">3.2.7.4. </span>Using non-pandas functions inside chains<a class="headerlink" href="#using-non-pandas-functions-inside-chains" title="Permalink to this headline">¶</a></h2>
+<p>One problem with writing chains on dataframes is that you can only use methods that work on the object (a dataframe) that is getting chained.</p>
+<p>So for example, you’ve formatted dataframe to plot. You can’t directly add a seaborn function to the chain: <em>Seaborn functions are methods of the package seaborn, not the dataframe.</em> (It’s <code class="docutils literal notranslate"><span class="pre">sns.lmplot</span></code>, not <code class="docutils literal notranslate"><span class="pre">df.lmplot</span></code>.)</p>
+<p><code class="docutils literal notranslate"><span class="pre">.pipe()</span></code> allows you to hand a dataframe to functions that don’t work directly on dataframes.</p>
+<div class="admonition-the-syntax-of-pipe admonition">
+<p class="admonition-title">The syntax of .pipe()</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="o">&lt;</span><span class="s1">&#39;outside function&#39;</span><span class="o">&gt;</span><span class="p">,</span> 
+        <span class="o">&lt;</span><span class="s1">&#39;if the first parameter of the outside function isnt the df, &#39;</span>
+         <span class="s1">&#39;the name of the parameter that is expecting the dataframe&#39;</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="o">&lt;</span><span class="s1">&#39;any other parameters youd give the outside function&#39;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Note that the object after the pipe command is run might not be a dataframe anymore! It’s whatever object the piped function produces!</p>
+</div>
+<div class="section" id="example-1">
+<h3><span class="section-number">3.2.7.4.1. </span>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://tomaugspurger.github.io/method-chaining">From one of the pandas devs:</a></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">jack_jill</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="p">(</span><span class="n">jack_jill</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">went_up</span><span class="p">,</span> <span class="s1">&#39;hill&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">fetch</span><span class="p">,</span> <span class="s1">&#39;water&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">fell_down</span><span class="p">,</span> <span class="s1">&#39;jack&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">broke</span><span class="p">,</span> <span class="s1">&#39;crown&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">tumble_after</span><span class="p">,</span> <span class="s1">&#39;jill&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>This really is just right-to-left function execution. The first argument to pipe, a callable, is called with the DataFrame on the left as its first argument, and any additional arguments you specify.</p>
+<p>I hope the analogy to data analysis code is clear. Code is read more often than it is written. When you or your coworkers or research partners have to go back in two months to update your script, having the story of raw data to results be told as clearly as possible will save you time.</p>
+</div></blockquote>
+</div>
+<div class="section" id="example-2">
+<h3><span class="section-number">3.2.7.4.2. </span>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://stmorse.github.io/journal/tidyverse-style-pandas.html">From Steven Morse:</a></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;diamonds&#39;</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;cut in [&quot;Ideal&quot;, &quot;Good&quot;] &amp; </span><span class="se">\</span>
+<span class="s1">         clarity in [&quot;IF&quot;, &quot;SI2&quot;] &amp; </span><span class="se">\</span>
+<span class="s1">         carat &lt; 3&#39;</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">pipe</span><span class="p">((</span><span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">),</span>
+        <span class="n">row</span><span class="o">=</span><span class="s1">&#39;cut&#39;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;clarity&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;color&#39;</span><span class="p">,</span>
+        <span class="n">hue_order</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;DEFGHIJ&#39;</span><span class="p">),</span>
+        <span class="n">height</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
+        <span class="n">legend_out</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">,</span> <span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">add_legend</span><span class="p">())</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="printing-inside-of-chains">
+<h2><span class="section-number">3.2.7.5. </span>Printing inside of chains<a class="headerlink" href="#printing-inside-of-chains" title="Permalink to this headline">¶</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>One thing about chains, is that sometimes it’s hard to know what’s going on within them without just commenting out all the code and running it bit-by-bit.</p>
+<p>This function, <code class="docutils literal notranslate"><span class="pre">csnap</span></code> (meaning “C”hain “SNAP”shot) will let you print messages from inside the chain, by exploiting the <code class="docutils literal notranslate"><span class="pre">.pipe()</span></code> function we just covered!</p>
+</div>
+<p><img alt="" src="https://media.giphy.com/media/Buy7YdhkyHBCM/source.gif" /></p>
+<p>Copy this into your code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">csnap</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">fn</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Custom Help function to print things in method chaining.    </span>
+<span class="sd">        Will also print a message, which helps if you&#39;re printing a bunch of these, so that you know which csnap print happens at which point.</span>
+<span class="sd">        Returns back the df to further use in chaining.</span>
+<span class="sd">        </span>
+<span class="sd">        Usage examples - within a chain of methods:</span>
+<span class="sd">            df.pipe(csnap)</span>
+<span class="sd">            df.pipe(csnap, lambda x: &lt;do stuff&gt;)</span>
+<span class="sd">            df.pipe(csnap, msg=&quot;Shape here&quot;)</span>
+<span class="sd">            df.pipe(csnap, lambda x: x.sample(10), msg=&quot;10 random obs&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">msg</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">fn</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>An example of this in use:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">df</span>
+ <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">csnap</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Shape before describe&quot;</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">describe</span><span class="p">()[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>  <span class="c1"># get the distribution stats of a variable (I&#39;m just doing something to show csnap off)</span>
+ <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">csnap</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Shape after describe and pick one var&quot;</span><span class="p">)</span> <span class="c1"># see, it prints a message from within the chain!</span>
+ <span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">ones</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">csnap</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Random sample of df at point #3&quot;</span><span class="p">)</span> <span class="c1"># see, it prints a message from within the chain! </span>
+ <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">twos</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">threes</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape before describe
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6, 2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape after describe and pick one var
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(8,)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Random sample of df at point #3
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>data</th>
+      <th>ones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>max</th>
+      <td>6.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>data</th>
+      <th>ones</th>
+      <th>twos</th>
+      <th>threes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>6.000000</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>3.500000</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1.870829</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2.250000</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>3.500000</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>4.750000</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>6.000000</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="prettier-pandas-output">
+<h2><span class="section-number">3.2.7.6. </span>Prettier pandas output<a class="headerlink" href="#prettier-pandas-output" title="Permalink to this headline">¶</a></h2>
+<p>A few random things:</p>
+<ul class="simple">
+<li><p>Want to change the order of rows in an output table? <code class="docutils literal notranslate"><span class="pre">.reindex()</span></code></p></li>
+<li><p>Want to format the numbers shown by pandas?</p>
+<ol class="simple">
+<li><p>Permanent: Add this line of code to the top of your file: <code class="docutils literal notranslate"><span class="pre">pd.set_option('display.float',</span> <span class="pre">'{:.2f}'.format)</span></code></p></li>
+<li><p>Temp: Add <code class="docutils literal notranslate"><span class="pre">style.format</span></code> to the end of your table command. E.g.: <code class="docutils literal notranslate"><span class="pre">df.describe().style.format(&quot;{:.2f}&quot;)</span></code></p></li>
+</ol>
+</li>
+<li><p>Want to control the number of columns / rows pandas shows?</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pd.set_option('display.max_columns',</span> <span class="pre">50)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pd.set_option('display.max_rows',</span> <span class="pre">50)</span></code></p></li>
+</ol>
+</li>
+<li><p>More formatting controls: <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.set_option.html">https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.set_option.html</a></p></li>
+</ul>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="ref"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>(This figure is yet another resource I’m borrowing from the awesome <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook">PythonDataScienceHandbook</a>.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="02f_chains.html" title="previous page"><span class="section-number">3.2.6. </span>Using “method chains” to create more readable code</a>
+    <a class='right-next' id="next-link" href="02h_exercises.html" title="next page"><span class="section-number">3.2.8. </span>Exercises</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Donald Bowen<br/>
+        
+            &copy; Copyright 2024.<br/>
+          <div class="extra_footer">
+            You're doing well, keep going!
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

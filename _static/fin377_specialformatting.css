@@ -1,0 +1,154 @@
+/* make the logo taller */
+ 
+div.navbar-brand-box a.navbar-brand img {
+    max-height: 18vh !important;
+} 
+ 
+/* base colors for main area, justify text */
+
+body {
+	background-color: #fff;
+    	color: #333
+}
+
+p {
+    text-align: justify;
+}
+
+/* tables on the site have excessive spacing */
+
+.table p {
+	margin-bottom: 0;
+}
+.table td {
+    padding-bottom: 0.25rem;
+    padding-top:    0.25rem;
+    padding-left:   0.5rem;
+    padding-right:  0.5rem;
+}
+
+
+/* -------------------------------------------
+            SIDE NAV OPTIONS
+------------------------------------------- */
+
+/* change the color scheme
+first, set the lehigh light on dark scheme for the sidenav
+
+	Lehigh colors:
+	#ffffff; white
+	#502d0e; // newly added brown
+	#FBDD40; // newly added, yellow  
+	
+*/ 
+
+#site-navigation {
+	background-color: #502d0e;    	
+	color: white;
+        border-right-width: 0px;
+}
+
+/* other text in nav bar that should be white: */
+.bd-sidebar nav ul.nav li a, .bd-sidebar nav ul.nav ul li a {
+    color: white;
+}
+
+/* yellow: active pages in nav, nav pages hovered over, site title */
+.bd-sidebar nav ul.nav a:hover, .bd-sidebar nav ul.nav li.active > a, .bd-sidebar nav ul.nav li.active > a:hover, .bd-sidebar h1.site-logo  {
+    color: #FBDD40;
+}
+
+/* search bar text brown */
+.form-control, .form-control::placeholder, .bd-search .icon {
+	color: #502d0e;
+}	
+
+/* The side nav should be collapsed except the part you're in */
+
+ul.sidenav_l1:not(.current) {
+	display: none;
+}
+
+.tocsection.onthispage {}
+
+/* -------------------------------------------
+            PAGE LAYOUT OPTIONS
+------------------------------------------- */
+
+
+/* shift left nav to all the way to left (more page space)   */
+
+.container-xl {
+	margin-left: 0px!important;
+	margin-right: 0px!important;
+	max-width: 1800px;
+}
+
+
+/* -------------------------------------------
+            mobile site specs 
+------------------------------------------- */
+
+@media screen and (max-width: 800px) {
+
+	.margin {
+		display: none;
+	}	
+
+	.section {
+		padding-right: 0px!important;
+	}	
+
+	.navbar-brand-box {
+		display: none;
+	}
+	
+	.dropdown-buttons-trigger {
+	    display: none;
+	}
+	
+	a.full-screen-button {
+	    display: none;
+	}
+}
+
+/* -------------------------------------------
+            print: only the main div  
+------------------------------------------- */
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .col-md-9, .col-md-9 * {
+	visibility: visible
+  }
+	
+  .col-md-9  {
+	flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+	div.sphinx-bs.container {
+		min-width: 100% !important;
+		margin-left:0;
+	}
+	
+	/* show all tabs */ 
+	
+	.tabbed-set {
+	display: block !important;
+	}
+
+	.tabbed-set > .tabbed-content {
+		display: block;
+	}
+
+	.tabbed-set > label {
+	color: var(--tabs-color-label-active) !important;
+	}	
+	
+	/* dropdowns suck, closed by default, but idk how to 
+	inject JS that opens them all */
+
+}
