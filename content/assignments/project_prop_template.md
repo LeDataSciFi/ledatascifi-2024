@@ -20,7 +20,7 @@ This section should cover:
     - The research question will be smaller in scope than the big picture question. But the answer to your specific research question should _shed light_ on the bigger question (although it likely won't conclusively answer it).
     - The answer to your specific research question should _shed light_ on the bigger question (although it likely won't conclusively answer it).
 2. If your project is about relationships, what are the hypotheses you're testing?
-3. If your project is about prediction, what is your metrics of success? [(What are you maximizing?)](https://ledatascifi.github.io/ledatascifi-2022/content/05/03d_whatToMax.html) Can you find a baseline from prior work to give you a ball park to aim for?
+3. If your project is about prediction, what is your metrics of success? [(What are you maximizing?)](https://ledatascifi.github.io/ledatascifi-2024/content/05/03d_whatToMax.html) Can you find a baseline from prior work to give you a ball park to aim for?
 
 ## Necessary Data
 

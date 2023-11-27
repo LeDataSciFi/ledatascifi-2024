@@ -49,7 +49,7 @@ None of those packages substitute for LOOKING at data, but they get you going!
 
 ```{dropdown} Exploit the Community Codebook!
 
-The [community codebook](https://github.com/LeDataSciFi/ledatascifi-2023/tree/main/community_codebook) will be updated as the semester progresses. 
+The [community codebook](https://github.com/LeDataSciFi/ledatascifi-2024/tree/main/community_codebook) will be updated as the semester progresses. 
 
 You'll build your own codebook, a list of "recipes" you use repeatedly, as the semester goes on. But community codebook will help you get started!
 

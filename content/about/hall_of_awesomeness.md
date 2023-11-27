@@ -22,7 +22,7 @@ The stakes are high! The winner walks away with a trophy, and gets their name em
 ---
 :img-bottom: img/trophy_back.jpg
 
-```{link-button} https://ledatascifi.github.io/ledatascifi-2023/_images/trophy_back.jpg
+```{link-button} https://ledatascifi.github.io/ledatascifi-2024/_images/trophy_back.jpg
 :text: Trophy Back (click to zoom)
 :classes: stretched-link font-weight-bold text-left
 ```

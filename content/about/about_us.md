@@ -32,14 +32,14 @@ I am a senior studying Financial Engineering with special interests in startups,
 
 ### Drop-in Hours aka "Office Hours"
 
-They are listed on the [discussion board for your class](https://github.com/LeDataSciFi/ledatascifi-2023/discussions). **Office hour schedules can and do change during the semester, so please check back!** 
+They are listed on the [discussion board for your class](https://github.com/LeDataSciFi/ledatascifi-2024/discussions). **Office hour schedules can and do change during the semester, so please check back!** 
 
 _Note: You can't see the discussion board until you complete the [set up instructions.](02_Setup)_
 
 ```{note}  
 **I suspect that the initial learning curve will be steep, so we have posted a lot of office hours. Around Valentines Day, we will reduce our explicit office hours. Remember, when you get stuck, _especially_ on installation and set up issues,**
 - look at the [help](help) page
-- post a question in our [discussion board](https://github.com/LeDataSciFi/ledatascifi-2023/discussions)
+- post a question in our [discussion board](https://github.com/LeDataSciFi/ledatascifi-2024/discussions)
 - check out the [resources](resources) page and the [tips](tips) page
 ```
 
