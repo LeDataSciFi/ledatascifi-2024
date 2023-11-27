@@ -1,0 +1,30 @@
+/* the ALT approach to this page was 
+- image right aligned, then #title and sidebar (no panels)
+- this img tag, and the subsequent css bits, adjusted to find the text without IDs, and +1em padding on the main title
+- PRO: the tab has a title
+- CON: looks like shiiiiiit on phone (modal student first visit)
+
+keeping this here anyways
+img.align-right {
+  margin-left: 3em;
+}
+*/
+
+/* moving and resizing the title text */
+
+#front_welcome {
+  text-align: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;    
+}
+
+#front_sub {
+  text-align: center;
+  font-style: italic;    
+  padding-top: 0;
+  padding-bottom: 1em;
+  margin-top: 0px;
+  margin-bottom: 0;
+    
+}

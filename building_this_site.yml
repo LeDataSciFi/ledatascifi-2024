@@ -1,0 +1,39 @@
+﻿# to develop this site on any given computer, the correct packages need
+# to be installed (see requirements.txt for details)
+#
+# this file will set up an anaconda environment that works. to do that,
+# open anaconda powershell, or terminal (Mac) and run (one time only)
+# 
+#   conda env create --file building_this_site.yml
+#
+# To edit website files locally, I usually have a terminal open with 
+# my base/working conda environment, and that terminal opens jupyterlab, etc.
+# to create/modify existing pages. Then I open a SECOND terminal, and in 
+# that second terminal:
+#
+#   switch to our new env:      conda activate LDSF_site
+#   move cd to website's dir:   cd <ledatascifi-2022>
+#
+# When I want to see how the website looks, I build the website for 
+# local viewing: by:
+#
+#   (Sometimes) Delete the existing `LeDataSciFi-2022/_build/` directory
+#   run: jupyter-book build ./ 
+# 
+# A fully-rendered HTML version of the book will be built in the `_build/html/` 
+# folder. The terminal will give you a path to open that file in the browser.
+# (Simply copy-and-paste it into the URL box.)
+#
+# All files inside the content folder will get rendered as webpages, but to 
+# add them to the table of contents/navigation sidebar, you'll need to edit 
+# _toc.yml as well. 
+
+name: LDSF_site
+channels:
+  - defaults
+dependencies:
+  - python=3.8
+  - jupyter-book=0.10.1
+  - pip:
+    - sphinx-book-theme==0.0.39  
+    - mistune==0.8.4 

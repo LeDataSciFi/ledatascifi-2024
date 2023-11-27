@@ -1,0 +1,22 @@
+# these are the packages GitHub uses to build the website
+
+# the most "important" req is sphinx-book-theme=0.0.39. 
+# Later versions use pydata themes that complete change TOC behavior
+# so reproducing the collapsing behavior and coloring would require 
+# updates to the css files, if the new pydata theme even allows collapsing.
+
+jupyter-book
+matplotlib
+numpy
+ghp-import
+myst-parser==0.13.3 
+myst-nb==0.11.1
+sphinx-book-theme==0.0.39
+docutils==0.16 
+Jinja2<3.1
+ipython==8.12.0
+
+# between Sept 28 22 and Oct 7 22, something else broke... 
+# action errors mention this package, and 4.12.0 had worked...
+
+importlib-metadata<5
