@@ -2,7 +2,7 @@
 
 This readme is meant for myself and TAs, not students. 
 
-This repo is the 2023 edition of LeDataSciFi. The [ledatascifi.github.io](https://ledatascifi.github.io) repo hosts the website, but simply redirects to the cover page for _**this**_ repo. In future years, make a new years' website as a new repo by cloning this one (don't forget the GH action that deploys it!), and alter the redirect from the ledatascifi.github.io to the new website. 
+This repo is the 2024 edition of LeDataSciFi. The [ledatascifi.github.io](https://ledatascifi.github.io) repo hosts the website, but simply redirects to the cover page for _**this**_ repo. In future years, make a new years' website as a new repo by cloning this one (don't forget the GH action that deploys it!), and alter the redirect from the ledatascifi.github.io to the new website. 
 
 This repo contains the textbook, course details, data, and lecture files, making it simpler to move from year to year. The only portion of class _**outside**_ this repo is
 - the org has teams for discussion and many repos for assignments, etc
