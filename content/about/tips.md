@@ -7,7 +7,7 @@ I'm collecting some tips from around the site here. This is not comprehensive. I
 1. The &larr; and &rarr; keys will tab between pages on this website.
 1. The search bar is useful, but sometimes it doesn't "see" text inside of code blocks, so don't think "no results" is definitive.
 1. If you have any questions about something on the website: Click on the GH icon in the upper right, and then "open issue". 
-    - Depending on the nature of the question, you can tag me (@donbowen) and/or your classmates (@classmates-2023) to get their attention. 
+    - Depending on the nature of the question, you can tag me (@donbowen) and/or your classmates (@classmates-2024) to get their attention. 
     - I recommend tagging classmates in most cases - you'll get more answers, improve the discourse in the class, and often, answering your question will probably help other students. 
     - [How to ask for help to get the best answers](help.html#how-to-ask-for-help-in-a-way-that-gets-the-best-answers)
 1. If you spot errors, typos, have a suggestion to clarify a lesson: Click on the GH icon in the upper right, and then "suggest edit". Edit the pages as you would, describe the changes, and commit! I'll probably incorporate it, and you'll get extra credit! 
