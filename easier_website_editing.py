@@ -21,7 +21,7 @@ necessary.
 '''
 
 # We will look here for textbook files
-directory = 'C:/Users/DonsLaptop/Desktop/GitHub/ledatascifi-2023/content/' 
+directory = 'C:/Users/DonsLaptop/Desktop/GitHub/ledatascifi-2024/content/' 
 
 # skip files with these strings in the path
 filters = ['old ', 'ipynb_checkpoint']
