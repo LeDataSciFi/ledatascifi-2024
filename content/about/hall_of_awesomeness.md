@@ -95,7 +95,7 @@ This class is not possible without them.
 **2022: Julio Veracruz**
 
 ---
-:img-bottom: mike.png
+:img-bottom: img/mike.png
 
 **2023: Mike Rich**
 
