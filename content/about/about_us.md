@@ -12,7 +12,7 @@ My research: [https://bowen.finance](https://bowen.finance) <br>
 Email: deb219 <br>
 GitHub: donbowen <br> 
 <br>
-Somehow, I am still a Lions fan, even though stints in AZ, CA, PA, NY, TX, and FL has given me many chances to abandon ship!   ¯\\\_(ツ)\_/¯
+Somehow, I am still a Lions fan, even though stints in AZ, NY, MD, DC, CA, VA, PA and FL has given me many chances to abandon ship!   ¯\\\_(ツ)\_/¯
 
 ---
 <p style="font-size:18px; line-height:24px; color:#666666; margin:0 0 10px;">  <!-- makes it like H3 --> 
