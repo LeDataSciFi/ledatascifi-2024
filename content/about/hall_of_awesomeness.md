@@ -80,9 +80,9 @@ This class is not possible without them.
 ````{panels} 
 :column: col-sm-4
 
-:img-bottom: img/julio.jpg
+:img-bottom: img/appierto.jpg
 
-**2022: Julio Veracruz**
+**2020: Daniel Appierto**
 
 ---
 :img-bottom: img/jason.jpg
@@ -90,8 +90,13 @@ This class is not possible without them.
 **2021: Jason Dinh**
 
 ---
-:img-bottom: img/appierto.jpg
+:img-bottom: img/julio.jpg
 
-**2020: Daniel Appierto**
+**2022: Julio Veracruz**
+
+---
+:img-bottom: mike.png
+
+**2023: Mike Rich**
 
 ````
