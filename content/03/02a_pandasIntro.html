@@ -41,9 +41,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/frontpage.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/moviescript.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fin377_specialformatting.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/moviescript.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/frontpage.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -207,7 +207,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/mid_proj.html">
+  <a class="reference internal" href="../assignments/mid_proj_placeholder.html">
    Midterm project AKA ASGN 5
   </a>
  </li>
@@ -940,14 +940,14 @@ const thebe_selector_output = ".output, .cell_output"
 <h1><span class="section-number">3.2. </span>Powerful Pandas<a class="headerlink" href="#powerful-pandas" title="Permalink to this headline">¶</a></h1>
 <p>It’s time to learn <code class="docutils literal notranslate"><span class="pre">pandas</span></code>!</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="22151c44-a64d-432e-af56-5a9798dddeb4" name="472d58d3-48f9-43e9-b42a-f702b202e1f2" type="radio">
-</input><label class="tabbed-label" for="22151c44-a64d-432e-af56-5a9798dddeb4">
+<input checked="checked" id="c5d144e9-72e0-4487-9549-42569302c20f" name="5a40ae84-ae2f-406b-98ae-e7f890d633c4" type="radio">
+</input><label class="tabbed-label" for="c5d144e9-72e0-4487-9549-42569302c20f">
 Pandas=$</label><div class="tabbed-content docutils">
 <p>Pandas is worth the overhead.</p>
 <p>Pandas is the #1 way that professionals use tabular data in Python. (Read: Pandas get paid.)</p>
 </div>
-<input id="ed7082c7-2019-47f8-ba21-fddc14421c66" name="472d58d3-48f9-43e9-b42a-f702b202e1f2" type="radio">
-</input><label class="tabbed-label" for="ed7082c7-2019-47f8-ba21-fddc14421c66">
+<input id="e53a9e59-38c2-49a7-b9f2-b2f4f31ea371" name="5a40ae84-ae2f-406b-98ae-e7f890d633c4" type="radio">
+</input><label class="tabbed-label" for="e53a9e59-38c2-49a7-b9f2-b2f4f31ea371">
 Pandas is Fat</label><div class="tabbed-content docutils">
 <p><strong>Do not fret the size of Pandas</strong></p>
 <p><img alt="" src="https://media.giphy.com/media/nXwhk6k5R97Da/giphy.gif" />
@@ -960,19 +960,19 @@ Pandas is Fat</label><div class="tabbed-content docutils">
 <p>On top of trying to memorize (well, sort of) the available methods, a tough part of data science is conceptualizing how to shape and format and construct datasets so that algos you want to run can run and so that plots can plot.</p>
 <p>So I’m going to try to reduce it to the most common operations and make you aware of things you can do. By the end of the semester, your Pandas proficiency will have you feeling like <a class="reference external" href="https://media.giphy.com/media/3o84sq21TxDH6PyYms/giphy.gif">Sheev Palpy</a>.</p>
 </div>
-<input id="f2fcbd4b-81ba-48ef-8846-2566dc8e7813" name="472d58d3-48f9-43e9-b42a-f702b202e1f2" type="radio">
-</input><label class="tabbed-label" for="f2fcbd4b-81ba-48ef-8846-2566dc8e7813">
+<input id="cd571dd1-48d0-4ef8-b9be-8841895a2d47" name="5a40ae84-ae2f-406b-98ae-e7f890d633c4" type="radio">
+</input><label class="tabbed-label" for="cd571dd1-48d0-4ef8-b9be-8841895a2d47">
 Not happening</label><div class="tabbed-content docutils">
 <p>I promise it will go better than this</p>
 <p><img alt="" src="https://media.giphy.com/media/EPcvhM28ER9XW/giphy.gif" /></p>
 </div>
-<input id="e6cd3735-3cc3-435c-9170-7d87c3e1c1f3" name="472d58d3-48f9-43e9-b42a-f702b202e1f2" type="radio">
-</input><label class="tabbed-label" for="e6cd3735-3cc3-435c-9170-7d87c3e1c1f3">
+<input id="615d1624-fe95-4d7a-a404-e66e0eab1283" name="5a40ae84-ae2f-406b-98ae-e7f890d633c4" type="radio">
+</input><label class="tabbed-label" for="615d1624-fe95-4d7a-a404-e66e0eab1283">
 Cue the montage</label><div class="tabbed-content docutils">
 <p><img alt="" src="https://media.giphy.com/media/QxZ0nbcVgMlPlnfZos/giphy.gif" /></p>
 </div>
-<input id="796a00af-4f35-4b49-ab4f-532a945e5940" name="472d58d3-48f9-43e9-b42a-f702b202e1f2" type="radio">
-</input><label class="tabbed-label" for="796a00af-4f35-4b49-ab4f-532a945e5940">
+<input id="3b64ddb2-2f4b-4b0b-bcd9-ab6935d372ef" name="5a40ae84-ae2f-406b-98ae-e7f890d633c4" type="radio">
+</input><label class="tabbed-label" for="3b64ddb2-2f4b-4b0b-bcd9-ab6935d372ef">
 Soon</label><div class="tabbed-content docutils">
 <p><img alt="" src="https://media.giphy.com/media/fUSX3E4imAn9WHwrCV/giphy.gif" /></p>
 </div>
