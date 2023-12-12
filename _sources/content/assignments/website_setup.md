@@ -5,6 +5,7 @@ This webpage is a walkthrough that we will follow on a class day during the seme
 ## PURPOSE 
 - Learn how to build a website to show off your portfolio of work
 - You should update and improve the website, which will be graded for professionalism
+- [Grading details are below](#Grading)
 
 _Students with preexisting websites can use and update theirs._
 
@@ -104,7 +105,7 @@ _Note: If your team's key output is a dashboard/app instead of a report, you can
     - https://github.com/fastai/fastpages 
     - https://html5up.net/
 - HTML, CSS, Javascript-savvy users welcomed
-
+- Open your webpage in Edge browser and ask the AI Copilot for suggestions to improve it
 
 
 ## A little summary of some of your options for creating websites:
@@ -115,4 +116,16 @@ _Note: If your team's key output is a dashboard/app instead of a report, you can
 | Finding templates that you like, forking, and customizing  <br> <ul> <li> **https://jekyllthemes.io/** </li><li> **http://jekyllthemes.org/** </li><li> https://html5up.net/   </li></ul> | <ul> <li> Also easy start </li><li> Better customization options </li><li> Many have already-developed interactive table of contents, navigation bar, etc. features </li><li> Can also use Plotly, Altair to make interactive charts  </li></ul> | <ul> <li> Have to learn template's repo organizations </li><li> Need to reconfigure templates’ files to suit your own needs </li><li>  Have to “paste” output content into Markdown files </li><li>  Have to manually convert .ipynb files into MD or HTML to post </li><li> Some additional setup needed  </li></ul>                                                          |
 | Fastpages - https://github.com/fastai/fastpages                                                                                        | <ul> <li> Publishes ipynb files automatically </li><li> Interactive visualizations work automatically        </li></ul>                                                                                                          | <ul> <li> More overhead learning   </li></ul>                                                                                                                                                                           |
 | Jupyterbooks  <br> <ul> <li> https://jupyterbook.org/ </li><li> https://ledatascifi.github.io </li></ul> | <ul> <li> Oh la la </li><li> Lots of customization options </li><li> Best for larger projects </li></ul> | <ul> <li> Have to learn template's repo organizations </li><li> Need to reconfigure templates’ files to suit your own needs </li><li> Some additional setup needed  </li></ul>                                                          |
+
+## Grading
+
+The parts of the grade:
+1. Professionalism - How would a potential employer looking at it feel about it
+2. Deductions for non-working links
+3. Deduction if duplicate template photo remains
+4. Deductions for other unchanged template portions
+5. At least two "portfolio items":
+   - You can add or subtract the number of things you show. I included spots in the template for midterm, regression, team project, and something else. You don't need to use any or all of these. You should have at least 2 things, but there is no requirement about _what_ you show.
+   - You can update any materials from our class. For example, if you want to include your midterm work, you can update and modify it however you'd like to so that it shows off what you've learned. 
+
 
