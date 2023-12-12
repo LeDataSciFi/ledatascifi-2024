@@ -143,11 +143,13 @@
       - file: content/03/04f2-customizing_figs
       - file: content/03/04f3-interactive_figs
       - file: content/03/04f4-exercises
+      - file: content/03/04h_Summary
     - file: content/03/05a-otherskills
       sections:
       - file: content/03/05b_merging
       - file: content/03/05c_missingdata
       - file: content/03/05d_outliers
+      - file: content/03/05e_summary
      
   - file: content/04/00_World_Wide_Data
     title: "Building and Using Large (Textual) Data"
