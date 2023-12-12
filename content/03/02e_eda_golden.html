@@ -484,6 +484,11 @@ const thebe_selector_output = ".output, .cell_output"
        3.3.9. Exercises
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="04h_Summary.html">
+       3.3.10. Chapter Summary
+      </a>
+     </li>
     </ul>
     <i class="fas fa-chevron-down">
     </i>
@@ -506,6 +511,11 @@ const thebe_selector_output = ".output, .cell_output"
      <li class="toctree-l3">
       <a class="reference internal" href="05d_outliers.html">
        3.4.3. Dealing with Outliers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05e_summary.html">
+       3.4.4. Chapter Summary
       </a>
      </li>
     </ul>
@@ -1011,7 +1021,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ol>
 <p class="card-text">Some guidelines to follow throughout:</p>
 <ul class="simple">
-<li><p class="card-text">ABCD - Always be checking (looking) at your data!</p></li>
+<li><p class="card-text">ABCD - Always be checking (looking) at your data! Literally look at your data tables regularly, throughout the entire process, to spot issues you haven’t thought of.</p></li>
 <li><p class="card-text">The <a class="reference internal" href="../02/10_Golden_3.html"><span class="doc std std-doc">Chapter 2 golden rules </span></a></p></li>
 <li><p class="card-text">Record all steps in a script (<code class="docutils literal notranslate"><span class="pre">download_and_clean</span></code>).</p></li>
 <li><p class="card-text">Never overwrite the original raw data file.</p></li>
@@ -1065,24 +1075,40 @@ variables. Do not make changes by observation ID, another key, or (even worse) r
 <ol class="simple">
 <li><p class="card-text">What is the shape (# rows and variables) of the data? <code class="docutils literal notranslate"><span class="pre">df.shape</span></code></p></li>
 <li><p class="card-text">How much memory does it take, and what are the variable names/types? <code class="docutils literal notranslate"><span class="pre">df.info()</span></code></p></li>
-<li><p class="card-text">Summary stats on variables:</p>
+<li><p class="card-text">Explore  individual variables</p>
 <ul class="simple">
 <li><p class="card-text">Continuous variables: <code class="docutils literal notranslate"><span class="pre">df.describe()</span></code> - count, mean, sd, etc</p></li>
-<li><p class="card-text">Categorical variables: <code class="docutils literal notranslate"><span class="pre">df['var'].value_counts().head(10)</span></code> - the most common values of a variable</p></li>
+<li><p class="card-text">Categorical variables -frequency tables: <code class="docutils literal notranslate"><span class="pre">df['var'].value_counts().head(10)</span></code> - the most common values of a variable</p></li>
 <li><p class="card-text">Any variable: <code class="docutils literal notranslate"><span class="pre">df['var'].nunique()</span></code> - the number of unique values of a variable</p></li>
+<li><p class="card-text">Characterizing distributions ( <code class="docutils literal notranslate"><span class="pre">df['var'].plot()</span></code>)</p></li>
+<li><p class="card-text">Crosstabs (pandas <code class="docutils literal notranslate"><span class="pre">pivot_table</span></code>)</p></li>
+<li><p class="card-text"><a class="reference external" href="https://ledatascifi.github.io/ledatascifi-2024/content/03/04d-whichplot.html">Plots methods here</a></p></li>
+<li><p class="card-text">Think about how you should handle extreme values (fix errors, delete observation, or winsorize)</p></li>
+<li><p class="card-text">Think about how you should handle missing data (find, ignore, delete observation,  or (rarely) impute)</p></li>
+<li><p class="card-text">Should you transform variables (natural log, z-score, other less common options)</p></li>
+</ul>
+</li>
+<li><p class="card-text">Explore how variables are related</p>
+<ul class="simple">
+<li><p class="card-text">Pandas <code class="docutils literal notranslate"><span class="pre">.corr()</span></code> reports correlations</p></li>
+<li><p class="card-text"><a class="reference internal" href="04d-whichplot.html"><span class="doc std std-doc">Visual explorations described here</span></a>, <a class="reference internal" href="04e-visualEDA.html"><span class="doc std std-doc">here</span></a>, and <a class="reference internal" href="04e2-visualEDA-tools.html"><span class="doc std std-doc">here</span></a></p></li>
 </ul>
 </li>
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p class="card-text">Automate your initial EDA by putting something like the below in your codebook. Double tip: <a class="reference external" href="https://github.com/LeDataSciFi/ledatascifi-2024/tree/main/community_codebook">Look in the community codebook :)</a></p>
-<p class="card-text">You can refine this code as you learn - you’ll see more and more tips on how to improve your EDA as we go.</p>
+<ol class="simple">
+<li><p class="card-text">Automate parts of your initial EDA by putting something like the below in your codebook.</p></li>
+<li><p class="card-text"><a class="reference external" href="https://github.com/LeDataSciFi/ledatascifi-2024/tree/main/community_codebook">Look in the community codebook :)</a></p></li>
+<li><p class="card-text"><a class="reference external" href="https://github.com/ydataai/ydata-profiling"><code class="docutils literal notranslate"> <span class="pre">ydata-profiling</span></code> aka <code class="docutils literal notranslate"><span class="pre">pandas-profiling</span></code></a></p></li>
+<li><p class="card-text"><a class="reference internal" href="04e2-visualEDA-tools.html"><span class="doc std std-doc">Lux</span></a></p></li>
+</ol>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p class="card-text">Two things:</p>
 <ol class="simple">
-<li><p class="card-text">Don’t just run these and move on! Actually <strong>look</strong> at the output and check for possible issues. (Some possible issues are listed in the next drop down.)</p></li>
+<li><p class="card-text">Don’t just run these tests and move on! Actually <strong>look</strong> at the output and check for possible issues. (Some possible issues are listed in the next drop down.)</p></li>
 <li><p class="card-text">This isn’t a comprehensive list of things I’d do to check datasets, merely a reasonable start!</p></li>
 </ol>
 </div>

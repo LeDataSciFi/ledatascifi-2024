@@ -486,6 +486,11 @@ const thebe_selector_output = ".output, .cell_output"
        3.3.9. Exercises
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/04h_Summary.html">
+       3.3.10. Chapter Summary
+      </a>
+     </li>
     </ul>
     <i class="fas fa-chevron-down">
     </i>
@@ -508,6 +513,11 @@ const thebe_selector_output = ".output, .cell_output"
      <li class="toctree-l3">
       <a class="reference internal" href="../03/05d_outliers.html">
        3.4.3. Dealing with Outliers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03/05e_summary.html">
+       3.4.4. Chapter Summary
       </a>
      </li>
     </ul>
@@ -931,6 +941,20 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#one-more-example">
+   6.3.1. One more example
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -1098,6 +1122,218 @@ Standard errors in parentheses.
 </div>
 </div>
 <p><img alt="" src="https://media.giphy.com/media/YPTy760meD2xi/source.gif" /></p>
+<div class="section" id="one-more-example">
+<h2><span class="section-number">6.3.1. </span>One more example<a class="headerlink" href="#one-more-example" title="Permalink to this headline">¶</a></h2>
+<p>Here is a dataset showing how many coins some people have in their wallet, and the value of each:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Attribution: Example from UNKNOWN via @joshua_t_white (https://twitter.com/joshua_t_white/status/1655717884075581447)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">from</span> <span class="nn">statsmodels.iolib.summary2</span> <span class="kn">import</span> <span class="n">summary_col</span>
+
+<span class="c1"># Set the seed for reproducibility</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Create a dataset with 30 observations</span>
+<span class="n">wallets</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;quarters&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span>
+    <span class="s1">&#39;dimes&#39;</span><span class="p">:</span>    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span>
+    <span class="s1">&#39;nickels&#39;</span><span class="p">:</span>  <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span>
+    <span class="s1">&#39;pennies&#39;</span><span class="p">:</span>  <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="n">wallets</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s1">&#39;total_value = 0.25*quarters + 0.1*dimes + 0.05*nickels + 0.01*pennies&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">wallets</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>quarters</th>
+      <th>dimes</th>
+      <th>nickels</th>
+      <th>pennies</th>
+      <th>total_value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5</td>
+      <td>0</td>
+      <td>4</td>
+      <td>10</td>
+      <td>1.55</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>2</td>
+      <td>9</td>
+      <td>7</td>
+      <td>0.72</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>3</td>
+      <td>10</td>
+      <td>5</td>
+      <td>1.60</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>8</td>
+      <td>10</td>
+      <td>5</td>
+      <td>2.10</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>7</td>
+      <td>1</td>
+      <td>8</td>
+      <td>0</td>
+      <td>2.25</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>9</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2.61</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>3</td>
+      <td>3</td>
+      <td>1</td>
+      <td>5</td>
+      <td>1.15</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>5</td>
+      <td>3</td>
+      <td>7</td>
+      <td>9</td>
+      <td>1.99</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2</td>
+      <td>7</td>
+      <td>9</td>
+      <td>3</td>
+      <td>1.68</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>4</td>
+      <td>0</td>
+      <td>9</td>
+      <td>0</td>
+      <td>1.45</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Look at Model 1 below. When we regress <code class="docutils literal notranslate"><span class="pre">total_value</span></code> on the number of all of the coins, the regression coefficients uncover the value of each type of coin perfectly: R<span class="math notranslate nohighlight">\(^2\)</span> is 1 and the coefficients are measured without any error.</p>
+<p>But in Model 2, we don’t include quarters. This causes R<span class="math notranslate nohighlight">\(^2\)</span>  to fall all the way to 0.22, because in this dataset, the value of quarters is responsible for most of the value of each wallet.</p>
+<p>The other important thing to notice in Model 2 is what happens to the coefficient on the value of nickels and pennies: They are negative! When your regression omits a variable that is in the “true model” generating the data, it will <em>bias</em> the coefficients on other variables.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res1</span><span class="o">=</span> <span class="n">sm_ols</span><span class="p">(</span><span class="s1">&#39;total_value ~ quarters + dimes + nickels + pennies&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">wallets</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">res2</span><span class="o">=</span> <span class="n">sm_ols</span><span class="p">(</span><span class="s1">&#39;total_value ~            dimes + nickels + pennies&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">wallets</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">res3</span><span class="o">=</span> <span class="n">sm_ols</span><span class="p">(</span><span class="s1">&#39;total_value ~ quarters +         nickels + pennies&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">wallets</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">res4</span><span class="o">=</span> <span class="n">sm_ols</span><span class="p">(</span><span class="s1">&#39;total_value ~ quarters + dimes +           pennies&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">wallets</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">res5</span><span class="o">=</span> <span class="n">sm_ols</span><span class="p">(</span><span class="s1">&#39;total_value ~ quarters + dimes + nickels          &#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">wallets</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="c1"># Format the output table</span>
+<span class="n">info_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;No. observations&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">nobs</span><span class="p">)</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
+
+<span class="c1"># Display the summary table</span>
+<span class="n">summary_table</span> <span class="o">=</span> <span class="n">summary_col</span><span class="p">(</span><span class="n">results</span><span class="o">=</span><span class="p">[</span><span class="n">res1</span><span class="p">,</span><span class="n">res2</span><span class="p">,</span><span class="n">res3</span><span class="p">,</span><span class="n">res4</span><span class="p">,</span><span class="n">res5</span><span class="p">],</span>
+                            <span class="n">float_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%0.2f</span><span class="s1">&#39;</span><span class="p">,</span>
+                            <span class="n">stars</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                            <span class="n">model_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Model 1&#39;</span><span class="p">,</span><span class="s1">&#39;Model 2&#39;</span><span class="p">,</span><span class="s1">&#39;Model 3&#39;</span><span class="p">,</span><span class="s1">&#39;Model 4&#39;</span><span class="p">,</span><span class="s1">&#39;Model 5&#39;</span><span class="p">],</span>
+                            <span class="n">info_dict</span><span class="o">=</span><span class="n">info_dict</span><span class="p">,</span>
+                            <span class="n">regressor_order</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;quarters&#39;</span><span class="p">,</span> <span class="s1">&#39;dimes&#39;</span><span class="p">,</span> <span class="s1">&#39;nickels&#39;</span><span class="p">,</span> <span class="s1">&#39;pennies&#39;</span><span class="p">])</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">summary_table</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<tr>
+          <td></td>         <th>Model 1</th> <th>Model 2</th> <th>Model 3</th> <th>Model 4</th> <th>Model 5</th>
+</tr>
+<tr>
+  <th>quarters</th>         <td>0.25***</td>    <td></td>     <td>0.25***</td> <td>0.23***</td> <td>0.25***</td>
+</tr>
+<tr>
+  <th></th>                 <td>(0.00)</td>     <td></td>     <td>(0.02)</td>  <td>(0.01)</td>  <td>(0.00)</td> 
+</tr>
+<tr>
+  <th>dimes</th>            <td>0.10***</td> <td>0.10**</td>     <td></td>     <td>0.10***</td> <td>0.10***</td>
+</tr>
+<tr>
+  <th></th>                 <td>(0.00)</td>  <td>(0.04)</td>     <td></td>     <td>(0.01)</td>  <td>(0.00)</td> 
+</tr>
+<tr>
+  <th>nickels</th>          <td>0.05***</td>  <td>-0.04</td>  <td>0.05**</td>     <td></td>     <td>0.05***</td>
+</tr>
+<tr>
+  <th></th>                 <td>(0.00)</td>  <td>(0.04)</td>  <td>(0.02)</td>     <td></td>     <td>(0.00)</td> 
+</tr>
+<tr>
+  <th>pennies</th>          <td>0.01***</td>  <td>-0.03</td>   <td>0.01</td>    <td>0.01</td>      <td></td>    
+</tr>
+<tr>
+  <th></th>                 <td>(0.00)</td>  <td>(0.04)</td>  <td>(0.02)</td>  <td>(0.01)</td>     <td></td>    
+</tr>
+<tr>
+  <th>Intercept</th>         <td>0.00</td>   <td>1.92***</td>  <td>0.37</td>   <td>0.38***</td> <td>0.06**</td> 
+</tr>
+<tr>
+  <th></th>                 <td>(0.00)</td>  <td>(0.34)</td>  <td>(0.23)</td>  <td>(0.08)</td>  <td>(0.02)</td> 
+</tr>
+<tr>
+  <th>R-squared</th>         <td>1.00</td>    <td>0.22</td>    <td>0.83</td>    <td>0.97</td>    <td>1.00</td>  
+</tr>
+<tr>
+  <th>R-squared Adj.</th>    <td>1.00</td>    <td>0.13</td>    <td>0.81</td>    <td>0.96</td>    <td>1.00</td>  
+</tr>
+<tr>
+  <th>No. observations</th>   <td>30</td>      <td>30</td>      <td>30</td>      <td>30</td>      <td>30</td>   
+</tr>
+</table></div></div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
