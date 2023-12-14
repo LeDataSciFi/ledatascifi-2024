@@ -16,18 +16,17 @@ Somehow, I am still a Lions fan, even though stints in AZ, NY, MD, DC, CA, VA, P
 
 ---
 <p style="font-size:18px; line-height:24px; color:#666666; margin:0 0 10px;">  <!-- makes it like H3 --> 
-<b> TA - Mike Rich  </b>
+<b> TA - Brooks Walsh  </b>
 </p>
 ^^^
-```{image} img/mike.png
-:alt: mike
+```{image} img/brooks.jpg
+:alt: Picture of TA
 ```
-Personal website:  <a href="https://mikebrich.github.io/">https://mikebrich.github.io/</a> <br>
-Linkedin: <a href="https://www.linkedin.com/in/michaelrich01/">https://www.linkedin.com/in/michaelrich01/</a> <br>
-Email: mbr223  <br>
-GitHub: mikebrich  <br> 
+Personal website:  <a href="https://brookswalsh.github.io/">https://brookswalsh.github.io/</a> <br>
+Email: lbw223  <br>
+GitHub: BrooksWalsh  <br> 
 <br>
-I am a senior studying Financial Engineering with special interests in startups, traveling (still yet to go to Europe), and acoustic guitar.
+I am a senior majoring in finance with a computer science minor. My interests include: watching a good Liverpool game, going for a hike, and learning something new.
 ````
 
 ### Drop-in Hours aka "Office Hours"
