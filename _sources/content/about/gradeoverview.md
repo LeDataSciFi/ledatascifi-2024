@@ -12,15 +12,16 @@ Another time, for the people in the back:
 
 ^^^
 
-```{tabbed}  Participation (20%)
+```{tabbed}  Participation (25%)
 Participation is both on the discussion board and during class. Participation is especially important in this class because it incentivizes staying current; this is not a class where late cramming is viable. Crucially, it will help us build a community where learning this material is less frustrating and more enjoyable.
 
 From most important to (just slightly) less important:
 - Discussion board replies: answering questions and/or moving conversations forward, being helpful and polite
 - Discussion board posts: asking questions-but don't spam the board with low effort posts, sharing fun and related articles or code snippets ("Look what I found! Maybe this is useful")[^sharecode]
-- Presenting pre-class exercise attempts (good faith attempts)
+- "Demos": In some classes, a few students will present exercises I assignment before class (good faith attempts)
+- Contributions to in-class discussions 
+- In class quizzes (high frequency, low stakes) for knowlewdge retrieval and attention maintenance
 - In-class coding (mostly effort based)
-- Contributions to in-class discussions and poll/quiz answers
 - Easter egg hunts on the site and [improving our functions (see the "feature requests")](https://github.com/LeDataSciFi/ledatascifi-2024/blob/main/community_codebook)
 - Improving the site/class: finding and fixing typos, suggesting materials
 - _If we are doing virtual sessions:_ Is your camera on when I randomly take snapshots of the gallery? 
@@ -37,7 +38,7 @@ About 7 assignments. Subject to some fiddling.
 
 ```
 
-```{tabbed}  Peer review (20%)
+```{tabbed}  Peer Review (15%)
 You should aspire to 
 - Write accurate and honest reviews
 - Actually run the code to verify accuracy
@@ -49,7 +50,7 @@ What I love about this is that it puts you on the precipice of truly large-scale
 
 It's going to be fun! 
 
-See the [project description page](../assignments/mid_proj_placeholder) for more. 
+See the midterm project description page in the assignments section of the site for more. 
 
 ```
 
@@ -60,7 +61,7 @@ Students develop a website to show their results and present their work to the c
 
 I've really enjoyed this in past years, and look forward to seeing what everyone comes up with! 
 
-See the [project description page](../assignments/project) for more. 
+See the final project description page in the assignments section of the site for more. 
 
 ```
 ````
