@@ -12,7 +12,7 @@ Another time, for the people in the back:
 
 ^^^
 
-```{tabbed}  Participation (25%)
+```{tabbed}  Participation (20%)
 Participation is both on the discussion board and during class. Participation is especially important in this class because it incentivizes staying current; this is not a class where late cramming is viable. Crucially, it will help us build a community where learning this material is less frustrating and more enjoyable.
 
 From most important to (just slightly) less important:
@@ -29,7 +29,7 @@ From most important to (just slightly) less important:
 
 [^sharecode]: Obviously, don't share code used on assignments
 
-```{tabbed} Assignments (30%)
+```{tabbed} Assignments (35%)
 About 7 assignments. Subject to some fiddling. 
 - Each assignment grade will come from an average of two peer reviews (which will be adjusted if they have objective errors or large subjective ones)
 - **Unless explicitly noted, all assignments must be completed individually.**
