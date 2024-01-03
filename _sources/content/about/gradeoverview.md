@@ -16,11 +16,11 @@ Another time, for the people in the back:
 Participation is both on the discussion board and during class. Participation is especially important in this class because it incentivizes staying current; this is not a class where late cramming is viable. Crucially, it will help us build a community where learning this material is less frustrating and more enjoyable.
 
 From most important to (just slightly) less important:
+- In class quizzes (high frequency, low stakes) for knowlewdge retrieval and attention maintenance
+- "Demos": In some classes, a few students will present exercises I assignment before class (good faith attempts)
 - Discussion board replies: answering questions and/or moving conversations forward, being helpful and polite
 - Discussion board posts: asking questions-but don't spam the board with low effort posts, sharing fun and related articles or code snippets ("Look what I found! Maybe this is useful")[^sharecode]
-- "Demos": In some classes, a few students will present exercises I assignment before class (good faith attempts)
 - Contributions to in-class discussions 
-- In class quizzes (high frequency, low stakes) for knowlewdge retrieval and attention maintenance
 - In-class coding (mostly effort based)
 - Easter egg hunts on the site and [improving our functions (see the "feature requests")](https://github.com/LeDataSciFi/ledatascifi-2024/blob/main/community_codebook)
 - Improving the site/class: finding and fixing typos, suggesting materials
@@ -32,9 +32,20 @@ From most important to (just slightly) less important:
 ```{tabbed} Assignments (35%)
 About 7 assignments. Subject to some fiddling. 
 - Each assignment grade will come from an average of two peer reviews (which will be adjusted if they have objective errors or large subjective ones)
+- Peers will review and provide comments, the teaching team will assign grades
 - **Unless explicitly noted, all assignments must be completed individually.**
 - Changes to submissions after the deadline **will be ignored.**
 - Missed assignments will receive a zero. 
+
+Eight assignments:
+1. Python + GitHub
+1. Pandas
+1. Data visualization
+1. Data wrangling
+1. Regression
+1. Machine Learning
+1. Machine Learning Contest
+1. Personal Website
 
 ```
 
