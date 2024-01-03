@@ -16,7 +16,7 @@ Another time, for the people in the back:
 Participation is both on the discussion board and during class. Participation is especially important in this class because it incentivizes staying current; this is not a class where late cramming is viable. Crucially, it will help us build a community where learning this material is less frustrating and more enjoyable.
 
 From most important to (just slightly) less important:
-- In class quizzes (high frequency, low stakes) for knowlewdge retrieval and attention maintenance
+- In class quizzes (high frequency, low stakes) for knowledge retrieval and attention maintenance
 - "Demos": In some classes, a few students will present exercises I assignment before class (good faith attempts)
 - Discussion board replies: answering questions and/or moving conversations forward, being helpful and polite
 - Discussion board posts: asking questions-but don't spam the board with low effort posts, sharing fun and related articles or code snippets ("Look what I found! Maybe this is useful")[^sharecode]

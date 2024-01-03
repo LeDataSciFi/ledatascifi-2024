@@ -13,6 +13,9 @@ Caveat: This does not apply to figuring out how to **solve** solo assignment pro
 :class: tip
 1. Help functions and documentation.
 1. Search Google/Stack Overflow. Stack Overflow in particular is where the programming community asks and answers questions.
+1. If it's an error code: 
+    - Read the error code, the issue is usually described sufficiently. 
+    - Copy and paste your bad code and the error output into ChatGPT. _Note: If you copy code into ChatGPT which contains the prompt or enough information, you might be given the answer. This subverts the goal of learning and, if you copy in enough info, can constitute cheating. [See the GPT policy page.](use_of_gpt)_
 1. Read the [tips below](#how-to-ask-for-help-in-a-way-that-gets-the-best-answers), then **ask your peers by posting an issue in the [classmates team](https://github.com/orgs/LeDataSciFi/teams/classmates-2022).** 
 1. Post your problem as a question on Stack Overflow. 
 1. The TA's email and/or office hours.
