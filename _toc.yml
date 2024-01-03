@@ -21,6 +21,8 @@
   - file: content/about/about_us
     title: "About us + office hours" 
   - file: content/about/structure_and_policies
+  - file: content/about/use_of_gpt
+    title: "ChatGPT and other AI" 
   - file: content/about/gradeoverview
   - file: content/about/interest
   - file: content/about/bootcamp

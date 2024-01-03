@@ -33,7 +33,7 @@ channels:
   - defaults
 dependencies:
   - python=3.8
-  - jupyter-book=0.10.1
   - pip:
+    - jupyter-book==0.10.1
     - sphinx-book-theme==0.0.39  
     - mistune==0.8.4 
