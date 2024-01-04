@@ -1010,8 +1010,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>There are a few popular auto-formatters (black, yapf, and autopep8). In my <a class="reference external" href="../01/05_jupyterlab.html#my-jupyter-lab-set-up">JupyterLab set up</a>, I explain how I set up Black, the “uncompromising Python code formatter” which is very opinionated (“any color you’d like, as long as it is black”).</p>
 <p>Look at what Black does to this code:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="2a0cc681-9cc6-422f-b380-8982c64b7151" name="64275351-0a3d-4e7e-80da-519aaac42a90" type="radio">
-</input><label class="tabbed-label" for="2a0cc681-9cc6-422f-b380-8982c64b7151">
+<input checked="checked" id="86917740-3543-42e6-b767-2c46a37613e5" name="2da2200f-6863-468e-903d-696a36c9fdc0" type="radio">
+</input><label class="tabbed-label" for="86917740-3543-42e6-b767-2c46a37613e5">
 Ugly Code I wrote</label><div class="tabbed-content docutils">
 <p>This function is too long to even read:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">very_important_function</span><span class="p">(</span><span class="n">template</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="n">variables</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">PathLike</span><span class="p">,</span> <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">header</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">debug</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
@@ -1021,8 +1021,8 @@ Ugly Code I wrote</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="167f9e37-ad6f-47a5-b9a0-412032291136" name="64275351-0a3d-4e7e-80da-519aaac42a90" type="radio">
-</input><label class="tabbed-label" for="167f9e37-ad6f-47a5-b9a0-412032291136">
+<input id="6657f893-563b-463a-be1c-a264a85554ae" name="2da2200f-6863-468e-903d-696a36c9fdc0" type="radio">
+</input><label class="tabbed-label" for="6657f893-563b-463a-be1c-a264a85554ae">
 Black fixed it</label><div class="tabbed-content docutils">
 <p>I hit CTRL+SHIFT+F and this was the result:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">very_important_function</span><span class="p">(</span>
@@ -1062,38 +1062,44 @@ Black fixed it</label><div class="tabbed-content docutils">
 <p>A magic number is a literal number or parameter value embedded in your code. Having numbers that act as in-line inputs and parameters can easily lead to errors and make modifying code very tough.</p>
 <p>Here is an example that tries to download and stock price data.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="89e709f6-ed31-4850-9d79-ec3fef4a5bb0" name="5d72531c-c673-47c7-b7f8-6aaccb660dac" type="radio">
-</input><label class="tabbed-label" for="89e709f6-ed31-4850-9d79-ec3fef4a5bb0">
+<input checked="checked" id="03a62844-fbb5-41bb-aa74-d92d6c4ad31d" name="225feff2-d524-4cce-80a3-131e4935e5a9" type="radio">
+</input><label class="tabbed-label" for="03a62844-fbb5-41bb-aa74-d92d6c4ad31d">
 Bad</label><div class="tabbed-content docutils">
 <p>If I want to change the stocks included, I’ll need to change the list of stocks twice.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas_datareader</span> <span class="k">as</span> <span class="nn">pdr</span>  
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">yfinance</span> <span class="k">as</span> <span class="nn">yf</span>
 
 <span class="c1"># load stock returns </span>
 <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2004</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2007</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
-<span class="n">stock_prices</span> <span class="o">=</span> <span class="n">pdr</span><span class="o">.</span><span class="n">get_data_yahoo</span><span class="p">([</span><span class="s1">&#39;MSFT&#39;</span><span class="p">,</span><span class="s1">&#39;AAPL&#39;</span><span class="p">],</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">)</span>
-<span class="n">stock_prices</span> <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">like</span><span class="o">=</span><span class="s1">&#39;Adj Close&#39;</span><span class="p">)</span> 
-<span class="n">stock_prices</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;MSFT&#39;</span><span class="p">,</span><span class="s1">&#39;AAPL&#39;</span><span class="p">]</span> 
+
+<span class="n">stock_prices</span>         <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">([</span><span class="s1">&#39;MSFT&#39;</span><span class="p">,</span><span class="s1">&#39;AAPL&#39;</span><span class="p">],</span> <span class="n">start</span> <span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+<span class="n">stock_prices</span><span class="o">.</span><span class="n">index</span>   <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>      <span class="c1"># change yf date format to match pdr</span>
+<span class="n">stock_prices</span>         <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">like</span><span class="o">=</span><span class="s1">&#39;Adj Close&#39;</span><span class="p">)</span>     <span class="c1"># reduce to just columns with this in the name</span>
+<span class="n">stock_prices</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;MSFT&#39;</span><span class="p">,</span><span class="s1">&#39;AAPL&#39;</span><span class="p">]</span>
+
 
 <span class="c1"># do more stuff...</span>
 </pre></div>
 </div>
 </div>
-<input id="ee132cc9-5620-476d-abeb-5a0da8f65f34" name="5d72531c-c673-47c7-b7f8-6aaccb660dac" type="radio">
-</input><label class="tabbed-label" for="ee132cc9-5620-476d-abeb-5a0da8f65f34">
+<input id="5997e135-ff5f-43aa-81a7-32be3eebcb0d" name="225feff2-d524-4cce-80a3-131e4935e5a9" type="radio">
+</input><label class="tabbed-label" for="5997e135-ff5f-43aa-81a7-32be3eebcb0d">
 Good</label><div class="tabbed-content docutils">
 <p>Now I only need to change the variable <code class="docutils literal notranslate"><span class="pre">stocks</span></code> to alter the entire code.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas_datareader</span> <span class="k">as</span> <span class="nn">pdr</span>  
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">yfinance</span> <span class="k">as</span> <span class="nn">yf</span>
 
 <span class="c1"># load stock returns </span>
 <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2004</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2007</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
 <span class="n">stocks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;MSFT&#39;</span><span class="p">,</span><span class="s1">&#39;AAPL&#39;</span><span class="p">]</span>
-<span class="n">stock_prices</span> <span class="o">=</span> <span class="n">pdr</span><span class="o">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="n">stocks</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">)</span>
-<span class="n">stock_prices</span> <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">like</span><span class="o">=</span><span class="s1">&#39;Adj Close&#39;</span><span class="p">)</span> 
-<span class="n">stock_prices</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">stocks</span> 
+<span class="n">stock_prices</span>         <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">stocks</span><span class="p">,</span> <span class="n">start</span> <span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+<span class="n">stock_prices</span><span class="o">.</span><span class="n">index</span>   <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>      <span class="c1"># change yf date format to match pdr</span>
+<span class="n">stock_prices</span>         <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">like</span><span class="o">=</span><span class="s1">&#39;Adj Close&#39;</span><span class="p">)</span>     <span class="c1"># reduce to just columns with this in the name</span>
+<span class="n">stock_prices</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># tickers as col names, works no matter order of tics</span>
 
 <span class="c1"># do more stuff...</span>
 </pre></div>

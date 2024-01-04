@@ -1042,7 +1042,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install pandas_datareader # uncomment and run this ONE TIME ONLY to install pandas data reader</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># uncomment and run this to install packages</span>
+<span class="c1"># after you successfully do that, add the comments back</span>
+<span class="c1">#!pip install pandas_datareader </span>
+<span class="c1">#!pip install yfinance </span>
 </pre></div>
 </div>
 </div>
@@ -1053,6 +1056,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas_datareader</span> <span class="k">as</span> <span class="nn">pdr</span> <span class="c1"># you might need to install this (see above)</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">yfinance</span> <span class="k">as</span> <span class="nn">yf</span>
 </pre></div>
 </div>
 </div>
@@ -1081,9 +1085,10 @@ The returns don’t even have to be firms! They can be any asset. (Portfolios, m
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># download stock prices </span>
 <span class="c1"># here, from yahoo: not my fav source, but quick. </span>
 <span class="c1"># we need to do some data manipulation to get the data ready </span>
-<span class="n">stock_prices</span> <span class="o">=</span> <span class="n">pdr</span><span class="o">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="n">stocks</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">)</span>
-<span class="n">stock_prices</span> <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">like</span><span class="o">=</span><span class="s1">&#39;Adj Close&#39;</span><span class="p">)</span> <span class="c1"># reduce to just columns with this in the name</span>
-<span class="n">stock_prices</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">stocks</span> <span class="c1"># put their tickers as column names</span>
+<span class="n">stock_prices</span>         <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">stocks</span><span class="p">,</span> <span class="n">start</span> <span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+<span class="n">stock_prices</span><span class="o">.</span><span class="n">index</span>   <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>      <span class="c1"># change yf date format to match pdr</span>
+<span class="n">stock_prices</span>         <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">like</span><span class="o">=</span><span class="s1">&#39;Adj Close&#39;</span><span class="p">)</span>     <span class="c1"># reduce to just columns with this in the name</span>
+<span class="n">stock_prices</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># tickers as col names, works no matter order of tics</span>
 
 <span class="c1"># refmt from wide to long</span>
 <span class="n">stock_prices</span> <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">swaplevel</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
