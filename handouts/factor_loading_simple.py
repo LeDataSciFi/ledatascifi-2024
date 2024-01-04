@@ -13,6 +13,7 @@
 
 
 #!pip install pandas_datareader # uncomment and run this ONE TIME ONLY to install pandas data reader
+#!pip install yfinance # uncomment and run this ONE TIME ONLY to install pandas data reader
 
 import pandas as pd
 import numpy as np
@@ -33,9 +34,11 @@ end    = datetime(2016, 12, 31)
 # download stock prices 
 # here, from yahoo: not my fav source, but quick. 
 # we need to do some data manipulation to get the data ready 
-stock_prices = pdr.get_data_yahoo(stocks, start=start, end=end)
-stock_prices = stock_prices.filter(like='Adj Close') # reduce to just columns with this in the name
-stock_prices.columns = stocks # put their tickers as column names
+import yfinance as yf
+stock_prices         = yf.download(stocks, start , end)
+stock_prices.index   = stock_prices.index.tz_localize(None)      # change yf date format to match pdr
+stock_prices         = stock_prices.filter(like='Adj Close')     # reduce to just columns with this in the name
+stock_prices.columns = stock_prices.columns.get_level_values(1)  # tickers as col names, works no matter order of tics
 stock_prices # uncomment to print and see
 
 # this is wide data... so if we want to create a new variable, 
