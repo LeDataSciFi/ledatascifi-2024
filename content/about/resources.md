@@ -10,11 +10,12 @@ If you have any favorite resources you like, or found helpful, please let me kno
 - Help: Google, [Stack Overflow](https://stackoverflow.com), [Github help](https://help.github.com), [JupyterLab documentation](https://jupyterlab.readthedocs.io/en/stable/index.html), [Python help](https://www.python.org/doc/)
 - [Cheat sheets to bookmark/print!](https://github.com/LeDataSciFi/ledatascifi-2024/tree/main/cheatsheets) **Better yet, download these to your Class Notes repo/folder, and put them inside a folder called "Cheatsheats"!**
     - Included in this folder: python basics, jupyter notebook, importing data, numpy, pandas, seaborn, and scikit-learn
-- [Coding best practices, and project management](https://web.stanford.edu/~gentzkow/research/CodeAndData.xhtml)
+- [Coding best practices, and project management](https://web.stanford.edu/~gentzkow/research/CodeAndData.xhtml), which [Chapter 2 of our textbook](../02/10_Golden_1) is based on
 - [Supercharged finance packages](../05/05c_finpacks) (for use on the class project or after the semester), including
     - Packages to easily build apps/dashboards
     - A free way to get most of the functionality of a Bloomberg terminal
-    - A coding co-pilot 
+    - A coding co-pilot
+    - [Rice's site that uses python code to understand options and futures, fixed income, portfolio management, and introductory finance.](https://learn-investments.rice-business.org/)
 ```
 
 ```{dropdown} Jobs, internships, grad school
