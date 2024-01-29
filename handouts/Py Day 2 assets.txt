@@ -1,0 +1,5 @@
+stonks = ['GM','F','TSLA','MSFT']
+prices = {'GM':10,'F':20,'TSLA':1000,'MSFT':500}
+shares = {'GM':4,'F':3,'TSLA':2,'MSFT':2}
+weights = {'GM':0.35,'F':0.4,'TSLA':0.3,'MSFT':-0.05} # not typo
+industry = {'GM':'auto','F':'auto','TSLA':'auto','MSFT':'tech'}
