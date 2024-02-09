@@ -38,7 +38,7 @@ Warning
 **Upcoming Task Deadlines**
 ^^^
 
-These should be completed **BEFORE the 9:20am class starts.** 
+These should be completed **BEFORE the 10:45am class starts.** 
 
 <iframe width="100%" height="350" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=B6491313208C1D5B%21308&authkey=%21AIk3EU7idgpcC8o&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Tasks'!F1%3AH500&wdHideGridlines=True&wdInConfigurator=True"></iframe>
 
