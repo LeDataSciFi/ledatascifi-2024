@@ -3,71 +3,59 @@
 
 <html>
   <head>
-   <!-- Global site tag (gtag.js) - Google Analytics -->
-   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHB6CBHE8P"></script>
-   <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-QHB6CBHE8P');
-   </script>
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3.2. Powerful Pandas &#8212; LeDataSciFi-2024</title>
+    <title>Module 4 - Prediction Models and Data Analysis &#8212; LeDataSciFi-2024</title>
     
-  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     
       
   <link rel="stylesheet"
-    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
   <link rel="stylesheet"
-    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/fin377_specialformatting.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/frontpage.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/moviescript.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/fin377_specialformatting.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/frontpage.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/moviescript.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3.2.1. Some tips as we proceed" href="02a_pandasTips.html" />
-    <link rel="prev" title="3.1.4. More Resources" href="01d_NumpyResources.html" />
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -84,15 +72,15 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../../index.html">
+<a class="navbar-brand text-wrap" href="../index.html">
   
-  <img src="../../_static/logo.png" class="logo" alt="logo">
+  <img src="../_static/logo.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">LeDataSciFi-2024</h1>
   
 </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
@@ -104,52 +92,52 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../about/objectives.html">
+  <a class="reference internal" href="../content/about/objectives.html">
    Objectives
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../about/outcomes.html">
+  <a class="reference internal" href="../content/about/outcomes.html">
    Outcomes
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../about/about_us.html">
+  <a class="reference internal" href="../content/about/about_us.html">
    About us + office hours
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../about/structure_and_policies.html">
+  <a class="reference internal" href="../content/about/structure_and_policies.html">
    Course structure + policies
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../about/use_of_gpt.html">
+  <a class="reference internal" href="../content/about/use_of_gpt.html">
    ChatGPT and other AI
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../about/gradeoverview.html">
+  <a class="reference internal" href="../content/about/gradeoverview.html">
    Grading
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../about/interest.html">
+  <a class="reference internal" href="../content/about/interest.html">
    Interested but unsure?
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../about/bootcamp.html">
+  <a class="reference internal" href="../content/about/bootcamp.html">
    Pre-Class Bootcamp
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../about/hall_of_awesomeness.html">
+  <a class="reference internal" href="../content/about/hall_of_awesomeness.html">
    The Hall of Awesomeness
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../about/acknowledgments.html">
+  <a class="reference internal" href="../content/about/acknowledgments.html">
    Gratitude
   </a>
  </li>
@@ -161,22 +149,22 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../about/schedule.html">
+  <a class="reference internal" href="../content/about/schedule.html">
    Dashboard, key links, schedule
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../about/help.html">
+  <a class="reference internal" href="../content/about/help.html">
    Help
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../about/resources.html">
+  <a class="reference internal" href="../content/about/resources.html">
    Resources
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../about/tips.html">
+  <a class="reference internal" href="../content/about/tips.html">
    Tips and hacks
   </a>
  </li>
@@ -202,27 +190,27 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/howto_do.html">
+  <a class="reference internal" href="../content/assignments/howto_do.html">
    How to start and turn in assignments
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/howto_review.html">
+  <a class="reference internal" href="../content/assignments/howto_review.html">
    How to do your peer reviews
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/mid_proj_placeholder.html">
+  <a class="reference internal" href="../content/assignments/mid_proj_placeholder.html">
    Midterm project AKA ASGN 5
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/website_setup.html">
+  <a class="reference internal" href="../content/assignments/website_setup.html">
    Personal Website AKA ASGN 9
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/project.html">
+  <a class="reference internal" href="../content/assignments/project.html">
    Final projects
   </a>
  </li>
@@ -232,64 +220,64 @@ const thebe_selector_output = ".output, .cell_output"
   Textbook
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../01/00_Getting_Started.html">
+  <a class="reference internal" href="../content/01/00_Getting_Started.html">
    1. Motivation and Getting Started
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../01/01_Motivation.html">
+    <a class="reference internal" href="../content/01/01_Motivation.html">
      1.1. Motivation
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../01/02_Setup.html">
+    <a class="reference internal" href="../content/01/02_Setup.html">
      1.2. Set up
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../01/03_github.html">
+    <a class="reference internal" href="../content/01/03_github.html">
      1.3. GitHub Basics
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../01/03a_githubworkflow.html">
+    <a class="reference internal" href="../content/01/03a_githubworkflow.html">
      1.4. The GitHub Workflow
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../01/04_Markdown.html">
+    <a class="reference internal" href="../content/01/04_Markdown.html">
      1.5. Markdown basics
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../01/05_jupyterlab.html">
+    <a class="reference internal" href="../content/01/05_jupyterlab.html">
      1.6. Jupyter Lab Basics
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../01/06_python.html">
+    <a class="reference internal" href="../content/01/06_python.html">
      1.7. Python Basics
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../01/07_debugging.html">
+    <a class="reference internal" href="../content/01/07_debugging.html">
      1.8. Debugging
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../01/07a_errors.html">
+    <a class="reference internal" href="../content/01/07a_errors.html">
      1.9. Errors
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../01/08_libraries.html">
+    <a class="reference internal" href="../content/01/08_libraries.html">
      1.10. Libraries/Packages
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../01/09_gitignore.html">
+    <a class="reference internal" href="../content/01/09_gitignore.html">
      1.11. Gitignore Files
     </a>
    </li>
@@ -298,47 +286,47 @@ const thebe_selector_output = ".output, .cell_output"
   </i>
  </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../02/10_Golden_1.html">
+  <a class="reference internal" href="../content/02/10_Golden_1.html">
    2. Good Analysis Practices
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../02/10_Golden_2.html">
+    <a class="reference internal" href="../content/02/10_Golden_2.html">
      2.1. A case study of bad research
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../02/10_Golden_3.html">
+    <a class="reference internal" href="../content/02/10_Golden_3.html">
      2.2. The golden rules
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../02/10_Golden_6.html">
+    <a class="reference internal" href="../content/02/10_Golden_6.html">
      2.3. Organizing your projects
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../02/10_Golden_7.html">
+    <a class="reference internal" href="../content/02/10_Golden_7.html">
      2.4. Filepaths
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../02/10_Golden_4.html">
+    <a class="reference internal" href="../content/02/10_Golden_4.html">
      2.5. Storing data smartly
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../02/10_Golden_5a.html">
+    <a class="reference internal" href="../content/02/10_Golden_5a.html">
      2.6. Functions
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../02/10_Golden_5b.html">
+    <a class="reference internal" href="../content/02/10_Golden_5b.html">
      2.7. Writing good code comments
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../02/10_Golden_8.html">
+    <a class="reference internal" href="../content/02/10_Golden_8.html">
      2.8. Writing good code
     </a>
    </li>
@@ -346,33 +334,33 @@ const thebe_selector_output = ".output, .cell_output"
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 current active collapsible-parent">
-  <a class="reference internal" href="00_Data_Wrangling_Intro.html">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../content/03/00_Data_Wrangling_Intro.html">
    3. Wrangling with Data
   </a>
-  <ul class="current collapse-ul">
+  <ul class="collapse-ul">
    <li class="toctree-l2 collapsible-parent">
-    <a class="reference internal" href="01_Numpy.html">
+    <a class="reference internal" href="../content/03/01_Numpy.html">
      3.1. Numpy
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
-      <a class="reference internal" href="01a_NumpyCS.html">
+      <a class="reference internal" href="../content/03/01a_NumpyCS.html">
        3.1.1. Numpy + Scientific Computing
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="01b_NumpyBasics.html">
+      <a class="reference internal" href="../content/03/01b_NumpyBasics.html">
        3.1.2. A (Very) Short Introduction
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="01c_NumpyPractice.html">
+      <a class="reference internal" href="../content/03/01c_NumpyPractice.html">
        3.1.3. Exercises
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="01d_NumpyResources.html">
+      <a class="reference internal" href="../content/03/01d_NumpyResources.html">
        3.1.4. More Resources
       </a>
      </li>
@@ -380,53 +368,53 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fas fa-chevron-down">
     </i>
    </li>
-   <li class="toctree-l2 current active collapsible-parent">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../content/03/02a_pandasIntro.html">
      3.2. Pandas
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
-      <a class="reference internal" href="02a_pandasTips.html">
+      <a class="reference internal" href="../content/03/02a_pandasTips.html">
        3.2.1. Tips
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="02b_pandasVocab.html">
+      <a class="reference internal" href="../content/03/02b_pandasVocab.html">
        3.2.2. Vocab and Long vs Wide Data
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="02c_commonFcns.html">
+      <a class="reference internal" href="../content/03/02c_commonFcns.html">
        3.2.3. Common Functions
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="02d_temp.html">
+      <a class="reference internal" href="../content/03/02d_temp.html">
        3.2.4. Temp. vs Perm. Objects
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="02e_eda_golden.html">
+      <a class="reference internal" href="../content/03/02e_eda_golden.html">
        3.2.5. Golden Rules + EDA
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="02f_chains.html">
+      <a class="reference internal" href="../content/03/02f_chains.html">
        3.2.6. Pandas Chains
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="02g_commontasks.html">
+      <a class="reference internal" href="../content/03/02g_commontasks.html">
        3.2.7. Common Tasks
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="02h_exercises.html">
+      <a class="reference internal" href="../content/03/02h_exercises.html">
        3.2.8. Exercises
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="02j_resourcesAndSum.html">
+      <a class="reference internal" href="../content/03/02j_resourcesAndSum.html">
        3.2.9. Summary and Resources
       </a>
      </li>
@@ -435,47 +423,47 @@ const thebe_selector_output = ".output, .cell_output"
     </i>
    </li>
    <li class="toctree-l2 collapsible-parent">
-    <a class="reference internal" href="04a-dataviz.html">
+    <a class="reference internal" href="../content/03/04a-dataviz.html">
      3.3. Data Visualization
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
-      <a class="reference internal" href="04b-whyplot.html">
+      <a class="reference internal" href="../content/03/04b-whyplot.html">
        3.3.1. The Role of Viz in Analysis
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="04c-makeplot.html">
+      <a class="reference internal" href="../content/03/04c-makeplot.html">
        3.3.2. Making a Plot
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="04d-whichplot.html">
+      <a class="reference internal" href="../content/03/04d-whichplot.html">
        3.3.3. Which Plot Type Should I Use?
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="04e-visualEDA.html">
+      <a class="reference internal" href="../content/03/04e-visualEDA.html">
        3.3.4. Visual EDA Walkthrough
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="04e2-visualEDA-tools.html">
+      <a class="reference internal" href="../content/03/04e2-visualEDA-tools.html">
        3.3.5. Visual EDA Tools
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="04f1-viz_narrative.html">
+      <a class="reference internal" href="../content/03/04f1-viz_narrative.html">
        3.3.6. Better Plots
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="04f2-customizing_figs.html">
+      <a class="reference internal" href="../content/03/04f2-customizing_figs.html">
        3.3.7. Customizing figures
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="04f3-interactive_figs.html">
+      <a class="reference internal" href="../content/03/04f3-interactive_figs.html">
        3.3.8. Interactive plots:
        <code class="docutils literal notranslate">
         <span class="pre">
@@ -485,12 +473,12 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="04f4-exercises.html">
+      <a class="reference internal" href="../content/03/04f4-exercises.html">
        3.3.9. Exercises
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="04h_Summary.html">
+      <a class="reference internal" href="../content/03/04h_Summary.html">
        3.3.10. Chapter Summary
       </a>
      </li>
@@ -499,27 +487,27 @@ const thebe_selector_output = ".output, .cell_output"
     </i>
    </li>
    <li class="toctree-l2 collapsible-parent">
-    <a class="reference internal" href="05a-otherskills.html">
+    <a class="reference internal" href="../content/03/05a-otherskills.html">
      3.4. Other (Important) Data Wrangling Skills
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
-      <a class="reference internal" href="05b_merging.html">
+      <a class="reference internal" href="../content/03/05b_merging.html">
        3.4.1. Merging
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="05c_missingdata.html">
+      <a class="reference internal" href="../content/03/05c_missingdata.html">
        3.4.2. Dealing with Missing Data
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="05d_outliers.html">
+      <a class="reference internal" href="../content/03/05d_outliers.html">
        3.4.3. Dealing with Outliers
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="05e_summary.html">
+      <a class="reference internal" href="../content/03/05e_summary.html">
        3.4.4. Chapter Summary
       </a>
      </li>
@@ -532,17 +520,17 @@ const thebe_selector_output = ".output, .cell_output"
   </i>
  </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../04/00_World_Wide_Data.html">
+  <a class="reference internal" href="../content/04/00_World_Wide_Data.html">
    4. Building and Using Large (Textual) Data
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../04/01_Intro_to_scraping.html">
+    <a class="reference internal" href="../content/04/01_Intro_to_scraping.html">
      4.1. Getting Data off the Web
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04/01a_openingAndParsing.html">
+    <a class="reference internal" href="../content/04/01a_openingAndParsing.html">
      4.2. Opening + Parsing
      <em>
       a
@@ -551,32 +539,32 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04/01b_spiders.html">
+    <a class="reference internal" href="../content/04/01b_spiders.html">
      4.3. Building a spider
     </a>
    </li>
    <li class="toctree-l2 collapsible-parent">
-    <a class="reference internal" href="../04/02_strings.html">
+    <a class="reference internal" href="../content/04/02_strings.html">
      4.4. Exploiting Textual Data
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
-      <a class="reference internal" href="../04/02a_Python%20Strings.html">
+      <a class="reference internal" href="../content/04/02a_Python%20Strings.html">
        4.4.1. Working with Python Strings
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../04/02b_regex.html">
+      <a class="reference internal" href="../content/04/02b_regex.html">
        4.4.2. Regex basics
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../04/02c_developing_a_regex.html">
+      <a class="reference internal" href="../content/04/02c_developing_a_regex.html">
        4.4.3. Developing a regex
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../04/02d_RegexApplication.html">
+      <a class="reference internal" href="../content/04/02d_RegexApplication.html">
        4.4.4. Intro to NLP - The Anchor Phase Technique
       </a>
      </li>
@@ -589,32 +577,32 @@ const thebe_selector_output = ".output, .cell_output"
   </i>
  </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../05/00_intro.html">
+  <a class="reference internal" href="../content/05/00_intro.html">
    5. Data Science Intro
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/01_bigpicture.html">
+    <a class="reference internal" href="../content/05/01_bigpicture.html">
      5.1. The promise of ML
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/01b_model_process.html">
+    <a class="reference internal" href="../content/05/01b_model_process.html">
      5.2. Planning a project
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/01a_MLgonewrong.html">
+    <a class="reference internal" href="../content/05/01a_MLgonewrong.html">
      5.3. ML Gone Wrong
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/01c_teams.html">
+    <a class="reference internal" href="../content/05/01c_teams.html">
      5.4. Coding in Teams
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/01d_sharingBigFiles.html">
+    <a class="reference internal" href="../content/05/01d_sharingBigFiles.html">
      5.5. Sharing large files
     </a>
    </li>
@@ -623,37 +611,37 @@ const thebe_selector_output = ".output, .cell_output"
   </i>
  </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../05/02_reg.html">
+  <a class="reference internal" href="../content/05/02_reg.html">
    6. Regression
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/02a_basics.html">
+    <a class="reference internal" href="../content/05/02a_basics.html">
      6.1. Basics and Notation
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/02b_mechanics.html">
+    <a class="reference internal" href="../content/05/02b_mechanics.html">
      6.2. Mechanics of running regressions
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/02c_goodnessOfFit.html">
+    <a class="reference internal" href="../content/05/02c_goodnessOfFit.html">
      6.3. Goodness of Fit
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/02d_interpretingCoefs.html">
+    <a class="reference internal" href="../content/05/02d_interpretingCoefs.html">
      6.4. Interpreting regression coefficients
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/02e_statisticalSig.html">
+    <a class="reference internal" href="../content/05/02e_statisticalSig.html">
      6.5. Statistical significance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/02f_warnings.html">
+    <a class="reference internal" href="../content/05/02f_warnings.html">
      6.6.
      <em>
       Significant
@@ -662,7 +650,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/02g_summary.html">
+    <a class="reference internal" href="../content/05/02g_summary.html">
      6.7. Summary and Resources
     </a>
    </li>
@@ -671,47 +659,47 @@ const thebe_selector_output = ".output, .cell_output"
   </i>
  </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../05/03_ML.html">
+  <a class="reference internal" href="../content/05/03_ML.html">
    7. ML - Intro &amp; Discussion
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/03a_ML_obj_and_tradeoff.html">
+    <a class="reference internal" href="../content/05/03a_ML_obj_and_tradeoff.html">
      7.1. The objective of machine learning
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/03f_leakage.html">
+    <a class="reference internal" href="../content/05/03f_leakage.html">
      7.2. Data Leakage - Illustration
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/03f_leakage3.html">
+    <a class="reference internal" href="../content/05/03f_leakage3.html">
      7.3. Data Leakage - Illustration 2
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/03f_leakage2.html">
+    <a class="reference internal" href="../content/05/03f_leakage2.html">
      7.4. Data Leakage Defined
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/03c_ModelEval.html">
+    <a class="reference internal" href="../content/05/03c_ModelEval.html">
      7.5. Model evaluation via cross validation (CV)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/03c1_OOS.html">
+    <a class="reference internal" href="../content/05/03c1_OOS.html">
      7.6. Model evaluation via Out-of-Sample (OOS)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/03d_whatToMax.html">
+    <a class="reference internal" href="../content/05/03d_whatToMax.html">
      7.7. Evaluating models
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/03e_whichModel.html">
+    <a class="reference internal" href="../content/05/03e_whichModel.html">
      7.8. Model selection
     </a>
    </li>
@@ -720,42 +708,42 @@ const thebe_selector_output = ".output, .cell_output"
   </i>
  </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../05/04a_SKLearn.html">
+  <a class="reference internal" href="../content/05/04a_SKLearn.html">
    8. ML - Code &amp; Implementation
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/04b_best_practices.html">
+    <a class="reference internal" href="../content/05/04b_best_practices.html">
      8.1. Best Practice Pseudo Code
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/04c_onemodel.html">
+    <a class="reference internal" href="../content/05/04c_onemodel.html">
      8.2. SKLearn Intro
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/04d_crossval.html">
+    <a class="reference internal" href="../content/05/04d_crossval.html">
      8.3. Cross-Validation
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/04e_pipelines.html">
+    <a class="reference internal" href="../content/05/04e_pipelines.html">
      8.4. Pipelines
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/04e1_preprocessing.html">
+    <a class="reference internal" href="../content/05/04e1_preprocessing.html">
      8.5. Preprocessing
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/04f_optimizing_a_model.html">
+    <a class="reference internal" href="../content/05/04f_optimizing_a_model.html">
      8.6. Optimizing a Model
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/04h_putting_together.html">
+    <a class="reference internal" href="../content/05/04h_putting_together.html">
      8.7. Many Models
     </a>
    </li>
@@ -764,37 +752,37 @@ const thebe_selector_output = ".output, .cell_output"
   </i>
  </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../05/05a_finapps.html">
+  <a class="reference internal" href="../content/05/05a_finapps.html">
    9. Finance Applications
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/05a_compounding.html">
+    <a class="reference internal" href="../content/05/05a_compounding.html">
      9.1. Compounding returns
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/05a_rolling.html">
+    <a class="reference internal" href="../content/05/05a_rolling.html">
      9.2. Rolling returns
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/05a_expanding.html">
+    <a class="reference internal" href="../content/05/05a_expanding.html">
      9.3. Expanding returns
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/05b_capm.html">
+    <a class="reference internal" href="../content/05/05b_capm.html">
      9.4. Estimating CAPM
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/05c_factorloadings.html">
+    <a class="reference internal" href="../content/05/05c_factorloadings.html">
      9.5. Estimating better models
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/05c_finpacks.html">
+    <a class="reference internal" href="../content/05/05c_finpacks.html">
      9.6. Supercharged resources/packages
     </a>
    </li>
@@ -803,22 +791,22 @@ const thebe_selector_output = ".output, .cell_output"
   </i>
  </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../05/06_thefuture.html">
+  <a class="reference internal" href="../content/05/06_thefuture.html">
    10. The Future
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/06a_saving.html">
+    <a class="reference internal" href="../content/05/06a_saving.html">
      10.1. Saving Your Work
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/06b_nextsteps.html">
+    <a class="reference internal" href="../content/05/06b_nextsteps.html">
      10.2. Faster, better, stronger
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05/06c_dashboards.html">
+    <a class="reference internal" href="../content/05/06c_dashboards.html">
      10.3. Dashboards
     </a>
    </li>
@@ -834,12 +822,12 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../slides/slides.html">
+  <a class="reference internal" href="../content/slides/slides.html">
    Slides from previous classes
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../slides/memes.html">
+  <a class="reference internal" href="../content/slides/memes.html">
    Memes
   </a>
  </li>
@@ -879,7 +867,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/03/02a_pandasIntro.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/handouts/Module 4 Notes.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -899,10 +887,10 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/LeDataSciFi/ledatascifi-2024/issues/new?title=Issue%20on%20page%20%2Fcontent/03/02a_pandasIntro.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/LeDataSciFi/ledatascifi-2024/issues/new?title=Issue%20on%20page%20%2Fhandouts/Module 4 Notes.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/LeDataSciFi/ledatascifi-2024/edit/main/content/03/02a_pandasIntro.ipynb"><button
+        <a class="edit-button" href="https://github.com/LeDataSciFi/ledatascifi-2024/edit/main/handouts/Module 4 Notes.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -922,17 +910,17 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/LeDataSciFi/ledatascifi-2024/main?urlpath=lab/tree/content/03/02a_pandasIntro.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/LeDataSciFi/ledatascifi-2024/main?urlpath=lab/tree/handouts/Module 4 Notes.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
+                    src="../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/LeDataSciFi/ledatascifi-2024/blob/main/content/03/02a_pandasIntro.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/LeDataSciFi/ledatascifi-2024/blob/main/handouts/Module 4 Notes.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../../_static/images/logo_colab.png"
+                    src="../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
         
         
@@ -944,6 +932,35 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#skills-and-concepts-to-learn-in-this-module">
+   Skills AND CONCEPTS to learn in this Module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modeling-notes">
+   Modeling Notes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regression-notes">
+   Regression Notes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#machine-learning-notes">
+   Machine Learning Notes
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -951,48 +968,70 @@ const thebe_selector_output = ".output, .cell_output"
         
               <div>
                 
-  <div class="section" id="powerful-pandas">
-<h1><span class="section-number">3.2. </span>Powerful Pandas<a class="headerlink" href="#powerful-pandas" title="Permalink to this headline">¶</a></h1>
-<p>It’s time to learn <code class="docutils literal notranslate"><span class="pre">pandas</span></code>!</p>
-<div class="tabbed-set docutils">
-<input checked="checked" id="7408978a-62e4-4d7b-8115-c7a8a2cd5124" name="9f72e935-0c0f-4c57-afce-49d18dc86e5d" type="radio">
-</input><label class="tabbed-label" for="7408978a-62e4-4d7b-8115-c7a8a2cd5124">
-Pandas=$</label><div class="tabbed-content docutils">
-<p>Pandas is worth the overhead.</p>
-<p>Pandas is the #1 way that professionals use tabular data in Python. (Read: Pandas get paid.)</p>
+  <div class="section" id="module-4-prediction-models-and-data-analysis">
+<h1>Module 4 - Prediction Models and Data Analysis<a class="headerlink" href="#module-4-prediction-models-and-data-analysis" title="Permalink to this headline">¶</a></h1>
+<p><em>My suggested use for this file is as an extra tab you keep open on the right side of your JupyterLab screen, and treat it like a notepad you’d use in a classroom. The left half of the screen will be good for files that have involved coding that should be stand alone files.</em></p>
+<div class="section" id="skills-and-concepts-to-learn-in-this-module">
+<h2>Skills AND CONCEPTS to learn in this Module<a class="headerlink" href="#skills-and-concepts-to-learn-in-this-module" title="Permalink to this headline">¶</a></h2>
+<p>You can find the tasks for this module [on the dashboard page].</p>
+<p>Below are the key skills and concepts I want you to learn in this module in <em>roughly</em> the order we will cover them.</p>
+<p><em>**Note: This list is the key stuff, but not everything. We are scraping the surface **</em></p>
+<ul class="simple">
+<li><p>[ ] Modeling</p>
+<ul>
+<li><p>[ ] explore the modeling process</p></li>
+<li><p>[ ] determine appropriate models to use based on modeling objectives</p></li>
+</ul>
+</li>
+<li><p>[ ] Regression</p>
+<ul>
+<li><p>[ ] learn basic notation and terminology for regression models</p></li>
+<li><p>[ ] fit a regression with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> and/or <code class="docutils literal notranslate"><span class="pre">sklearn</span></code></p></li>
+<li><p>[ ] interpret mechanical meanings of coefficients for different variable types</p></li>
+<li><p>[ ] measure goodness of fit on a regression</p></li>
+<li><p>[ ] what does statistical significance tell us and not tell us</p></li>
+</ul>
+</li>
+<li><p>[ ] <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> and Machine Learning</p>
+<ul>
+<li><p>[ ] understand objectives and development process of machine learning models</p></li>
+<li><p>[ ] you evaluate models using “scoring metrics”</p></li>
+<li><p>[ ] develop your intuition about how to select which metric fits a given problem</p></li>
+<li><p>[ ] understand mechanics of fitting models</p></li>
+<li><p>[ ] best practices for training ML models without leakage</p></li>
+</ul>
+</li>
+</ul>
 </div>
-<input id="3af896c1-eb7c-413e-817e-a91973ef7639" name="9f72e935-0c0f-4c57-afce-49d18dc86e5d" type="radio">
-</input><label class="tabbed-label" for="3af896c1-eb7c-413e-817e-a91973ef7639">
-Pandas is Fat</label><div class="tabbed-content docutils">
-<p><strong>Do not fret the size of Pandas</strong></p>
-<p><img alt="" src="https://media.giphy.com/media/nXwhk6k5R97Da/giphy.gif" />
-<img alt="" src="https://media.giphy.com/media/gB5o7HVgpkCYM/giphy.gif" /></p>
-<p>There are over 250 methods that work on DataFrame objects! This means two things:</p>
-<ol class="simple">
-<li><p><a class="reference external" href="https://media.giphy.com/media/3o84sq21TxDH6PyYms/giphy.gif">(Unlimited) Power</a>!</p></li>
-<li><p>Oye, hard to remember! But I have tips below!</p></li>
-</ol>
-<p>On top of trying to memorize (well, sort of) the available methods, a tough part of data science is conceptualizing how to shape and format and construct datasets so that algos you want to run can run and so that plots can plot.</p>
-<p>So I’m going to try to reduce it to the most common operations and make you aware of things you can do. By the end of the semester, your Pandas proficiency will have you feeling like <a class="reference external" href="https://media.giphy.com/media/3o84sq21TxDH6PyYms/giphy.gif">Sheev Palpy</a>.</p>
-</div>
-<input id="aa81ac62-3986-4066-9bb4-bfeccbc4253a" name="9f72e935-0c0f-4c57-afce-49d18dc86e5d" type="radio">
-</input><label class="tabbed-label" for="aa81ac62-3986-4066-9bb4-bfeccbc4253a">
-Not happening</label><div class="tabbed-content docutils">
-<p>I promise it will go better than this</p>
-<p><img alt="" src="https://media.giphy.com/media/EPcvhM28ER9XW/giphy.gif" /></p>
-</div>
-<input id="15d89780-1d75-4da7-a3a5-571a55a5b234" name="9f72e935-0c0f-4c57-afce-49d18dc86e5d" type="radio">
-</input><label class="tabbed-label" for="15d89780-1d75-4da7-a3a5-571a55a5b234">
-Cue the montage</label><div class="tabbed-content docutils">
-<p><img alt="" src="https://media.giphy.com/media/QxZ0nbcVgMlPlnfZos/giphy.gif" /></p>
-</div>
-<input id="6feab726-f5b7-4892-ab94-078a20b25a09" name="9f72e935-0c0f-4c57-afce-49d18dc86e5d" type="radio">
-</input><label class="tabbed-label" for="6feab726-f5b7-4892-ab94-078a20b25a09">
-Soon</label><div class="tabbed-content docutils">
-<p><img alt="" src="https://media.giphy.com/media/fUSX3E4imAn9WHwrCV/giphy.gif" /></p>
+<div class="section" id="modeling-notes">
+<h2>Modeling Notes<a class="headerlink" href="#modeling-notes" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">put</span> <span class="n">your</span> <span class="n">notes</span> <span class="n">here</span>
+</pre></div>
 </div>
 </div>
-<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="regression-notes">
+<h2>Regression Notes<a class="headerlink" href="#regression-notes" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">put</span> <span class="n">your</span> <span class="n">notes</span> <span class="n">here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="machine-learning-notes">
+<h2>Machine Learning Notes<a class="headerlink" href="#machine-learning-notes" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">put</span> <span class="n">your</span> <span class="n">notes</span> <span class="n">here</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -1009,7 +1048,7 @@ Soon</label><div class="tabbed-content docutils">
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/03"
+            path: "./handouts"
         },
         predefinedOutput: true
     }
@@ -1024,8 +1063,6 @@ Soon</label><div class="tabbed-content docutils">
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="01d_NumpyResources.html" title="previous page"><span class="section-number">3.1.4. </span>More Resources</a>
-    <a class='right-next' id="next-link" href="02a_pandasTips.html" title="next page"><span class="section-number">3.2.1. </span>Some tips as we proceed</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
@@ -1048,7 +1085,7 @@ Soon</label><div class="tabbed-content docutils">
     </div>
 
     
-  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     
