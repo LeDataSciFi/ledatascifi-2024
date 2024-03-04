@@ -1194,7 +1194,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li><p class="card-text">Calculate the return measurements. Save those to the correct row and column in the dataframe</p></li>
-<li><p class="card-text">Downloads 2021 accounting data (<strong>2021 ccm_cleaned.dta</strong>) from the data repo (possibly useful in analysis) and adds them to the dataset</p></li>
+<li><p class="card-text">Optional: Downloads 2021 accounting data (<strong>2021 ccm_cleaned.dta</strong>) from the data repo (possibly useful in analysis) and adds them to the dataset</p></li>
 <li><p class="card-text">Save the whole thing to <code class="docutils literal notranslate"><span class="pre">output/analysis_sample.csv</span></code></p></li>
 </ol>
 <div class="admonition note">
@@ -1255,24 +1255,24 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li><p class="card-text">Results</p>
 <ul>
-<li><p class="card-text">Make a table with the correlation of each (10) sentiment measure against both (2) return measures. (So: an 10x2 table.)</p>
+<li><p class="card-text">Make a table with the correlation of each (10) sentiment measure against both (2) return measures. (So: a 10x3 table.)</p>
 <ul class="simple">
-<li><p class="card-text">The return measures are the firm’s returns around the 10-K release. We have 2 versions of this measure because we will try two different windows of time around the 10-K.</p></li>
+<li><p class="card-text">The return measures are the firm’s returns around the 10-K release. We have 3 versions of this to examine different windows of time around the 10-K to see the speed at which information is priced into the stock.</p></li>
 <li><p class="card-text">You will make 5 sentiment measures, and each has a positive and negative component. Thus: 10 sentiment measures.</p></li>
 <li><p class="card-text"><em>See step 6 for more details about the sentiment and return measures.</em></p></li>
 </ul>
 </li>
-<li><p class="card-text">Include a scatterplot (<strong>or similar</strong>) of each sentiment measure against both return measures.</p>
+<li><p class="card-text">Include a scatterplot (or binscatter, <strong>or similar</strong>) of each sentiment measure against both return measures.</p>
 <ul class="simple">
 <li><p class="card-text">Better: Combining this into a single figure</p></li>
 <li><p class="card-text">Better: Skip the correlation table and include the numerical correlations on the figure</p></li>
-<li><p class="card-text">Better: Regress (Don’t worry about printing these regressions out “pretty”, just try them if you want!)</p></li>
+<li><p class="card-text">Better: Regress (Don’t worry about printing these regressions out “pretty”, just try them if you want!). You can including accounting variables as controls here.</p></li>
 </ul>
 </li>
 <li><p class="card-text">Four discussion topics:</p>
 <ul class="simple">
 <li><p class="card-text">On (1), (2), and (3) below: Focus just on the first return variable (<em>which will examine returns around the 10-K publication</em>)</p></li>
-<li><p class="card-text">On (4) below: Focus on how the “ML sentiment” variables (positive and negative) are related to the two  different return measures.</p></li>
+<li><p class="card-text">On (4) below: Focus on how the “ML sentiment” variables (positive and negative) are related to the different return measures.</p></li>
 </ul>
 <ol class="simple">
 <li><p class="card-text">Compare / contrast the relationship between the returns variable and the two  “LM Sentiment” variables (positive and negative) with  the relationship between the returns variable and the two “ML Sentiment” variables (positive and negative). Focus on the patterns of the signs of the relationships and the magnitudes.</p></li>
