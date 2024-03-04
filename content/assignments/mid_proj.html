@@ -1145,12 +1145,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p class="card-text"><strong>Variables to create:</strong></p>
 <ol class="simple">
-<li><p class="card-text">2 versions of a “buy and hold” around the 10-K date (“date t”)</p>
+<li><p class="card-text">3 versions of a “buy and hold” around the 10-K date (“date t”)</p>
 <ul class="simple">
-<li><p class="card-text">Version 1: Measure from the day t to day t+2 (inclusive) … <code class="docutils literal notranslate"><span class="pre">t</span></code> is business days, so ignore weekends and holidays!</p></li>
-<li><p class="card-text">Version 2: Measure from the day t+3 to day t+10 (inclusive)</p></li>
+<li><p class="card-text">Version 1: The return on the day of the filing. (This is easiest, and points will be reserved for students that figure out version 2 and 3.)</p></li>
+<li><p class="card-text">Version 2: Measure from the day t to day t+2 (inclusive) … <code class="docutils literal notranslate"><span class="pre">t</span></code> is business days, so ignore weekends and holidays!</p></li>
+<li><p class="card-text">Version 3: Measure from the day t+3 to day t+10 (inclusive)</p></li>
 <li><p class="card-text">Calculate the firms’s buy and hold return over each time span, a la Assignment 2</p></li>
 <li><p class="card-text">Stock returns for 2022 <a class="reference external" href="https://github.com/LeDataSciFi/data/tree/main/Stock%20Returns%20(CRSP)">can be found here.</a> Open this the same way we open <code class="docutils literal notranslate"><span class="pre">ccm</span></code>.</p></li>
+<li><p class="card-text">Merge the buy and hold stock returns to our dataset using ticker. (This is not the best option, but it’s simple.)</p></li>
 </ul>
 </li>
 <li><p class="card-text">10 sentiment variables</p>
@@ -1172,7 +1174,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li><p class="card-text">The last 6 of the 10 variables: “Contextual” sentiment. Basically: What is the (positive and negative) sentiment of the text in a 10-K around discussions of a particular topic.</p>
 <ul>
-<li><p class="card-text">Pick three topics. Each of those will get a positive and negative sentiment score.</p></li>
+<li><p class="card-text">Pick three topics. Each of those will get a positive and negative sentiment score - use the ML sentiment lists (not the LM lists).</p></li>
 <li><p class="card-text"><a class="reference internal" href="contextual_sentiment.html"><span class="doc std std-doc">A must visit: This page explains this step.</span></a></p></li>
 </ul>
 </li>
@@ -1191,7 +1193,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p class="card-text">Bonus: Save the # of unique words (similar to total length)</p></li>
 </ul>
 </li>
-<li><p class="card-text">Calculate the two return measurements. Save those to the correct row and column in the dataframe</p></li>
+<li><p class="card-text">Calculate the return measurements. Save those to the correct row and column in the dataframe</p></li>
 <li><p class="card-text">Downloads 2021 accounting data (<strong>2021 ccm_cleaned.dta</strong>) from the data repo (possibly useful in analysis) and adds them to the dataset</p></li>
 <li><p class="card-text">Save the whole thing to <code class="docutils literal notranslate"><span class="pre">output/analysis_sample.csv</span></code></p></li>
 </ol>
