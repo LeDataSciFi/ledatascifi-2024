@@ -983,8 +983,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#merge-it-all-together">
-   Merge it all together
+  <a class="reference internal nav-link" href="#put-it-all-together">
+   Put it all together
   </a>
  </li>
 </ul>
@@ -1008,6 +1008,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h1>First<a class="headerlink" href="#first" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>Copy <code class="docutils literal notranslate"><span class="pre">NEAR_regex.py</span></code> into the same folder as this file. <a class="reference external" href="https://ledatascifi.github.io/ledatascifi-2024/content/04/02d_RegexApplication.html#demo">It’s here</a> (click the “+”) or in the community codebook. You should name the file <code class="docutils literal notranslate"><span class="pre">NEAR_regex.py</span></code> and not <code class="docutils literal notranslate"><span class="pre">NEAR_regex.ipynb</span></code>.</p></li>
+<li><p>Also copy the 10k_files_practice.zip file there into this folder</p></li>
 <li><p>Make a <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file in this folder with  <code class="docutils literal notranslate"><span class="pre">**10k_files/*</span></code> in it.</p></li>
 <li><p>Copy <a class="reference external" href="https://github.com/donbowen/Class-Notes-1045/raw/main/Midterm%20sandbox/10k_files.zip">this file</a> into the <code class="docutils literal notranslate"><span class="pre">10k_files/</span></code> folder here.</p></li>
 <li><p>Copy the things in the assignment’s input folder in to the inputs folder here.</p></li>
@@ -1025,7 +1026,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-<span class="kn">from</span> <span class="nn">near_regex</span> <span class="kn">import</span> <span class="n">NEAR_regex</span>  <span class="c1"># copy this file into the asgn folder</span>
+<span class="kn">from</span> <span class="nn">near_regex</span> <span class="kn">import</span> <span class="n">NEAR_regex</span>  <span class="c1"># copy this file into the folder this script is in</span>
 <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>  <span class="c1"># progress bar on loops</span>
 
 <span class="c1"># if you have tqdm issues, run this in terminal or with ! trick</span>
@@ -1173,6 +1174,25 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+<p>Anchor phrases</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># q7: how many times is (happy or smile) near (face or head)? </span>
+
+<span class="n">body_parts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;face&#39;</span><span class="p">,</span><span class="s1">&#39;head&#39;</span><span class="p">]</span>
+
+<span class="n">sentence1</span> <span class="o">=</span> <span class="s1">&#39;I see smile on your face. That is so awesome!&#39;</span>
+<span class="n">sentence2</span> <span class="o">=</span> <span class="s1">&#39;I see smile. That is so awesome!&#39;</span>
+
+<span class="c1"># do on sentence1 - </span>
+<span class="c1"># using py&#39;s string functions, convert body_parts into the format NEAR_regex()</span>
+<span class="c1"># then use near_regex()</span>
+
+<span class="c1"># do on sentence2</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="opening-a-10-k-file">
 <h1>Opening a 10-K file<a class="headerlink" href="#opening-a-10-k-file" title="Permalink to this headline">¶</a></h1>
@@ -1185,16 +1205,17 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># open the zip file (do this before the for loop</span>
 <span class="c1"># so you only open it one time... faster)</span>
-<span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="s1">&#39;10k_files/10k_files.zip&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zipfolder</span><span class="p">:</span>
+<span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="s1">&#39;10k_files/10k_files_practice.zip&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zipfolder</span><span class="p">:</span>
     
     <span class="c1"># before the loop, get list of files in zipped folder</span>
     <span class="n">file_list</span> <span class="o">=</span> <span class="n">zipfolder</span><span class="o">.</span><span class="n">namelist</span><span class="p">()</span>
         
     <span class="c1"># replace this with how you&#39;d loop over the dataframe</span>
-    <span class="k">for</span> <span class="n">firm</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;ALLE&quot;</span><span class="p">]:</span> <span class="c1">#,&quot;MMM&quot;,&quot;TSLA&quot;]:</span>
+    <span class="c1"># which you already know...</span>
+    <span class="k">for</span> <span class="n">firm</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1800</span><span class="p">]:</span> <span class="c1"># </span>
         
         <span class="c1"># get a list of possible files for this firm</span>
-        <span class="n">firm_folder</span>    <span class="o">=</span> <span class="s2">&quot;sec-edgar-filings/&quot;</span> <span class="o">+</span> <span class="n">firm</span> <span class="o">+</span> <span class="s1">&#39;/10-K/*/*.html&#39;</span>
+        <span class="n">firm_folder</span>    <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;sec-edgar-filings/</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">firm</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="si">}</span><span class="s2">/10-K/*/*.html&quot;</span>
         <span class="n">possible_files</span> <span class="o">=</span> <span class="n">fnmatch</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">file_list</span><span class="p">,</span> <span class="n">firm_folder</span><span class="p">)</span> 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">possible_files</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> 
             <span class="k">continue</span>
@@ -1204,6 +1225,8 @@ const thebe_selector_output = ".output, .cell_output"
         <span class="c1"># open the file (this is a little different!)</span>
         <span class="k">with</span> <span class="n">zipfolder</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span> <span class="k">as</span> <span class="n">report_file</span><span class="p">:</span>
             <span class="n">html</span> <span class="o">=</span> <span class="n">report_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+            
+        <span class="c1"># do more stuff here...</span>
 </pre></div>
 </div>
 </div>
@@ -1229,7 +1252,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </li>
 <li><p>Continue on (get the text from the soup, and continue from there…)</p></li>
-<li><p>Check: My cleaned string says “allegion” in positions 396-404</p></li>
+<li><p>Check: My cleaned string says ______ in positions <em><strong>-</strong></em></p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1293,8 +1316,21 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="get-returns-around-the-10-k-dates">
 <h1>Get returns around the 10-K dates<a class="headerlink" href="#get-returns-around-the-10-k-dates" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://github.com/LeDataSciFi/data/blob/main/Stock%20Returns%20(CRSP)">Returns for 2022 are here.</a></p>
-<p>Before you try to use that, here are toy datasets of returns and filing dates that mimic the structure of the data you’ll actually have.</p>
-<p>What is the [0,2] and [3,10] cumulative returns for each firm? It’s easy to actually figure out! Doing so will help you with the pseudo, and in any case… how can you know if you’re right otherwise?</p>
+<p>Before you try to use that, below is a toy dataset of returns and filing dates that mimic the structure of the data you’ll actually have.</p>
+<p>Goals, in <strong>reverse</strong> order:</p>
+<ol class="simple">
+<li><p>What is the [0,2] and [3,10] cumulative returns for each firm? It’s easy to actually figure out! Doing so will help you with the pseudo, and in any case… how can you know if you’re right otherwise?</p></li>
+<li><p>Make an intermediate dataset with these variables (which is enough to answer goal 1).</p>
+<ul class="simple">
+<li><p>ticker</p></li>
+<li><p>date</p></li>
+<li><p>ret</p></li>
+<li><p>trading_days_since_filing (0 on the filing date or the first trading day after it). This is what the midterm calls for.</p></li>
+</ul>
+</li>
+<li><p>Find the answer manually in excel. <code class="docutils literal notranslate"><span class="pre">crsp_example.xlsx</span></code> is in the handouts folder. This will help you find the steps you need to take.</p></li>
+</ol>
+<p>If you figured out the bonus on assignment 4, you’re set!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
@@ -1324,8 +1360,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="section" id="merge-it-all-together">
-<h1>Merge it all together<a class="headerlink" href="#merge-it-all-together" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="put-it-all-together">
+<h1>Put it all together<a class="headerlink" href="#put-it-all-together" title="Permalink to this headline">¶</a></h1>
 <p>The readme shows what the output dataset should look like, roughly. The midterm directions elaborate (10 sentiment variables, 2 return measures).</p>
 </div>
 
