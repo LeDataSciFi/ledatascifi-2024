@@ -1,4 +1,5 @@
-def NEAR_regex(list_of_words,max_words_between=5,partial=False,cases_matter=False):
+def NEAR_regex(list_of_words,max_words_between=5,partial=False,
+               cases_matter=False,greedy=True):
     '''
     Parameters
     ----------
@@ -38,6 +39,14 @@ def NEAR_regex(list_of_words,max_words_between=5,partial=False,cases_matter=Fals
         in search string are lowercase.
         
         The default is True.
+    
+    greedy: Boolean, optional
+    
+        If True, the regex will be "greedy" and each match is the longest string that
+        satisfies the conditions (max_words_between). If False, it will find the 
+        shortest string that satisfies the conditions, and continue counting.
+        
+        The default is True. 
      
     Warning
     -------
@@ -52,10 +61,7 @@ def NEAR_regex(list_of_words,max_words_between=5,partial=False,cases_matter=Fals
     2. Optionally clean the string before the regex stuff happens.
     
     3. Optionally ignore line breaks. 
-    
-    4. Optionally make it lazy (in the last example, 
-    the "correct" answer is probably 2, but it gives 1.)
-    
+        
         
     Unsure about speed
     -------
@@ -94,11 +100,16 @@ def NEAR_regex(list_of_words,max_words_between=5,partial=False,cases_matter=Fals
     
     start = r'(?:\b' # the r means "raw" as in the backslash is just a backslash, not an escape character
     
+    if greedy:
+        lazy = ""
+    else:
+        lazy = "?"
+    
     if partial:
-        gap   = r'[A-Za-z]*\b(?: +[^ \n\r]*){0,' +str(max_words_between)+r'} *\b'
+        gap   = r'[A-Za-z]*\b(?: +[^ \n\r]*){0,' +str(max_words_between)+r'}'+lazy +r' *\b'
         end   = r'[A-Za-z]*\b)'
     else:
-        gap   = r'\b(?: +[^ \n]*){0,' +str(max_words_between)+r'} *\b'
+        gap   = r'\b(?: +[^ \n]*){0,' +str(max_words_between)+r'}'+lazy +r' *\b'
         end   = r'\b)'
         
     regex_list = []
@@ -164,5 +175,9 @@ print(len(re.findall(rgx,test)))            # both matches are caught
 [m.group(0) for m in re.finditer(rgx,test)]
 
 rgx = NEAR_regex(words,max_words_between=2)
-print(len(re.findall(rgx,test)))            # but note that the regex is greedy - it grabs the largest chunks and thus misses inner matches!
+print(len(re.findall(rgx,test)))            # but note that the regex is greedy - it grabs the largest chunk possible ("hey jimmy hey james") and thus misses inner matches!
+[m.group(0) for m in re.finditer(rgx,test)]
+
+rgx = NEAR_regex(words,max_words_between=2, greedy=False)
+print(len(re.findall(rgx,test)))            # 2 - "hey jimmy" and "hey james" 
 [m.group(0) for m in re.finditer(rgx,test)]
