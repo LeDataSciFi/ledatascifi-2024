@@ -51,18 +51,8 @@ def NEAR_regex(list_of_words,max_words_between=5,partial=False,
     Warning
     -------
     See the last example. The regex is minimally greedy. 
-    
-       
-    Feature Requests (participation credit available)
-    -------
-    1. A wrapper that takes the above inputs, the string to search, and a variable=count|text, and
-    returns either the number of hits or the text of the matching elements. (See the examples below.)
-    
-    2. Optionally clean the string before the regex stuff happens.
-    
-    3. Optionally ignore line breaks. 
         
-        
+         
     Unsure about speed
     -------
     I don't think this is a very "fast" function, but it should be robust. 
@@ -125,20 +115,61 @@ def NEAR_regex(list_of_words,max_words_between=5,partial=False,
     return '|'.join(regex_list)
 
 
-def NEAR_finder(topic1,topic2,doc,lower=False,**kwargs):
+def NEAR_finder(topic1,topic2,doc,case_insentive=False,**kwargs):
     '''
     Count how often topic1 is near topic2 in a document.
+    
+    
+    Parameters
+    ----------
+    topic1 : str or list of strings 
+        Example: ["dog","cat","pet"]
+        
+    topic2 : str or list of strings
+        Example: ["furry","cute","fun"]
+        
+    doc    : str to search 
+        The document to search within.
+        
+    case_insentive : bool, optional
+        If True, the search will be case insensitive. The default is False.
+        
+    **kwargs : passed to NEAR_regex
+    
+    
+    Returns
+    -------
+    (count, matches) where 
+        count is the number of times topic1 is near topic2 and
+        matches is a list of the actual text matches.
 
-    A wrapper that makes it easier to use NEAR_regex.
     
-    topic1 is a list of words
-    topic2 is a list of words
+    Feature Requests (participation credit available)
+    -------    
+    1. Optionally clean the document (how? tbd) before the search.
     
-    doc is a string
+    2. Optionally ignore line breaks. (Matches can't occur across 
+    line breaks currently.)     
     
-    lower=True makes the search case insensitive
     
-    kwargs are passed to NEAR_regex
+    Suggested use
+    -------
+    t1   = 'hey'
+    t2   = ['jimmy','james']
+    doc  = 'hey jimmy                      hey james'
+    doc2 = 'hey jimmy                      hey James'
+
+    print(NEAR_finder(t1,t2,doc, greedy=False)) 
+    # >  (2, ['hey jimmy', 'hey james'])
+
+    print(NEAR_finder(t1,t2,doc, greedy=True))
+    # >  (1, ['hey jimmy                      hey james'])
+
+    print(NEAR_finder(t1,t2,doc2, greedy=False, lower=True))
+    # >  (2, ['hey jimmy', 'hey James'])
+
+    print(NEAR_finder(t1,t2,doc2, greedy=False, lower=False, cases_matter=True))    
+    # >  (1, ['hey jimmy'])    
     '''
     
     if type(topic1) == str:
@@ -152,7 +183,9 @@ def NEAR_finder(topic1,topic2,doc,lower=False,**kwargs):
     rgx = NEAR_regex([topic1,topic2],**kwargs)
     
     matches = [m.group(0) for m in 
-               re.finditer(rgx,doc,flags=re.IGNORECASE if lower else 0)]
+               re.finditer(rgx,doc,
+                           flags=re.IGNORECASE if case_insentive else 0)]
+    
     count = len(matches)
     
     return count, matches
@@ -222,10 +255,15 @@ if __name__ == "__main__":
     doc  = 'hey jimmy                      hey james'
     doc2 = 'hey jimmy                      hey James'
 
-    print(NEAR_finder(t1,t2,doc, greedy=False))
+    print(NEAR_finder(t1,t2,doc, greedy=False)) 
+    # >  (2, ['hey jimmy', 'hey james'])
 
     print(NEAR_finder(t1,t2,doc, greedy=True))
+    # >  (1, ['hey jimmy                      hey james'])
 
     print(NEAR_finder(t1,t2,doc2, greedy=False, lower=True))
+    # >  (2, ['hey jimmy', 'hey James'])
 
     print(NEAR_finder(t1,t2,doc2, greedy=False, lower=False, cases_matter=True))    
+    # >  (1, ['hey jimmy'])
+    
