@@ -131,53 +131,55 @@ def NEAR_regex(list_of_words,max_words_between=5,partial=False,
 # These are just examples, you can delete them when you download this file
 ##########################################################################
 
-import re
-
-test  = 'This is a partial string another break with words'
-words = ['part','with']
-rgx   = NEAR_regex(words)
-print(len(re.findall(rgx,test)))            # no match (partials not allowed) - good!
-
-rgx = NEAR_regex(words,partial=True)
-print(len(re.findall(rgx,test)))            # match (partials allowed) - good!
-
-rgx   = NEAR_regex(words,partial=True,max_words_between=1)
-print(len(re.findall(rgx,test)))            # no match (too far apart) - good!
-
-words = ['part','With']
-rgx   = NEAR_regex(words,partial=True,cases_matter=True)
-print(len(re.findall(rgx,test)))
-
-words = ['part','with','this']
-rgx = NEAR_regex(words,partial=True)
-print(len(re.findall(rgx,test)))           # no match - good! "This" != "this"
-print(len(re.findall(rgx,test.lower())))    # match - good!
-
-test  = 'This is a partial string \n another break with words'
-words = ['part','with']
-rgx = NEAR_regex(words,partial=True)
-print(len(re.findall(rgx,test)))            # fails because of the \n break
-
-test  = 'This is a partial string \r another break with words'
-words = ['part','with']
-rgx = NEAR_regex(words,partial=True)
-print(len(re.findall(rgx,test)))            # fails with \r too.
-
-test  = 'This is a partial string                      another break with words'
-words = ['part','with']
-rgx = NEAR_regex(words,partial=True)
-print(len(re.findall(rgx,test)))            # extra spaces don't affect
-
-test  = 'hey jimmy                      hey james'
-words = ['hey','(jimmy|james)']             # search for one word near EITHER of two others
-rgx = NEAR_regex(words,max_words_between=1)
-print(len(re.findall(rgx,test)))            # both matches are caught
-[m.group(0) for m in re.finditer(rgx,test)]
-
-rgx = NEAR_regex(words,max_words_between=2)
-print(len(re.findall(rgx,test)))            # but note that the regex is greedy - it grabs the largest chunk possible ("hey jimmy hey james") and thus misses inner matches!
-[m.group(0) for m in re.finditer(rgx,test)]
-
-rgx = NEAR_regex(words,max_words_between=2, greedy=False)
-print(len(re.findall(rgx,test)))            # 2 - "hey jimmy" and "hey james" 
-[m.group(0) for m in re.finditer(rgx,test)]
+if __name__ == "__main__":
+  
+    import re
+    
+    test  = 'This is a partial string another break with words'
+    words = ['part','with']
+    rgx   = NEAR_regex(words)
+    print(len(re.findall(rgx,test)))            # no match (partials not allowed) - good!
+    
+    rgx = NEAR_regex(words,partial=True)
+    print(len(re.findall(rgx,test)))            # match (partials allowed) - good!
+    
+    rgx   = NEAR_regex(words,partial=True,max_words_between=1)
+    print(len(re.findall(rgx,test)))            # no match (too far apart) - good!
+    
+    words = ['part','With']
+    rgx   = NEAR_regex(words,partial=True,cases_matter=True)
+    print(len(re.findall(rgx,test)))
+    
+    words = ['part','with','this']
+    rgx = NEAR_regex(words,partial=True)
+    print(len(re.findall(rgx,test)))           # no match - good! "This" != "this"
+    print(len(re.findall(rgx,test.lower())))    # match - good!
+    
+    test  = 'This is a partial string \n another break with words'
+    words = ['part','with']
+    rgx = NEAR_regex(words,partial=True)
+    print(len(re.findall(rgx,test)))            # fails because of the \n break
+    
+    test  = 'This is a partial string \r another break with words'
+    words = ['part','with']
+    rgx = NEAR_regex(words,partial=True)
+    print(len(re.findall(rgx,test)))            # fails with \r too.
+    
+    test  = 'This is a partial string                      another break with words'
+    words = ['part','with']
+    rgx = NEAR_regex(words,partial=True)
+    print(len(re.findall(rgx,test)))            # extra spaces don't affect
+    
+    test  = 'hey jimmy                      hey james'
+    words = ['hey','(jimmy|james)']             # search for one word near EITHER of two others
+    rgx = NEAR_regex(words,max_words_between=1)
+    print(len(re.findall(rgx,test)))            # both matches are caught
+    [m.group(0) for m in re.finditer(rgx,test)]
+    
+    rgx = NEAR_regex(words,max_words_between=2)
+    print(len(re.findall(rgx,test)))            # but note that the regex is greedy - it grabs the largest chunk possible ("hey jimmy hey james") and thus misses inner matches!
+    [m.group(0) for m in re.finditer(rgx,test)]
+    
+    rgx = NEAR_regex(words,max_words_between=2, greedy=False)
+    print(len(re.findall(rgx,test)))            # 2 - "hey jimmy" and "hey james" 
+    [m.group(0) for m in re.finditer(rgx,test)]
