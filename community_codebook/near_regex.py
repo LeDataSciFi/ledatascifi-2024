@@ -115,7 +115,7 @@ def NEAR_regex(list_of_words,max_words_between=5,partial=False,
     return '|'.join(regex_list)
 
 
-def NEAR_finder(topic1,topic2,doc,case_insentive=False,**kwargs):
+def NEAR_finder(topic1,topic2,doc,case_sentive=False,**kwargs):
     '''
     Count how often topic1 is near topic2 in a document.
     
@@ -131,10 +131,15 @@ def NEAR_finder(topic1,topic2,doc,case_insentive=False,**kwargs):
     doc    : str to search 
         The document to search within.
         
-    case_insentive : bool, optional
-        If True, the search will be case insensitive. The default is False.
+    case_sentive : bool, optional
+        If True, the search will be case sensitive. The default is False.
         
-    **kwargs : passed to NEAR_regex
+    **kwargs : you can add parameters for NEAR_regex to this function, for example
+
+        max_words_between = 10
+        greedy = False 
+
+        (See the examples below)
     
     
     Returns
@@ -165,10 +170,10 @@ def NEAR_finder(topic1,topic2,doc,case_insentive=False,**kwargs):
     print(NEAR_finder(t1,t2,doc, greedy=True))
     # >  (1, ['hey jimmy                      hey james'])
 
-    print(NEAR_finder(t1,t2,doc2, greedy=False, lower=True))
+    print(NEAR_finder(t1,t2,doc2, greedy=False, case_insentive=True))
     # >  (2, ['hey jimmy', 'hey James'])
 
-    print(NEAR_finder(t1,t2,doc2, greedy=False, lower=False, cases_matter=True))    
+    print(NEAR_finder(t1,t2,doc2, greedy=False, case_insentive=False, cases_matter=True))    
     # >  (1, ['hey jimmy'])    
     '''
     
@@ -184,7 +189,7 @@ def NEAR_finder(topic1,topic2,doc,case_insentive=False,**kwargs):
     
     matches = [m.group(0) for m in 
                re.finditer(rgx,doc,
-                           flags=re.IGNORECASE if case_insentive else 0)]
+                           flags=0 if case_sentive else re.IGNORECASE)]
     
     count = len(matches)
     
