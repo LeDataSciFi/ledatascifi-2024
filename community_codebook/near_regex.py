@@ -125,6 +125,37 @@ def NEAR_regex(list_of_words,max_words_between=5,partial=False,
     return '|'.join(regex_list)
 
 
+def NEAR_finder(topic1,topic2,doc,lower=False,**kwargs):
+    '''
+    Count how often topic1 is near topic2 in a document.
+
+    A wrapper that makes it easier to use NEAR_regex.
+    
+    topic1 is a list of words
+    topic2 is a list of words
+    
+    doc is a string
+    
+    lower=True makes the search case insensitive
+    
+    kwargs are passed to NEAR_regex
+    '''
+    
+    if type(topic1) == str:
+        topic1 = [topic1]
+    if type(topic2) == str:
+        topic2 = [topic2]
+    
+    topic1 = "("+ "|".join(topic1) +")"
+    topic2 = "("+ "|".join(topic2) +")"
+    
+    rgx = NEAR_regex([topic1,topic2],**kwargs)
+    
+    matches = [m.group(0) for m in 
+               re.finditer(rgx,doc,flags=re.IGNORECASE if lower else 0)]
+    count = len(matches)
+    
+    return count, matches
 
 
 ##########################################################################
@@ -183,3 +214,18 @@ if __name__ == "__main__":
     rgx = NEAR_regex(words,max_words_between=2, greedy=False)
     print(len(re.findall(rgx,test)))            # 2 - "hey jimmy" and "hey james" 
     [m.group(0) for m in re.finditer(rgx,test)]
+    
+    # test the NEAR_finder function
+    
+    t1   = 'hey'
+    t2   = ['jimmy','james']
+    doc  = 'hey jimmy                      hey james'
+    doc2 = 'hey jimmy                      hey James'
+
+    print(NEAR_finder(t1,t2,doc, greedy=False))
+
+    print(NEAR_finder(t1,t2,doc, greedy=True))
+
+    print(NEAR_finder(t1,t2,doc2, greedy=False, lower=True))
+
+    print(NEAR_finder(t1,t2,doc2, greedy=False, lower=False, cases_matter=True))    
