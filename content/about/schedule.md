@@ -43,7 +43,7 @@ Tasks in black should be completed **BEFORE the 10:45am class starts.**
 
 ```{include}  tasks.html
 ```
-
+   
 ---
 :column: col-md-6
 
@@ -80,6 +80,8 @@ Coming back soon.
 ## Completed Tasks
 
 ````{panels}
+:column: col-md-6
+
 ```{include}  past_tasks.html
 ```
 

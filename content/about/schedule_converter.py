@@ -41,10 +41,20 @@ table_md += "</tr>\n</thead>\n<tbody>\n"
 # Assuming 'rows' is your DataFrame
 # Sample DataFrame iteration (adapt or replace placeholders as needed)
 for index, row in rows.iterrows():
-    if row['Hbool'] == "ASGN":
-        table_md += f"<tr><td style='border: 1px solid black; padding: 10px; color: red;'><strong>{row['Date'].strftime('%b %d')}</strong></td><td style='border: 1px solid black; padding: 10px; color: red;'><strong>{row['Task or Topic']}</strong></td></tr>\n"
+    
+    if pd.notnull(row['Hyperlink']) and row['Hyperlink'] != '':
+        # If "ASGN", format with hyperlink and styling
+        if row['Hbool'] == "ASGN":
+            task_or_topic = f"<a href='{row['Hyperlink']}' style='color: red;'><strong>{row['Task or Topic']}</strong></a>"
+        else:  # Non-"ASGN" with hyperlink
+            task_or_topic = f"<a href='{row['Hyperlink']}'>{row['Task or Topic']}</a>"
     else:
-        table_md += f"<tr><td style='border: 1px solid black; padding: 10px;'>{row['Date'].strftime('%b %d')}</td><td style='border: 1px solid black; padding: 10px;'>{row['Task or Topic']}</td></tr>\n"
+        task_or_topic = row['Task or Topic']
+        
+    if row['Hbool'] == "ASGN":
+        table_md += f"<tr><td style='border: 1px solid black; padding: 10px; color: red;'><strong>{row['Date'].strftime('%b %d')}</strong></td><td style='border: 1px solid black; padding: 10px; color: red;'><strong>{task_or_topic}</strong></td></tr>\n"
+    else:
+        table_md += f"<tr><td style='border: 1px solid black; padding: 10px;'>{row['Date'].strftime('%b %d')}</td><td style='border: 1px solid black; padding: 10px;'>{task_or_topic}</td></tr>\n"
 
 table_md += "</tbody>\n</table>"
 
