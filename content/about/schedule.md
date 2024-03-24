@@ -32,15 +32,17 @@ Warning
 
 ## Upcoming
 
+
 ````{panels}
 :column: col-md-6
 
 **Upcoming Task Deadlines**
 ^^^
 
-These should be completed **BEFORE the 10:45am class starts.** 
+Tasks in black should be completed **BEFORE the 10:45am class starts.** 
 
-<iframe width="100%" height="350" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=B6491313208C1D5B%21308&authkey=%21AIk3EU7idgpcC8o&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Tasks'!F1%3AH500&wdHideGridlines=True&wdInConfigurator=True"></iframe>
+```{include}  tasks.html
+```
 
 ---
 :column: col-md-6
@@ -48,11 +50,13 @@ These should be completed **BEFORE the 10:45am class starts.**
 **Upcoming Classes**
 ^^^
 
-<iframe width="100%" height="300" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=B6491313208C1D5B%21308&authkey=%21AIk3EU7idgpcC8o&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Classes'!A1%3AH500&wdHideGridlines=True&wdInConfigurator=True"></iframe>
+```{include}  classes.html
+```
 
 ````
-
+  
 ## Big picture
+
 
 ````{panels}
 :column: col-md-6
@@ -60,23 +64,25 @@ These should be completed **BEFORE the 10:45am class starts.**
 **Big picture** 
 ^^^
 
-<iframe width="100%" height="550" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=B6491313208C1D5B%21308&authkey=%21AIk3EU7idgpcC8o&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='BigPic'!E1%3AE500&wdHideGridlines=True&wdInConfigurator=True"></iframe>
+```{include}  big_pic.html
+```
 
 ---
 :column: col-md-6
 
 **Full semester schedule**
-^^^
+^^^ 
 
-<iframe width="100%" height="550" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=B6491313208C1D5B%21308&authkey=%21AIk3EU7idgpcC8o&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='FullSched'!A1%3AH500&wdHideGridlines=True&wdDownloadButton=True"></iframe>
+Coming back soon.
 
-````
-
+```` 
+ 
 ## Completed Tasks
 
 ````{panels}
-:column: col-md-6
-<iframe width="100%" height="350" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=B6491313208C1D5B%21308&authkey=%21AIk3EU7idgpcC8o&em=2&wdAllowInteractivity=False&AllowTyping=True&Item='Past%20Tasks'!F1%3AH500&wdHideGridlines=True&wdInConfigurator=True"></iframe>
+```{include}  past_tasks.html
+```
 
 ````
 
+ 
