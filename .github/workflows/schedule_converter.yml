@@ -1,0 +1,30 @@
+name: Run Schedule Converter
+
+on:
+  push:
+    paths:
+      - 'content/about/schedule_converter.py'
+  pull_request:
+    paths:
+      - 'content/about/schedule_converter.py'
+  schedule:
+    # Runs at 01:00 AM every Sunday; uses UTC time.
+    - cron: '0 1 * * 0'
+
+jobs:
+  run-converter:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x' # Specify the Python version you need
+
+    - name: Change directory and run script
+      run: |
+        cd content/about
+        python schedule_converter.py
