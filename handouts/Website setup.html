@@ -1,0 +1,1218 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Setting up a website to show off your work &#8212; LeDataSciFi-2024</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/fin377_specialformatting.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/moviescript.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/frontpage.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">LeDataSciFi-2024</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/objectives.html">
+   Objectives
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/outcomes.html">
+   Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/about_us.html">
+   About us + office hours
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/structure_and_policies.html">
+   Course structure + policies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/use_of_gpt.html">
+   ChatGPT and other AI
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/gradeoverview.html">
+   Grading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/interest.html">
+   Interested but unsure?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/bootcamp.html">
+   Pre-Class Bootcamp
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/hall_of_awesomeness.html">
+   The Hall of Awesomeness
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/acknowledgments.html">
+   Gratitude
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Schedule, tips, resources
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/schedule.html">
+   Dashboard, key links, schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/help.html">
+   Help
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/resources.html">
+   Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/tips.html">
+   Tips and hacks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/LeDataSciFi/ledatascifi-2024/tree/main/community_codebook">
+   Community Codebook
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/LeDataSciFi/ledatascifi-2024/tree/main/handouts">
+   Class Handouts
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Assignments and participation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/assignments/howto_do.html">
+   How to start and turn in assignments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/assignments/howto_review.html">
+   How to do your peer reviews
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/assignments/mid_proj.html">
+   Midterm project AKA ASGN 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/assignments/website_setup.html">
+   Personal Website AKA ASGN 9
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/assignments/project.html">
+   Final projects
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Textbook
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../content/01/00_Getting_Started.html">
+   1. Motivation and Getting Started
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/01/01_Motivation.html">
+     1.1. Motivation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/01/02_Setup.html">
+     1.2. Set up
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/01/03_github.html">
+     1.3. GitHub Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/01/03a_githubworkflow.html">
+     1.4. The GitHub Workflow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/01/04_Markdown.html">
+     1.5. Markdown basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/01/05_jupyterlab.html">
+     1.6. Jupyter Lab Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/01/06_python.html">
+     1.7. Python Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/01/07_debugging.html">
+     1.8. Debugging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/01/07a_errors.html">
+     1.9. Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/01/08_libraries.html">
+     1.10. Libraries/Packages
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/01/09_gitignore.html">
+     1.11. Gitignore Files
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../content/02/10_Golden_1.html">
+   2. Good Analysis Practices
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/02/10_Golden_2.html">
+     2.1. A case study of bad research
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/02/10_Golden_3.html">
+     2.2. The golden rules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/02/10_Golden_6.html">
+     2.3. Organizing your projects
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/02/10_Golden_7.html">
+     2.4. Filepaths
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/02/10_Golden_4.html">
+     2.5. Storing data smartly
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/02/10_Golden_5a.html">
+     2.6. Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/02/10_Golden_5b.html">
+     2.7. Writing good code comments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/02/10_Golden_8.html">
+     2.8. Writing good code
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../content/03/00_Data_Wrangling_Intro.html">
+   3. Wrangling with Data
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../content/03/01_Numpy.html">
+     3.1. Numpy
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/01a_NumpyCS.html">
+       3.1.1. Numpy + Scientific Computing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/01b_NumpyBasics.html">
+       3.1.2. A (Very) Short Introduction
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/01c_NumpyPractice.html">
+       3.1.3. Exercises
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/01d_NumpyResources.html">
+       3.1.4. More Resources
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../content/03/02a_pandasIntro.html">
+     3.2. Pandas
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/02a_pandasTips.html">
+       3.2.1. Tips
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/02b_pandasVocab.html">
+       3.2.2. Vocab and Long vs Wide Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/02c_commonFcns.html">
+       3.2.3. Common Functions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/02d_temp.html">
+       3.2.4. Temp. vs Perm. Objects
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/02e_eda_golden.html">
+       3.2.5. Golden Rules + EDA
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/02f_chains.html">
+       3.2.6. Pandas Chains
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/02g_commontasks.html">
+       3.2.7. Common Tasks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/02h_exercises.html">
+       3.2.8. Exercises
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/02j_resourcesAndSum.html">
+       3.2.9. Summary and Resources
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../content/03/04a-dataviz.html">
+     3.3. Data Visualization
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/04b-whyplot.html">
+       3.3.1. The Role of Viz in Analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/04c-makeplot.html">
+       3.3.2. Making a Plot
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/04d-whichplot.html">
+       3.3.3. Which Plot Type Should I Use?
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/04e-visualEDA.html">
+       3.3.4. Visual EDA Walkthrough
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/04e2-visualEDA-tools.html">
+       3.3.5. Visual EDA Tools
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/04f1-viz_narrative.html">
+       3.3.6. Better Plots
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/04f2-customizing_figs.html">
+       3.3.7. Customizing figures
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/04f3-interactive_figs.html">
+       3.3.8. Interactive plots:
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         plotly
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/04f4-exercises.html">
+       3.3.9. Exercises
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/04h_Summary.html">
+       3.3.10. Chapter Summary
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../content/03/05a-otherskills.html">
+     3.4. Other (Important) Data Wrangling Skills
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/05b_merging.html">
+       3.4.1. Merging
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/05c_missingdata.html">
+       3.4.2. Dealing with Missing Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/05d_outliers.html">
+       3.4.3. Dealing with Outliers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/05e_summary.html">
+       3.4.4. Chapter Summary
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../content/04/00_World_Wide_Data.html">
+   4. Building and Using Large (Textual) Data
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/04/01_Intro_to_scraping.html">
+     4.1. Getting Data off the Web
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/04/01a_openingAndParsing.html">
+     4.2. Opening + Parsing
+     <em>
+      a
+     </em>
+     Webpage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/04/01b_spiders.html">
+     4.3. Building a spider
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../content/04/02_strings.html">
+     4.4. Exploiting Textual Data
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/04/02a_Python%20Strings.html">
+       4.4.1. Working with Python Strings
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/04/02b_regex.html">
+       4.4.2. Regex basics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/04/02c_developing_a_regex.html">
+       4.4.3. Developing a regex
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/04/02d_RegexApplication.html">
+       4.4.4. Intro to NLP - The Anchor Phase Technique
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../content/05/00_intro.html">
+   5. Data Science Intro
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/01_bigpicture.html">
+     5.1. The promise of ML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/01b_model_process.html">
+     5.2. Planning a project
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/01a_MLgonewrong.html">
+     5.3. ML Gone Wrong
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/01c_teams.html">
+     5.4. Coding in Teams
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/01d_sharingBigFiles.html">
+     5.5. Sharing large files
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../content/05/02_reg.html">
+   6. Regression
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/02a_basics.html">
+     6.1. Basics and Notation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/02b_mechanics.html">
+     6.2. Mechanics of running regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/02c_goodnessOfFit.html">
+     6.3. Goodness of Fit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/02d_interpretingCoefs.html">
+     6.4. Interpreting regression coefficients
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/02e_statisticalSig.html">
+     6.5. Statistical significance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/02f_warnings.html">
+     6.6.
+     <em>
+      Significant
+     </em>
+     warnings about “statistical significance”
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/02g_summary.html">
+     6.7. Summary and Resources
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../content/05/03_ML.html">
+   7. ML - Intro &amp; Discussion
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/03a_ML_obj_and_tradeoff.html">
+     7.1. The objective of machine learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/03f_leakage.html">
+     7.2. Data Leakage - Illustration
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/03f_leakage3.html">
+     7.3. Data Leakage - Illustration 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/03f_leakage2.html">
+     7.4. Data Leakage Defined
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/03c_ModelEval.html">
+     7.5. Model evaluation via cross validation (CV)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/03c1_OOS.html">
+     7.6. Model evaluation via Out-of-Sample (OOS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/03d_whatToMax.html">
+     7.7. Evaluating models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/03e_whichModel.html">
+     7.8. Model selection
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../content/05/04a_SKLearn.html">
+   8. ML - Code &amp; Implementation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/04b_best_practices.html">
+     8.1. Best Practice Pseudo Code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/04c_onemodel.html">
+     8.2. SKLearn Intro
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/04d_crossval.html">
+     8.3. Cross-Validation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/04e_pipelines.html">
+     8.4. Pipelines
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/04e1_preprocessing.html">
+     8.5. Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/04f_optimizing_a_model.html">
+     8.6. Optimizing a Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/04h_putting_together.html">
+     8.7. Many Models
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../content/05/05a_finapps.html">
+   9. Finance Applications
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/05a_compounding.html">
+     9.1. Compounding returns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/05a_rolling.html">
+     9.2. Rolling returns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/05a_expanding.html">
+     9.3. Expanding returns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/05b_capm.html">
+     9.4. Estimating CAPM
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/05c_factorloadings.html">
+     9.5. Estimating better models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/05c_finpacks.html">
+     9.6. Supercharged resources/packages
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../content/05/06_thefuture.html">
+   10. The Future
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/06a_saving.html">
+     10.1. Saving Your Work
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/06b_nextsteps.html">
+     10.2. Faster, better, stronger
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/06c_dashboards.html">
+     10.3. Dashboards
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Slides and Memes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/slides/slides.html">
+   Slides from previous classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/slides/memes.html">
+   Memes
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/handouts/Website setup.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/LeDataSciFi/ledatascifi-2024"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/LeDataSciFi/ledatascifi-2024/issues/new?title=Issue%20on%20page%20%2Fhandouts/Website setup.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/LeDataSciFi/ledatascifi-2024/edit/main/handouts/Website setup.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   04/05/2022
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#purpose">
+   PURPOSE
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#goals">
+   GOALS
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#github-pages-overview">
+   GITHUB PAGES OVERVIEW
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#walkthrough">
+   WALKTHROUGH
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#personal-website-template-version">
+     Personal website (template version)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#getting-started-on-a-team-project-website">
+     Getting started on a team project website
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#moving-forward">
+     MOVING FORWARD
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-little-summary-of-some-of-your-options-for-creating-websites">
+   A little summary of some of your options for creating websites:
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="setting-up-a-website-to-show-off-your-work">
+<h1>Setting up a website to show off your work<a class="headerlink" href="#setting-up-a-website-to-show-off-your-work" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>04/05/2022<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="purpose">
+<h2>PURPOSE<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Learn how to build a website to show off some cool stuff</p></li>
+</ul>
+</div>
+<div class="section" id="goals">
+<h2>GOALS<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Use GitHub Pages to build a website a resume-style website and showcase projects, including your midterm</p></li>
+<li><p>Use GitHub Pages to create a website for your final group project at the end of the semester</p></li>
+<li><p>Show examples of what you can do with GitHub Pages</p></li>
+<li><p>Show examples of “above and beyond” the minimal expectations for a website</p></li>
+</ul>
+</div>
+<div class="section" id="github-pages-overview">
+<h2>GITHUB PAGES OVERVIEW<a class="headerlink" href="#github-pages-overview" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fast, easy, free way to create and host a website</p></li>
+<li><p>Hosted on GH’s servers</p></li>
+<li><p>Not required to pay to register for a domain name—though you still can</p></li>
+<li><p>Examples:</p>
+<ul>
+<li><p><a class="reference external" href="https://julioveracruz.github.io/">https://julioveracruz.github.io/</a></p>
+<ul>
+<li><p>Made by <a class="reference external" href="https://github.com/julioveracruz/julioveracruz.github.io">https://github.com/julioveracruz/julioveracruz.github.io</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://julioveracruz.github.io/testwebsite/">https://julioveracruz.github.io/testwebsite/</a></p>
+<ul>
+<li><p>Made by <a class="reference external" href="https://github.com/julioveracruz/testwebsite">https://github.com/julioveracruz/testwebsite</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://donbowen.github.io/slides/">https://donbowen.github.io/slides/</a></p>
+<ul>
+<li><p>Made by <a class="reference external" href="https://github.com/donbowen/slides">https://github.com/donbowen/slides</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://square.github.io/">https://square.github.io/</a></p>
+<ul>
+<li><p>Made by <a class="reference external" href="https://github.com/square/square.github.io">https://github.com/square/square.github.io</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://yelp.github.io/">https://yelp.github.io/</a></p>
+<ul>
+<li><p>Made by <a class="reference external" href="https://github.com/Yelp/yelp.github.io">https://github.com/Yelp/yelp.github.io</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://donbowen-portfolio-frontier-streamlit-dashboard-app-yentvd.streamlit.app/">https://donbowen-portfolio-frontier-streamlit-dashboard-app-yentvd.streamlit.app/</a></p>
+<ul>
+<li><p>Made by <a class="reference external" href="https://github.com/donbowen/portfolio-frontier-streamlit-dashboard/">https://github.com/donbowen/portfolio-frontier-streamlit-dashboard/</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="walkthrough">
+<h2>WALKTHROUGH<a class="headerlink" href="#walkthrough" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="personal-website-template-version">
+<h3>Personal website (template version)<a class="headerlink" href="#personal-website-template-version" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Go to <a class="reference external" href="https://github.com/donbowen/donbowen.github.io">https://github.com/donbowen/donbowen.github.io</a></p></li>
+<li><p>Click the green [Use this template] button</p></li>
+<li><p>Name it <em>username</em>.github.io</p>
+<ul>
+<li><p>If you already have a <em>username</em>.github.io repo, give it any name you want (perhaps something like, “personal-website”)</p>
+<ul>
+<li><p>In the resulting repo, click Settings, then Pages, then make sure the source is the main branch, then save.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Change the link in the about area to your username. Then go look at the website</p></li>
+<li><p>Edit config (to change the left sidebar picture and links)</p>
+<ul>
+<li><p>Editable sections are text in blue</p></li>
+</ul>
+</li>
+<li><p>Edit <a class="reference external" href="http://index.md">index.md</a> (text and picture, portfolio descriptions, and links, etc)</p>
+<ul>
+<li><p>Can edit directly on <a class="reference external" href="http://GitHub.com">GitHub.com</a> or through GitHub Desktop</p></li>
+</ul>
+</li>
+<li><p>Edit midterm_summary.md</p>
+<ul>
+<li><p>This should be a high level over view (question, approach, findings, discussion)</p></li>
+<li><p>Incorporate your summary of your midterm analysis or progress on it</p></li>
+</ul>
+</li>
+<li><p>Practice: Convert any ipynb from the class notes folder into MD, add to website (follow steps on the regression_practice page on the website template we are using)</p>
+<ul>
+<li><p>On JupyterLab, save and export any ipynb file into markdown</p></li>
+<li><p>Add that resulting markdown file to your website repo</p></li>
+<li><p>Link to your markdown file by editing <a class="reference external" href="http://index.md">index.md</a></p></li>
+<li><p>Edit the layout (see regression_practice.md and the “30 second fix” below)</p></li>
+</ul>
+</li>
+<li><p>Note on layout:</p>
+<ul>
+<li><p>The template limits you to the “Minimal” theme preset on <a class="reference external" href="http://GitHub.com">GitHub.com</a></p></li>
+<li><p>For more customizability, you can create your own GitHub Pages using other theme presets with themes</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="getting-started-on-a-team-project-website">
+<h3>Getting started on a team project website<a class="headerlink" href="#getting-started-on-a-team-project-website" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Only one person on each team needs to do this.</p>
+<ul>
+<li><p>Your work for the project will be in a different repo I set up, but your project’s website will be this one.</p></li>
+</ul>
+</li>
+<li><p>Go to <a class="reference external" href="https://github.com/donbowen/teamproject">https://github.com/donbowen/teamproject</a></p></li>
+<li><p>Click the green [Use this template] button</p></li>
+<li><p>Name it something related to the project</p>
+<ul>
+<li><p>You can change this later, but any links to the website will need to change</p></li>
+</ul>
+</li>
+<li><p>In the resulting repo, click Settings, then Pages, then make sure the source is the main branch.</p>
+<ul>
+<li><p>You can choose a different theme here if you want</p></li>
+</ul>
+</li>
+<li><p>Change the link in the code/about area to the website URL. Then go look at the website</p></li>
+<li><p>Settings &gt; Collaborators:</p>
+<ul>
+<li><p>Add all teammates, and add the TA and Professor Bowen</p></li>
+</ul>
+</li>
+<li><p>In each person’s personal website, change the eventual project link to link to that website</p></li>
+</ul>
+</div>
+<div class="section" id="moving-forward">
+<h3>MOVING FORWARD<a class="headerlink" href="#moving-forward" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>GitHub Pages is just the start of what you could do with creating websites</p></li>
+<li><p>Above and beyond..</p></li>
+<li><p>Other templates, resources</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/mmistakes/mm-github-pages-starter/generate">https://github.com/mmistakes/mm-github-pages-starter/generate</a></p></li>
+<li><p><a class="reference external" href="https://github.com/fastai/fastpages">https://github.com/fastai/fastpages</a></p></li>
+<li><p><a class="reference external" href="https://html5up.net/">https://html5up.net/</a></p></li>
+</ul>
+</li>
+<li><p>HTML, CSS, Javascript-savvy users welcomed</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="a-little-summary-of-some-of-your-options-for-creating-websites">
+<h2>A little summary of some of your options for creating websites:<a class="headerlink" href="#a-little-summary-of-some-of-your-options-for-creating-websites" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Pros</p></th>
+<th class="head"><p>Cons</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Default GitHub templates and Markdown files <br> <ul> <li> <a class="reference external" href="https://donbowen.github.io/">https://donbowen.github.io/</a> </li><li> <a class="reference external" href="https://donbowen.github.io/teamproject/">https://donbowen.github.io/teamproject/</a>   </li></ul></p></td>
+<td><p><ul> <li> Easy start </li><li>  Can use Plotly, Altair to make interactive charts     </li></ul></p></td>
+<td><p><ul> <li> Need explicit page links for interactive table of contents, navigation bar </li><li>  Limited customization options </li><li>  Have to “paste” output content into Markdown files </li><li>  Have to manually convert .ipynb files into MD or HTML to post </li></ul></p></td>
+</tr>
+<tr class="row-odd"><td><p>Finding templates that you like, forking, and customizing  <br> <ul> <li> <strong><a class="reference external" href="https://jekyllthemes.io/">https://jekyllthemes.io/</a></strong> </li><li> <strong><a class="reference external" href="http://jekyllthemes.org/">http://jekyllthemes.org/</a></strong> </li><li> <a class="reference external" href="https://html5up.net/">https://html5up.net/</a>   </li></ul></p></td>
+<td><p><ul> <li> Also easy start </li><li> Better customization options </li><li> Many have already-developed interactive table of contents, navigation bar, etc. features </li><li> Can also use Plotly, Altair to make interactive charts  </li></ul></p></td>
+<td><p><ul> <li> Have to learn template’s repo organizations </li><li> Need to reconfigure templates’ files to suit your own needs </li><li>  Have to “paste” output content into Markdown files </li><li>  Have to manually convert .ipynb files into MD or HTML to post </li><li> Some additional setup needed  </li></ul></p></td>
+</tr>
+<tr class="row-even"><td><p>Fastpages - <a class="reference external" href="https://github.com/fastai/fastpages">https://github.com/fastai/fastpages</a></p></td>
+<td><p><ul> <li> Publishes ipynb files automatically </li><li> Interactive visualizations work automatically        </li></ul></p></td>
+<td><p><ul> <li> More overhead learning   </li></ul></p></td>
+</tr>
+<tr class="row-odd"><td><p>Jupyterbooks  <br> <ul> <li> <a class="reference external" href="https://jupyterbook.org/">https://jupyterbook.org/</a> </li><li> <a class="reference external" href="https://ledatascifi.github.io">https://ledatascifi.github.io</a> </li></ul></p></td>
+<td><p><ul> <li> Oh la la </li><li> Lots of customization options </li><li> Best for larger projects </li></ul></p></td>
+<td><p><ul> <li> Have to learn template’s repo organizations </li><li> Need to reconfigure templates’ files to suit your own needs </li><li> Some additional setup needed  </li></ul></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./handouts"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Donald Bowen<br/>
+        
+            &copy; Copyright 2024.<br/>
+          <div class="extra_footer">
+            You're doing well, keep going!
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
