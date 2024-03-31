@@ -27,7 +27,7 @@ date_after_21_days = most_recent_sunday + timedelta(days=21)
 rows = df.query('Hbool in ["Tasks", "ASGN"] & (Date >= @most_recent_sunday) & (Date <= @date_after_21_days)')
 
 print(most_recent_sunday)
-print(tasks)
+print("tasks")
 print(rows)
 
 # Start building the HTML table string with inline styles for padding
