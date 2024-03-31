@@ -33,4 +33,8 @@ jobs:
     - name: Change directory and run script
       run: |
         cd content/about
-        python schedule_converter.py
+        pwd
+        ls -lah
+        python schedule_converter.py > output.log
+        cat output.log
+
