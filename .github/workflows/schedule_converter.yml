@@ -33,8 +33,12 @@ jobs:
     - name: Change directory and run script
       run: |
         cd content/about
-        pwd
-        ls -lah
-        python schedule_converter.py > output.log
-        cat output.log
+        python schedule_converter.py
 
+    - name: Commit and push if changed
+      run: |
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
+        git add .  # Add all changed files in the working directory
+        git commit -m "Automated schedule update" -a || exit 0  # Commit all changes. The -a option automatically stages files that have been modified and deleted.
+        git push
