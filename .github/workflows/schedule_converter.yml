@@ -3,13 +3,14 @@ name: Run Schedule Converter
 on:
   push:
     paths:
-      - 'content/about/schedule_converter.py'
+      - 'content/about/Schedule.xlsx'
   pull_request:
     paths:
-      - 'content/about/schedule_converter.py'
+      - 'content/about/Schedule.xlsx'
   schedule:
     # Runs at 01:00 AM every Sunday; uses UTC time.
     - cron: '0 1 * * 0'
+  workflow_dispatch:    
 
 jobs:
   run-converter:
