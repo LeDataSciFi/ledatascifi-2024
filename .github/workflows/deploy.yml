@@ -7,7 +7,7 @@ on:
       - main
   schedule:
     # Runs at 01:00 AM every Sunday; uses UTC time.
-    - cron: '0 1 * * 0'
+    - cron: '0 2 * * 0'
   workflow_dispatch:    
 
 # This job installs dependencies, build the book, and pushes it to `gh-pages`
