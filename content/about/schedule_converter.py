@@ -2,9 +2,7 @@ import pandas as pd
 import numpy as np
 import os
 
-os.chdir('content/about')
-
-df = pd.read_excel('schedule.xlsx',sheet_name='Overall')
+df = pd.read_excel('Schedule.xlsx',sheet_name='Overall')
 df['Date'] = pd.to_datetime(df['Date'])
 
 df.columns
