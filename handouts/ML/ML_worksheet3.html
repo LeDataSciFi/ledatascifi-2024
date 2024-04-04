@@ -1,0 +1,1677 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code for the results in the preprocessing lecture &#8212; LeDataSciFi-2024</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/moviescript.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/frontpage.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fin377_specialformatting.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">LeDataSciFi-2024</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/objectives.html">
+   Objectives
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/outcomes.html">
+   Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/about_us.html">
+   About us + office hours
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/structure_and_policies.html">
+   Course structure + policies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/use_of_gpt.html">
+   ChatGPT and other AI
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/gradeoverview.html">
+   Grading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/interest.html">
+   Interested but unsure?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/bootcamp.html">
+   Pre-Class Bootcamp
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/hall_of_awesomeness.html">
+   The Hall of Awesomeness
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/acknowledgments.html">
+   Gratitude
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Schedule, tips, resources
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/schedule.html">
+   Dashboard, key links, schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/help.html">
+   Help
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/resources.html">
+   Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/tips.html">
+   Tips and hacks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/LeDataSciFi/ledatascifi-2024/tree/main/community_codebook">
+   Community Codebook
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/LeDataSciFi/ledatascifi-2024/tree/main/handouts">
+   Class Handouts
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Assignments and participation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/assignments/howto_do.html">
+   How to start and turn in assignments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/assignments/howto_review.html">
+   How to do your peer reviews
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/assignments/mid_proj.html">
+   Midterm project AKA ASGN 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/assignments/website_setup.html">
+   Personal Website AKA ASGN 9
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/assignments/project.html">
+   Final projects
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Textbook
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../content/01/00_Getting_Started.html">
+   1. Motivation and Getting Started
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/01/01_Motivation.html">
+     1.1. Motivation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/01/02_Setup.html">
+     1.2. Set up
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/01/03_github.html">
+     1.3. GitHub Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/01/03a_githubworkflow.html">
+     1.4. The GitHub Workflow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/01/04_Markdown.html">
+     1.5. Markdown basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/01/05_jupyterlab.html">
+     1.6. Jupyter Lab Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/01/06_python.html">
+     1.7. Python Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/01/07_debugging.html">
+     1.8. Debugging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/01/07a_errors.html">
+     1.9. Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/01/08_libraries.html">
+     1.10. Libraries/Packages
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/01/09_gitignore.html">
+     1.11. Gitignore Files
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../content/02/10_Golden_1.html">
+   2. Good Analysis Practices
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/02/10_Golden_2.html">
+     2.1. A case study of bad research
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/02/10_Golden_3.html">
+     2.2. The golden rules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/02/10_Golden_6.html">
+     2.3. Organizing your projects
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/02/10_Golden_7.html">
+     2.4. Filepaths
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/02/10_Golden_4.html">
+     2.5. Storing data smartly
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/02/10_Golden_5a.html">
+     2.6. Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/02/10_Golden_5b.html">
+     2.7. Writing good code comments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/02/10_Golden_8.html">
+     2.8. Writing good code
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../content/03/00_Data_Wrangling_Intro.html">
+   3. Wrangling with Data
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../content/03/01_Numpy.html">
+     3.1. Numpy
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/01a_NumpyCS.html">
+       3.1.1. Numpy + Scientific Computing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/01b_NumpyBasics.html">
+       3.1.2. A (Very) Short Introduction
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/01c_NumpyPractice.html">
+       3.1.3. Exercises
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/01d_NumpyResources.html">
+       3.1.4. More Resources
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../content/03/02a_pandasIntro.html">
+     3.2. Pandas
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/02a_pandasTips.html">
+       3.2.1. Tips
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/02b_pandasVocab.html">
+       3.2.2. Vocab and Long vs Wide Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/02c_commonFcns.html">
+       3.2.3. Common Functions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/02d_temp.html">
+       3.2.4. Temp. vs Perm. Objects
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/02e_eda_golden.html">
+       3.2.5. Golden Rules + EDA
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/02f_chains.html">
+       3.2.6. Pandas Chains
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/02g_commontasks.html">
+       3.2.7. Common Tasks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/02h_exercises.html">
+       3.2.8. Exercises
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/02j_resourcesAndSum.html">
+       3.2.9. Summary and Resources
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../content/03/04a-dataviz.html">
+     3.3. Data Visualization
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/04b-whyplot.html">
+       3.3.1. The Role of Viz in Analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/04c-makeplot.html">
+       3.3.2. Making a Plot
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/04d-whichplot.html">
+       3.3.3. Which Plot Type Should I Use?
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/04e-visualEDA.html">
+       3.3.4. Visual EDA Walkthrough
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/04e2-visualEDA-tools.html">
+       3.3.5. Visual EDA Tools
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/04f1-viz_narrative.html">
+       3.3.6. Better Plots
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/04f2-customizing_figs.html">
+       3.3.7. Customizing figures
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/04f3-interactive_figs.html">
+       3.3.8. Interactive plots:
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         plotly
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/04f4-exercises.html">
+       3.3.9. Exercises
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/04h_Summary.html">
+       3.3.10. Chapter Summary
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../content/03/05a-otherskills.html">
+     3.4. Other (Important) Data Wrangling Skills
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/05b_merging.html">
+       3.4.1. Merging
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/05c_missingdata.html">
+       3.4.2. Dealing with Missing Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/05d_outliers.html">
+       3.4.3. Dealing with Outliers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/05e_summary.html">
+       3.4.4. Chapter Summary
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../content/04/00_World_Wide_Data.html">
+   4. Building and Using Large (Textual) Data
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/04/01_Intro_to_scraping.html">
+     4.1. Getting Data off the Web
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/04/01a_openingAndParsing.html">
+     4.2. Opening + Parsing
+     <em>
+      a
+     </em>
+     Webpage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/04/01b_spiders.html">
+     4.3. Building a spider
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../content/04/02_strings.html">
+     4.4. Exploiting Textual Data
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/04/02a_Python%20Strings.html">
+       4.4.1. Working with Python Strings
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/04/02b_regex.html">
+       4.4.2. Regex basics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/04/02c_developing_a_regex.html">
+       4.4.3. Developing a regex
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/04/02d_RegexApplication.html">
+       4.4.4. Intro to NLP - The Anchor Phase Technique
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../content/05/00_intro.html">
+   5. Data Science Intro
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/01_bigpicture.html">
+     5.1. The promise of ML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/01b_model_process.html">
+     5.2. Planning a project
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/01a_MLgonewrong.html">
+     5.3. ML Gone Wrong
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/01c_teams.html">
+     5.4. Coding in Teams
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/01d_sharingBigFiles.html">
+     5.5. Sharing large files
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../content/05/02_reg.html">
+   6. Regression
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/02a_basics.html">
+     6.1. Basics and Notation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/02b_mechanics.html">
+     6.2. Mechanics of running regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/02c_goodnessOfFit.html">
+     6.3. Goodness of Fit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/02d_interpretingCoefs.html">
+     6.4. Interpreting regression coefficients
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/02e_statisticalSig.html">
+     6.5. Statistical significance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/02f_warnings.html">
+     6.6.
+     <em>
+      Significant
+     </em>
+     warnings about “statistical significance”
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/02g_summary.html">
+     6.7. Summary and Resources
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../content/05/03_ML.html">
+   7. ML - Intro &amp; Discussion
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/03a_ML_obj_and_tradeoff.html">
+     7.1. The objective of machine learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/03f_leakage.html">
+     7.2. Data Leakage - Illustration
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/03f_leakage3.html">
+     7.3. Data Leakage - Illustration 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/03f_leakage2.html">
+     7.4. Data Leakage Defined
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/03c_ModelEval.html">
+     7.5. Model evaluation via cross validation (CV)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/03c1_OOS.html">
+     7.6. Model evaluation via Out-of-Sample (OOS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/03d_whatToMax.html">
+     7.7. Evaluating models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/03e_whichModel.html">
+     7.8. Model selection
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../content/05/04a_SKLearn.html">
+   8. ML - Code &amp; Implementation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/04b_best_practices.html">
+     8.1. Best Practice Pseudo Code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/04c_onemodel.html">
+     8.2. SKLearn Intro
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/04d_crossval.html">
+     8.3. Cross-Validation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/04e_pipelines.html">
+     8.4. Pipelines
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/04e1_preprocessing.html">
+     8.5. Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/04f_optimizing_a_model.html">
+     8.6. Optimizing a Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/04h_putting_together.html">
+     8.7. Many Models
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../content/05/05a_finapps.html">
+   9. Finance Applications
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/05a_compounding.html">
+     9.1. Compounding returns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/05a_rolling.html">
+     9.2. Rolling returns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/05a_expanding.html">
+     9.3. Expanding returns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/05b_capm.html">
+     9.4. Estimating CAPM
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/05c_factorloadings.html">
+     9.5. Estimating better models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/05c_finpacks.html">
+     9.6. Supercharged resources/packages
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../content/05/06_thefuture.html">
+   10. The Future
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/06a_saving.html">
+     10.1. Saving Your Work
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/06b_nextsteps.html">
+     10.2. Faster, better, stronger
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/06c_dashboards.html">
+     10.3. Dashboards
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Slides and Memes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/slides/slides.html">
+   Slides from previous classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/slides/memes.html">
+   Memes
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/handouts/ML/ML_worksheet3.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/LeDataSciFi/ledatascifi-2024"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/LeDataSciFi/ledatascifi-2024/issues/new?title=Issue%20on%20page%20%2Fhandouts/ML/ML_worksheet3.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/LeDataSciFi/ledatascifi-2024/edit/main/handouts/ML/ML_worksheet3.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/LeDataSciFi/ledatascifi-2024/main?urlpath=lab/tree/handouts/ML/ML_worksheet3.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/LeDataSciFi/ledatascifi-2024/blob/main/handouts/ML/ML_worksheet3.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-new-step-right-before-preproc-pipe">
+   A new step right before
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     preproc_pipe
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tips">
+     Tips:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#our-generic-pipeline">
+   Our generic pipeline
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trying-many-different-models">
+   Trying many different models
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="code-for-the-results-in-the-preprocessing-lecture">
+<h1>Code for the results in the preprocessing lecture<a class="headerlink" href="#code-for-the-results-in-the-preprocessing-lecture" title="Permalink to this headline">¶</a></h1>
+<p>Exercises:</p>
+<ul class="simple">
+<li><p>Don’t run my code as-is. It will take 15+ minutes.</p></li>
+<li><p>Delete my <code class="docutils literal notranslate"><span class="pre">param_grid</span></code> and create your own. (Good practice!) Try PCA, and then Poly(2).</p></li>
+<li><p>Try to examine and use the estimators <em>after</em> the grid search.</p></li>
+<li><p>How can you use a model that isn’t <code class="docutils literal notranslate"><span class="pre">best_estimate_</span></code>? (Perhaps you prefer the model without the absolute highest mean test score!) Pick a model that isn’t the <code class="docutils literal notranslate"><span class="pre">best_estimate_</span></code>, and figure out how you can use that model (to <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> it and <code class="docutils literal notranslate"><span class="pre">.predict()</span></code> with it.)</p></li>
+<li><p>See how our profitable model does on the test sample!</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># I&#39;m putting all code we&#39;ve seen before here</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">df_after_transform</span> <span class="kn">import</span> <span class="n">df_after_transform</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">set_config</span>
+<span class="kn">from</span> <span class="nn">sklearn.calibration</span> <span class="kn">import</span> <span class="n">CalibrationDisplay</span>
+<span class="kn">from</span> <span class="nn">sklearn.compose</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ColumnTransformer</span><span class="p">,</span>
+    <span class="n">make_column_selector</span><span class="p">,</span>
+    <span class="n">make_column_transformer</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">HistGradientBoostingClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">RFECV</span><span class="p">,</span>
+    <span class="n">SelectFromModel</span><span class="p">,</span>
+    <span class="n">SelectKBest</span><span class="p">,</span>
+    <span class="n">SequentialFeatureSelector</span><span class="p">,</span>
+    <span class="n">f_classif</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Lasso</span><span class="p">,</span> <span class="n">LassoCV</span><span class="p">,</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ConfusionMatrixDisplay</span><span class="p">,</span>
+    <span class="n">DetCurveDisplay</span><span class="p">,</span>
+    <span class="n">PrecisionRecallDisplay</span><span class="p">,</span>
+    <span class="n">RocCurveDisplay</span><span class="p">,</span>
+    <span class="n">classification_report</span><span class="p">,</span>
+    <span class="n">make_scorer</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">GridSearchCV</span><span class="p">,</span>
+    <span class="n">KFold</span><span class="p">,</span>
+    <span class="n">cross_validate</span><span class="p">,</span>
+    <span class="n">train_test_split</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span><span class="p">,</span> <span class="n">make_pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">OneHotEncoder</span><span class="p">,</span>
+    <span class="n">OrdinalEncoder</span><span class="p">,</span>
+    <span class="n">PolynomialFeatures</span><span class="p">,</span>
+    <span class="n">StandardScaler</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">LinearSVC</span>
+
+<span class="n">set_config</span><span class="p">(</span><span class="n">display</span><span class="o">=</span><span class="s2">&quot;diagram&quot;</span><span class="p">)</span>  <span class="c1"># display=&#39;text&#39; is the default</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span>
+    <span class="s2">&quot;display.max_colwidth&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="s2">&quot;display.max_rows&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;display.max_columns&quot;</span><span class="p">,</span> <span class="kc">None</span>
+<span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+<span class="c1"># load data</span>
+
+<span class="n">loans</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;ML - prof only/inputs/2013_subsample.zip&quot;</span><span class="p">)</span>
+
+<span class="c1"># drop some bad columns here, or in the pipeline</span>
+
+<span class="c1"># loans = loans.drop(</span>
+<span class="c1">#     [&quot;member_id&quot;, &quot;id&quot;, &quot;desc&quot;, &quot;earliest_cr_line&quot;, &quot;emp_title&quot;, &quot;issue_d&quot;], axis=1</span>
+<span class="c1"># )</span>
+
+<span class="c1"># create holdout sample</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">loans</span><span class="o">.</span><span class="n">loan_status</span> <span class="o">==</span> <span class="s2">&quot;Charged Off&quot;</span>
+<span class="n">y</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">loans</span> <span class="o">=</span> <span class="n">loans</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;loan_status&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">loans</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">)</span>  <span class="c1"># (stratify will make sure that test/train both have equal fractions of outcome)</span>
+
+<span class="c1"># define the profit function</span>
+
+
+<span class="k">def</span> <span class="nf">custom_prof_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">roa</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">haircut</span><span class="o">=</span><span class="mf">0.20</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Firm profit is this times the average loan size. We can</span>
+<span class="sd">    ignore that term for the purposes of maximization. </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">TN</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">y_pred</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span>  <span class="c1"># count loans made and actually paid back</span>
+    <span class="n">FN</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">y_pred</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">1</span><span class="p">))</span>  <span class="c1"># count loans made and actually defaulting</span>
+    <span class="k">return</span> <span class="n">TN</span> <span class="o">*</span> <span class="n">roa</span> <span class="o">-</span> <span class="n">FN</span> <span class="o">*</span> <span class="n">haircut</span>
+
+
+<span class="c1"># so that we can use the fcn in sklearn, &quot;make a scorer&quot; out of that function</span>
+
+<span class="n">prof_score</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">custom_prof_score</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="a-new-step-right-before-preproc-pipe">
+<h2>A new step right before <code class="docutils literal notranslate"><span class="pre">preproc_pipe</span></code><a class="headerlink" href="#a-new-step-right-before-preproc-pipe" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">columntransformer</span></code> has a list of pipelines, each needs a list of variables to use. Options:</p>
+<ol class="simple">
+<li><p>Define manually: <code class="docutils literal notranslate"><span class="pre">num_pipe_vars</span> <span class="pre">=</span> <span class="pre">['A','B','C']</span></code>, then <code class="docutils literal notranslate"><span class="pre">(numer_pipe,</span> <span class="pre">num_pipe_vars)</span></code></p>
+<ul class="simple">
+<li><p>Maybe tedious, but explicit (good)</p></li>
+</ul>
+</li>
+<li><p>Let the CT find the numeric vars: <code class="docutils literal notranslate"><span class="pre">(numer_pipe,</span> <span class="pre">make_column_selector(dtype_include=np.number))</span></code></p>
+<ul class="simple">
+<li><p>gets numbers, similar for cat vars</p></li>
+<li><p>lets in all numeric/object variables, but often some of your columns shouldn’t be used!</p></li>
+</ul>
+</li>
+<li><p>Get pandas to list all numeric/cat vars, then drop those you don’t want (<code class="docutils literal notranslate"><span class="pre">example</span> <span class="pre">below</span></code>)</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dont_use</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;member_id&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">,</span> <span class="s2">&quot;earliest_cr_line&quot;</span><span class="p">,</span> <span class="s2">&quot;emp_title&quot;</span><span class="p">,</span> <span class="s2">&quot;issue_d&quot;</span><span class="p">,</span><span class="s2">&quot;title&quot;</span><span class="p">]</span>
+
+<span class="c1"># list of all num vars:</span>
+<span class="n">num_pipe_features</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s2">&quot;number&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+
+<span class="c1"># exclude any bad features:</span>
+<span class="n">num_pipe_features</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">num_pipe_features</span> <span class="k">if</span> <span class="n">e</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dont_use</span><span class="p">]</span>
+
+<span class="n">cat_pipe_features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;grade&quot;</span><span class="p">]</span>  <span class="c1"># all: X_train.select_dtypes(include=&#39;object&#39;).columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tips">
+<h3>Tips:<a class="headerlink" href="#tips" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p><strong>Check these lists manually!</strong> (It’s very easy to mess up.)</p></li>
+<li><p><strong>You may want/need more than 2 pipes</strong>. E.g.:</p>
+<ul class="simple">
+<li><p>one for boolean vars</p></li>
+<li><p>one for log-normal vars</p></li>
+<li><p>one for skewed vars</p></li>
+<li><p>one for cat vars</p></li>
+<li><p>also: you can take a column and use/transform it multiple ways</p></li>
+</ul>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numer_pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">),</span> <span class="n">StandardScaler</span><span class="p">())</span>
+
+<span class="n">cat_pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">OneHotEncoder</span><span class="p">())</span>
+
+<span class="c1"># didn&#39;t use make_column_transformer; wanted to name steps</span>
+<span class="n">preproc_pipe</span> <span class="o">=</span> <span class="n">make_column_transformer</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">numer_pipe</span><span class="p">,</span> <span class="n">num_pipe_features</span><span class="p">),</span> 
+    <span class="p">(</span><span class="n">cat_pipe</span><span class="p">,</span> <span class="n">cat_pipe_features</span><span class="p">),</span> 
+    <span class="n">remainder</span><span class="o">=</span><span class="s2">&quot;drop&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lets make the model from last class too, as a baseline</span>
+<span class="n">preproc_pipe_old</span> <span class="o">=</span> <span class="n">make_column_transformer</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">numer_pipe</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;annual_inc&quot;</span><span class="p">,</span> <span class="s2">&quot;int_rate&quot;</span><span class="p">]),</span> 
+    <span class="p">(</span><span class="n">cat_pipe</span><span class="p">,</span> <span class="n">cat_pipe_features</span><span class="p">),</span> 
+    <span class="n">remainder</span><span class="o">=</span><span class="s2">&quot;drop&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># preproc_df = df_after_transform(preproc_pipe,X_train)</span>
+<span class="c1"># preproc_df.describe().T.round(2)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="our-generic-pipeline">
+<h2>Our generic pipeline<a class="headerlink" href="#our-generic-pipeline" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Process data</p></li>
+<li><p>Create features</p></li>
+<li><p>Select features</p></li>
+<li><p>Estimator/model</p></li>
+</ol>
+<p>Let’s make the pipeline. <code class="docutils literal notranslate"><span class="pre">'passthough'</span></code> means a step isn’t doing anything. (Yet!)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># I used &quot;Pipeline&quot; not &quot;make_pipeline&quot; bc I wanted to name the steps</span>
+<span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;columntransformer&#39;</span><span class="p">,</span><span class="n">preproc_pipe</span><span class="p">),</span>
+                 <span class="p">(</span><span class="s1">&#39;feature_create&#39;</span><span class="p">,</span><span class="s1">&#39;passthrough&#39;</span><span class="p">),</span> 
+                 <span class="p">(</span><span class="s1">&#39;feature_select&#39;</span><span class="p">,</span><span class="s1">&#39;passthrough&#39;</span><span class="p">),</span> 
+                 <span class="p">(</span><span class="s1">&#39;clf&#39;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">))</span>
+                <span class="p">])</span>
+
+<span class="n">pipe</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed {color: black;background-color: white;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed pre{padding: 0;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-toggleable {background-color: white;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-estimator:hover {background-color: #d4ebff;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 2em;bottom: 0;left: 50%;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-item {z-index: 1;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-parallel::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 2em;bottom: 0;left: 50%;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-parallel-item {display: flex;flex-direction: column;position: relative;background-color: white;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-parallel-item:only-child::after {width: 0;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;position: relative;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-label label {font-family: monospace;font-weight: bold;background-color: white;display: inline-block;line-height: 1.2em;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-label-container {position: relative;z-index: 2;text-align: center;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-text-repr-fallback {display: none;}</style><div id="sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Pipeline(steps=[(&#x27;columntransformer&#x27;,
+                 ColumnTransformer(transformers=[(&#x27;pipeline-1&#x27;,
+                                                  Pipeline(steps=[(&#x27;simpleimputer&#x27;,
+                                                                   SimpleImputer()),
+                                                                  (&#x27;standardscaler&#x27;,
+                                                                   StandardScaler())]),
+                                                  [&#x27;annual_inc&#x27;, &#x27;dti&#x27;,
+                                                   &#x27;fico_range_high&#x27;,
+                                                   &#x27;fico_range_low&#x27;,
+                                                   &#x27;installment&#x27;, &#x27;int_rate&#x27;,
+                                                   &#x27;loan_amnt&#x27;, &#x27;mort_acc&#x27;,
+                                                   &#x27;open_acc&#x27;, &#x27;pub_rec&#x27;,
+                                                   &#x27;pub_rec_bankruptcies&#x27;,
+                                                   &#x27;revol_bal&#x27;, &#x27;revol_util&#x27;,
+                                                   &#x27;total_acc&#x27;]),
+                                                 (&#x27;pipeline-2&#x27;,
+                                                  Pipeline(steps=[(&#x27;onehotencoder&#x27;,
+                                                                   OneHotEncoder())]),
+                                                  [&#x27;grade&#x27;])])),
+                (&#x27;feature_create&#x27;, &#x27;passthrough&#x27;),
+                (&#x27;feature_select&#x27;, &#x27;passthrough&#x27;),
+                (&#x27;clf&#x27;, LogisticRegression(class_weight=&#x27;balanced&#x27;))])</pre><b>Please rerun this cell to show the HTML repr or trust the notebook.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="d556b31c-2951-4da7-8aa8-c0d6ea882dc0" type="checkbox" ><label for="d556b31c-2951-4da7-8aa8-c0d6ea882dc0" class="sk-toggleable__label sk-toggleable__label-arrow">Pipeline</label><div class="sk-toggleable__content"><pre>Pipeline(steps=[(&#x27;columntransformer&#x27;,
+                 ColumnTransformer(transformers=[(&#x27;pipeline-1&#x27;,
+                                                  Pipeline(steps=[(&#x27;simpleimputer&#x27;,
+                                                                   SimpleImputer()),
+                                                                  (&#x27;standardscaler&#x27;,
+                                                                   StandardScaler())]),
+                                                  [&#x27;annual_inc&#x27;, &#x27;dti&#x27;,
+                                                   &#x27;fico_range_high&#x27;,
+                                                   &#x27;fico_range_low&#x27;,
+                                                   &#x27;installment&#x27;, &#x27;int_rate&#x27;,
+                                                   &#x27;loan_amnt&#x27;, &#x27;mort_acc&#x27;,
+                                                   &#x27;open_acc&#x27;, &#x27;pub_rec&#x27;,
+                                                   &#x27;pub_rec_bankruptcies&#x27;,
+                                                   &#x27;revol_bal&#x27;, &#x27;revol_util&#x27;,
+                                                   &#x27;total_acc&#x27;]),
+                                                 (&#x27;pipeline-2&#x27;,
+                                                  Pipeline(steps=[(&#x27;onehotencoder&#x27;,
+                                                                   OneHotEncoder())]),
+                                                  [&#x27;grade&#x27;])])),
+                (&#x27;feature_create&#x27;, &#x27;passthrough&#x27;),
+                (&#x27;feature_select&#x27;, &#x27;passthrough&#x27;),
+                (&#x27;clf&#x27;, LogisticRegression(class_weight=&#x27;balanced&#x27;))])</pre></div></div></div><div class="sk-serial"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="4dfe1b9f-c9e4-4c77-a383-3f15921d2bf2" type="checkbox" ><label for="4dfe1b9f-c9e4-4c77-a383-3f15921d2bf2" class="sk-toggleable__label sk-toggleable__label-arrow">columntransformer: ColumnTransformer</label><div class="sk-toggleable__content"><pre>ColumnTransformer(transformers=[(&#x27;pipeline-1&#x27;,
+                                 Pipeline(steps=[(&#x27;simpleimputer&#x27;,
+                                                  SimpleImputer()),
+                                                 (&#x27;standardscaler&#x27;,
+                                                  StandardScaler())]),
+                                 [&#x27;annual_inc&#x27;, &#x27;dti&#x27;, &#x27;fico_range_high&#x27;,
+                                  &#x27;fico_range_low&#x27;, &#x27;installment&#x27;, &#x27;int_rate&#x27;,
+                                  &#x27;loan_amnt&#x27;, &#x27;mort_acc&#x27;, &#x27;open_acc&#x27;,
+                                  &#x27;pub_rec&#x27;, &#x27;pub_rec_bankruptcies&#x27;,
+                                  &#x27;revol_bal&#x27;, &#x27;revol_util&#x27;, &#x27;total_acc&#x27;]),
+                                (&#x27;pipeline-2&#x27;,
+                                 Pipeline(steps=[(&#x27;onehotencoder&#x27;,
+                                                  OneHotEncoder())]),
+                                 [&#x27;grade&#x27;])])</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="11fcac96-bdff-4aee-bd61-949b0c91ab67" type="checkbox" ><label for="11fcac96-bdff-4aee-bd61-949b0c91ab67" class="sk-toggleable__label sk-toggleable__label-arrow">pipeline-1</label><div class="sk-toggleable__content"><pre>[&#x27;annual_inc&#x27;, &#x27;dti&#x27;, &#x27;fico_range_high&#x27;, &#x27;fico_range_low&#x27;, &#x27;installment&#x27;, &#x27;int_rate&#x27;, &#x27;loan_amnt&#x27;, &#x27;mort_acc&#x27;, &#x27;open_acc&#x27;, &#x27;pub_rec&#x27;, &#x27;pub_rec_bankruptcies&#x27;, &#x27;revol_bal&#x27;, &#x27;revol_util&#x27;, &#x27;total_acc&#x27;]</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="217c3770-6c7d-44a9-ae24-ce1127150b2c" type="checkbox" ><label for="217c3770-6c7d-44a9-ae24-ce1127150b2c" class="sk-toggleable__label sk-toggleable__label-arrow">SimpleImputer</label><div class="sk-toggleable__content"><pre>SimpleImputer()</pre></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="d9b1111c-0a17-4d7c-bfb5-c337c93108b5" type="checkbox" ><label for="d9b1111c-0a17-4d7c-bfb5-c337c93108b5" class="sk-toggleable__label sk-toggleable__label-arrow">StandardScaler</label><div class="sk-toggleable__content"><pre>StandardScaler()</pre></div></div></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="6285d217-fb77-4579-b089-cbf4d2592a8b" type="checkbox" ><label for="6285d217-fb77-4579-b089-cbf4d2592a8b" class="sk-toggleable__label sk-toggleable__label-arrow">pipeline-2</label><div class="sk-toggleable__content"><pre>[&#x27;grade&#x27;]</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="8771dc8c-a2d2-459d-a29c-176718375e33" type="checkbox" ><label for="8771dc8c-a2d2-459d-a29c-176718375e33" class="sk-toggleable__label sk-toggleable__label-arrow">OneHotEncoder</label><div class="sk-toggleable__content"><pre>OneHotEncoder()</pre></div></div></div></div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="632b9663-1b4a-43e3-83bc-2f4620bf4086" type="checkbox" ><label for="632b9663-1b4a-43e3-83bc-2f4620bf4086" class="sk-toggleable__label sk-toggleable__label-arrow">passthrough</label><div class="sk-toggleable__content"><pre>passthrough</pre></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="5dc20d22-db29-4895-a681-7f5f77f51c03" type="checkbox" ><label for="5dc20d22-db29-4895-a681-7f5f77f51c03" class="sk-toggleable__label sk-toggleable__label-arrow">passthrough</label><div class="sk-toggleable__content"><pre>passthrough</pre></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="d51a5c14-71bd-4218-9306-72f34546a68a" type="checkbox" ><label for="d51a5c14-71bd-4218-9306-72f34546a68a" class="sk-toggleable__label sk-toggleable__label-arrow">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression(class_weight=&#x27;balanced&#x27;)</pre></div></div></div></div></div></div></div></div></div>
+</div>
+</div>
+<div class="section" id="trying-many-different-models">
+<h2>Trying many different models<a class="headerlink" href="#trying-many-different-models" title="Permalink to this headline">¶</a></h2>
+<p>By using <code class="docutils literal notranslate"><span class="pre">gridsearchCV</span></code>, we can see how our model does for as many different combinations of choices as we want.</p>
+<p>This means we can try different options for the preprocessing step, the feature selection step, the feature creation step, and the estimator.</p>
+<p>We just need to set up the list of combinations (<code class="docutils literal notranslate"><span class="pre">param_grid</span></code> below) we want to try.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># I&#39;m setting up this parameter grid a little different. Read this:</span>
+<span class="c1"># https://stackoverflow.com/questions/45352420/avoid-certain-parameter-combinations-in-gridsearchcv</span>
+
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">[</span>
+    
+    <span class="c1"># baseline: last class&#39;s 3 variable logit, no feature creation or selection</span>
+    <span class="p">{</span><span class="s1">&#39;columntransformer&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">preproc_pipe_old</span><span class="p">]},</span>
+    
+    <span class="c1"># now, try different feature selection methods (no creation, logit as estimator)</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="n">feature_select</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;passthrough&#39;</span><span class="p">,</span> 
+                         
+                         <span class="n">PCA</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> 
+                         <span class="n">PCA</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> 
+                         <span class="n">PCA</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span>
+                         
+                         <span class="n">SelectKBest</span><span class="p">(</span><span class="n">f_classif</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+                         <span class="n">SelectKBest</span><span class="p">(</span><span class="n">f_classif</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+                         <span class="n">SelectKBest</span><span class="p">(</span><span class="n">f_classif</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mi">15</span><span class="p">),</span>
+                         
+                         <span class="n">SelectFromModel</span><span class="p">(</span><span class="n">LassoCV</span><span class="p">()),</span>
+                         <span class="n">SelectFromModel</span><span class="p">(</span><span class="n">LinearSVC</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="s2">&quot;l1&quot;</span><span class="p">,</span>
+                                                   <span class="n">dual</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                                   <span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">),</span>
+                                        <span class="n">threshold</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">),</span>
+                         
+                         <span class="c1"># RFECV is slow here...</span>
+                         <span class="n">RFECV</span><span class="p">(</span><span class="n">LinearSVC</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="s2">&quot;l1&quot;</span><span class="p">,</span>
+                                         <span class="n">dual</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                         <span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">),</span>
+                               <span class="n">cv</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">scoring</span><span class="o">=</span><span class="n">prof_score</span><span class="p">),</span>                         
+                         <span class="n">RFECV</span><span class="p">(</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">),</span>
+                               <span class="n">cv</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">scoring</span><span class="o">=</span><span class="n">prof_score</span><span class="p">),</span>
+                         
+                         <span class="c1"># slow but faster than RFECV </span>
+                         <span class="n">SequentialFeatureSelector</span><span class="p">(</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">),</span>
+                                                   <span class="n">scoring</span><span class="o">=</span><span class="n">prof_score</span><span class="p">,</span>
+                                                   <span class="n">n_features_to_select</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                                                   <span class="n">cv</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>      
+                         <span class="n">SequentialFeatureSelector</span><span class="p">(</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">),</span>
+                                                   <span class="n">scoring</span><span class="o">=</span><span class="n">prof_score</span><span class="p">,</span>
+                                                   <span class="n">n_features_to_select</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                                                   <span class="n">cv</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>    
+                         <span class="n">SequentialFeatureSelector</span><span class="p">(</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">),</span>
+                                                   <span class="n">scoring</span><span class="o">=</span><span class="n">prof_score</span><span class="p">,</span>
+                                                   <span class="n">n_features_to_select</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+                                                   <span class="n">cv</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>                         
+                         
+                         <span class="p">]),</span>
+    
+    <span class="c1"># now, try different feature creation methods (and possibly reduce the features after)</span>
+    <span class="p">{</span><span class="s1">&#39;feature_create&#39;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="c1"># this creates interactions between all variables</span>
+                        <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">interaction_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)],</span>
+     <span class="s1">&#39;feature_select&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;passthrough&#39;</span><span class="p">,</span> <span class="n">PCA</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span> <span class="n">PCA</span><span class="p">(</span><span class="mi">25</span><span class="p">)]</span>
+    <span class="p">},</span>
+    
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we put that list of combinations into <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> to run them all!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span> <span class="o">=</span> <span class="n">pipe</span><span class="p">,</span> 
+                           <span class="n">param_grid</span> <span class="o">=</span> <span class="n">param_grid</span><span class="p">,</span>
+                           <span class="n">cv</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> 
+                           <span class="n">scoring</span><span class="o">=</span><span class="n">prof_score</span>
+                           <span class="p">)</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And this is here just to make the slides a little nicer:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pretty</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">pretty</span> <span class="o">=</span> <span class="n">pretty</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;passthrough&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">pretty</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;SelectKBest(k=10)&#39;</span>
+<span class="n">pretty</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;3 vars (Last class)&#39;</span>
+<span class="n">pretty</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;All numeric vars + Grade&#39;</span>
+<span class="n">pretty</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>param_columntransformer</th>
+      <th>param_feature_select</th>
+      <th>param_feature_create</th>
+      <th>mean_test_score</th>
+      <th>std_test_score</th>
+      <th>std_fit_time</th>
+      <th>mean_score_time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3 vars (Last class)</td>
+      <td></td>
+      <td></td>
+      <td>-2.700</td>
+      <td>5.508829</td>
+      <td>0.026920</td>
+      <td>0.021488</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>All numeric vars + Grade</td>
+      <td></td>
+      <td></td>
+      <td>-3.840</td>
+      <td>4.428237</td>
+      <td>0.075386</td>
+      <td>0.023774</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>All numeric vars + Grade</td>
+      <td>PCA(n_components=5)</td>
+      <td></td>
+      <td>-27.768</td>
+      <td>5.066180</td>
+      <td>0.006887</td>
+      <td>0.027951</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>All numeric vars + Grade</td>
+      <td>PCA(n_components=10)</td>
+      <td></td>
+      <td>-8.232</td>
+      <td>3.808592</td>
+      <td>0.006719</td>
+      <td>0.026230</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>All numeric vars + Grade</td>
+      <td>PCA(n_components=15)</td>
+      <td></td>
+      <td>-2.452</td>
+      <td>3.665048</td>
+      <td>0.010823</td>
+      <td>0.023858</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>All numeric vars + Grade</td>
+      <td>SelectKBest(k=5)</td>
+      <td></td>
+      <td>-5.068</td>
+      <td>4.560519</td>
+      <td>0.020482</td>
+      <td>0.027804</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>All numeric vars + Grade</td>
+      <td>SelectKBest(k=10)</td>
+      <td></td>
+      <td>-5.896</td>
+      <td>6.231397</td>
+      <td>0.010137</td>
+      <td>0.028221</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>All numeric vars + Grade</td>
+      <td>SelectKBest(k=15)</td>
+      <td></td>
+      <td>-2.580</td>
+      <td>5.209683</td>
+      <td>0.042220</td>
+      <td>0.033146</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>All numeric vars + Grade</td>
+      <td>SelectFromModel(estimator=LassoCV())</td>
+      <td></td>
+      <td>-3.892</td>
+      <td>4.542028</td>
+      <td>0.115747</td>
+      <td>0.032657</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>All numeric vars + Grade</td>
+      <td>SelectFromModel(estimator=LinearSVC(class_weight='balanced', dual=False,\n                                    penalty='l1'),\n                threshold='median')</td>
+      <td></td>
+      <td>-6.736</td>
+      <td>5.610268</td>
+      <td>0.321201</td>
+      <td>0.034710</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>All numeric vars + Grade</td>
+      <td>RFECV(cv=2,\n      estimator=LinearSVC(class_weight='balanced', dual=False, penalty='l1'),\n      scoring=make_scorer(custom_prof_score))</td>
+      <td></td>
+      <td>-5.924</td>
+      <td>4.217969</td>
+      <td>8.941669</td>
+      <td>0.030394</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>All numeric vars + Grade</td>
+      <td>RFECV(cv=2, estimator=LogisticRegression(class_weight='balanced'),\n      scoring=make_scorer(custom_prof_score))</td>
+      <td></td>
+      <td>-5.836</td>
+      <td>7.021697</td>
+      <td>3.083498</td>
+      <td>0.049891</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>All numeric vars + Grade</td>
+      <td>SequentialFeatureSelector(cv=2,\n                          estimator=LogisticRegression(class_weight='balanced'),\n                          n_features_to_select=5,\n                          scoring=make_scorer(custom_prof_score))</td>
+      <td></td>
+      <td>23.580</td>
+      <td>2.599723</td>
+      <td>0.877389</td>
+      <td>0.032348</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>All numeric vars + Grade</td>
+      <td>SequentialFeatureSelector(cv=2,\n                          estimator=LogisticRegression(class_weight='balanced'),\n                          n_features_to_select=10,\n                          scoring=make_scorer(custom_prof_score))</td>
+      <td></td>
+      <td>11.048</td>
+      <td>4.400847</td>
+      <td>5.380651</td>
+      <td>0.044987</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>All numeric vars + Grade</td>
+      <td>SequentialFeatureSelector(cv=2,\n                          estimator=LogisticRegression(class_weight='balanced'),\n                          n_features_to_select=15,\n                          scoring=make_scorer(custom_prof_score))</td>
+      <td></td>
+      <td>7.640</td>
+      <td>3.884904</td>
+      <td>5.959993</td>
+      <td>0.038815</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>All numeric vars + Grade</td>
+      <td></td>
+      <td>PolynomialFeatures(interaction_only=True)</td>
+      <td>-3.504</td>
+      <td>8.125135</td>
+      <td>0.063040</td>
+      <td>0.132347</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>All numeric vars + Grade</td>
+      <td>PCA(n_components=15)</td>
+      <td>PolynomialFeatures(interaction_only=True)</td>
+      <td>-54.544</td>
+      <td>3.926330</td>
+      <td>0.059258</td>
+      <td>0.166225</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>All numeric vars + Grade</td>
+      <td>PCA(n_components=25)</td>
+      <td>PolynomialFeatures(interaction_only=True)</td>
+      <td>-35.980</td>
+      <td>5.287525</td>
+      <td>0.040258</td>
+      <td>0.143867</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We can use the best estimator easily, and we can also learn about what that estimator decided.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this is the highest ranked estimator. You can now .predict() with it on new data!</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">best_estimator_</span><span class="p">)</span>
+
+<span class="c1"># this tells us which vars we picked, but is a boolean array (not var names)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Columns picked&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">best_estimator_</span><span class="p">[</span><span class="s1">&#39;feature_select&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">support_</span><span class="p">)</span>
+
+<span class="c1"># the df AFTER the preproc step has the var names</span>
+<span class="n">preproc_df</span> <span class="o">=</span> <span class="n">df_after_transform</span><span class="p">(</span><span class="n">preproc_pipe</span><span class="p">,</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="c1"># so to get the names of the vars, our df_after_transform helps!</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">best_estimator_</span><span class="p">[</span><span class="s1">&#39;feature_select&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">support_</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Columns picked&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">preproc_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pipeline(steps=[(&#39;columntransformer&#39;,
+                 ColumnTransformer(transformers=[(&#39;pipeline-1&#39;,
+                                                  Pipeline(steps=[(&#39;simpleimputer&#39;,
+                                                                   SimpleImputer()),
+                                                                  (&#39;standardscaler&#39;,
+                                                                   StandardScaler())]),
+                                                  [&#39;annual_inc&#39;, &#39;dti&#39;,
+                                                   &#39;fico_range_high&#39;,
+                                                   &#39;fico_range_low&#39;,
+                                                   &#39;installment&#39;, &#39;int_rate&#39;,
+                                                   &#39;loan_amnt&#39;, &#39;mort_acc&#39;,
+                                                   &#39;open_acc&#39;, &#39;pub_rec&#39;,
+                                                   &#39;pub_rec_bankruptcies&#39;,
+                                                   &#39;revol_bal&#39;, &#39;revol_util&#39;,
+                                                   &#39;total_acc&#39;]),
+                                                 (&#39;pipeline-2&#39;,
+                                                  Pipeline(steps=[(&#39;onehotencoder&#39;,
+                                                                   OneHotEncoder())]),
+                                                  [&#39;grade&#39;])])),
+                (&#39;feature_create&#39;, &#39;passthrough&#39;),
+                (&#39;feature_select&#39;,
+                 SequentialFeatureSelector(cv=2,
+                                           estimator=LogisticRegression(class_weight=&#39;balanced&#39;),
+                                           n_features_to_select=5,
+                                           scoring=make_scorer(custom_prof_score))),
+                (&#39;clf&#39;, LogisticRegression(class_weight=&#39;balanced&#39;))])
+============================================================
+Columns picked
+[False False False False False False False False False False False  True
+ False  True  True False  True False False False  True]
+============================================================
+Columns picked
+[&#39;revol_bal&#39;, &#39;total_acc&#39;, &#39;grade_A&#39;, &#39;grade_C&#39;, &#39;grade_G&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./handouts/ML"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Donald Bowen<br/>
+        
+            &copy; Copyright 2024.<br/>
+          <div class="extra_footer">
+            You're doing well, keep going!
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

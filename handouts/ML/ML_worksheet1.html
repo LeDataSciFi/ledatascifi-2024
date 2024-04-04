@@ -1,0 +1,1472 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pipelines (preprocessing to estimator), CV, Gridsearch &#8212; LeDataSciFi-2024</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/moviescript.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/frontpage.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fin377_specialformatting.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">LeDataSciFi-2024</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/objectives.html">
+   Objectives
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/outcomes.html">
+   Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/about_us.html">
+   About us + office hours
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/structure_and_policies.html">
+   Course structure + policies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/use_of_gpt.html">
+   ChatGPT and other AI
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/gradeoverview.html">
+   Grading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/interest.html">
+   Interested but unsure?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/bootcamp.html">
+   Pre-Class Bootcamp
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/hall_of_awesomeness.html">
+   The Hall of Awesomeness
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/acknowledgments.html">
+   Gratitude
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Schedule, tips, resources
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/schedule.html">
+   Dashboard, key links, schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/help.html">
+   Help
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/resources.html">
+   Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/about/tips.html">
+   Tips and hacks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/LeDataSciFi/ledatascifi-2024/tree/main/community_codebook">
+   Community Codebook
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/LeDataSciFi/ledatascifi-2024/tree/main/handouts">
+   Class Handouts
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Assignments and participation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/assignments/howto_do.html">
+   How to start and turn in assignments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/assignments/howto_review.html">
+   How to do your peer reviews
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/assignments/mid_proj.html">
+   Midterm project AKA ASGN 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/assignments/website_setup.html">
+   Personal Website AKA ASGN 9
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/assignments/project.html">
+   Final projects
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Textbook
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../content/01/00_Getting_Started.html">
+   1. Motivation and Getting Started
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/01/01_Motivation.html">
+     1.1. Motivation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/01/02_Setup.html">
+     1.2. Set up
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/01/03_github.html">
+     1.3. GitHub Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/01/03a_githubworkflow.html">
+     1.4. The GitHub Workflow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/01/04_Markdown.html">
+     1.5. Markdown basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/01/05_jupyterlab.html">
+     1.6. Jupyter Lab Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/01/06_python.html">
+     1.7. Python Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/01/07_debugging.html">
+     1.8. Debugging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/01/07a_errors.html">
+     1.9. Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/01/08_libraries.html">
+     1.10. Libraries/Packages
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/01/09_gitignore.html">
+     1.11. Gitignore Files
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../content/02/10_Golden_1.html">
+   2. Good Analysis Practices
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/02/10_Golden_2.html">
+     2.1. A case study of bad research
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/02/10_Golden_3.html">
+     2.2. The golden rules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/02/10_Golden_6.html">
+     2.3. Organizing your projects
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/02/10_Golden_7.html">
+     2.4. Filepaths
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/02/10_Golden_4.html">
+     2.5. Storing data smartly
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/02/10_Golden_5a.html">
+     2.6. Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/02/10_Golden_5b.html">
+     2.7. Writing good code comments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/02/10_Golden_8.html">
+     2.8. Writing good code
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../content/03/00_Data_Wrangling_Intro.html">
+   3. Wrangling with Data
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../content/03/01_Numpy.html">
+     3.1. Numpy
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/01a_NumpyCS.html">
+       3.1.1. Numpy + Scientific Computing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/01b_NumpyBasics.html">
+       3.1.2. A (Very) Short Introduction
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/01c_NumpyPractice.html">
+       3.1.3. Exercises
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/01d_NumpyResources.html">
+       3.1.4. More Resources
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../content/03/02a_pandasIntro.html">
+     3.2. Pandas
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/02a_pandasTips.html">
+       3.2.1. Tips
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/02b_pandasVocab.html">
+       3.2.2. Vocab and Long vs Wide Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/02c_commonFcns.html">
+       3.2.3. Common Functions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/02d_temp.html">
+       3.2.4. Temp. vs Perm. Objects
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/02e_eda_golden.html">
+       3.2.5. Golden Rules + EDA
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/02f_chains.html">
+       3.2.6. Pandas Chains
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/02g_commontasks.html">
+       3.2.7. Common Tasks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/02h_exercises.html">
+       3.2.8. Exercises
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/02j_resourcesAndSum.html">
+       3.2.9. Summary and Resources
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../content/03/04a-dataviz.html">
+     3.3. Data Visualization
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/04b-whyplot.html">
+       3.3.1. The Role of Viz in Analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/04c-makeplot.html">
+       3.3.2. Making a Plot
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/04d-whichplot.html">
+       3.3.3. Which Plot Type Should I Use?
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/04e-visualEDA.html">
+       3.3.4. Visual EDA Walkthrough
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/04e2-visualEDA-tools.html">
+       3.3.5. Visual EDA Tools
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/04f1-viz_narrative.html">
+       3.3.6. Better Plots
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/04f2-customizing_figs.html">
+       3.3.7. Customizing figures
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/04f3-interactive_figs.html">
+       3.3.8. Interactive plots:
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         plotly
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/04f4-exercises.html">
+       3.3.9. Exercises
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/04h_Summary.html">
+       3.3.10. Chapter Summary
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../content/03/05a-otherskills.html">
+     3.4. Other (Important) Data Wrangling Skills
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/05b_merging.html">
+       3.4.1. Merging
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/05c_missingdata.html">
+       3.4.2. Dealing with Missing Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/05d_outliers.html">
+       3.4.3. Dealing with Outliers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/03/05e_summary.html">
+       3.4.4. Chapter Summary
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../content/04/00_World_Wide_Data.html">
+   4. Building and Using Large (Textual) Data
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/04/01_Intro_to_scraping.html">
+     4.1. Getting Data off the Web
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/04/01a_openingAndParsing.html">
+     4.2. Opening + Parsing
+     <em>
+      a
+     </em>
+     Webpage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/04/01b_spiders.html">
+     4.3. Building a spider
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../content/04/02_strings.html">
+     4.4. Exploiting Textual Data
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/04/02a_Python%20Strings.html">
+       4.4.1. Working with Python Strings
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/04/02b_regex.html">
+       4.4.2. Regex basics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/04/02c_developing_a_regex.html">
+       4.4.3. Developing a regex
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../content/04/02d_RegexApplication.html">
+       4.4.4. Intro to NLP - The Anchor Phase Technique
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../content/05/00_intro.html">
+   5. Data Science Intro
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/01_bigpicture.html">
+     5.1. The promise of ML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/01b_model_process.html">
+     5.2. Planning a project
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/01a_MLgonewrong.html">
+     5.3. ML Gone Wrong
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/01c_teams.html">
+     5.4. Coding in Teams
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/01d_sharingBigFiles.html">
+     5.5. Sharing large files
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../content/05/02_reg.html">
+   6. Regression
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/02a_basics.html">
+     6.1. Basics and Notation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/02b_mechanics.html">
+     6.2. Mechanics of running regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/02c_goodnessOfFit.html">
+     6.3. Goodness of Fit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/02d_interpretingCoefs.html">
+     6.4. Interpreting regression coefficients
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/02e_statisticalSig.html">
+     6.5. Statistical significance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/02f_warnings.html">
+     6.6.
+     <em>
+      Significant
+     </em>
+     warnings about “statistical significance”
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/02g_summary.html">
+     6.7. Summary and Resources
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../content/05/03_ML.html">
+   7. ML - Intro &amp; Discussion
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/03a_ML_obj_and_tradeoff.html">
+     7.1. The objective of machine learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/03f_leakage.html">
+     7.2. Data Leakage - Illustration
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/03f_leakage3.html">
+     7.3. Data Leakage - Illustration 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/03f_leakage2.html">
+     7.4. Data Leakage Defined
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/03c_ModelEval.html">
+     7.5. Model evaluation via cross validation (CV)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/03c1_OOS.html">
+     7.6. Model evaluation via Out-of-Sample (OOS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/03d_whatToMax.html">
+     7.7. Evaluating models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/03e_whichModel.html">
+     7.8. Model selection
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../content/05/04a_SKLearn.html">
+   8. ML - Code &amp; Implementation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/04b_best_practices.html">
+     8.1. Best Practice Pseudo Code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/04c_onemodel.html">
+     8.2. SKLearn Intro
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/04d_crossval.html">
+     8.3. Cross-Validation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/04e_pipelines.html">
+     8.4. Pipelines
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/04e1_preprocessing.html">
+     8.5. Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/04f_optimizing_a_model.html">
+     8.6. Optimizing a Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/04h_putting_together.html">
+     8.7. Many Models
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../content/05/05a_finapps.html">
+   9. Finance Applications
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/05a_compounding.html">
+     9.1. Compounding returns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/05a_rolling.html">
+     9.2. Rolling returns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/05a_expanding.html">
+     9.3. Expanding returns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/05b_capm.html">
+     9.4. Estimating CAPM
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/05c_factorloadings.html">
+     9.5. Estimating better models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/05c_finpacks.html">
+     9.6. Supercharged resources/packages
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../content/05/06_thefuture.html">
+   10. The Future
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/06a_saving.html">
+     10.1. Saving Your Work
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/06b_nextsteps.html">
+     10.2. Faster, better, stronger
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../content/05/06c_dashboards.html">
+     10.3. Dashboards
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Slides and Memes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/slides/slides.html">
+   Slides from previous classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../content/slides/memes.html">
+   Memes
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/handouts/ML/ML_worksheet1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/LeDataSciFi/ledatascifi-2024"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/LeDataSciFi/ledatascifi-2024/issues/new?title=Issue%20on%20page%20%2Fhandouts/ML/ML_worksheet1.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/LeDataSciFi/ledatascifi-2024/edit/main/handouts/ML/ML_worksheet1.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/LeDataSciFi/ledatascifi-2024/main?urlpath=lab/tree/handouts/ML/ML_worksheet1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/LeDataSciFi/ledatascifi-2024/blob/main/handouts/ML/ML_worksheet1.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-data">
+   Load data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-the-training-and-holdout-samples">
+   Create the training and holdout samples
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eda">
+   EDA
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#now-let-s-learn-each-part-of-optimize-a-series-of-models-from-the-template">
+   NOW LET’S LEARN EACH PART OF “Optimize a series of models” FROM THE TEMPLATE
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#steps-1-and-2-preprocessing">
+     Steps 1 and 2: Preprocessing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercises">
+     EXERCISES
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prof-demo-fitting-and-using-one-model">
+     Prof demo: Fitting and using ONE model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     EXERCISES
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#steps-3-4-and-5-pipelines-cv-and-model-evaluation-scoring">
+     Steps 3, 4, and 5: Pipelines, CV, and model evaluation (scoring)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     EXERCISES
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-6-optimizing-the-model">
+     Step 6: Optimizing the model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aka-tuning-the-hyperparameters">
+     Aka “tuning the hyperparameters”
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-hyperparameters-can-i-change">
+     What hyperparameters can I change?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-up-the-hyperparameter-grid">
+     Setting up the “hyperparameter grid”
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#all-together-now">
+     All together now…
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-to-do-after-that">
+     What to do after that?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="pipelines-preprocessing-to-estimator-cv-gridsearch">
+<h1>Pipelines (preprocessing to estimator), CV, Gridsearch<a class="headerlink" href="#pipelines-preprocessing-to-estimator-cv-gridsearch" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>[ ] how to do: preprocessing (with <code class="docutils literal notranslate"><span class="pre">ColumnTransformer</span></code>)</p></li>
+<li><p>[ ] how to examine: preprecessing</p></li>
+<li><p>[ ] how to do: pipelines + cross validation + scoring</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">make_pipeline()</span></code> with preprocessing and estimator</p></li>
+<li><p>examine pipeline elements</p></li>
+<li><p>fit and predict using the pipeline (not CV)</p></li>
+<li><p>examine the pipeline using CV (using the cv function and examining its output)</p></li>
+</ul>
+</li>
+<li><p>[ ] scoring vocab: recall/sensitivity, precision, specificity, accuracy,</p></li>
+<li><p>[ ] how to do: optimizing a pipeline by “tuning the hyperparameters”</p>
+<ul>
+<li><p>hyperparameters are the parameters of functions/estimators in the steps in your pipeline</p></li>
+<li><p>set up and use <code class="docutils literal notranslate"><span class="pre">gridsearchCV</span></code></p></li>
+<li><p>examine output of <code class="docutils literal notranslate"><span class="pre">gridsearchCV</span></code></p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span> 
+<span class="kn">from</span> <span class="nn">sklearn.compose</span> <span class="kn">import</span> <span class="n">ColumnTransformer</span><span class="p">,</span> <span class="n">make_column_selector</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span> 
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span> 
+<span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
+<span class="kn">from</span> <span class="nn">df_after_transform</span> <span class="kn">import</span> <span class="n">df_after_transform</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span><span class="p">,</span> <span class="n">cross_validate</span><span class="p">,</span> <span class="n">GridSearchCV</span>
+
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">set_config</span>
+<span class="n">set_config</span><span class="p">(</span><span class="n">display</span><span class="o">=</span><span class="s2">&quot;diagram&quot;</span><span class="p">)</span>  <span class="c1"># display=&#39;text&#39; is the default</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="load-data">
+<h2>Load data<a class="headerlink" href="#load-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loans</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;inputs/2013_subsample.zip&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="create-the-training-and-holdout-samples">
+<h2>Create the training and holdout samples<a class="headerlink" href="#create-the-training-and-holdout-samples" title="Permalink to this headline">¶</a></h2>
+<p>Split your data into test and train. Your options:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/cross_validation.html">sklearn has some built in splitters</a></p>
+<ul>
+<li><p>These are rarely the best optios for real world data. Prediction is often about the future!</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html"><code class="docutils literal notranslate"><span class="pre">test_train_split</span></code></a> can do basic splits, but may not be appropriate</p>
+<ul>
+<li><p><em>test</em> is the typical sklearn vernacular, on the website I call this this holdout sample</p></li>
+</ul>
+</li>
+<li><p>You can just keep the most recent time period of your samples in the holdout and put the rest into the training data.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># split to test and train (what we call the &quot;test&quot; subset here is the &quot;holdout&quot; data)</span>
+
+<span class="c1"># first let&#39;s separate y from X (as is typically done)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">loans</span><span class="o">.</span><span class="n">loan_status</span> <span class="o">==</span> <span class="s1">&#39;Charged Off&#39;</span>
+<span class="n">y</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">loans</span> <span class="o">=</span> <span class="n">loans</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;loan_status&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># stratify will make sure that test/train both have equal fractions of outcome</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">loans</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="eda">
+<h2>EDA<a class="headerlink" href="#eda" title="Permalink to this headline">¶</a></h2>
+<p>On the <strong>TRAINING DATA ONLY</strong>:</p>
+<ul class="simple">
+<li><p>do lots of EDA</p></li>
+<li><p>look for missing values, which variables are what type, and outliers</p></li>
+<li><p>figure out how you’d clean the data (imputation, scaling, encoding categorical vars)</p></li>
+<li><p>these lessons will go into the preprocessinG portion of your pipeline</p></li>
+<li><p>PRO TIP: <code class="docutils literal notranslate"><span class="pre">pandas-profiling</span></code> and <code class="docutils literal notranslate"><span class="pre">dabl</span></code> build automated reports. Which is nice, but remember you need to examine them closely! <strong>There is no shortcut for EDA.</strong></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from pandas_profiling import ProfileReport # now use ydata-profiling</span>
+<span class="c1"># </span>
+<span class="c1"># profile = ProfileReport(pd.concat([y_train, X_train], axis=1), </span>
+<span class="c1">#                         title=&#39;Lending Club Profiling Report&#39;,</span>
+<span class="c1">#                         html={&#39;style&#39;:{&#39;full_width&#39;:True}}) </span>
+<span class="c1"># profile.to_file(&quot;inputs/lending_club_EDA_training.html&quot;) # can take a minute or two with this dataset size. Let&#39;s look at the one I uploaded...</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="now-let-s-learn-each-part-of-optimize-a-series-of-models-from-the-template">
+<h2>NOW LET’S LEARN EACH PART OF “Optimize a series of models” FROM THE TEMPLATE<a class="headerlink" href="#now-let-s-learn-each-part-of-optimize-a-series-of-models-from-the-template" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="steps-1-and-2-preprocessing">
+<h3>Steps 1 and 2: Preprocessing<a class="headerlink" href="#steps-1-and-2-preprocessing" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set up pipeline to clean each type of variable (1 pipe per var type)</span>
+
+<span class="n">numer_pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">),</span>
+                           <span class="n">StandardScaler</span><span class="p">())</span> 
+
+<span class="n">cat_pipe</span>   <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">))</span>
+
+<span class="c1"># combine those pipes into &quot;preprocess&quot; pipe</span>
+
+<span class="n">preproc_pipe</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">(</span>  
+    <span class="p">[</span> <span class="c1"># arg 1 of ColumnTransformer is a list, so this starts the list</span>
+    <span class="c1"># a tuple for the numerical vars: name, pipe, which vars to apply to</span>
+    <span class="p">(</span><span class="s2">&quot;num_impute&quot;</span><span class="p">,</span> <span class="n">numer_pipe</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;annual_inc&#39;</span><span class="p">]),</span>
+    <span class="c1"># a tuple for the categorical vars: name, pipe, which vars to apply to</span>
+    <span class="p">(</span><span class="s2">&quot;cat_trans&quot;</span><span class="p">,</span> <span class="n">cat_pipe</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;grade&#39;</span><span class="p">])</span>
+    <span class="p">]</span>
+    <span class="p">,</span> <span class="c1"># ColumnTransformer can take other args, most important: &quot;remainder&quot;</span>
+    <span class="n">remainder</span> <span class="o">=</span> <span class="s1">&#39;drop&#39;</span> <span class="c1"># you either drop or passthrough any vars not modified above</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Note: You can have multiple “numeric pipes” or “cat pipes” if you think some number variables should receive different treatments, which is very common!</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###########</span>
+<span class="c1"># hot tip: check out what this preprocessing does before you continue!</span>
+<span class="c1">###########</span>
+
+<span class="kn">from</span> <span class="nn">df_after_transform</span> <span class="kn">import</span> <span class="n">df_after_transform</span>
+
+<span class="n">preproc_df</span> <span class="o">=</span> <span class="n">df_after_transform</span><span class="p">(</span><span class="n">preproc_pipe</span><span class="p">,</span><span class="n">X_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;There are </span><span class="si">{</span><span class="n">preproc_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1"> columns in the preprocessed data.&#39;</span><span class="p">)</span>
+<span class="n">preproc_df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exercises">
+<h3>EXERCISES<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>How many observations for <code class="docutils literal notranslate"><span class="pre">annual_inc</span></code> were non-missing before the processing? Does our imputation choice here we make a small or large impact?</p></li>
+<li><p>How many values of <code class="docutils literal notranslate"><span class="pre">grade</span></code> was there in the data before and after <code class="docutils literal notranslate"><span class="pre">preproc_pipe</span></code>?</p></li>
+<li><p>Above, revise <code class="docutils literal notranslate"><span class="pre">preproc_pipe</span></code> to include another continuous variable.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># answers here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="prof-demo-fitting-and-using-one-model">
+<h3>Prof demo: Fitting and using ONE model<a class="headerlink" href="#prof-demo-fitting-and-using-one-model" title="Permalink to this headline">¶</a></h3>
+<p>Warning: This is not best practice to do on the whole training sample. The point here is to simply show you how to estimate and use a model.</p>
+<p><em>(The only time you fit a model on the whole training sample is the VERY end of the template, right before you check to see how it does on the holdout.)</em></p>
+<p>Steps: <a class="reference external" href="https://ledatascifi.github.io/ledatascifi-2022/content/05/04c_onemodel.html">https://ledatascifi.github.io/ledatascifi-2022/content/05/04c_onemodel.html</a></p>
+<p>To fit the model: <code class="docutils literal notranslate"><span class="pre">&lt;model&gt;.fit(X)</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create (&quot;instantiate&quot;) the estimator class with some hyperparameters,</span>
+<span class="c1"># note: the hypermeters are whatever is inside the &quot;()&quot;</span>
+<span class="c1"># assign this instance of the estimator to an object</span>
+<span class="n">logit</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+
+<span class="c1"># fit the model to the data: &lt;model&gt;.fit(X,y)</span>
+<span class="c1"># note: I&#39;m only using annual income here for illustration</span>
+<span class="n">logit</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">[[</span><span class="s1">&#39;annual_inc&#39;</span><span class="p">]],</span> 
+          <span class="n">y_train</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>To use the model: <code class="docutils literal notranslate"><span class="pre">&lt;model&gt;.predict(X)</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this creates predicted values </span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">logit</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">[[</span><span class="s1">&#39;annual_inc&#39;</span><span class="p">]],)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">% predicted as charge offs: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="n">y_pred</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span>
+<span class="s1">Accuracy:                   </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="n">y_pred</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">y_train</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>EXERCISES<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Q4: Let’s estimate a different logit model, and see if the accuracy or the number of predictions of charge offs changes. <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression">This time change the penalty OR the value of “C”.</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># answers here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="steps-3-4-and-5-pipelines-cv-and-model-evaluation-scoring">
+<h3>Steps 3, 4, and 5: Pipelines, CV, and model evaluation (scoring)<a class="headerlink" href="#steps-3-4-and-5-pipelines-cv-and-model-evaluation-scoring" title="Permalink to this headline">¶</a></h3>
+<p>Making a pipeline is easy: <code class="docutils literal notranslate"><span class="pre">make_pipeline</span></code> will put steps together for you:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logit_pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">preproc_pipe</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A pipeline is an object that stores its steps (and steps within steps)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># logit_pipe</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Fitting the model and using it is easy:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logit_pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span> 
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">logit_pipe</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">% predicted as charge offs: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="n">y_pred</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span>
+<span class="s1">Accuracy:                   </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="n">y_pred</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">y_train</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>But the better idea is to see how that model does on different “folds” of the data: CROSS VALIDATION.</p>
+<p>The <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_validate.html?highlight=cross_validate#sklearn.model_selection.cross_validate"><code class="docutils literal notranslate"><span class="pre">cross_validate</span></code> (function docs here)</a> makes this easy:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scores</span> <span class="o">=</span> <span class="n">cross_validate</span><span class="p">(</span><span class="n">logit_pipe</span><span class="p">,</span>
+                        <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span>
+                        <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;recall&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>EXERCISES<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Q5: What is the average score of this model in the folds?</p></li>
+<li><p>Q6: How many folds did we use above (by default). Change to 10 folds and repeat.</p></li>
+<li><p>Q7: What is the “score” being reported?</p></li>
+<li><p>Q8: Without running code, [what do you think our model is currently scoring for precision, sensitivity, and recall?]</p></li>
+<li><p>Q9: Change the scoring method to one of those. <a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter">Specify them in sklearn is here.</a>. How did your score change and why?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># put answers here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="step-6-optimizing-the-model">
+<h3>Step 6: Optimizing the model<a class="headerlink" href="#step-6-optimizing-the-model" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="aka-tuning-the-hyperparameters">
+<h3>Aka “tuning the hyperparameters”<a class="headerlink" href="#aka-tuning-the-hyperparameters" title="Permalink to this headline">¶</a></h3>
+<p>It seems like something about how the default values of the logit model are set is leading to a simpleton model: Predict every loan is paid back!</p>
+<p>So, the idea here is to repeat the CV above, many times, with different parameter values.</p>
+</div>
+<div class="section" id="what-hyperparameters-can-i-change">
+<h3>What hyperparameters can I change?<a class="headerlink" href="#what-hyperparameters-can-i-change" title="Permalink to this headline">¶</a></h3>
+<p>The easiest way to see all the hyperparameters in the pipeline is this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;pipename&gt;.get_params()</span></code></p>
+<p>Notice how the “C” parameter for the LogisticRegression function is called “<code class="docutils literal notranslate"><span class="pre">logisticregression__C</span></code>” below? We will come back to that in  a second!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># logit_pipe.get_params()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="setting-up-the-hyperparameter-grid">
+<h3>Setting up the “hyperparameter grid”<a class="headerlink" href="#setting-up-the-hyperparameter-grid" title="Permalink to this headline">¶</a></h3>
+<p>The combination of parameters you want to try is</p>
+<ul class="simple">
+<li><p>a dictionary</p></li>
+<li><p>the <strong>keys</strong> in the dict are the hyperparameters you want to change (specifically, how the parameter is <strong>named in the pipeline</strong></p></li>
+<li><p>the <strong>values</strong> in the dict are the values for that hyperparameter you want to change</p></li>
+</ul>
+<p>For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span>  <span class="p">{</span><span class="s1">&#39;logisticregression__C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p>The reason I wrote the weird “<code class="docutils literal notranslate"><span class="pre">logisticregression__C</span></code>”, is because this will help <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> find the function and its parameter to change. This means that within the called “logisticregression” (followed by two underscores) there is a parameter called “C”.</p>
+<p>Similarly, within the “columntransformer” step, there is a “num_impute” step, which has a “simpleimputer” step, which is a function that has a parameter called “strategy”.</p>
+<p>Thus, if you want to try other strategies for filling blank numbers in, “<code class="docutils literal notranslate"><span class="pre">'columntransformer__num_impute__simpleimputer__strategy'</span></code>” is what you need.</p>
+<p>Thus:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span>  <span class="p">{</span><span class="s1">&#39;logisticregression__C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
+              <span class="s1">&#39;columntransformer__num_impute__simpleimputer__strategy&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span><span class="s1">&#39;median&#39;</span><span class="p">]}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="all-together-now">
+<h3>All together now…<a class="headerlink" href="#all-together-now" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Set up your parameter grid</p></li>
+<li><p>Make a “super estimator” object with <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code>. This just runs cross_validate for every combination of parameters in the grid. (Below, 2x3=6 combinations.)</p></li>
+<li><p>Just like CV, use <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> to run the grid search.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set up hyper param grid - what params in a pipeline do you want to change?</span>
+<span class="c1"># a dictionary. keys are things to change in pipeline, values are what to try for that param</span>
+<span class="c1"># key: &lt;stepname&gt;__&lt;parametername&gt;</span>
+
+<span class="n">parameters</span> <span class="o">=</span>  <span class="p">{</span><span class="s1">&#39;logisticregression__C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> 
+              <span class="s1">&#39;columntransformer__num_impute__simpleimputer__strategy&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span><span class="s1">&#39;median&#39;</span><span class="p">]}</span>
+
+<span class="c1">#     find optimal hyper params (gridsearchcv)</span>
+
+<span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span> <span class="o">=</span> <span class="n">logit_pipe</span><span class="p">,</span> 
+                           <span class="n">param_grid</span> <span class="o">=</span> <span class="n">parameters</span><span class="p">,</span>
+                           <span class="n">cv</span> <span class="o">=</span> <span class="mi">10</span>
+                           <span class="p">)</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1">#     save pipeline with optimal params in place</span>
+<span class="c1">#     (Note: you should spend time interrogating model predictions, plotting and printing.</span>
+<span class="c1">#     Does the model struggle predicting certain obs? Excel at some?)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="what-to-do-after-that">
+<h3>What to do after that?<a class="headerlink" href="#what-to-do-after-that" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html?highlight=gridsearchcv#sklearn.model_selection.GridSearchCV">The “outputs” of the grid search are the attributes of the results object, as listed here</a></p>
+<ul class="simple">
+<li><p>Q10: Output the CV results</p>
+<ul>
+<li><p>Bonus: Do it as a dataframe</p></li>
+</ul>
+</li>
+<li><p>Q11: Make the grid search output recall, sensitivity, f1, and accuracy</p></li>
+</ul>
+<hr class="docutils" />
+<p>Now, here is what I’d <em><strong>like</strong></em> to ask you:</p>
+<ul class="simple">
+<li><p>Q12: Which of these models would you choose, taking into account the bias-variance tradeoff? Discuss whether these models are high bias or not, and whether they are high variance or not.</p></li>
+<li><p>Q13: Outline how we might adjust our model here to improve its performance</p></li>
+</ul>
+<p><strong>Except: Don’t answer those for today’s (bad) logit model. I’ve “hidden” something from you about why this model is performing so poorly. Think of this as “a case study in miniature” about how “black boxes” can make dealing with ML models impenetrable.</strong></p>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># put answers here for Q10 and Q11</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./handouts/ML"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Donald Bowen<br/>
+        
+            &copy; Copyright 2024.<br/>
+          <div class="extra_footer">
+            You're doing well, keep going!
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
