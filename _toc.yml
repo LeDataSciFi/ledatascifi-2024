@@ -168,7 +168,6 @@
       - file: content/04/02b_regex
       - file: content/04/02c_developing_a_regex
       - file: content/04/02d_RegexApplication
-# now that they can scrape, a new world opens up: https://sec-edgar-downloader.readthedocs.io/en/latest/#quick-start        
 
   - file: content/05/00_intro
     title: "Data Science Intro"    
@@ -188,6 +187,7 @@
       - file: content/05/02f_warnings
       # (opt, future?) selection, measurement, omitted variables (HIGH level)
       # (opt, future?) exercises (and answers)
+      - file: "content/05/02h_summary_colFE"
       - file: "content/05/02g_summary"          
   - file: content/05/03_ML
     title: "ML - Intro & Discussion"
