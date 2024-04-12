@@ -15,7 +15,7 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fixed effects, categorical variables, and prettier regression tables &#8212; LeDataSciFi-2024</title>
+    <title>6.7. Fixed effects, categorical variables, and prettier regression tables &#8212; LeDataSciFi-2024</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -68,6 +68,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="6.8. Summary and Resources" href="02g_summary.html" />
+    <link rel="prev" title="6.6. Significant warnings about “statistical significance”" href="02f_warnings.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -232,7 +234,7 @@ const thebe_selector_output = ".output, .cell_output"
   Textbook
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../01/00_Getting_Started.html">
    1. Motivation and Getting Started
@@ -622,11 +624,11 @@ const thebe_selector_output = ".output, .cell_output"
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="02_reg.html">
    6. Regression
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="02a_basics.html">
      6.1. Basics and Notation
@@ -661,9 +663,14 @@ const thebe_selector_output = ".output, .cell_output"
      warnings about “statistical significance”
     </a>
    </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     6.7. Fixed effects, categorical variables, and prettier regression tables
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="02g_summary.html">
-     6.7. Summary and Resources
+     6.8. Summary and Resources
     </a>
    </li>
   </ul>
@@ -952,7 +959,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="section" id="fixed-effects-categorical-variables-and-prettier-regression-tables">
-<h1>Fixed effects, categorical variables, and prettier regression tables<a class="headerlink" href="#fixed-effects-categorical-variables-and-prettier-regression-tables" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6.7. </span>Fixed effects, categorical variables, and prettier regression tables<a class="headerlink" href="#fixed-effects-categorical-variables-and-prettier-regression-tables" title="Permalink to this headline">¶</a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">summary_col</span></code> function in <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> makes nice regression tables easy to create.</p>
 <p>When you add a categorical variable to your model, it automatically adds a variable for each level. Sometimes, these coefficients have meaning and are of interest.</p>
 <p>However, this isn’t always true. For example, <a class="reference external" href="02d_interpretingCoefs.html#if-other-categorical-controls-are-included">in an earlier page</a>  noted that you can modify a model from  <span class="math notranslate nohighlight">\(profits=a+b*investment+c*X+u\)</span>, where the focus is on understanding how investments translate to profits, to <span class="math notranslate nohighlight">\(profits=a+b*investment+c*X+d*C(gsector)+e*C(year)+u\)</span>. The latter model is better, but the coefficients on <code class="docutils literal notranslate"><span class="pre">gsector</span></code> and <code class="docutils literal notranslate"><span class="pre">year</span></code> are not the focus (and are difficult to interpret).</p>
@@ -1067,6 +1074,8 @@ Standard errors in parentheses.<br/>
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="02f_warnings.html" title="previous page"><span class="section-number">6.6. </span><em>Significant</em> warnings about “statistical significance”</a>
+    <a class='right-next' id="next-link" href="02g_summary.html" title="next page"><span class="section-number">6.8. </span>Summary and Resources</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
