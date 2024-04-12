@@ -41,9 +41,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/fin377_specialformatting.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/moviescript.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/frontpage.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fin377_specialformatting.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -1307,6 +1307,10 @@ y = a +\hat{0.5} W + \hat{-0.1} H
 </div>
 <div class="section" id="if-other-categorical-controls-are-included">
 <h2><span class="section-number">6.4.6. </span>If other categorical controls are included<a class="headerlink" href="#if-other-categorical-controls-are-included" title="Permalink to this headline">¶</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Check out <a class="reference internal" href="02h_summary_colFE.html"><span class="doc std std-doc">this page</span></a> to see how to print out regression tables when your categorical variables have lots of levels. E.g., if you use states, your regression will be default show 50 rows of output for just that categorical variable.</p>
+</div>
 <p>Suppose you estimate <span class="math notranslate nohighlight">\(profits=a+b*investment+c*X+u\)</span>, and you want to focus on <span class="math notranslate nohighlight">\(b\)</span> to capture how investments translate to profits. You’ve added some control variables X, but you’re still worried that this regression will get the relationship wrong because different industries have different profit margins for reasons that have nothing to do with investment levels.</p>
 <p>In other words, you want to “control for industry”. So you estimate <span class="math notranslate nohighlight">\(profits=a+b*investment+c*X+d*C(gsector)+u\)</span>, by including the firm’s industry as a categorical control.</p>
 <div class="admonition note">
