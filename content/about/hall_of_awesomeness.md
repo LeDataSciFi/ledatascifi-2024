@@ -28,6 +28,11 @@ The stakes are high! The winner walks away with a trophy, and gets their name em
 ```
 
 ---
+:img-bottom: img/winners_hana.jpg
+
+**2024: Hana Dinh**
+
+---
 :img-bottom: img/winners_nicole.jpg
 
 **2023: Nicole ElChaar**
